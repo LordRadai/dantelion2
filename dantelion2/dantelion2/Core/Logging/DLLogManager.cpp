@@ -1,0 +1,12 @@
+#include "DLLogManager.h"
+#include "dantelion2/FRPG2Call.h"
+
+namespace DLLG
+{
+	typedef void(_fastcall* oDestructor)(DLLogManager*);
+
+	DLLogManager::~DLLogManager()
+	{
+		FRPG2_CALL(oDestructor, 0x885420, this);
+	}
+}

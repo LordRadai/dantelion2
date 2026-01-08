@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{3769f131-71d3-425e-bd50-bdbf484258f1}</ProjectGuid>
+    <RootNamespace>dantelion2</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)lib\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Platform)\$(Configuration)\obj\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\Graphics\Core\CGBuffer.h" />
+    <ClInclude Include="Core\Graphics\Core\CGDepthStencilView.h" />
+    <ClInclude Include="Core\Graphics\Core\CGRenderTargetView.h" />
+    <ClInclude Include="Core\Graphics\Core\CGResource.h" />
+    <ClInclude Include="Core\Graphics\Core\CGShaderResourceView.h" />
+    <ClInclude Include="Core\Graphics\Core\CGTexture.h" />
+    <ClInclude Include="Core\Graphics\Core\CGUnorderedAccessView.h" />
+    <ClInclude Include="Core\Graphics\Core\CGView.h" />
+    <ClInclude Include="Core\Graphics\Core\Core.h" />
+    <ClInclude Include="Core\Graphics\DLDeviceContext.h" />
+    <ClInclude Include="Core\Graphics\DLDrawContextDefines.h" />
+    <ClInclude Include="Core\Graphics\DLDrawDevice.h" />
+    <ClInclude Include="Core\Graphics\DLGfxReferenceCountObject.h" />
+    <ClInclude Include="Core\Graphics\DLGPUResource.h" />
+    <ClInclude Include="Core\Graphics\DLIndexBuffer.h" />
+    <ClInclude Include="Core\Graphics\DLQuery.h" />
+    <ClInclude Include="Core\Graphics\DLSDObjectFactory.h" />
+    <ClInclude Include="Core\Graphics\DLShader.h" />
+    <ClInclude Include="Core\Graphics\DLSurface.h" />
+    <ClInclude Include="Core\Graphics\DLTexture.h" />
+    <ClInclude Include="Core\Graphics\DLVertexBuffer.h" />
+    <ClInclude Include="Core\Graphics\DLVertexDeclaration.h" />
+    <ClInclude Include="Core\Graphics\DLVertexTypes.h" />
+    <ClInclude Include="Core\Graphics\Font\DLFontData.h" />
+    <ClInclude Include="Core\Graphics\Font\DLFontDataCCM2.h" />
+    <ClInclude Include="Core\Graphics\Font\DLFontRenderer.h" />
+    <ClInclude Include="Core\Graphics\Graphics.h" />
+    <ClInclude Include="Core\Kernel\detail\DLAllocationHelper.h" />
+    <ClInclude Include="Core\Kernel\DLAllocator.h" />
+    <ClInclude Include="Core\Kernel\DLAtomicInt.h" />
+    <ClInclude Include="Core\Kernel\DLBackAllocator.h" />
+    <ClInclude Include="Core\Kernel\DLBiHeap.h" />
+    <ClInclude Include="Core\Kernel\DLConditionSignal.h" />
+    <ClInclude Include="Core\Kernel\DLDebugAllocator.h" />
+    <ClInclude Include="Core\Kernel\DLDummySyncObject.h" />
+    <ClInclude Include="Core\Kernel\DLEventSignal.h" />
+    <ClInclude Include="Core\Kernel\DLHeapCapability.h" />
+    <ClInclude Include="Core\Kernel\DLHeapIdentifier.h" />
+    <ClInclude Include="Core\Kernel\DLLightMutex.h" />
+    <ClInclude Include="Core\Kernel\DLMultiThreadingPolicy.h" />
+    <ClInclude Include="Core\Kernel\DLMutex.h" />
+    <ClInclude Include="Core\Kernel\DLNew.h" />
+    <ClInclude Include="Core\Kernel\DLReadWriteLock.h" />
+    <ClInclude Include="Core\Kernel\DLRegularHeap.h" />
+    <ClInclude Include="Core\Kernel\DLRobustHeap.h" />
+    <ClInclude Include="Core\Kernel\DLRunnable.h" />
+    <ClInclude Include="Core\Kernel\DLSemaphore.h" />
+    <ClInclude Include="Core\Kernel\DLSingleSignal.h" />
+    <ClInclude Include="Core\Kernel\DLSingleThreadingPolicy.h" />
+    <ClInclude Include="Core\Kernel\DLSyncObject.h" />
+    <ClInclude Include="Core\Kernel\DLThread.h" />
+    <ClInclude Include="Core\Kernel\DLWin32RuntimeHeapImpl.h" />
+    <ClInclude Include="Core\Kernel\Kernel.h" />
+    <ClInclude Include="Core\Kernel\SyncObjects.h" />
+    <ClInclude Include="Core\Kernel\SyncTraits.h" />
+    <ClInclude Include="Core\Kernel\Types.h" />
+    <ClInclude Include="Core\Logging\DLAppender.h" />
+    <ClInclude Include="Core\Logging\DLCategory.h" />
+    <ClInclude Include="Core\Logging\DLCategoryRepository.h" />
+    <ClInclude Include="Core\Logging\DLHierarchy.h" />
+    <ClInclude Include="Core\Logging\DLLayout.h" />
+    <ClInclude Include="Core\Logging\DLLogEvent.h" />
+    <ClInclude Include="Core\Logging\DLLogger.h" />
+    <ClInclude Include="Core\Logging\DLLoggingConfiguration.h" />
+    <ClInclude Include="Core\Logging\DLLoggingStrategy.h" />
+    <ClInclude Include="Core\Logging\DLLogManager.h" />
+    <ClInclude Include="Core\Logging\DLLogManagerImpl.h" />
+    <ClInclude Include="Core\Logging\Logging.h" />
+    <ClInclude Include="Core\Math\DLColor.h" />
+    <ClInclude Include="Core\Math\DLMatrix.h" />
+    <ClInclude Include="Core\Math\DLQuaternion.h" />
+    <ClInclude Include="Core\Math\DLVector.h" />
+    <ClInclude Include="Core\Math\Math.h" />
+    <ClInclude Include="Core\Network\Network.h" />
+    <ClInclude Include="Core\Network\NRExternalVoiceListener\NRExternalVoiceListener.h" />
+    <ClInclude Include="Core\Network\NRServerInfo\NRServerInfo.h" />
+    <ClInclude Include="Core\Network\OnlineIDData\OnlineIDData.h" />
+    <ClInclude Include="Core\Network\OnlineIDData\SteamOnlineIDData.h" />
+    <ClInclude Include="Core\Network\PlayerData\PlayerData.h" />
+    <ClInclude Include="Core\Network\PlayerData\SteamPlayerData.h" />
+    <ClInclude Include="Core\Platform\GeneralUtility.h" />
+    <ClInclude Include="Core\Platform\Platform.h" />
+    <ClInclude Include="Core\Platform\Spec\win_32.h" />
+    <ClInclude Include="Core\Reflection\detail\MightyType.h" />
+    <ClInclude Include="Core\Reflection\DLAbstractInvokeContext.h" />
+    <ClInclude Include="Core\Reflection\DLConcreteMethodInvoker.h" />
+    <ClInclude Include="Core\Reflection\DLDynamicPtr.h" />
+    <ClInclude Include="Core\Reflection\DLMethodInvokeContext.h" />
+    <ClInclude Include="Core\Reflection\DLParameterInfo.h" />
+    <ClInclude Include="Core\Reflection\DLRuntimeClass.h" />
+    <ClInclude Include="Core\Reflection\DLTypeID.h" />
+    <ClInclude Include="Core\Reflection\Reflection.h" />
+    <ClInclude Include="Core\Resource\detail\CacheableFileLoader.h" />
+    <ClInclude Include="Core\Resource\detail\FileLoader.h" />
+    <ClInclude Include="Core\Resource\detail\FileTransferTask.h" />
+    <ClInclude Include="Core\Resource\detail\TransferTask.h" />
+    <ClInclude Include="Core\Resource\DLResourceFileHandle.h" />
+    <ClInclude Include="Core\Resource\DLResourceFileLoadEvent.h" />
+    <ClInclude Include="Core\Resource\DLResourceFileLoadEventQueue.h" />
+    <ClInclude Include="Core\Resource\DLResourceHandle.h" />
+    <ClInclude Include="Core\Resource\DLResourceLoadEvent.h" />
+    <ClInclude Include="Core\Resource\DLResourceLoadEventQueue.h" />
+    <ClInclude Include="Core\Resource\Resource.h" />
+    <ClInclude Include="Core\System\DLAssertEventManager.h" />
+    <ClInclude Include="Core\System\DLRealTimeServiceManager.h" />
+    <ClInclude Include="Core\System\DLRuntime.h" />
+    <ClInclude Include="Core\System\DLStdInputStream.h" />
+    <ClInclude Include="Core\System\DLStdOutputStream.h" />
+    <ClInclude Include="Core\System\System.h" />
+    <ClInclude Include="Core\Text\DLCharSet.h" />
+    <ClInclude Include="Core\Text\DLFormat.h" />
+    <ClInclude Include="Core\Text\DLStringUtil.h" />
+    <ClInclude Include="Core\Text\Text.h" />
+    <ClInclude Include="Core\UserInput\details\DynamicBitset.h" />
+    <ClInclude Include="Core\UserInput\details\UserInputExtension.h" />
+    <ClInclude Include="Core\UserInput\details\VirtualInputData.h" />
+    <ClInclude Include="Core\UserInput\DLUserInputDeviceOutputInterface.h" />
+    <ClInclude Include="Core\UserInput\DLUserInputDeviceRumbleInterface.h" />
+    <ClInclude Include="Core\UserInput\UserInput.h" />
+    <ClInclude Include="Core\Util\DLDateTime.h" />
+    <ClInclude Include="Core\Util\DLDeque.h" />
+    <ClInclude Include="Core\Util\DLEmptyType.h" />
+    <ClInclude Include="Core\Util\DLFunctor.h" />
+    <ClInclude Include="Core\Util\DLLifeCycleAdapter.h" />
+    <ClInclude Include="Core\Util\DLList.h" />
+    <ClInclude Include="Core\Util\DLMap.h" />
+    <ClInclude Include="Core\Util\DLMemFunHandler.h" />
+    <ClInclude Include="Core\Util\DLNonCopyable.h" />
+    <ClInclude Include="Core\Util\DLNullType.h" />
+    <ClInclude Include="Core\Util\DLProperties.h" />
+    <ClInclude Include="Core\Util\DLReferenceCountObject.h" />
+    <ClInclude Include="Core\Util\DLSet.h" />
+    <ClInclude Include="Core\Util\DLTypeManipulation.h" />
+    <ClInclude Include="Core\Util\DLVector.h" />
+    <ClInclude Include="Core\Util\Util.h" />
+    <ClInclude Include="dantelion2.h" />
+    <ClInclude Include="FRPG2Call.h" />
+    <ClInclude Include="FRPG2Globals.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp" />
+    <ClCompile Include="Core\Graphics\Core\CGTexture.cpp" />
+    <ClCompile Include="Core\Graphics\DLDeviceContext.cpp" />
+    <ClCompile Include="Core\Graphics\DLTexture.cpp" />
+    <ClCompile Include="Core\Graphics\DLVertexTypes.cpp" />
+    <ClCompile Include="Core\Graphics\Font\DLFontData.cpp" />
+    <ClCompile Include="Core\Kernel\DLAllocator.cpp" />
+    <ClCompile Include="Core\Kernel\DLNew.cpp" />
+    <ClCompile Include="Core\Kernel\DLSyncObject.cpp" />
+    <ClCompile Include="Core\Logging\DLAppender.cpp" />
+    <ClCompile Include="Core\Logging\DLCategory.cpp" />
+    <ClCompile Include="Core\Logging\DLCategoryRepository.cpp" />
+    <ClCompile Include="Core\Logging\DLHierarchy.cpp" />
+    <ClCompile Include="Core\Logging\DLLogEvent.cpp" />
+    <ClCompile Include="Core\Logging\DLLogger.cpp" />
+    <ClCompile Include="Core\Logging\DLLogManager.cpp" />
+    <ClCompile Include="Core\Logging\DLLogManagerImpl.cpp" />
+    <ClCompile Include="Core\Math\DLMatrix.cpp" />
+    <ClCompile Include="Core\Math\DLQuaternion.cpp" />
+    <ClCompile Include="Core\Platform\GeneralUtility.cpp" />
+    <ClCompile Include="Core\Reflection\DLRuntimeClass.cpp" />
+    <ClCompile Include="Core\Resource\detail\FileLoader.cpp" />
+    <ClCompile Include="Core\Resource\detail\TransferTask.cpp" />
+    <ClCompile Include="Core\Resource\DLResourceFileLoadEvent.cpp" />
+    <ClCompile Include="Core\Resource\DLResourceFileLoadEventQueue.cpp" />
+    <ClCompile Include="Core\Resource\DLResourceLoadEvent.cpp" />
+    <ClCompile Include="Core\System\DLRuntime.cpp" />
+    <ClCompile Include="Core\Text\DLFormat.cpp" />
+    <ClCompile Include="Core\Text\DLStringUtil.cpp" />
+    <ClCompile Include="Core\Util\DLProperties.cpp" />
+    <ClCompile Include="Core\Util\DLReferenceCountObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Core\Kernel\detail\HeapAllocator.inl" />
+    <None Include="Core\Kernel\DLBiHeapStrategy.inl" />
+    <None Include="Core\Kernel\DLDefaultHeapStrategy.inl" />
+    <None Include="Core\Kernel\DLDynamicHeap.inl" />
+    <None Include="Core\Kernel\DLSmallObjectWrapper.inl" />
+    <None Include="Core\Kernel\DLStdAllocator.inl" />
+    <None Include="Core\Logging\DLLogLevel.inl" />
+    <None Include="Core\Reflection\DLMethodInvoker.inl" />
+    <None Include="Core\Reflection\DLMethodResolver.inl" />
+    <None Include="Core\Reflection\DLRuntimeClassImpl.inl" />
+    <None Include="Core\System\detail\DLStdStreamAdapter.inl" />
+    <None Include="Core\Text\DLString.inl" />
+    <None Include="Core\UserInput\details\DLUserInputDeviceImpl.inl" />
+    <None Include="Core\UserInput\details\DLUserInputMapperImpl.inl" />
+    <None Include="Core\UserInput\details\DLUserInputTraitsImpl.inl" />
+    <None Include="Core\UserInput\details\DummyDevice.inl" />
+    <None Include="Core\UserInput\details\KeyboardDevice.inl" />
+    <None Include="Core\UserInput\details\MouseDevice.inl" />
+    <None Include="Core\UserInput\details\PadDevice.inl" />
+    <None Include="Core\UserInput\DLUserInputDevice.inl" />
+    <None Include="Core\UserInput\DLUserInputMapper.inl" />
+    <None Include="Core\UserInput\DLUserInputTraits.inl" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\directxtk_uwp.2025.10.28.2\build\native\directxtk_uwp.targets" Condition="Exists('..\packages\directxtk_uwp.2025.10.28.2\build\native\directxtk_uwp.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\directxtk_uwp.2025.10.28.2\build\native\directxtk_uwp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\directxtk_uwp.2025.10.28.2\build\native\directxtk_uwp.targets'))" />
+  </Target>
+</Project>

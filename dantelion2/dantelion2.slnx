@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="dantelion2/dantelion2.vcxproj" Id="3769f131-71d3-425e-bd50-bdbf484258f1" />
+</Solution>
