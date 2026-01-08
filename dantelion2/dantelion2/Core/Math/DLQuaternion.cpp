@@ -1,6 +1,6 @@
 #include "DLQuaternion.h"
 #include "DLMatrix.h"
-#include "dantelion2/FRPG2Call.h"
+#include "FRPG2Call.h"
 
 typedef DLMT::DL_QUATERNION* (_fastcall* oCreateAxisAngleTransform)(DLMT::DL_QUATERNION& out, const DLMT::DL_VECTOR4& axis, dl_float32 angle);
 

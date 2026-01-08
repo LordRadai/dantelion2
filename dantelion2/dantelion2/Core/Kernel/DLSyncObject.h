@@ -1,6 +1,6 @@
 #pragma once
-#include "dantelion2/Core/Util/DLNonCopyable.h"
-#include "dantelion2/Core/Platform/Platform.h"
+#include "Core/Util/DLNonCopyable.h"
+#include "Core/Platform/Platform.h"
 #include "Types.h"
 #include "SyncTraits.h"
 

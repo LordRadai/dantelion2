@@ -1,5 +1,5 @@
 #pragma once
-#include "dantelion2/Core/Kernel/DLAllocator.h"
+#include "Core/Kernel/DLAllocator.h"
 
 namespace DLCG2
 {

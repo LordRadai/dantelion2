@@ -1,5 +1,5 @@
 #include "DLNew.h"
-#include "dantelion2/FRPG2Call.h"
+#include "FRPG2Call.h"
 
 typedef dl_pointer(_fastcall* oAlloc)(size_t size, size_t alignment, DLKR::DLAllocator* pAllocator);
 typedef void(_fastcall* oFree)(dl_pointer memoryBlock, DLKR::DLAllocator* pAllocator);

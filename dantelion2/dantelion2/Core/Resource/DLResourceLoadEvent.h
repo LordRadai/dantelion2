@@ -1,8 +1,8 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Util/DLLifeCycleAdapter.h"
-#include "dantelion2/Core/Kernel/DLLightMutex.h"
-#include "dantelion2/Core/Util/DLReferenceCountObject.h"
+#include "Core/Platform/Platform.h"
+#include "Core/Util/DLLifeCycleAdapter.h"
+#include "Core/Kernel/DLLightMutex.h"
+#include "Core/Util/DLReferenceCountObject.h"
 
 namespace DLRS
 {

@@ -1,6 +1,6 @@
 #pragma once
-#include "dantelion2/Core/Kernel/DLAllocator.h"
-#include "dantelion2/Core/Util/DLReferenceCountObject.h"
+#include "Core/Kernel/DLAllocator.h"
+#include "Core/Util/DLReferenceCountObject.h"
 
 namespace DLGR
 {

@@ -1,5 +1,5 @@
 #pragma once
-#include "dantelion2/Core/Util/DLNonCopyable.h"
+#include "Core/Util/DLNonCopyable.h"
 #include "DLParameterInfo.h"
 #include "DLDynamicPtr.h"
 #include "detail/MightyType.h"

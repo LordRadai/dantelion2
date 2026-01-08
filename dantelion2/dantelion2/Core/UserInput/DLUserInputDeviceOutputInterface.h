@@ -1,5 +1,5 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
+#include "Core/Platform/Platform.h"
 
 namespace DLUI
 {

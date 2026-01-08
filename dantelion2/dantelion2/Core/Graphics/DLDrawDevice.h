@@ -1,6 +1,6 @@
 #pragma once
 #include "DLDeviceContext.h"
-#include "dantelion2/FRPG2Globals.h"
+#include "Globals.h"
 
 namespace DLGR
 {

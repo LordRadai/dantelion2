@@ -1,6 +1,6 @@
 #include "GeneralUtility.h"
-#include "dantelion2/FRPG2Call.h"
-#include "dantelion2/Core/System/DLRuntime.h"
+#include "FRPG2Call.h"
+#include "Core/System/DLRuntime.h"
 #include <cstdarg>
 #include <cstdio>
 

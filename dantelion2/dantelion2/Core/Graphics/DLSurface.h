@@ -1,6 +1,6 @@
 #pragma once
 #include "DLGPUResource.h"
-#include "dantelion2/dantelion2.h"
+#include "dantelion2.h"
 
 namespace DLGR
 {

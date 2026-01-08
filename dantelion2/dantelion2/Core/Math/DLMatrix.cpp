@@ -1,5 +1,5 @@
 #include "DLMatrix.h"
-#include "dantelion2/FRPG2Call.h"
+#include "FRPG2Call.h"
 
 typedef void(_fastcall* oMatrixRotate)(DLMT::DL_MATRIX44* pThis, const DLMT::DL_VECTOR4& rot);
 

@@ -1,5 +1,5 @@
 #include "DLResourceFileLoadEvent.h"
-#include "dantelion2/FRPG2Call.h"
+#include "FRPG2Call.h"
 
 namespace DLRS
 {

@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 #include "detail/DLStdStreamAdapter.inl"
-#include "dantelion2/Core/Kernel/DLMutex.h"
-#include "dantelion2/Core/Util/DLLifeCycleAdapter.h"
+#include "Core/Kernel/DLMutex.h"
+#include "Core/Util/DLLifeCycleAdapter.h"
 
 namespace DLSY
 {

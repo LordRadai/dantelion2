@@ -1,7 +1,7 @@
 #pragma once
-#include "dantelion2/Core/Kernel/DLAllocator.h"
-#include "dantelion2/Core/Kernel/DLBackAllocator.h"
-#include "dantelion2/FRPG2Call.h"
+#include "Core/Kernel/DLAllocator.h"
+#include "Core/Kernel/DLBackAllocator.h"
+#include "FRPG2Call.h"
 
 namespace DLKRD
 {

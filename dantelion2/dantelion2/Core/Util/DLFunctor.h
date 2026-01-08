@@ -1,9 +1,9 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
+#include "Core/Platform/Platform.h"
 #include "DLEmptyType.h"
 #include "DLNullType.h"
-#include "dantelion2/Core/Kernel/DLAllocator.h"
-#include "dantelion2/Core/Kernel/DLSingleThreadingPolicy.h"
+#include "Core/Kernel/DLAllocator.h"
+#include "Core/Kernel/DLSingleThreadingPolicy.h"
 #include <memory>
 
 namespace DLUTD

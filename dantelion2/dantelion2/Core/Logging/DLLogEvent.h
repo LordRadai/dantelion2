@@ -1,6 +1,6 @@
 #pragma once
-#include "dantelion2/Core/Util/DLDateTime.h"
-#include "dantelion2/Core/Text/DLString.inl"
+#include "Core/Util/DLDateTime.h"
+#include "Core/Text/DLString.inl"
 #include "DLCategory.h"
 #include "DLLogLevel.inl"
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "DLGfxReferenceCountObject.h"
 #include "DLDrawDevice.h"
-#include "dantelion2/Core/Platform/Platform.h"
+#include "Core/Platform/Platform.h"
 
 namespace DLGR
 {

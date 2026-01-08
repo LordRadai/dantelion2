@@ -1,6 +1,6 @@
 #pragma once
 #include "DLVector.h"
-#include "dantelion2/Core/Platform/Platform.h"
+#include "Core/Platform/Platform.h"
 
 namespace DLMT
 {

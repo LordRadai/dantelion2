@@ -1,5 +1,5 @@
 #pragma once
-#include "dantelion2/Core/Graphics/Font/DLFontData.h"
+#include "Core/Graphics/Font/DLFontData.h"
 
 namespace DLGR
 {

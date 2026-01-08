@@ -1,6 +1,6 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Text/DLString.inl"
+#include "Core/Platform/Platform.h"
+#include "Core/Text/DLString.inl"
 #include "DLMap.h"
 #include "DLSet.h"
 

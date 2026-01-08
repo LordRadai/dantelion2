@@ -1,10 +1,10 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Kernel/DLAllocator.h"
+#include "Core/Platform/Platform.h"
+#include "Core/Kernel/DLAllocator.h"
 #include "DLFontRenderer.h"
-#include "dantelion2/Core/Reflection/DLRuntimeClassImpl.inl"
-#include "dantelion2/Core/Graphics/DLDrawDevice.h"
-#include "dantelion2/Core/Util/DLReferenceCountObject.h"
+#include "Core/Reflection/DLRuntimeClassImpl.inl"
+#include "Core/Graphics/DLDrawDevice.h"
+#include "Core/Util/DLReferenceCountObject.h"
 
 namespace DLGR
 {

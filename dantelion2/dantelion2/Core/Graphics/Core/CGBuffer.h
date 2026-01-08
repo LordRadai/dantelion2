@@ -1,7 +1,7 @@
 #pragma once
 #include "CGResource.h"
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Kernel/DLAllocator.h"
+#include "Core/Platform/Platform.h"
+#include "Core/Kernel/DLAllocator.h"
 #include <d3d11.h>
 
 namespace DLCG2

@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
-#include "dantelion2/Core/Kernel/DLAllocator.h"
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Util/DLTypeManipulation.h"
-#include "dantelion2/Core/Kernel/DLStdAllocator.inl"
+#include "Core/Kernel/DLAllocator.h"
+#include "Core/Platform/Platform.h"
+#include "Core/Util/DLTypeManipulation.h"
+#include "Core/Kernel/DLStdAllocator.inl"
 #include "DLCharSet.h"
 
 namespace DLTX

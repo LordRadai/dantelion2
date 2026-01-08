@@ -1,6 +1,6 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Util/DLTypeManipulation.h"
+#include "Core/Platform/Platform.h"
+#include "Core/Util/DLTypeManipulation.h"
 #include "detail/DLAllocationHelper.h"
 #include "DLAllocator.h"
 

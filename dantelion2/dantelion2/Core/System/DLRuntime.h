@@ -1,12 +1,12 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Kernel/DLAllocator.h"
+#include "Core/Platform/Platform.h"
+#include "Core/Kernel/DLAllocator.h"
 #include "DLStdInputStream.h"
 #include "DLStdOutputStream.h"
 #include "DLAssertEventManager.h"
 #include "DLRealTimeServiceManager.h"
-#include "dantelion2/Core/Util/DLProperties.h"
-#include "dantelion2/Core/Util/DLVector.h"
+#include "Core/Util/DLProperties.h"
+#include "Core/Util/DLVector.h"
 
 namespace DLSY
 {

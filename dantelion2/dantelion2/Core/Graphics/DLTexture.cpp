@@ -1,5 +1,5 @@
 #include "DLTexture.h"
-#include "dantelion2/FRPG2Call.h"
+#include "FRPG2Call.h"
 
 typedef DLGR::DLTextureFormat(_fastcall* oGetDLTextureFormat)(DXGI_FORMAT dxFormat);
 

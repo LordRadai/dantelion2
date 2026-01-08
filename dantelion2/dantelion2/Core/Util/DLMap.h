@@ -1,7 +1,7 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Kernel/DLAllocator.h"
-#include "dantelion2/Core/Kernel/DLStdAllocator.inl"
+#include "Core/Platform/Platform.h"
+#include "Core/Kernel/DLAllocator.h"
+#include "Core/Kernel/DLStdAllocator.inl"
 #include <functional>
 #include <map>
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
-#include "dantelion2/Core/Kernel/DLAllocator.h"
-#include "dantelion2/Core/Kernel/DLStdAllocator.inl"
+#include "Core/Kernel/DLAllocator.h"
+#include "Core/Kernel/DLStdAllocator.inl"
 
 namespace DLUT
 {

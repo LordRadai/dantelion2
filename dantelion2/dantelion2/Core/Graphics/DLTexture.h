@@ -1,7 +1,7 @@
 #pragma once
 #include "Core/Core.h"
 #include "DLGPUResource.h"
-#include "dantelion2/Core/Graphics/DLDrawContextDefines.h"
+#include "Core/Graphics/DLDrawContextDefines.h"
 
 namespace DLGR
 {

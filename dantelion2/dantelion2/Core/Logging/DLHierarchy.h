@@ -1,9 +1,9 @@
 #pragma once
 #include "DLCategoryRepository.h"
 #include "DLCategory.h"
-#include "dantelion2/Core/Util/DLMap.h"
-#include "dantelion2/Core/Util/DLSet.h"
-#include "dantelion2/Core/Kernel/DLLightMutex.h"
+#include "Core/Util/DLMap.h"
+#include "Core/Util/DLSet.h"
+#include "Core/Kernel/DLLightMutex.h"
 
 namespace DLLG
 {

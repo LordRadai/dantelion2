@@ -1,7 +1,7 @@
 #pragma once
 #include "DLAtomicInt.h"
 #include "DLSyncObject.h"
-#include "dantelion2/Core/Platform/GeneralUtility.h"
+#include "Core/Platform/GeneralUtility.h"
 #include "Types.h"
 #include <Windows.h>
 

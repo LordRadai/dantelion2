@@ -1,8 +1,8 @@
 #pragma once
-#include "dantelion2/Core/Kernel/DLRunnable.h"
+#include "Core/Kernel/DLRunnable.h"
 #include "TransferTask.h"
-#include "dantelion2/Core/Kernel/DLThread.h"
-#include "dantelion2/Core/Kernel/DLSemaphore.h"
+#include "Core/Kernel/DLThread.h"
+#include "Core/Kernel/DLSemaphore.h"
 
 namespace DLRSD
 {

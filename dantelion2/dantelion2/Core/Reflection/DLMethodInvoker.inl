@@ -1,9 +1,9 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
+#include "Core/Platform/Platform.h"
 #include "DLTypeID.h"
 #include "DLParameterInfo.h"
 #include "DLMethodInvokeContext.h"
-#include "dantelion2/FRPG2Call.h"
+#include "FRPG2Call.h"
 
 namespace DLRF
 {

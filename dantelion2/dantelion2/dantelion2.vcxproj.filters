@@ -426,7 +426,7 @@
     <ClInclude Include="FRPG2Call.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FRPG2Globals.h">
+    <ClInclude Include="Globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

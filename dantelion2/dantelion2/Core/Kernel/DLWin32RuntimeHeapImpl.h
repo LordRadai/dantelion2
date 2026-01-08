@@ -1,6 +1,6 @@
 #pragma once
-#include "dantelion2/Core/Kernel/detail/HeapAllocator.inl"
-#include "dantelion2/Core/Kernel/DLLightMutex.h"
+#include "Core/Kernel/detail/HeapAllocator.inl"
+#include "Core/Kernel/DLLightMutex.h"
 
 namespace DLKR
 {

@@ -1,7 +1,7 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Util/DLVector.h"
-#include "dantelion2/Core/Kernel/DLMutex.h"
+#include "Core/Platform/Platform.h"
+#include "Core/Util/DLVector.h"
+#include "Core/Kernel/DLMutex.h"
 #include "DLMethodInvoker.inl"
 #include "DLParameterInfo.h"
 

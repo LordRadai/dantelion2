@@ -1,5 +1,5 @@
 #pragma once
-#include "dantelion2/Core/Reflection/DLTypeID.h"
+#include "Core/Reflection/DLTypeID.h"
 
 namespace DLRF
 {

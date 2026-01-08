@@ -1,6 +1,6 @@
 #pragma once
 #include "DynamicBitset.h"
-#include "dantelion2/Core/Util/DLVector.h"
+#include "Core/Util/DLVector.h"
 
 namespace DLUID
 {

@@ -1,6 +1,6 @@
 #pragma once
-#include "dantelion2/Core/Text/DLString.inl"
-#include "dantelion2/Core/Reflection/DLRuntimeClassImpl.inl"
+#include "Core/Text/DLString.inl"
+#include "Core/Reflection/DLRuntimeClassImpl.inl"
 
 namespace DLLG
 {

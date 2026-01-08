@@ -1,7 +1,7 @@
 #pragma once
-#include "dantelion2/Core/Util/DLVector.h"
-#include "dantelion2/Core/Kernel/DLAllocator.h"
-#include "dantelion2/Core/Platform/Platform.h"
+#include "Core/Util/DLVector.h"
+#include "Core/Kernel/DLAllocator.h"
+#include "Core/Platform/Platform.h"
 #include "details/UserInputExtension.h"
 
 namespace DLUI

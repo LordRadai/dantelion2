@@ -1,8 +1,8 @@
 #pragma once
 #include "DLAppender.h"
-#include "dantelion2/Core/Util/DLSet.h"
+#include "Core/Util/DLSet.h"
 #include "DLLogLevel.inl"
-#include "dantelion2/Core/Reflection/DLRuntimeClassImpl.inl"
+#include "Core/Reflection/DLRuntimeClassImpl.inl"
 
 namespace DLLG
 {

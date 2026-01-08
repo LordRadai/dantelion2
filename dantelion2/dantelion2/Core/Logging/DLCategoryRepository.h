@@ -1,6 +1,6 @@
 #pragma once
-#include "dantelion2/Core/Platform/Platform.h"
-#include "dantelion2/Core/Reflection/DLRuntimeClassImpl.inl"
+#include "Core/Platform/Platform.h"
+#include "Core/Reflection/DLRuntimeClassImpl.inl"
 #include "DLLogEvent.h"
 
 namespace DLLG

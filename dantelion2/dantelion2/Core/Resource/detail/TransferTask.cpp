@@ -1,5 +1,5 @@
 #include "TransferTask.h"
-#include "dantelion2/FRPG2Call.h"
+#include "FRPG2Call.h"
 
 typedef const dl_wchar* (_fastcall* oGetTransferState)(const DLRSD::TransferTask* pThis);
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "dantelion2/Core/Math/Math.h"
+#include "Core/Math/Math.h"
 #include <DirectXColors.h>
 
 using namespace DirectX::SimpleMath;

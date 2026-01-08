@@ -1,7 +1,7 @@
 #pragma once
 #include "Core/CGBuffer.h"
 #include "DLGPUResource.h"
-#include "dantelion2/Core/Platform/Platform.h"
+#include "Core/Platform/Platform.h"
 
 namespace DLGR
 {
