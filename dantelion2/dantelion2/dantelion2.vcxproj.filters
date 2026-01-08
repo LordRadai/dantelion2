@@ -592,5 +592,6 @@
     <None Include="Core\UserInput\DLUserInputTraits.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
