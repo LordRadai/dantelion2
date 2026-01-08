@@ -1,6 +1,6 @@
 #pragma once
 #include "DLRuntimeClass.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLRF
 {

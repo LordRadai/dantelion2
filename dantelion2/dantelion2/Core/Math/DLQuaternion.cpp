@@ -1,6 +1,6 @@
 #include "DLQuaternion.h"
 #include "DLMatrix.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 typedef DLMT::DL_QUATERNION* (_fastcall* oCreateAxisAngleTransform)(DLMT::DL_QUATERNION& out, const DLMT::DL_VECTOR4& axis, dl_float32 angle);
 
@@ -8,7 +8,7 @@ namespace DLMT
 {
 	DL_QUATERNION* CreateAxisAngleTransform(DL_QUATERNION& out, const DL_VECTOR4& axis, dl_float32 angle)
 	{
-		return FRPG2_CALL(oCreateAxisAngleTransform, 0x16e310, out, axis, angle);
+		return CALL(oCreateAxisAngleTransform, 0x16e310, out, axis, angle);
 	}
 
 	void CreateReflection(DL_QUATERNION& out, const DL_VECTOR4& plane)

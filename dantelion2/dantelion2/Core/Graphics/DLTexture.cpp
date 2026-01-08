@@ -1,5 +1,5 @@
 #include "DLTexture.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 typedef DLGR::DLTextureFormat(_fastcall* oGetDLTextureFormat)(DXGI_FORMAT dxFormat);
 
@@ -12,6 +12,6 @@ namespace DLGR
 		if (pTexture == nullptr)
 			return DLTEXFMT_NUM;
 
-		return FRPG2_CALL(oGetDLTextureFormat, 0xf28b90, pTexture->GetFormat());
+		return CALL(oGetDLTextureFormat, 0xf28b90, pTexture->GetFormat());
 	}
 }

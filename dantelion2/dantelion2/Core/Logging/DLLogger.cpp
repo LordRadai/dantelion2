@@ -1,5 +1,5 @@
 #include "DLLogger.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLLG
 {
@@ -19,36 +19,36 @@ namespace DLLG
 
 	void DLLogger::Log(DLLogLevel level, const dl_wchar* message, ...)
 	{
-		FRPG2_CALL(oLog, 0x8819b0, this, level, message);
+		CALL(oLog, 0x8819b0, this, level, message);
 	}
 
 	void DLLogger::LogDebug(const dl_wchar* message, ...)
 	{
-		FRPG2_CALL(oLogSpecific, 0x881a00, this, message);
+		CALL(oLogSpecific, 0x881a00, this, message);
 	}
 
 	void DLLogger::LogInfo(const dl_wchar* message, ...)
 	{
-		FRPG2_CALL(oLogSpecific, 0x881a50, this, message);
+		CALL(oLogSpecific, 0x881a50, this, message);
 	}
 
 	void DLLogger::LogNotice(const dl_wchar* message, ...)
 	{
-		FRPG2_CALL(oLogSpecific, 0x881aa0, this, message);
+		CALL(oLogSpecific, 0x881aa0, this, message);
 	}
 
 	void DLLogger::LogWarn(const dl_wchar* message, ...)
 	{
-		FRPG2_CALL(oLogSpecific, 0x881af0, this, message);
+		CALL(oLogSpecific, 0x881af0, this, message);
 	}
 
 	void DLLogger::LogError(const dl_wchar* message, ...)
 	{
-		FRPG2_CALL(oLogSpecific, 0x881b40, this, message);
+		CALL(oLogSpecific, 0x881b40, this, message);
 	}
 
 	void DLLogger::LogFatal(const dl_wchar* message, ...)
 	{
-		FRPG2_CALL(oLogSpecific, 0x881b90, this, message);
+		CALL(oLogSpecific, 0x881b90, this, message);
 	}
 }

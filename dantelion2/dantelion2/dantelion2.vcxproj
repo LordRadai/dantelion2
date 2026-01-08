@@ -285,7 +285,7 @@
     <ClInclude Include="Core\Util\DLVector.h" />
     <ClInclude Include="Core\Util\Util.h" />
     <ClInclude Include="dantelion2.h" />
-    <ClInclude Include="FRPG2Call.h" />
+    <ClInclude Include="Call.h" />
     <ClInclude Include="Globals.h" />
   </ItemGroup>
   <ItemGroup>

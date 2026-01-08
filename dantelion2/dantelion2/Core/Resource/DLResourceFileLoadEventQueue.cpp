@@ -1,5 +1,5 @@
 #include "DLResourceFileLoadEventQueue.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLRS
 {
@@ -7,6 +7,6 @@ namespace DLRS
 
 	bool DLResourceFileLoadEventQueue::GetFileLoadEvent(DLResourceFileLoadEvent* pOutEvent)
 	{
-		return FRPG2_CALL(oGetFileLoadEvent, 0x8d76f0, this, pOutEvent);
+		return CALL(oGetFileLoadEvent, 0x8d76f0, this, pOutEvent);
 	}
 }

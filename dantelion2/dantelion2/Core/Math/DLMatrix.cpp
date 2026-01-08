@@ -1,5 +1,5 @@
 #include "DLMatrix.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 typedef void(_fastcall* oMatrixRotate)(DLMT::DL_MATRIX44* pThis, const DLMT::DL_VECTOR4& rot);
 
@@ -74,6 +74,6 @@ namespace DLMT
 
 	void RotateMatrix(DL_MATRIX44* pMatrix, const DL_VECTOR4& rot)
 	{
-		FRPG2_CALL(oMatrixRotate, 0xb0e0b0, pMatrix, rot);
+		CALL(oMatrixRotate, 0xb0e0b0, pMatrix, rot);
 	}
 }

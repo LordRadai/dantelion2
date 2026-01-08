@@ -1,7 +1,7 @@
 #pragma once
 #include "Core/Kernel/DLAllocator.h"
 #include "Core/Kernel/DLBackAllocator.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLKRD
 {
@@ -11,7 +11,7 @@ namespace DLKRD
 
         DLKR::DLBackAllocator* GetTemporaryAllocator()
         {
-			return FRPG2_CALL(oGetTemporaryAllocator, 0x833dc0);
+			return CALL(oGetTemporaryAllocator, 0x833dc0);
         }
     }
 

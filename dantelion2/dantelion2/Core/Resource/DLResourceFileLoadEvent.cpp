@@ -1,5 +1,5 @@
 #include "DLResourceFileLoadEvent.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLRS
 {
@@ -7,6 +7,6 @@ namespace DLRS
 
 	DLResourceFileLoadEvent::DLResourceFileLoadEvent()
 	{
-		FRPG2_CALL(oConstructor, 0x8f7310, this);
+		CALL(oConstructor, 0x8f7310, this);
 	}
 }

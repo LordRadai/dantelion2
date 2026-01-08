@@ -1,5 +1,5 @@
 #include "DLFormat.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLTX
 {
@@ -17,6 +17,6 @@ namespace DLTX
 
 	void DLFormat::FormatV(DLString* buf, const dl_wchar* fmt, va_list args)
 	{
-		FRPG2_CALL(oFormatV, 0x296c0, buf, fmt, args);
+		CALL(oFormatV, 0x296c0, buf, fmt, args);
 	}
 }

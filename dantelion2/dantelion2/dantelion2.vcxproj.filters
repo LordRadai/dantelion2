@@ -423,7 +423,7 @@
     <ClInclude Include="dantelion2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FRPG2Call.h">
+    <ClInclude Include="Call.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Globals.h">

@@ -3,7 +3,7 @@
 #include "DLTypeID.h"
 #include "DLParameterInfo.h"
 #include "DLMethodInvokeContext.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLRF
 {
@@ -24,7 +24,7 @@ namespace DLRF
 
 		virtual ~DLMethodInvoker() 
 		{
-			FRPG2_CALL(oDestructor, 0x530760, this);
+			CALL(oDestructor, 0x530760, this);
 		}
 
 		virtual dl_size GetParameterSize() = 0;

@@ -1,7 +1,7 @@
 #pragma once
 #include "DLMethodInvoker.inl"
 #include "DLMethodInvokeContext.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLRF
 {
@@ -18,32 +18,32 @@ namespace DLRF
 
 		virtual bool Invoke(DLMethodInvokeContext* pContext) override
 		{
-			return FRPG2_VCALL(this, 0, oInvoke, this, pContext);
+			return VIRTUAL_CALL(this, 0, oInvoke, this, pContext);
 		}
 
 		virtual ~DLConcreteMethodInvoker() override
 		{
-			FRPG2_VCALL(this, 1, oDestructor, this);
+			VIRTUAL_CALL(this, 1, oDestructor, this);
 		}
 
 		virtual dl_size GetParameterSize() override
 		{
-			return FRPG2_VCALL(this, 2, oGetParameterSize, this);
+			return VIRTUAL_CALL(this, 2, oGetParameterSize, this);
 		}
 
 		virtual dl_size GetStrictParameterInfo(DLParameterInfo* pPI) override
 		{
-			return FRPG2_VCALL(this, 3, oGetStrictParameterInfo, this, pPI);
+			return VIRTUAL_CALL(this, 3, oGetStrictParameterInfo, this, pPI);
 		}
 
 		virtual dl_size GetLooseParameterInfo(DLParameterInfo* pPI) override
 		{
-			return FRPG2_VCALL(this, 4, oGetLooseParameterInfo, this, pPI);
+			return VIRTUAL_CALL(this, 4, oGetLooseParameterInfo, this, pPI);
 		}
 
 		virtual DLTypeID GetReturnType() override
 		{
-			return FRPG2_VCALL(this, 5,	oGetReturnType, this);
+			return VIRTUAL_CALL(this, 5,	oGetReturnType, this);
 		}
 	};
 }

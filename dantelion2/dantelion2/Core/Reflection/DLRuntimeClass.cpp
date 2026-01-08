@@ -8,16 +8,16 @@ namespace DLRF
 
 	DLRuntimeClass::DLRuntimeClass()
 	{
-		FRPG2_CALL(oConstructor, 0x83efd0, this);
+		CALL(oConstructor, 0x83efd0, this);
 	}
 
 	void DLRuntimeClass::AddMethod(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* methodName, const dl_wchar* wMethodName)
 	{
-		FRPG2_CALL(oAddMethod, 0x83f7c0, this, pMethodInvoker, methodName, wMethodName);
+		CALL(oAddMethod, 0x83f7c0, this, pMethodInvoker, methodName, wMethodName);
 	}
 
 	DLMethod* DLRuntimeClass::GetMethod(const dl_char* methodName)
 	{
-		return FRPG2_CALL(oGetMethod, 0x840470, this, methodName);
+		return CALL(oGetMethod, 0x840470, this, methodName);
 	}
 }

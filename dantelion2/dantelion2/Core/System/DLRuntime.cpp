@@ -1,5 +1,5 @@
 #include "DLRuntime.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLSY
 {
@@ -15,7 +15,7 @@ namespace DLSY
 
 	const dl_wchar* DLRuntime::GetVersionString()
 	{
-		return FRPG2_VCALL(this, 5, oGetVersionString, this);
+		return VIRTUAL_CALL(this, 5, oGetVersionString, this);
 	}
 
 	DLKR::DLAllocator* DLRuntime::GetDefaultAllocator()

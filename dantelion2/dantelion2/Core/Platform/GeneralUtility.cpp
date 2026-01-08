@@ -1,5 +1,5 @@
 #include "GeneralUtility.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 #include "Core/System/DLRuntime.h"
 #include <cstdarg>
 #include <cstdio>

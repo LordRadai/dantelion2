@@ -1,5 +1,5 @@
 #include "DLSyncObject.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLKR
 {
@@ -10,22 +10,22 @@ namespace DLKR
 	typedef dl_int32(__fastcall* oUnlock)(DLSyncObject* pThis);
 
 	DLSyncObject::~DLSyncObject() {
-		FRPG2_VCALL(this, 0, oDestructor, this);
+		VIRTUAL_CALL(this, 0, oDestructor, this);
 	}
 
 	dl_bool DLSyncObject::IsValid() const {
-		return FRPG2_VCALL((DLSyncObject*)this, 1, oIsValid, (DLSyncObject*)this);
+		return VIRTUAL_CALL((DLSyncObject*)this, 1, oIsValid, (DLSyncObject*)this);
 	}
 
 	dl_int32 DLSyncObject::Lock(DLTimeout timeout) {
-		return FRPG2_VCALL(this, 2, oLock, this, timeout);
+		return VIRTUAL_CALL(this, 2, oLock, this, timeout);
 	}
 
 	dl_int32 DLSyncObject::TryLock() {
-		return FRPG2_VCALL(this, 3, oTryLock, this);
+		return VIRTUAL_CALL(this, 3, oTryLock, this);
 	}
 
 	dl_int32 DLSyncObject::Unlock() {
-		return FRPG2_VCALL(this, 4, oUnlock, this);
+		return VIRTUAL_CALL(this, 4, oUnlock, this);
 	}
 }

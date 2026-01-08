@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include "DLStringUtil.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLTX
 {
@@ -9,11 +9,11 @@ namespace DLTX
 
 	void DLStringUtil::Copy(DLString* dst, const DLString* src, dl_size size)
 	{
-		FRPG2_CALL(oCopySize, 0x3dc00, dst, src, size);
+		CALL(oCopySize, 0x3dc00, dst, src, size);
 	}
 
 	void DLStringUtil::Assign(DLString* dst, DLString* src, DLKR::DLAllocator* pAllocator)
 	{
-		FRPG2_CALL(oAssignAllocator, 0x3d780, dst, src, pAllocator);
+		CALL(oAssignAllocator, 0x3d780, dst, src, pAllocator);
 	}
 }

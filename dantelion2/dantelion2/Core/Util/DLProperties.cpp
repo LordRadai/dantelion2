@@ -1,5 +1,5 @@
 #include "DLProperties.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLUT
 {
@@ -11,26 +11,26 @@ namespace DLUT
 
 	dl_int DLProperties::GetIntProperty(DLTX::DLString name, dl_int defaultValue)
 	{
-		return FRPG2_CALL(oGetPropertyInt, 0x87cd40, this, name, defaultValue);
+		return CALL(oGetPropertyInt, 0x87cd40, this, name, defaultValue);
 	}
 
 	dl_bool DLProperties::GetBoolProperty(DLTX::DLString name, dl_bool defaultValue)
 	{
-		return FRPG2_CALL(oGetPropertyBool, 0x87d010, this, name, defaultValue);
+		return CALL(oGetPropertyBool, 0x87d010, this, name, defaultValue);
 	}
 
 	dl_float32 DLProperties::GetFloatProperty(DLTX::DLString name, dl_float32 defaultValue)
 	{
-		return FRPG2_CALL(oGetPropertyFloat, 0x87d440, this, name, defaultValue);
+		return CALL(oGetPropertyFloat, 0x87d440, this, name, defaultValue);
 	}
 
 	void DLProperties::GetStringProperty(DLTX::DLString* pBuf, DLTX::DLString name, DLTX::DLString defaultValue)
 	{
-		FRPG2_CALL(oGetPropertyString, 0x87d320, this, pBuf, name, defaultValue);
+		CALL(oGetPropertyString, 0x87d320, this, pBuf, name, defaultValue);
 	}
 
 	void DLProperties::SetPropertyValue(DLTX::DLString name, DLTX::DLString value)
 	{
-		FRPG2_CALL(oSetPropertyValue, 0x87d720, this, name, value);
+		CALL(oSetPropertyValue, 0x87d720, this, name, value);
 	}
 }

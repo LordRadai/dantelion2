@@ -1,5 +1,5 @@
 #include "DLLogManagerImpl.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLLG
 {
@@ -25,91 +25,91 @@ namespace DLLG
 
 	dl_bool DLLogManagerImpl::SetRootAllocator(DLKR::DLAllocator* pAllocator)
 	{
-		return FRPG2_CALL(oSetRootAllocator, 0x8841d0, this, pAllocator);
+		return CALL(oSetRootAllocator, 0x8841d0, this, pAllocator);
 	}
 
 	DLKR::DLAllocator* DLLogManagerImpl::GetRootAllocator()
 	{
-		return FRPG2_CALL(oGetRootAllocator, 0x884190, this);
+		return CALL(oGetRootAllocator, 0x884190, this);
 	}
 
 	DLKR::DLAllocator* DLLogManagerImpl::GetAllocator()
 	{
-		return FRPG2_CALL(oGetAllocator, 0x884350, this);
+		return CALL(oGetAllocator, 0x884350, this);
 	}
 
 	DLKR::DLAllocator* DLLogManagerImpl::GetMessageAllocator()
 	{
-		return FRPG2_CALL(oGetMessageAllocator, 0x884400, this);
+		return CALL(oGetMessageAllocator, 0x884400, this);
 	}
 
 	void DLLogManagerImpl::ProcessAllLogEvents()
 	{
-		FRPG2_CALL(oProcessAllLogEvents, 0x8845f0, this);
+		CALL(oProcessAllLogEvents, 0x8845f0, this);
 	}
 
 	void DLLogManagerImpl::ResetConfiguration()
 	{
-		FRPG2_CALL(oResetConfiguration, 0x884660, this);
+		CALL(oResetConfiguration, 0x884660, this);
 	}
 
 	dl_bool DLLogManagerImpl::ApplyConfiguration(DLLoggingConfiguration& config)
 	{
-		return FRPG2_CALL(oApplyConfiguration, 0x884680, this, config);
+		return CALL(oApplyConfiguration, 0x884680, this, config);
 	}
 
 	void DLLogManagerImpl::GetConfiguration(DLLoggingConfiguration& config)
 	{
-		FRPG2_CALL(oGetConfiguration, 0x884760, this, config);
+		CALL(oGetConfiguration, 0x884760, this, config);
 	}
 
 	dl_uint DLLogManagerImpl::GetTotalBufferSize()
 	{
-		return FRPG2_CALL(oGetTotalBufferSize, 0x8841b0, this);
+		return CALL(oGetTotalBufferSize, 0x8841b0, this);
 	}
 
 	void DLLogManagerImpl::SetTotalBufferSize(dl_uint size)
 	{
-		FRPG2_CALL(oSetTotalBufferSize, 0x884250, this, size);
+		CALL(oSetTotalBufferSize, 0x884250, this, size);
 	}
 
 	dl_uint DLLogManagerImpl::GetMessageBufferSize()
 	{
-		return FRPG2_CALL(oGetMessageBufferSize, 0x8841c0, this);
+		return CALL(oGetMessageBufferSize, 0x8841c0, this);
 	}
 
 	void DLLogManagerImpl::SetMessageBufferSize(dl_uint size)
 	{
-		FRPG2_CALL(oSetMessageBufferSize, 0x8842d0, this, size);
+		CALL(oSetMessageBufferSize, 0x8842d0, this, size);
 	}
 
 	DLCategoryRepository* DLLogManagerImpl::GetCategoryRepository()
 	{
-		return FRPG2_CALL(oGetCategoryRepository, 0x884490, this);
+		return CALL(oGetCategoryRepository, 0x884490, this);
 	}
 
 	DLLoggingStrategy* DLLogManagerImpl::GetLoggingStrategy()
 	{
-		return FRPG2_CALL(oGetLoggingStrategy, 0x884540, this);
+		return CALL(oGetLoggingStrategy, 0x884540, this);
 	}
 
 	void DLLogManagerImpl::Log(DLLogEvent& pLE)
 	{
-		FRPG2_CALL(oLog, 0x884870, this, pLE);
+		CALL(oLog, 0x884870, this, pLE);
 	}
 
 	DLUT::DLLifecycleAdapter<DLKR::DLPlainLightMutex>& DLLogManagerImpl::GetMutex()
 	{
-		return FRPG2_CALL(oGetMutex, 0x884890, this);
+		return CALL(oGetMutex, 0x884890, this);
 	}
 
 	DLLogManagerImpl::~DLLogManagerImpl()
 	{
-		FRPG2_CALL(oDestructor, 0x885450, this);
+		CALL(oDestructor, 0x885450, this);
 	}
 
 	DLLogManagerImpl* DLLogManagerImpl::GetInstance()
 	{
-		return FRPG2_CALL(oGetInstance, 0x883770);
+		return CALL(oGetInstance, 0x883770);
 	}
 }

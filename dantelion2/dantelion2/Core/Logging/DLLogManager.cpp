@@ -1,5 +1,5 @@
 #include "DLLogManager.h"
-#include "FRPG2Call.h"
+#include "Call.h"
 
 namespace DLLG
 {
@@ -7,6 +7,6 @@ namespace DLLG
 
 	DLLogManager::~DLLogManager()
 	{
-		FRPG2_CALL(oDestructor, 0x885420, this);
+		CALL(oDestructor, 0x885420, this);
 	}
 }
