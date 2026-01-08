@@ -1,5 +1,5 @@
 #pragma once
-#include "FRPG2Globals.h"
+#include "Globals.h"
 
 #define FRPG2_CALL(type, offset, ...) \
     (reinterpret_cast<type>((MODULE_ADDR) + (offset))(__VA_ARGS__))
