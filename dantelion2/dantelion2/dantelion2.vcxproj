@@ -335,6 +335,7 @@
     <ClInclude Include="Core\Util\DLDateTime.h" />
     <ClInclude Include="Core\Util\DLDeque.h" />
     <ClInclude Include="Core\Util\DLEmptyType.h" />
+    <ClInclude Include="Core\Util\DLFixedVector.inl" />
     <ClInclude Include="Core\Util\DLFunctor.h" />
     <ClInclude Include="Core\Util\DLLifeCycleAdapter.h" />
     <ClInclude Include="Core\Util\DLList.h" />
