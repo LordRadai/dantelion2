@@ -11,3 +11,4 @@
 #include "DLSet.h"
 #include "DLDeque.h"
 #include "DLFunctor.h"
+#include "DLFixedVector.inl"
