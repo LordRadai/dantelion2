@@ -20,7 +20,7 @@ namespace DLSY
 
 	DLKR::DLAllocator* DLRuntime::GetDefaultAllocator()
 	{
-		return DEFAULT_ALLOCATOR;
+		return RUNTIME_ALLOCATOR;
 	}
 
 	DLRuntime* DLRuntime::GetDLRuntime()
