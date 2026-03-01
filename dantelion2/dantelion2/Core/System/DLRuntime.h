@@ -75,5 +75,6 @@ namespace DLSY
 		typedef void(_fastcall* oLoadSystemProperties)(DLRuntimeImpl*, SysPropFilePath*, dl_pointer);
 	};
 
-#define DEFAULT_ALLOCATOR *(DLKR::DLAllocator**)(MODULE_ADDR + 0x16681a8);
+#define RUNTIME_CLASS_ALLOCATOR *(DLKR::DLAllocator**)(MODULE_ADDR + 0x16681a0)
+#define DEFAULT_ALLOCATOR *(DLKR::DLAllocator**)(MODULE_ADDR + 0x16681a8)
 }
