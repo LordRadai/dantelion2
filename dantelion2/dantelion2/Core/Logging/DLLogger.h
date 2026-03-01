@@ -23,10 +23,16 @@ namespace DLLG
 
 		void Log(DLLogLevel level, const dl_wchar* message, ...);
 		void LogDebug(const dl_wchar* message, ...);
+		void LogDebug(const dl_char* message, ...);
 		void LogInfo(const dl_wchar* message, ...);
+		void LogInfo(const dl_char* message, ...);
 		void LogNotice(const dl_wchar* message, ...);
+		void LogNotice(const dl_char* message, ...);
 		void LogWarn(const dl_wchar* message, ...);
+		void LogWarn(const dl_char* message, ...);
 		void LogError(const dl_wchar* message, ...);
+		void LogError(const dl_char* message, ...);
 		void LogFatal(const dl_wchar* message, ...);
+		void LogFatal(const dl_char* message, ...);
 	};
 }
