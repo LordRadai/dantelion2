@@ -46,20 +46,6 @@ namespace DLLG
 		CALL(oLogSpecificW, 0x881a00, this, buffer);
 	}
 
-	void DLLogger::LogDebug(const dl_char* message, ...)
-	{
-		va_list args;
-		va_start(args, message);
-
-		// Format the string into a local buffer
-		char buffer[1024];
-		vsprintf_s(buffer, message, args);
-
-		va_end(args);
-
-		CALL(oLogSpecificA, 0x881c40, this, buffer);
-	}
-
 	void DLLogger::LogInfo(const dl_wchar* message, ...)
 	{
 		va_list args;
@@ -72,20 +58,6 @@ namespace DLLG
 		va_end(args);
 
 		CALL(oLogSpecificW, 0x881a50, this, buffer);
-	}
-
-	void DLLogger::LogInfo(const dl_char* message, ...)
-	{
-		va_list args;
-		va_start(args, message);
-
-		// Format the string into a local buffer
-		char buffer[1024];
-		vsprintf_s(buffer, message, args);
-
-		va_end(args);
-
-		CALL(oLogSpecificA, 0x881ca0, this, buffer);
 	}
 
 	void DLLogger::LogNotice(const dl_wchar* message, ...)
@@ -102,20 +74,6 @@ namespace DLLG
 		CALL(oLogSpecificW, 0x881aa0, this, buffer);
 	}
 
-	void DLLogger::LogNotice(const dl_char* message, ...)
-	{
-		va_list args;
-		va_start(args, message);
-
-		// Format the string into a local buffer
-		char buffer[1024];
-		vsprintf_s(buffer, message, args);
-
-		va_end(args);
-
-		CALL(oLogSpecificA, 0x881d00, this, buffer);
-	}
-
 	void DLLogger::LogWarn(const dl_wchar* message, ...)
 	{
 		va_list args;
@@ -128,20 +86,6 @@ namespace DLLG
 		va_end(args);
 
 		CALL(oLogSpecificW, 0x881af0, this, buffer);
-	}
-
-	void DLLogger::LogWarn(const dl_char* message, ...)
-	{
-		va_list args;
-		va_start(args, message);
-
-		// Format the string into a local buffer
-		char buffer[1024];
-		vsprintf_s(buffer, message, args);
-
-		va_end(args);
-
-		CALL(oLogSpecificA, 0x881d60, this, buffer);
 	}
 
 	void DLLogger::LogError(const dl_wchar* message, ...)
@@ -158,20 +102,6 @@ namespace DLLG
 		CALL(oLogSpecificW, 0x881b40, this, buffer);
 	}
 
-	void DLLogger::LogError(const dl_char* message, ...)
-	{
-		va_list args;
-		va_start(args, message);
-
-		// Format the string into a local buffer
-		char buffer[1024];
-		vsprintf_s(buffer, message, args);
-
-		va_end(args);
-
-		CALL(oLogSpecificA, 0x881dc0, this, buffer);
-	}
-
 	void DLLogger::LogFatal(const dl_wchar* message, ...)
 	{
 		va_list args;
@@ -184,19 +114,5 @@ namespace DLLG
 		va_end(args);
 
 		CALL(oLogSpecificW, 0x881b90, this, buffer);
-	}
-
-	void DLLogger::LogFatal(const dl_char* message, ...)
-	{
-		va_list args;
-		va_start(args, message);
-
-		// Format the string into a local buffer
-		char buffer[1024];
-		vsprintf_s(buffer, message, args);
-
-		va_end(args);
-
-		CALL(oLogSpecificA, 0x881e20, this, buffer);
 	}
 }
