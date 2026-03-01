@@ -76,7 +76,16 @@ namespace DLLG
 
 	void DLLogger::LogInfo(const dl_char* message, ...)
 	{
-		CALL(oLogSpecificA, 0x881ca0, this, message);
+		va_list args;
+		va_start(args, message);
+
+		// Format the string into a local buffer
+		char buffer[1024];
+		vsprintf_s(buffer, message, args);
+
+		va_end(args);
+
+		CALL(oLogSpecificA, 0x881ca0, this, buffer);
 	}
 
 	void DLLogger::LogNotice(const dl_wchar* message, ...)
@@ -95,7 +104,16 @@ namespace DLLG
 
 	void DLLogger::LogNotice(const dl_char* message, ...)
 	{
-		CALL(oLogSpecificA, 0x881d00, this, message);
+		va_list args;
+		va_start(args, message);
+
+		// Format the string into a local buffer
+		char buffer[1024];
+		vsprintf_s(buffer, message, args);
+
+		va_end(args);
+
+		CALL(oLogSpecificA, 0x881d00, this, buffer);
 	}
 
 	void DLLogger::LogWarn(const dl_wchar* message, ...)
@@ -114,7 +132,16 @@ namespace DLLG
 
 	void DLLogger::LogWarn(const dl_char* message, ...)
 	{
-		CALL(oLogSpecificA, 0x881d60, this, message);
+		va_list args;
+		va_start(args, message);
+
+		// Format the string into a local buffer
+		char buffer[1024];
+		vsprintf_s(buffer, message, args);
+
+		va_end(args);
+
+		CALL(oLogSpecificA, 0x881d60, this, buffer);
 	}
 
 	void DLLogger::LogError(const dl_wchar* message, ...)
@@ -133,7 +160,16 @@ namespace DLLG
 
 	void DLLogger::LogError(const dl_char* message, ...)
 	{
-		CALL(oLogSpecificA, 0x881dc0, this, message);
+		va_list args;
+		va_start(args, message);
+
+		// Format the string into a local buffer
+		char buffer[1024];
+		vsprintf_s(buffer, message, args);
+
+		va_end(args);
+
+		CALL(oLogSpecificA, 0x881dc0, this, buffer);
 	}
 
 	void DLLogger::LogFatal(const dl_wchar* message, ...)
@@ -152,6 +188,15 @@ namespace DLLG
 
 	void DLLogger::LogFatal(const dl_char* message, ...)
 	{
-		CALL(oLogSpecificA, 0x881e20, this, message);
+		va_list args;
+		va_start(args, message);
+
+		// Format the string into a local buffer
+		char buffer[1024];
+		vsprintf_s(buffer, message, args);
+
+		va_end(args);
+
+		CALL(oLogSpecificA, 0x881e20, this, buffer);
 	}
 }
