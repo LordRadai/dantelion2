@@ -4,7 +4,7 @@
 
 namespace DLUT
 {
-	template<typename T, size_t nSize, size_t align>
+	template<typename T, size_t nSize>
 	class DLFixedVector
 	{
 		T m_data[nSize];
