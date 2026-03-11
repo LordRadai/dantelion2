@@ -8,7 +8,10 @@ namespace DLMT
 {
 	DL_QUATERNION* CreateAxisAngleTransform(DL_QUATERNION& out, const DL_VECTOR4& axis, dl_float32 angle)
 	{
-		return CALL(oCreateAxisAngleTransform, 0x16e310, out, axis, angle);
+		alignas(16) DLMT::DL_QUATERNION outAligned = out;
+		alignas(16) DLMT::DL_VECTOR4 alignedAxis = axis;
+
+		return CALL(oCreateAxisAngleTransform, 0x16e310, outAligned, alignedAxis, angle);
 	}
 
 	void CreateReflection(DL_QUATERNION& out, const DL_VECTOR4& plane)
