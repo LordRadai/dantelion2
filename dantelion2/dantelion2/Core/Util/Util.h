@@ -12,3 +12,4 @@
 #include "DLDeque.h"
 #include "DLFunctor.h"
 #include "DLFixedVector.inl"
+#include "detail/DLRandomGeneratorLCG.h"
