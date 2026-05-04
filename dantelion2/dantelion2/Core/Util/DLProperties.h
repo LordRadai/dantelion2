@@ -14,10 +14,10 @@ namespace DLUT
 		DLProperties() {}
 		DLProperties(DLKR::DLAllocator* pAllocator);
 
-		dl_int GetIntProperty(DLTX::DLString name, dl_int defaultValue);
-		dl_bool GetBoolProperty(DLTX::DLString name, dl_bool defaultValue);
-		dl_float32 GetFloatProperty(DLTX::DLString name, dl_float32 defaultValue);
-		void GetStringProperty(DLTX::DLString* pBuf, DLTX::DLString name, DLTX::DLString defaultValue);
-		void SetPropertyValue(DLTX::DLString name, DLTX::DLString value);
+		dl_int GetInteger(DLTX::DLString name, dl_int defaultValue);
+		dl_bool GetBoolean(DLTX::DLString name, dl_bool defaultValue);
+		dl_float32 GetFloat32(DLTX::DLString name, dl_float32 defaultValue);
+		void GetString(DLTX::DLString* pBuf, DLTX::DLString name, DLTX::DLString defaultValue);
+		void SetProperty(DLTX::DLString name, DLTX::DLString value);
 	};
 }

@@ -15,27 +15,27 @@ namespace DLUT
 		CALL(oConstructor, 0x87b970, this, pAllocator);
 	}
 
-	dl_int DLProperties::GetIntProperty(DLTX::DLString name, dl_int defaultValue)
+	dl_int DLProperties::GetInteger(DLTX::DLString name, dl_int defaultValue)
 	{
 		return CALL(oGetPropertyInt, 0x87cd40, this, name, defaultValue);
 	}
 
-	dl_bool DLProperties::GetBoolProperty(DLTX::DLString name, dl_bool defaultValue)
+	dl_bool DLProperties::GetBoolean(DLTX::DLString name, dl_bool defaultValue)
 	{
 		return CALL(oGetPropertyBool, 0x87d010, this, name, defaultValue);
 	}
 
-	dl_float32 DLProperties::GetFloatProperty(DLTX::DLString name, dl_float32 defaultValue)
+	dl_float32 DLProperties::GetFloat32(DLTX::DLString name, dl_float32 defaultValue)
 	{
 		return CALL(oGetPropertyFloat, 0x87d440, this, name, defaultValue);
 	}
 
-	void DLProperties::GetStringProperty(DLTX::DLString* pBuf, DLTX::DLString name, DLTX::DLString defaultValue)
+	void DLProperties::GetString(DLTX::DLString* pBuf, DLTX::DLString name, DLTX::DLString defaultValue)
 	{
 		CALL(oGetPropertyString, 0x87d320, this, pBuf, name, defaultValue);
 	}
 
-	void DLProperties::SetPropertyValue(DLTX::DLString name, DLTX::DLString value)
+	void DLProperties::SetProperty(DLTX::DLString name, DLTX::DLString value)
 	{
 		CALL(oSetPropertyValue, 0x87d720, this, name, value);
 	}

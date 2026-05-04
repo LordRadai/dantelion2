@@ -384,6 +384,7 @@
     <ClCompile Include="Core\Resource\DLResourceFileLoadEvent.cpp" />
     <ClCompile Include="Core\Resource\DLResourceFileLoadEventQueue.cpp" />
     <ClCompile Include="Core\Resource\DLResourceLoadEvent.cpp" />
+    <ClCompile Include="Core\System\DLAssertEventManager.cpp" />
     <ClCompile Include="Core\System\DLRuntime.cpp" />
     <ClCompile Include="Core\System\System.cpp" />
     <ClCompile Include="Core\Text\DLFormat.cpp" />
