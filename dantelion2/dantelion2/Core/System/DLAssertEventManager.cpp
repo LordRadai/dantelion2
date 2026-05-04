@@ -30,9 +30,9 @@ namespace DLSY
 		CALL(AddInputEventSocket_t, 0x88e970, this, socket);
 	}
 
-	void DLAssertEventManagerImpl::RemoveAssertEventListener(const DLAssertEventListener& listener)
+	void DLAssertEventManagerImpl::RemoveInputEventSocket(const DLAssertEventSocket& socket)
 	{
-		CALL(RemoveAssertEventListener_t, 0x88e9f0, this, listener);
+		CALL(RemoveInputEventSocket_t, 0x88e9f0, this, socket);
 	}
 
 	void DLAssertEventManagerImpl::FireAssertEvent(const DLAssertEvent& event)
