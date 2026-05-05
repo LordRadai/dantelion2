@@ -10,7 +10,7 @@ namespace DLGR
 	protected:
 		DLCG2::CGResource* m_pCGTexture;
 		DLCG2::CGShaderResourceView* m_pCGShaderResourceView;
-		dl_int m_iVar38;
+		dl_uint m_mipMapLevelNum;
 		dl_int m_iVar3C;
 		dl_uint m_width;
 		dl_uint m_height;
@@ -18,6 +18,15 @@ namespace DLGR
 		dl_bool m_bVar4C;
 		dl_pointer m_pVar50;
 		dl_pointer m_pVar58;
+
+	public:
+		dl_uint GetWidth() const { return this->m_width; }
+		dl_uint GetHeight() const { return this->m_height; }
+		dl_uint GetMipMapLevelNum() const { return this->m_mipMapLevelNum; }
+
+		dl_int GetType();
+		dl_bool IsEnabled();
+		dl_int GetFormat();
 	};
 
 	class DLTexture2D : public DLTextureBase
