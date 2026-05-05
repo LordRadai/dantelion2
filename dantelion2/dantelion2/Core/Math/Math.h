@@ -3,3 +3,4 @@
 #include "DLQuaternion.h"
 #include "DLVector.h"
 #include "DLColor.h"
+#include "DLRect.h"
