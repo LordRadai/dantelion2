@@ -1,7 +1,8 @@
 #pragma once
 #include "DLGfxReferenceCountObject.h"
-#include "DLDrawDevice.h"
 #include "Core/Platform/Platform.h"
+#include "Core/CGResource.h"
+#include "DLDrawDevice.h"
 
 namespace DLGR
 {
