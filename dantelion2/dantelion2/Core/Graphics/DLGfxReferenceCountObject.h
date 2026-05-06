@@ -6,6 +6,12 @@ namespace DLGR
 {
 	class DLGfxReferenceCountObject : public DLUT::DLReferenceCountObject
 	{
+	public:
+		virtual void Destroy() override;
+		virtual ~DLGfxReferenceCountObject();
+
+		typedef void(__fastcall* Destructor_t)(DLGfxReferenceCountObject*);
+
 	protected:
 		DLKR::DLAllocator* m_pAllocator;
 	};

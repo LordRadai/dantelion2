@@ -1,17 +1,22 @@
 #include "DLTexture.h"
 #include "Call.h"
 
-typedef DLGR::DLTextureFormat(_fastcall* oGetDLTextureFormat)(DXGI_FORMAT dxFormat);
+typedef DLGR::DLTextureFormat(_fastcall* GetDLTextureFormat_t)(DXGI_FORMAT);
 
 namespace DLGR
 {
-	DLTextureFormat DLTexture2D::GetTextureFormat() const
+	DLTextureFormat DLTextureBase::GetTextureType() const
 	{
-		DLCG2::CGTexture2D* pTexture = this->GetTexture();
+		DLCG2::CGTexture2D* pTexture = static_cast<DLCG2::CGTexture2D*>(this->m_pCGTexture);
 
 		if (pTexture == nullptr)
 			return DLTEXFMT_NUM;
 
-		return CALL(oGetDLTextureFormat, 0xf28b90, pTexture->GetFormat());
+		return GetDLTextureFormat(pTexture->GetFormat());
+	}
+
+	DLTextureFormat DLTextureBase::GetDLTextureFormat(DXGI_FORMAT format)
+	{
+		return CALL(GetDLTextureFormat_t, 0xf28b90, format);
 	}
 }

@@ -4,12 +4,15 @@ namespace DLUT
 {
 	class DLReferenceCountObject
 	{
-		void** _vfptr;
 	protected:
 		int m_nRefCount;
 
 	public:
+		virtual void Destroy() = 0;
+
 		void Ref();
 		void Unref();
+
+		typedef void(__fastcall* Destroy_t)(DLReferenceCountObject*);
 	};
 }

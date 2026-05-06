@@ -359,9 +359,11 @@
     <ClInclude Include="Globals.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Graphics\Core\CGResource.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGTexture.cpp" />
     <ClCompile Include="Core\Graphics\DLDeviceContext.cpp" />
+    <ClCompile Include="Core\Graphics\DLGfxReferenceCountObject.cpp" />
     <ClCompile Include="Core\Graphics\DLTexture.cpp" />
     <ClCompile Include="Core\Graphics\DLVertexTypes.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLFontData.cpp" />

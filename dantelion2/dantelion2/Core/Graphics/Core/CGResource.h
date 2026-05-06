@@ -5,7 +5,11 @@ namespace DLCG2
 {
 	class CGResource
 	{
-		void** _vfptr;
+	public:
+		virtual ~CGResource();
+
+		typedef void(__fastcall* Destructor_t)(CGResource*);
+	protected:
 		DLKR::DLAllocator* m_pAllocator;
 		dl_int m_nRefCount;
 	};
