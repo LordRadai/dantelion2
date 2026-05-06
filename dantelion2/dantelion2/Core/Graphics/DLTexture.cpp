@@ -5,7 +5,7 @@ typedef DLGR::DLTextureFormat(_fastcall* GetDLTextureFormat_t)(DXGI_FORMAT);
 
 namespace DLGR
 {
-	DLTextureFormat DLTextureBase::GetTextureType() const
+	DLTextureFormat DLTextureBase::GetDLTextureFormat() const
 	{
 		DLCG2::CGTexture2D* pTexture = static_cast<DLCG2::CGTexture2D*>(this->m_pCGTexture);
 

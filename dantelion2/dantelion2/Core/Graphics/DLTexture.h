@@ -8,17 +8,13 @@ namespace DLGR
 	class DLTextureBase : public DLGPUResource
 	{
 	public:
-		virtual dl_int GetType() = 0;
-		virtual dl_bool IsEnabled() = 0;
-		virtual DLCG2::CGResource* GetCGResource() { return this->m_pCGTexture; }
-		virtual dl_int GetFormat() { return DLTEXTYPE_NONE; }
-		virtual void GetUserData() {}
+		virtual DLCG2::CGResource* GetCGResource() override { return this->m_pCGTexture; }
 
 		dl_uint GetWidth() const { return this->m_width; }
 		dl_uint GetHeight() const { return this->m_height; }
 		dl_uint GetMipMapLevelNum() const { return this->m_mipMapLevelNum; }
 
-		DLTextureFormat GetTextureType() const;
+		DLTextureFormat GetDLTextureFormat() const;
 		static DLTextureFormat GetDLTextureFormat(DXGI_FORMAT format);
 
     protected:
