@@ -47,7 +47,7 @@ namespace DLGR
         DLTEXFMT_LIN_BC4,
         DLTEXFMT_BC6H,
         DLTEXFMT_LIN_BC6H,
-        DLTEXFMT_BC47,
+        DLTEXFMT_BC7,
         DLTEXFMT_LIN_BC7,
 
         DLTEXFMT_A8,
