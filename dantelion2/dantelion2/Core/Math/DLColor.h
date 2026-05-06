@@ -15,5 +15,15 @@ namespace DLMT2
 		dl_uchar B;
 		dl_uchar G;
 		dl_uchar R;
+
+		bool operator!=(const DL_COLOR_U8& other) const
+		{
+			return this->A != other.A || this->B != other.B || this->G != other.G || this->R != other.R;
+		}
+
+		bool operator==(const DL_COLOR_U8& other) const
+		{
+			return this->A == other.A && this->B == other.B && this->G == other.G && this->R == other.R;
+		}
 	};
 }
