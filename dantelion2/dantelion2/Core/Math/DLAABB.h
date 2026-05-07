@@ -93,5 +93,3 @@ namespace DLMT
         DL_VECTOR4AL m_Max;
 	};
 }
-
-#include "DLAABB.inl"
