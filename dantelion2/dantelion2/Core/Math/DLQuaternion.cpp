@@ -170,11 +170,6 @@ namespace DLMT
     // Static constructors
     // -------------------------------------------------------------------------
 
-    DL_QUATERNION DL_QUATERNION::Identity()
-    {
-        return DL_QUATERNION(0.0f, 0.0f, 0.0f, 1.0f);
-    }
-
     DL_QUATERNION DL_QUATERNION::FromAxisAngle(const DL_VECTOR3& axis, dl_float32 radians)
     {
         dl_float32 halfAngle = radians * 0.5f;
