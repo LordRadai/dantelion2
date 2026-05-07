@@ -291,6 +291,7 @@
     <ClInclude Include="Core\Math\DLQuaternion.h" />
     <ClInclude Include="Core\Math\DLRect.h" />
     <ClInclude Include="Core\Math\DLVector.h" />
+    <ClInclude Include="Core\Math\DLAABB.h" />
     <ClInclude Include="Core\Math\Math.h" />
     <ClInclude Include="Core\Network\Network.h" />
     <ClInclude Include="Core\Network\NRExternalVoiceListener\NRExternalVoiceListener.h" />
@@ -383,6 +384,7 @@
     <ClCompile Include="Core\Logging\DLLogger.cpp" />
     <ClCompile Include="Core\Logging\DLLogManager.cpp" />
     <ClCompile Include="Core\Logging\DLLogManagerImpl.cpp" />
+    <ClCompile Include="Core\Math\DLAABB.inl" />
     <ClCompile Include="Core\Math\DLMatrix.cpp" />
     <ClCompile Include="Core\Math\DLQuaternion.cpp" />
     <ClCompile Include="Core\Math\DLVector.cpp" />

@@ -2,6 +2,7 @@
 #include <algorithm>
 
 #include "DLVector.h"
+#include "DLMatrix.h"
 
 namespace DLMT
 {
@@ -159,6 +160,46 @@ namespace DLMT
     DL_VECTOR2 DL_VECTOR2::operator+() const
     {
         return *this;
+    }
+
+    DL_VECTOR2 DL_VECTOR2::operator*(const DL_MATRIX22& other) const
+    {
+        return DL_VECTOR2(
+            this->x * other.m00 + this->y * other.m10,
+            this->x * other.m01 + this->y * other.m11
+        );
+	}
+
+    DL_VECTOR2 DL_VECTOR2::operator*(const DL_MATRIX33& other) const
+    {
+        return DL_VECTOR2(
+            this->x * other.m00 + this->y * other.m10 + other.m20,
+            this->x * other.m01 + this->y * other.m11 + other.m21
+        );
+	}
+
+    DL_VECTOR2 DL_VECTOR2::operator*(const DL_MATRIX34& other) const
+    {
+        return DL_VECTOR2(
+            this->x * other.m00 + this->y * other.m10 + other.m20,
+            this->x * other.m01 + this->y * other.m11 + other.m21
+        );
+    }
+
+    DL_VECTOR2 DL_VECTOR2::operator*(const DL_MATRIX44& other) const
+    {
+        return DL_VECTOR2(
+            this->x * other.m00 + this->y * other.m10 + other.m20,
+            this->x * other.m01 + this->y * other.m11 + other.m21
+        );
+	}
+
+	DL_VECTOR2 DL_VECTOR2::operator*(const DL_MATRIX43& other) const
+    {
+        return DL_VECTOR2(
+            this->x * other.m00 + this->y * other.m10 + other.m20,
+            this->x * other.m01 + this->y * other.m11 + other.m21
+        );
     }
 
     bool DL_VECTOR2::operator==(const DL_VECTOR2& other) const
@@ -356,6 +397,42 @@ namespace DLMT
         return *this;
     }
 
+    DL_VECTOR3 DL_VECTOR3::operator*(const DL_MATRIX33& other) const
+    {
+        return DL_VECTOR3(
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22
+        );
+    }
+
+    DL_VECTOR3 DL_VECTOR3::operator*(const DL_MATRIX34& other) const
+    {
+        return DL_VECTOR3(
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22
+        );
+	}
+
+    DL_VECTOR3 DL_VECTOR3::operator*(const DL_MATRIX44& other) const
+    {
+        return DL_VECTOR3(
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22
+        );
+	}
+
+    DL_VECTOR3 DL_VECTOR3::operator*(const DL_MATRIX43& other) const
+    {
+        return DL_VECTOR3(
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22
+        );
+	}
+
     bool DL_VECTOR3::operator==(const DL_VECTOR3& other) const
     {
         return this->x == other.x && this->y == other.y && this->z == other.z;
@@ -527,6 +604,55 @@ namespace DLMT
     DL_VECTOR4 DL_VECTOR4::operator+() const
     {
         return *this;
+    }
+
+    DL_VECTOR4 DL_VECTOR4::operator*(const DL_MATRIX22& other) const
+    {
+        return DL_VECTOR4(
+            this->x * other.m00 + this->y * other.m10,
+            this->x * other.m01 + this->y * other.m11,
+            this->z,
+            this->w
+        );
+    }
+
+    DL_VECTOR4 DL_VECTOR4::operator*(const DL_MATRIX33& other) const
+    {
+        return DL_VECTOR4(
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22,
+            this->w
+        );
+	}
+
+    DL_VECTOR4 DL_VECTOR4::operator*(const DL_MATRIX34& other) const
+    {
+        return DL_VECTOR4(
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22,
+            this->x * other.m03 + this->y * other.m13 + this->z * other.m23 + this->w * 1.f);
+    }
+
+    DL_VECTOR4 DL_VECTOR4::operator*(const DL_MATRIX44& other) const
+    {
+        return DL_VECTOR4(
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20 + this->w * other.m30,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21 + this->w * other.m31,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22 + this->w * other.m32,
+            this->x * other.m03 + this->y * other.m13 + this->z * other.m23 + this->w * other.m33
+        );
+	}
+
+    DL_VECTOR4 DL_VECTOR4::operator*(const DL_MATRIX43& other) const
+    {
+        return DL_VECTOR4(
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20 + this->w * other.m30,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21 + this->w * other.m31,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22 + this->w * other.m32,
+            this->x * other.m30 + this->y * other.m31 + this->z * other.m32 + this->w * 1.f
+		);
     }
 
     bool DL_VECTOR4::operator==(const DL_VECTOR4& other) const

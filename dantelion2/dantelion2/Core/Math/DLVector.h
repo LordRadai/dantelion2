@@ -6,10 +6,19 @@ namespace DLMT
 	struct DL_VECTOR3;
 	struct DL_VECTOR4;
 
+	struct DL_MATRIX22;
+	struct DL_MATRIX33;
+	struct DL_MATRIX34;
+	struct DL_MATRIX43;
+	struct DL_MATRIX44;
+
     struct DL_VECTOR2
     {
-        dl_float32 x;
-        dl_float32 y;
+        union
+        {
+             struct { dl_float32 x, y; };
+			 dl_float32 v[2];
+        };
 
         DL_VECTOR2() = default;
         DL_VECTOR2(dl_float32 x, dl_float32 y) : x(x), y(y) {}
@@ -61,9 +70,18 @@ namespace DLMT
         DL_VECTOR2  operator-() const;
         DL_VECTOR2  operator+() const;
 
+		DL_VECTOR2 operator*(const DL_MATRIX22& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX33& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX34& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX44& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX43& other) const;
+
         // Comparison operators
         dl_bool        operator==(const DL_VECTOR2& other) const;
         dl_bool        operator!=(const DL_VECTOR2& other) const;
+
+        inline dl_float32& operator[](dl_uint32 index) { return v[index]; }
+        inline const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
     };
 
     // Free-function scalar operators
@@ -75,19 +93,22 @@ namespace DLMT
     {
         DL_VECTOR2AL() = default;
 		DL_VECTOR2AL(dl_float32 x, dl_float32 y) : DL_VECTOR2(x, y) {}
+		DL_VECTOR2AL(DL_VECTOR2& vec) : DL_VECTOR2(vec) {}
 	};
 
     struct DL_VECTOR3
     {
-        dl_float32 x;
-        dl_float32 y;
-        dl_float32 z;
+        union
+        {
+			struct { dl_float32 x, y, z; };
+			dl_float32 v[3];
+        };
 
         DL_VECTOR3() = default;
         DL_VECTOR3(dl_float32 x, dl_float32 y, dl_float32 z) : x(x), y(y), z(z) {}
+        DL_VECTOR3(const DL_VECTOR4& v);
 
         explicit DL_VECTOR3(const DL_VECTOR2& v, dl_float32 z = 0.0f) : x(v.x), y(v.y), z(z) {}
-        DL_VECTOR3(const DL_VECTOR4& v);
 
         // Math operations
         dl_float32  Dot(const DL_VECTOR3& other) const;
@@ -140,9 +161,18 @@ namespace DLMT
         DL_VECTOR3  operator-() const;
         DL_VECTOR3  operator+() const;
 
+        DL_VECTOR3 operator*(const DL_MATRIX22& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX33& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX34& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX44& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX43& other) const;
+
         // Comparison operators
         dl_bool        operator==(const DL_VECTOR3& other) const;
         dl_bool        operator!=(const DL_VECTOR3& other) const;
+
+        inline dl_float32& operator[](dl_uint32 index) { return v[index]; }
+        inline const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
     };
 
     DL_VECTOR3 operator*(dl_float32 scalar, const DL_VECTOR3& vec);
@@ -153,15 +183,18 @@ namespace DLMT
     {
         DL_VECTOR3AL() = default;
         DL_VECTOR3AL(dl_float32 x, dl_float32 y, dl_float32 z) : DL_VECTOR3(x, y, z) {}
+        DL_VECTOR3AL(const DL_VECTOR3& vec) : DL_VECTOR3(vec) {}
+
 		explicit DL_VECTOR3AL(const DL_VECTOR2& v, dl_float32 z = 0.0f) : DL_VECTOR3(v, z) {}
 	};
 
     struct DL_VECTOR4
     {
-        dl_float32 x;
-        dl_float32 y;
-        dl_float32 z;
-        dl_float32 w;
+        union
+        {
+			struct { dl_float32 x, y, z, w; };
+			dl_float32 v[4];
+        };
 
         DL_VECTOR4() = default;
         DL_VECTOR4(dl_float32 x, dl_float32 y, dl_float32 z, dl_float32 w) : x(x), y(y), z(z), w(w) {}
@@ -204,6 +237,8 @@ namespace DLMT
 		static DL_VECTOR4 UnitZ() { return DL_VECTOR4(0.0f, 0.0f, 1.0f, 0.0f); }
 		static DL_VECTOR4 UnitW() { return DL_VECTOR4(0.0f, 0.0f, 0.0f, 1.0f); }
 
+		static DL_VECTOR4 Half() { return DL_VECTOR4(0.5f, 0.5f, 0.5f, 0.5f); }
+
         // Compound assignment operators
         DL_VECTOR4& operator+=(const DL_VECTOR4& other);
         DL_VECTOR4& operator-=(const DL_VECTOR4& other);
@@ -218,9 +253,18 @@ namespace DLMT
         DL_VECTOR4  operator-() const;
         DL_VECTOR4  operator+() const;
 
+        DL_VECTOR4 operator*(const DL_MATRIX22& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX33& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX34& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX44& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX43& other) const;
+
         // Comparison operators
         bool        operator==(const DL_VECTOR4& other) const;
         bool        operator!=(const DL_VECTOR4& other) const;
+
+        inline dl_float32& operator[](dl_uint32 index) { return v[index]; }
+        inline const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
     };
 
     DL_VECTOR4 operator*(dl_float32 scalar, const DL_VECTOR4& vec);
@@ -231,6 +275,8 @@ namespace DLMT
     {
 		DL_VECTOR4AL() = default;
         DL_VECTOR4AL(dl_float32 x, dl_float32 y, dl_float32 z, dl_float32 w) : DL_VECTOR4(x, y, z, w) {}
+        DL_VECTOR4AL(const DL_VECTOR4& vec) : DL_VECTOR4(vec) {}
+
         explicit DL_VECTOR4AL(const DL_VECTOR2& v, dl_float32 z = 0.0f, dl_float32 w = 0.0f) : DL_VECTOR4(v, z, w) {}
 		explicit DL_VECTOR4AL(const DL_VECTOR3& v, dl_float32 w = 0.0f) : DL_VECTOR4(v, w) {}
 	};
