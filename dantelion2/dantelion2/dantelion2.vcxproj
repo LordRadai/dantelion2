@@ -216,6 +216,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Assert\DLAssert.h" />
     <ClInclude Include="Core\Graphics\Core\CGBuffer.h" />
     <ClInclude Include="Core\Graphics\Core\CGDepthStencilView.h" />
     <ClInclude Include="Core\Graphics\Core\CGRenderTargetView.h" />
@@ -321,6 +322,7 @@
     <ClInclude Include="Core\Resource\DLResourceLoadEventQueue.h" />
     <ClInclude Include="Core\Resource\Resource.h" />
     <ClInclude Include="Core\System\DLAssertEventManager.h" />
+    <ClInclude Include="Core\System\DLExitEventListener.h" />
     <ClInclude Include="Core\System\DLRealTimeServiceManager.h" />
     <ClInclude Include="Core\System\DLRuntime.h" />
     <ClInclude Include="Core\System\DLStdInputStream.h" />
@@ -353,12 +355,14 @@
     <ClInclude Include="Core\Util\DLSet.h" />
     <ClInclude Include="Core\Util\DLTypeManipulation.h" />
     <ClInclude Include="Core\Util\DLVector.h" />
+    <ClInclude Include="Core\Util\PODVector.h" />
     <ClInclude Include="Core\Util\Util.h" />
     <ClInclude Include="dantelion2.h" />
     <ClInclude Include="Call.h" />
     <ClInclude Include="Globals.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Assert\DLAssert.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGResource.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGTexture.cpp" />

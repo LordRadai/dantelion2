@@ -3,19 +3,69 @@
 
 namespace DLSY
 {
-#define DL_RUNTIME *(DLSY::DLRuntime**)(MODULE_ADDR + 0x16681b8);
+#define DL_RUNTIME (DLRuntime*)(MODULE_ADDR + 0x16681d0);
 
-	typedef const dl_wchar*(_fastcall* oGetVersionString)(DLRuntime*);
-	typedef DLKR::DLAllocator* (_fastcall* oGetDefaultAllocator)(DLRuntime*);
+	typedef DLRuntimeImpl* (__fastcall* GetRuntimeImpl_t)();
 
 	void DLRuntime::InvokeDebugger()
 	{
 		__debugbreak();
 	};
 
-	const dl_wchar* DLRuntime::GetVersionString()
+	DLRuntime* DLRuntime::GetRuntime()
 	{
-		return VIRTUAL_CALL(this, 5, oGetVersionString, this);
+		return DL_RUNTIME;
+	}
+
+	dl_bool DLRuntime::AddExitEventListener(DLExitEventListener* pListener, DLExitEventPriority priority)
+	{
+		return CALL(AddExitEventListener_t, 0x846140, this, pListener, priority);
+	}
+
+	dl_bool DLRuntime::AddExitEventProc(DLExitEventProc pFn, DLExitEventPriority priority)
+	{
+		return CALL(AddExitEventProc_t, 0x846170, this, pFn, priority);
+	}
+
+	DLAssertEventManager* DLRuntimeImpl::GetAssertEventManager() const
+	{
+		return CALL(GetAssertEventManager_t, 0x8461a0, this);
+	}
+
+	DLRealTimeServiceManager* DLRuntimeImpl::GetRealTimeServiceManager() const
+	{
+		return CALL(GetRealTimeServiceManager_t, 0x846220, this);
+	}
+
+	DLUT::DLProperties* DLRuntimeImpl::GetProperties() const
+	{
+		return CALL(GetProperties_t, 0x8462f0, this);
+	}
+
+	const dl_wchar* DLRuntimeImpl::GetVersionString() const
+	{
+		return CALL(GetVersionString_t, 0x846270, this);
+	}
+
+	void DLRuntimeImpl::Exit(dl_int8 exitCode)
+	{
+		CALL(Exit_t, 0x8462b0, this, exitCode);
+	}
+
+	void DLRuntimeImpl::SetDefaultAllocator(DLKR::DLAllocator* pAllocator)
+	{
+		CALL(SetDefaultAllocator_t, 0x8462d0, this, pAllocator);
+	}
+
+	dl_bool DLRuntimeImpl::MountCacheDisk(dl_bool param_1)
+	{
+		this->m_bMountedCacheDisk = true;
+		return true;
+	}
+
+	DLRuntimeImpl::~DLRuntimeImpl()
+	{
+		CALL(Destructor_t, 0x846870, this);
 	}
 
 	DLKR::DLAllocator* DLRuntime::GetDefaultAllocator()
@@ -23,13 +73,8 @@ namespace DLSY
 		return RUNTIME_ALLOCATOR;
 	}
 
-	DLRuntime* DLRuntime::GetDLRuntime()
+	DLRuntimeImpl* DLRuntimeImpl::GetRuntimeImpl()
 	{
-		return DL_RUNTIME;
-	}
-
-	DLRuntimeImpl* DLRuntimeImpl::GetDLRuntime()
-	{
-		return static_cast<DLRuntimeImpl*>(DLRuntime::GetDLRuntime());
+		return CALL(GetRuntimeImpl_t, 0x846370);
 	}
 }

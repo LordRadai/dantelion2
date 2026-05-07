@@ -438,6 +438,15 @@
     <ClInclude Include="Core\Math\DLRect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\System\DLExitEventListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Util\PODVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Assert\DLAssert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -543,6 +552,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Graphics\DLGfxReferenceCountObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Assert\DLAssert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
