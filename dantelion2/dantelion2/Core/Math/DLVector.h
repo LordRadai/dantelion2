@@ -109,9 +109,9 @@ namespace DLMT
         DL_VECTOR2  ToVector2() const;
 
         // State checks
-        dl_bool        IsNormalized(dl_float32 epsilon = DL_EPSILON) const;
-        dl_bool        IsZero(dl_float32 epsilon = DL_EPSILON) const;
-        dl_bool        Equals(const DL_VECTOR3& other, dl_float32 epsilon = DL_EPSILON) const;
+        dl_bool        IsNormalized(dl_float32 epsilon = 1e-6f) const;
+        dl_bool        IsZero(dl_float32 epsilon = 1e-6f) const;
+        dl_bool        Equals(const DL_VECTOR3& other, dl_float32 epsilon = 1e-6f) const;
 
         // Static constants
 		static DL_VECTOR3 Zero() { return DL_VECTOR3(0.0f, 0.0f, 0.0f); }

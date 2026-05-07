@@ -285,7 +285,7 @@
     <ClInclude Include="Core\Logging\DLLogManager.h" />
     <ClInclude Include="Core\Logging\DLLogManagerImpl.h" />
     <ClInclude Include="Core\Logging\Logging.h" />
-    <ClInclude Include="Core\Math\Common.h" />
+    <ClInclude Include="Core\Math\DLConstants.h" />
     <ClInclude Include="Core\Math\DLColor.h" />
     <ClInclude Include="Core\Math\DLMatrix.h" />
     <ClInclude Include="Core\Math\DLQuaternion.h" />

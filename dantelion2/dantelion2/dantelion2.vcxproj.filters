@@ -447,7 +447,7 @@
     <ClInclude Include="Core\Assert\DLAssert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Math\Common.h">
+    <ClInclude Include="Core\Math\DLConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
