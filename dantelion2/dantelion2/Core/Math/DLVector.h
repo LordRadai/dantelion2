@@ -1,6 +1,5 @@
 #pragma once
 #include "Core/Platform/Platform.h"
-#include "Common.h"
 
 namespace DLMT
 {
