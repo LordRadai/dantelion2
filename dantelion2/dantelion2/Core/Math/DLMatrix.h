@@ -89,8 +89,6 @@ namespace DLMT
         void GetRow(DL_VECTOR2& vOut, dl_uint32 r) const;
         DL_VECTOR2 GetCol(dl_uint32 c) const;
         void GetCol(DL_VECTOR2& vOut, dl_uint32 c) const;
-
-        static DL_MATRIX22 DL_IDENTITY_MATRIX;
     };
 
     struct DL_MATRIX33
@@ -175,8 +173,6 @@ namespace DLMT
         void GetRow(DL_VECTOR3& vOut, dl_uint32 r) const;
         DL_VECTOR3 GetCol(dl_uint32 c) const;
         void GetCol(DL_VECTOR3& vOut, dl_uint32 c) const;
-
-        static DL_MATRIX33 DL_IDENTITY_MATRIX;
     };
 
     struct DL_MATRIX34
@@ -261,8 +257,6 @@ namespace DLMT
         void GetRow(DL_VECTOR4AL& vOut, dl_uint32 r) const;
         DL_VECTOR3AL GetCol(dl_uint32 c) const;
         void GetCol(DL_VECTOR3AL& vOut, dl_uint32 c) const;
-
-        static DL_MATRIX34 DL_IDENTITY_MATRIX;
     };
 
     struct DL_MATRIX43
@@ -348,8 +342,6 @@ namespace DLMT
         DL_VECTOR4AL& GetCol(dl_uint32 c);
         const DL_VECTOR4AL& GetCol(dl_uint32 c) const;
         void GetCol(DL_VECTOR4AL& vOut, dl_uint32 c) const;
-
-        static DL_MATRIX43 DL_IDENTITY_MATRIX;
     };
 
     struct DL_MATRIX44
@@ -437,7 +429,30 @@ namespace DLMT
         void GetRow(DL_VECTOR4AL& vOut, dl_uint32 r) const;
         DL_VECTOR4AL GetCol(dl_uint32 c) const;
         void GetCol(DL_VECTOR4AL& vOut, dl_uint32 c) const;
-
-        static DL_MATRIX44 DL_IDENTITY_MATRIX;
     };
+
+    static DL_MATRIX22 DL_IDENTITY_MATRIX22 = 
+        DL_MATRIX22(1.0f, 0.0f,
+		            0.0f, 1.0f);
+
+	static DL_MATRIX33 DL_IDENTITY_MATRIX33 =
+        DL_MATRIX33(1.0f, 0.0f, 0.0f,
+                    0.0f, 1.0f, 0.0f,
+			        0.0f, 0.0f, 1.0f);
+
+    static DL_MATRIX34 DL_IDENTITY_MATRIX34 =
+        DL_MATRIX34(1.0f, 0.0f, 0.0f, 0.0f,
+                    0.0f, 1.0f, 0.0f, 0.0f,
+			        0.0f, 0.0f, 1.0f, 0.0f);
+
+	static DL_MATRIX43 DL_IDENTITY_MATRIX43 =
+        DL_MATRIX43(1.0f, 0.0f, 0.0f, 0.0f,
+                    0.0f, 1.0f, 0.0f, 0.0f,
+			        0.0f, 0.0f, 1.0f, 0.0f);
+
+    static DL_MATRIX44 DL_IDENTITY_MATRIX44 =
+        DL_MATRIX44(1.0f, 0.0f, 0.0f, 0.0f,
+                    0.0f, 1.0f, 0.0f, 0.0f,
+                    0.0f, 0.0f, 1.0f, 0.0f,
+			        0.0f, 0.0f, 0.0f, 1.0f);
 }

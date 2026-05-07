@@ -222,23 +222,6 @@ namespace DLMT
         bool        IsZero(dl_float32 epsilon = 1e-6f) const;
         bool        Equals(const DL_VECTOR4& other, dl_float32 epsilon = 1e-6f) const;
 
-        // Static constants
-		static DL_VECTOR4 Zero() { return DL_VECTOR4(0.0f, 0.0f, 0.0f, 0.0f); }
-		static DL_VECTOR4 One() { return DL_VECTOR4(1.0f, 1.0f, 1.0f, 1.0f); }
-		static DL_VECTOR4 Up() { return DL_VECTOR4(0.0f, 1.0f, 0.0f, 0.0f); }
-		static DL_VECTOR4 Down() { return DL_VECTOR4(0.0f, -1.0f, 0.0f, 0.0f); }
-		static DL_VECTOR4 Left() { return DL_VECTOR4(-1.0f, 0.0f, 0.0f, 0.0f); }
-		static DL_VECTOR4 Right() { return DL_VECTOR4(1.0f, 0.0f, 0.0f, 0.0f); }
-		static DL_VECTOR4 Forward() { return DL_VECTOR4(0.0f, 0.0f, 1.0f, 0.0f); }
-		static DL_VECTOR4 Backward() { return DL_VECTOR4(0.0f, 0.0f, -1.0f, 0.0f); }
-
-		static DL_VECTOR4 UnitX() { return DL_VECTOR4(1.0f, 0.0f, 0.0f, 0.0f); }
-		static DL_VECTOR4 UnitY() { return DL_VECTOR4(0.0f, 1.0f, 0.0f, 0.0f); }
-		static DL_VECTOR4 UnitZ() { return DL_VECTOR4(0.0f, 0.0f, 1.0f, 0.0f); }
-		static DL_VECTOR4 UnitW() { return DL_VECTOR4(0.0f, 0.0f, 0.0f, 1.0f); }
-
-		static DL_VECTOR4 Half() { return DL_VECTOR4(0.5f, 0.5f, 0.5f, 0.5f); }
-
         // Compound assignment operators
         DL_VECTOR4& operator+=(const DL_VECTOR4& other);
         DL_VECTOR4& operator-=(const DL_VECTOR4& other);
@@ -280,4 +263,31 @@ namespace DLMT
         explicit DL_VECTOR4AL(const DL_VECTOR2& v, dl_float32 z = 0.0f, dl_float32 w = 0.0f) : DL_VECTOR4(v, z, w) {}
 		explicit DL_VECTOR4AL(const DL_VECTOR3& v, dl_float32 w = 0.0f) : DL_VECTOR4(v, w) {}
 	};
+
+	static DL_VECTOR2 DL_VECTOR2_ZERO = DL_VECTOR2(0.0f, 0.0f);
+	static DL_VECTOR3 DL_VECTOR3_ZERO = DL_VECTOR3(0.0f, 0.0f, 0.0f);
+    static DL_VECTOR4 DL_VECTOR4_ZERO = DL_VECTOR4(0.0f, 0.0f, 0.0f, 0.0f);
+
+	static DL_VECTOR2 DL_VECTOR2_ONE = DL_VECTOR2(1.0f, 1.0f);
+	static DL_VECTOR3 DL_VECTOR3_ONE = DL_VECTOR3(1.0f, 1.0f, 1.0f);
+	static DL_VECTOR4 DL_VECTOR4_ONE = DL_VECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
+
+	static DL_VECTOR3 DL_VECTOR3_UP = DL_VECTOR3(0.0f, 1.0f, 0.0f);
+	static DL_VECTOR3 DL_VECTOR3_DOWN = DL_VECTOR3(0.0f, -1.0f, 0.0f);
+	static DL_VECTOR3 DL_VECTOR3_LEFT = DL_VECTOR3(-1.0f, 0.0f, 0.0f);
+	static DL_VECTOR3 DL_VECTOR3_RIGHT = DL_VECTOR3(1.0f, 0.0f, 0.0f);
+	static DL_VECTOR3 DL_VECTOR3_FORWARD = DL_VECTOR3(0.0f, 0.0f, 1.0f);
+	static DL_VECTOR3 DL_VECTOR3_BACKWARD = DL_VECTOR3(0.0f, 0.0f, -1.0f);
+
+	static DL_VECTOR2 DL_VECTOR2_UNITX = DL_VECTOR2(1.0f, 0.0f);
+	static DL_VECTOR2 DL_VECTOR2_UNITY = DL_VECTOR2(0.0f, 1.0f);
+
+	static DL_VECTOR3 DL_VECTOR3_UNITX = DL_VECTOR3(1.0f, 0.0f, 0.0f);
+	static DL_VECTOR3 DL_VECTOR3_UNITY = DL_VECTOR3(0.0f, 1.0f, 0.0f);
+	static DL_VECTOR3 DL_VECTOR3_UNITZ = DL_VECTOR3(0.0f, 0.0f, 1.0f);
+
+	static DL_VECTOR4 DL_VECTOR4_UNITX = DL_VECTOR4(1.0f, 0.0f, 0.0f, 0.0f);
+	static DL_VECTOR4 DL_VECTOR4_UNITY = DL_VECTOR4(0.0f, 1.0f, 0.0f, 0.0f);
+	static DL_VECTOR4 DL_VECTOR4_UNITZ = DL_VECTOR4(0.0f, 0.0f, 1.0f, 0.0f);
+	static DL_VECTOR4 DL_VECTOR4_UNITW = DL_VECTOR4(0.0f, 0.0f, 0.0f, 1.0f);
 }

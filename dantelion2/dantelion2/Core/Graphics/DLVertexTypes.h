@@ -6,8 +6,8 @@ namespace DLGR
 	class DLVertexPositionColor
 	{
 	public:
-		DLMT::DL_VECTOR4 m_position = DLMT::DL_VECTOR4::Zero();
-		DLMT::DL_VECTOR4 m_color = DLMT::DL_VECTOR4::Zero();
+		DLMT::DL_VECTOR3 m_position = DLMT::DL_VECTOR3_ZERO;
+		DLMT::DL_VECTOR4 m_color = DLMT::DL_VECTOR4_ZERO;
 
 		DLVertexPositionColor() {}
 		DLVertexPositionColor(DLMT::DL_VECTOR3 position, DLMT::DL_COLOR_F4 color);
@@ -18,9 +18,9 @@ namespace DLGR
 	class DLVertexPositionColorNormal
 	{
 	public:
-		DLMT::DL_VECTOR4 m_position = DLMT::DL_VECTOR4::Zero();
-		DLMT::DL_VECTOR4 m_color = DLMT::DL_VECTOR4::Zero();
-		DLMT::DL_VECTOR4 m_normal = DLMT::DL_VECTOR4::UnitZ();
+		DLMT::DL_VECTOR3AL m_position = DLMT::DL_VECTOR3_ZERO;
+		DLMT::DL_VECTOR4AL m_color = DLMT::DL_VECTOR4_ZERO;
+		DLMT::DL_VECTOR3AL m_normal = DLMT::DL_VECTOR3_UNITZ;
 
 		DLVertexPositionColorNormal() {}
 
