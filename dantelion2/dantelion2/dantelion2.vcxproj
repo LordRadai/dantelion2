@@ -285,6 +285,7 @@
     <ClInclude Include="Core\Logging\DLLogManager.h" />
     <ClInclude Include="Core\Logging\DLLogManagerImpl.h" />
     <ClInclude Include="Core\Logging\Logging.h" />
+    <ClInclude Include="Core\Math\Common.h" />
     <ClInclude Include="Core\Math\DLColor.h" />
     <ClInclude Include="Core\Math\DLMatrix.h" />
     <ClInclude Include="Core\Math\DLQuaternion.h" />
@@ -384,6 +385,7 @@
     <ClCompile Include="Core\Logging\DLLogManagerImpl.cpp" />
     <ClCompile Include="Core\Math\DLMatrix.cpp" />
     <ClCompile Include="Core\Math\DLQuaternion.cpp" />
+    <ClCompile Include="Core\Math\DLVector.cpp" />
     <ClCompile Include="Core\Platform\GeneralUtility.cpp" />
     <ClCompile Include="Core\Reflection\DLRuntimeClass.cpp" />
     <ClCompile Include="Core\Resource\detail\FileLoader.cpp" />
@@ -407,6 +409,7 @@
     <None Include="Core\Kernel\DLSmallObjectWrapper.inl" />
     <None Include="Core\Kernel\DLStdAllocator.inl" />
     <None Include="Core\Logging\DLLogLevel.inl" />
+    <None Include="Core\Math\DLColor.inl" />
     <None Include="Core\Reflection\DLMethodInvoker.inl" />
     <None Include="Core\Reflection\DLMethodResolver.inl" />
     <None Include="Core\Reflection\DLRuntimeClassImpl.inl" />
@@ -422,16 +425,7 @@
     <None Include="Core\UserInput\DLUserInputDevice.inl" />
     <None Include="Core\UserInput\DLUserInputMapper.inl" />
     <None Include="Core\UserInput\DLUserInputTraits.inl" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\..\packages\directxtk_uwp.2025.10.28.2\build\native\directxtk_uwp.targets" Condition="Exists('..\..\..\packages\directxtk_uwp.2025.10.28.2\build\native\directxtk_uwp.targets')" />
-  </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\packages\directxtk_uwp.2025.10.28.2\build\native\directxtk_uwp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\directxtk_uwp.2025.10.28.2\build\native\directxtk_uwp.targets'))" />
-  </Target>
+  <ImportGroup Label="ExtensionTargets" />
 </Project>

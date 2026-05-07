@@ -447,6 +447,9 @@
     <ClInclude Include="Core\Assert\DLAssert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Math\Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -557,6 +560,9 @@
     <ClCompile Include="Core\Assert\DLAssert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Math\DLVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Core\Kernel\detail\HeapAllocator.inl">
@@ -625,6 +631,8 @@
     <None Include="Core\UserInput\DLUserInputTraits.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="packages.config" />
+    <None Include="Core\Math\DLColor.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
