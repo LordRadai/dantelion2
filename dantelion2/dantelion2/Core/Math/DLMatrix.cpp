@@ -3,6 +3,32 @@
 
 namespace DLMT
 {
+	DL_MATRIX22 DL_MATRIX22::DL_IDENTITY_MATRIX = 
+        DL_MATRIX22(1.0f, 0.0f, 
+                    0.0f, 1.0f);
+
+    DL_MATRIX33 DL_MATRIX33::DL_IDENTITY_MATRIX = 
+        DL_MATRIX33(1.0f, 0.0f, 0.0f,
+                    0.0f, 1.0f, 0.0f,
+		            0.0f, 0.0f, 1.0f);
+
+    DL_MATRIX34 DL_MATRIX34::DL_IDENTITY_MATRIX = 
+        DL_MATRIX34(1.0f, 0.0f, 0.0f, 0.0f,
+                    0.0f, 1.0f, 0.0f, 0.0f,
+		            0.0f, 0.0f, 1.0f, 0.0f);
+
+    DL_MATRIX43 DL_MATRIX43::DL_IDENTITY_MATRIX = 
+        DL_MATRIX43(1.0f, 0.0f, 0.0f,
+		            0.0f, 1.0f, 0.0f,
+		            0.0f, 0.0f, 1.0f,
+		            0.0f, 0.0f, 0.0f);
+
+    DL_MATRIX44 DL_MATRIX44::DL_IDENTITY_MATRIX = 
+        DL_MATRIX44(1.0f, 0.0f, 0.0f, 0.0f,
+		            0.0f, 1.0f, 0.0f, 0.0f,
+		            0.0f, 0.0f, 1.0f, 0.0f,
+                    0.0f, 0.0f, 0.0f, 1.0f);
+
     DL_MATRIX22::DL_MATRIX22(DL_MATRIX44_PARAMTYPE rhs) : m00(rhs.m00), m01(rhs.m01), m10(rhs.m10), m11(rhs.m11) {}
     DL_MATRIX22::DL_MATRIX22(DL_MATRIX43_PARAMTYPE rhs) : m00(rhs.m00), m01(rhs.m01), m10(rhs.m10), m11(rhs.m11) {}
     DL_MATRIX22::DL_MATRIX22(DL_MATRIX34_PARAMTYPE rhs) : m00(rhs.m00), m01(rhs.m01), m10(rhs.m10), m11(rhs.m11) {}
