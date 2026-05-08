@@ -10,9 +10,8 @@ namespace DLUT
 
 	class DLProperties : public DLUT::DLSet<DLProperty>
 	{
-	public:
-		DLProperties() {}
-		DLProperties(DLKR::DLAllocator* pAllocator);
+	public:	
+		DLProperties(DLKR::DLAllocator* pAllocator = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost());
 
 		dl_int GetInteger(DLTX::DLString name, dl_int defaultValue);
 		dl_bool GetBoolean(DLTX::DLString name, dl_bool defaultValue);

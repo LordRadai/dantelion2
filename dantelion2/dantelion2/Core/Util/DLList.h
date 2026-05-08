@@ -4,26 +4,19 @@
 
 namespace DLUT
 {
-	template<class T>
-	class DLList : public std::list<T>
+	template<class T, class AllocHost = DLKR::DLAllocator>
+	class DLList : public std::list<T, DLKR::DLStdAllocator<T, AllocHost>>
 	{
-		typedef ::std::list<T> SuperClass;
-
-		DLKR::DLAllocator* m_pAllocator;
+		typedef DLKR::DLStdAllocator<T, AllocHost> Allocator;
+		typedef ::std::list<T, DLKR::DLStdAllocator<T, AllocHost>> SuperClass;
 	public:
-		DLList() : SuperClass() {}
-		DLList(DLKR::DLAllocator* pAllocator) : SuperClass(), m_pAllocator(pAllocator) {}
-		DLList(const DLList& other) : SuperClass(other), m_pAllocator(other.m_pAllocator) {}
-
-		DLList& operator=(const DLList& other)
-		{
-			if (this != &other)
-			{
-				SuperClass::operator=(other);
-				m_pAllocator = other.m_pAllocator;
-			}
-
-			return *this;
-		}
+		DLList(AllocHost* host = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost()) : SuperClass(Allocator(host)) {}
+		
+		DLList(dl_size n, const T& value = T(), AllocHost* host = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost()) : SuperClass(n, value, Allocator(host)) {}
+		
+		template<class InputIterator>
+		DLList(InputIterator first, InputIterator last, AllocHost* host = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost()) : SuperClass(first, last, Allocator(host)) {}
+		
+		DLList(const DLList<T, AllocHost>& x) : SuperClass(x) {}
 	};
 }
