@@ -342,7 +342,7 @@
     <ClInclude Include="Core\System\System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Text\DLCharSet.h">
+    <ClInclude Include="Core\Text\DLCharacterSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Text\DLFormat.h">

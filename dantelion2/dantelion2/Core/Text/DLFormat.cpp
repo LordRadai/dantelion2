@@ -3,20 +3,21 @@
 
 namespace DLTX
 {
-	typedef void(_fastcall* oFormatV)(DLString* pBuffer, const wchar_t* fmt, va_list args);
+	typedef dl_int(_fastcall* oFormatV)(DLString&, const dl_wchar*, va_list);
 
-	void DLFormat::Format(DLString* buf, const dl_wchar* fmt, ...)
+	dl_int DLFormat<dl_wchar>::Format(DLString& buf, const dl_wchar* fmt, ...)
 	{
 		va_list args;
 		va_start(args, fmt);
 
-		FormatV(buf, fmt, args);
+		dl_int v = FormatV(buf, fmt, args);
 
 		va_end(args);
+		return v;
 	}
 
-	void DLFormat::FormatV(DLString* buf, const dl_wchar* fmt, va_list args)
+	dl_int DLFormat<dl_wchar>::FormatV(DLString& buf, const dl_wchar* fmt, va_list args)
 	{
-		CALL(oFormatV, 0x296c0, buf, fmt, args);
+		return CALL(oFormatV, 0x296c0, buf, fmt, args);
 	}
 }

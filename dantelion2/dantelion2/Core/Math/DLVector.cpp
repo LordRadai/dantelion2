@@ -6,6 +6,11 @@
 
 namespace DLMT
 {
+    template<typename T>
+    constexpr const T& clamp(const T& v, const T& lo, const T& hi) {
+        return (v < lo) ? lo : (hi < v) ? hi : v;
+    }
+
     DL_VECTOR2::DL_VECTOR2(const DL_VECTOR3& v) : x(v.x), y(v.y) {}
     DL_VECTOR2::DL_VECTOR2(const DL_VECTOR4& v) : x(v.x), y(v.y) {}
 
@@ -79,8 +84,8 @@ namespace DLMT
     DL_VECTOR2 DL_VECTOR2::Clamp(const DL_VECTOR2& min, const DL_VECTOR2& max) const
     {
         return DL_VECTOR2(
-            ::std::clamp(this->x, min.x, max.x),
-            ::std::clamp(this->y, min.y, max.y)
+            clamp(this->x, min.x, max.x),
+            clamp(this->y, min.y, max.y)
         );
     }
 
@@ -275,7 +280,7 @@ namespace DLMT
         if (denom == 0.0f)
             return 0.0f;
 
-        return acosf(std::clamp(this->Dot(other) / denom, -1.0f, 1.0f));
+        return acosf(clamp(this->Dot(other) / denom, -1.0f, 1.0f));
     }
 
     DL_VECTOR3 DL_VECTOR3::Rotate(const DL_VECTOR3& axis, dl_float32 radians) const
@@ -302,9 +307,9 @@ namespace DLMT
     DL_VECTOR3 DL_VECTOR3::Clamp(const DL_VECTOR3& min, const DL_VECTOR3& max) const
     {
         return DL_VECTOR3(
-            std::clamp(this->x, min.x, max.x),
-            std::clamp(this->y, min.y, max.y),
-            std::clamp(this->z, min.z, max.z)
+            clamp(this->x, min.x, max.x),
+            clamp(this->y, min.y, max.y),
+            clamp(this->z, min.z, max.z)
         );
     }
 
@@ -491,10 +496,10 @@ namespace DLMT
     DL_VECTOR4 DL_VECTOR4::Clamp(const DL_VECTOR4& min, const DL_VECTOR4& max) const
     {
         return DL_VECTOR4(
-            std::clamp(this->x, min.x, max.x),
-            std::clamp(this->y, min.y, max.y),
-            std::clamp(this->z, min.z, max.z),
-            std::clamp(this->w, min.w, max.w)
+            clamp(this->x, min.x, max.x),
+            clamp(this->y, min.y, max.y),
+            clamp(this->z, min.z, max.z),
+            clamp(this->w, min.w, max.w)
         );
     }
 

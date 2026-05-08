@@ -44,7 +44,7 @@ namespace DLUT
 	template <class ParentFunctor, typename PointerToObj, typename PointerToMemFn>
 	class DLMemFunHandler : public ParentFunctor::Impl
 	{
-		typedef ParentFunctor::Impl Base;
+		typedef typename ParentFunctor::Impl Base;
 		typedef typename Base::ResultType ResultType;
 
 		PointerToObj pObj_;
@@ -55,6 +55,7 @@ namespace DLUT
 		= DLUTD::DLDefaultMemoryObjectModel< DLKR::DLSingleThreadingPolicy > >
 	class DLFunctor : public DLFunctorImplBase<R, MemoryObjectModel>
 	{
+	public:
 		typedef DLFunctorImpl<R, TList, MemoryObjectModel> Impl;
 
 		Impl* spImpl_;

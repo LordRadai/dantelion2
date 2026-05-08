@@ -4,12 +4,12 @@
 #include "Core/Platform/Platform.h"
 #include "Core/Util/DLTypeManipulation.h"
 #include "Core/Kernel/DLStdAllocator.inl"
-#include "DLCharSet.h"
+#include "DLCharacterSet.h"
 
 namespace DLTX
 {
     template<class _Elem, typename _Traits = ::std::char_traits<_Elem>, class AllocHost = DLKR::DLAllocator>
-    class DLBasicString : public ::std::basic_string<_Elem, _Traits> 
+    class DLBasicString : public ::std::basic_string<_Elem, _Traits, DLKR::DLStdAllocator<_Elem, AllocHost>> 
     {
     public:
         typedef typename DLUT::DLSelect<DLUT::DLTypeEqual<dl_wchar, _Elem>::Result, dl_char, dl_wchar>::Result
@@ -22,7 +22,7 @@ namespace DLTX
 
         typedef DLBasicString<_Elem, _Traits, AllocHost> ThisClass;
         typedef DLKR::DLStdAllocator<_Elem, AllocHost> Allocator;
-        typedef ::std::basic_string<_Elem, ::std::char_traits<_Elem>> SuperClass;
+        typedef ::std::basic_string<_Elem, ::std::char_traits<_Elem>, Allocator> SuperClass;
         typedef ::std::char_traits<_Elem> CharTraits;
 
         typedef DLBasicString<dl_wchar, ::std::char_traits<dl_wchar>, AllocHost >
@@ -50,18 +50,19 @@ namespace DLTX
         };
 
     private:
-		DLKR::DLAllocator* m_pAllocator;
         dl_uint8 m_charset = CS_PLATFORM;
 
     public:
-        DLBasicString() : SuperClass(), m_pAllocator(DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost()) {}
+        DLBasicString(AllocHost* pAllocator = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost()) : SuperClass(Allocator(pAllocator))
+        {
+		}
 
-		DLBasicString(const DLBasicString& other) : SuperClass(other), m_pAllocator(other.m_pAllocator)
+		DLBasicString(const DLBasicString& other) : SuperClass(other)
 		{
 			this->m_charset = other.m_charset;
 		}
 
-		DLBasicString(const _Elem* str, AllocHost* pAllocator = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost(), dl_int32 charset = CS_PLATFORM) : SuperClass(str), m_pAllocator(pAllocator)
+		DLBasicString(const _Elem* str, AllocHost* pAllocator = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost(), dl_int32 charset = CS_PLATFORM) : SuperClass(str, Allocator(pAllocator))
         {
 			this->m_charset = charset;
         }

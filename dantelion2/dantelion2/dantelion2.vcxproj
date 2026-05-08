@@ -330,7 +330,7 @@
     <ClInclude Include="Core\System\DLStdInputStream.h" />
     <ClInclude Include="Core\System\DLStdOutputStream.h" />
     <ClInclude Include="Core\System\System.h" />
-    <ClInclude Include="Core\Text\DLCharSet.h" />
+    <ClInclude Include="Core\Text\DLCharacterSet.h" />
     <ClInclude Include="Core\Text\DLFormat.h" />
     <ClInclude Include="Core\Text\DLStringUtil.h" />
     <ClInclude Include="Core\Text\Text.h" />
