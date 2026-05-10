@@ -8,6 +8,14 @@
 
 namespace DLMT
 {
+    namespace
+    {
+        template<typename T>
+        constexpr const T& clamp(const T& v, const T& lo, const T& hi) {
+            return (v < lo) ? lo : (hi < v) ? hi : v;
+        }
+    }
+
     dl_float32 DL_QUATERNION::Dot(const DL_QUATERNION& other) const
     {
         return this->x * other.x + this->y * other.y + this->z * other.z + this->w * other.w;
@@ -62,7 +70,7 @@ namespace DLMT
 
     DL_QUATERNION DL_QUATERNION::Slerp(const DL_QUATERNION& other, dl_float32 t) const
     {
-        dl_float32 dot = std::clamp(this->Dot(other), -1.0f, 1.0f);
+        dl_float32 dot = clamp(this->Dot(other), -1.0f, 1.0f);
 
         // Ensure shortest path
         DL_QUATERNION target = dot < 0.0f ? -other : other;
@@ -110,7 +118,7 @@ namespace DLMT
 
         // Yaw (y)
         dl_float32 sinY = 2.0f * (this->w * this->y - this->z * this->x);
-        sinY = std::clamp(sinY, -1.0f, 1.0f);
+        sinY = clamp(sinY, -1.0f, 1.0f);
         euler.y = asinf(sinY);
 
         // Roll (z)
@@ -123,7 +131,7 @@ namespace DLMT
 
     dl_float32 DL_QUATERNION::GetAngle() const
     {
-        return 2.0f * acosf(std::clamp(this->w, -1.0f, 1.0f));
+        return 2.0f * acosf(clamp(this->w, -1.0f, 1.0f));
     }
 
     DL_VECTOR3 DL_QUATERNION::GetAxis() const

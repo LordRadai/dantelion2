@@ -6,9 +6,12 @@
 
 namespace DLMT
 {
-    template<typename T>
-    constexpr const T& clamp(const T& v, const T& lo, const T& hi) {
-        return (v < lo) ? lo : (hi < v) ? hi : v;
+    namespace
+    {
+        template<typename T>
+        constexpr const T& clamp(const T& v, const T& lo, const T& hi) {
+            return (v < lo) ? lo : (hi < v) ? hi : v;
+        }
     }
 
     DL_VECTOR2::DL_VECTOR2(const DL_VECTOR3& v) : x(v.x), y(v.y) {}
