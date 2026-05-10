@@ -71,7 +71,7 @@ namespace DLTX
 		{
 			if (this != &other)
 			{
-				std::basic_string<_Elem, _Traits>::operator=(other);
+				SuperClass::assign(other);
 				m_charset = other.m_charset;
 			}
 			return *this;
