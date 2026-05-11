@@ -3,28 +3,28 @@
 
 namespace DLKR
 {
-    typedef DLHeapIdentifier(__fastcall* oGetHeapID)(DLAllocator*);
-    typedef DLHeapIdentifier(__fastcall* oGetAllocatorID)(DLAllocator*);
-    typedef DLHeapCapability(__fastcall* oGetCapability)(DLAllocator*, DLHeapDirection);
-    typedef dl_size(__fastcall* oGetTotalSize)(DLAllocator*);
-    typedef dl_size(__fastcall* oGetFreeSize)(DLAllocator*);
-    typedef dl_size(__fastcall* oGetMaxSize)(DLAllocator*);
-    typedef dl_size(__fastcall* oGetBlockNumber)(DLAllocator*);
-    typedef dl_size(__fastcall* oGetBlockSize)(DLAllocator*, const void*);
-    typedef void* (__fastcall* oAllocate)(DLAllocator*, dl_size);
-    typedef void* (__fastcall* oAllocateAligned)(DLAllocator*, dl_size, dl_uint);
-    typedef void* (__fastcall* oReallocate)(DLAllocator*, void*, dl_size);
-    typedef void* (__fastcall* oReallocateAligned)(DLAllocator*, void*, dl_size, dl_uint);
-    typedef void(__fastcall* oFree)(DLAllocator*, void*);
-    typedef void(__fastcall* oFreeAll)(DLAllocator*);
-    typedef void* (__fastcall* oBackAllocate)(DLAllocator*, dl_size);
-    typedef void* (__fastcall* oBackAllocateAligned)(DLAllocator*, dl_size, dl_uint);
-    typedef void* (__fastcall* oBackReallocate)(DLAllocator*, void*, dl_size);
-    typedef void* (__fastcall* oBackReallocateAligned)(DLAllocator*, void*, dl_size, dl_uint);
-    typedef void(__fastcall* oBackFree)(DLAllocator*, void*);
-    typedef dl_bool(__fastcall* oSelfDiagnose)(DLAllocator*);
-    typedef dl_bool(__fastcall* oIsValidBlock)(DLAllocator*, const void*);
-    typedef void(__fastcall* oDestructor)(DLAllocator*);
+    typedef DLHeapIdentifier(_fastcall* oGetHeapID)(DLAllocator*);
+    typedef DLHeapIdentifier(_fastcall* oGetAllocatorID)(DLAllocator*);
+    typedef DLHeapCapability(_fastcall* oGetCapability)(DLAllocator*, DLHeapDirection);
+    typedef dl_size(_fastcall* oGetTotalSize)(DLAllocator*);
+    typedef dl_size(_fastcall* oGetFreeSize)(DLAllocator*);
+    typedef dl_size(_fastcall* oGetMaxSize)(DLAllocator*);
+    typedef dl_size(_fastcall* oGetBlockNumber)(DLAllocator*);
+    typedef dl_size(_fastcall* oGetBlockSize)(DLAllocator*, const void*);
+    typedef void* (_fastcall* oAllocate)(DLAllocator*, dl_size);
+    typedef void* (_fastcall* oAllocateAligned)(DLAllocator*, dl_size, dl_uint);
+    typedef void* (_fastcall* oReallocate)(DLAllocator*, void*, dl_size);
+    typedef void* (_fastcall* oReallocateAligned)(DLAllocator*, void*, dl_size, dl_uint);
+    typedef void(_fastcall* oFree)(DLAllocator*, void*);
+    typedef void(_fastcall* oFreeAll)(DLAllocator*);
+    typedef void* (_fastcall* oBackAllocate)(DLAllocator*, dl_size);
+    typedef void* (_fastcall* oBackAllocateAligned)(DLAllocator*, dl_size, dl_uint);
+    typedef void* (_fastcall* oBackReallocate)(DLAllocator*, void*, dl_size);
+    typedef void* (_fastcall* oBackReallocateAligned)(DLAllocator*, void*, dl_size, dl_uint);
+    typedef void(_fastcall* oBackFree)(DLAllocator*, void*);
+    typedef dl_bool(_fastcall* oSelfDiagnose)(DLAllocator*);
+    typedef dl_bool(_fastcall* oIsValidBlock)(DLAllocator*, const void*);
+    typedef void(_fastcall* oDestructor)(DLAllocator*);
 
     DLAllocator::~DLAllocator() {
         VIRTUAL_CALL(this, 0, oDestructor, this);

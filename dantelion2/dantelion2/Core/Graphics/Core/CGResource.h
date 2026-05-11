@@ -8,7 +8,7 @@ namespace DLCG2
 	public:
 		virtual ~CGResource();
 
-		typedef void(__fastcall* Destructor_t)(CGResource*);
+		typedef void(_fastcall* Destructor_t)(CGResource*);
 	protected:
 		DLKR::DLAllocator* m_pAllocator;
 		dl_int m_nRefCount;

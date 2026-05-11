@@ -10,7 +10,7 @@ namespace DLGR
 		virtual void Destroy() override;
 		virtual ~DLGfxReferenceCountObject();
 
-		typedef void(__fastcall* Destructor_t)(DLGfxReferenceCountObject*);
+		typedef void(_fastcall* Destructor_t)(DLGfxReferenceCountObject*);
 
 	protected:
 		DLKR::DLAllocator* m_pAllocator;

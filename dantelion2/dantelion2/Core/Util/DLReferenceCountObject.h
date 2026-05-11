@@ -13,6 +13,6 @@ namespace DLUT
 		void Ref();
 		void Unref();
 
-		typedef void(__fastcall* Destroy_t)(DLReferenceCountObject*);
+		typedef void(_fastcall* Destroy_t)(DLReferenceCountObject*);
 	};
 }

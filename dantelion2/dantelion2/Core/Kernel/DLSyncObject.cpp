@@ -3,11 +3,11 @@
 
 namespace DLKR
 {
-	typedef void(__fastcall* oDestructor)(DLSyncObject* pThis);
-	typedef dl_bool(__fastcall* oIsValid)(DLSyncObject* pThis);
-	typedef dl_int32(__fastcall* oLock)(DLSyncObject* pThis, DLTimeout);
-	typedef dl_int32(__fastcall* oTryLock)(DLSyncObject* pThis);
-	typedef dl_int32(__fastcall* oUnlock)(DLSyncObject* pThis);
+	typedef void(_fastcall* oDestructor)(DLSyncObject* pThis);
+	typedef dl_bool(_fastcall* oIsValid)(DLSyncObject* pThis);
+	typedef dl_int32(_fastcall* oLock)(DLSyncObject* pThis, DLTimeout);
+	typedef dl_int32(_fastcall* oTryLock)(DLSyncObject* pThis);
+	typedef dl_int32(_fastcall* oUnlock)(DLSyncObject* pThis);
 
 	DLSyncObject::~DLSyncObject() {
 		VIRTUAL_CALL(this, 0, oDestructor, this);

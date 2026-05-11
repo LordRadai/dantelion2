@@ -5,7 +5,7 @@ namespace DLSY
 {
 #define DL_RUNTIME (DLRuntime*)(MODULE_ADDR + 0x16681d0);
 
-	typedef DLRuntimeImpl* (__fastcall* GetRuntimeImpl_t)();
+	typedef DLRuntimeImpl* (_fastcall* GetRuntimeImpl_t)();
 
 	void DLRuntime::InvokeDebugger()
 	{

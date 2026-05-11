@@ -21,7 +21,7 @@ namespace DLLG
 	typedef DLUT::DLLifecycleAdapter<DLKR::DLPlainLightMutex>& (_fastcall* oGetMutex)(DLLogManagerImpl*);
 	typedef void(_fastcall* oDestructor)(DLLogManagerImpl*);
 
-	typedef DLLogManagerImpl* (__fastcall* oGetInstance)();
+	typedef DLLogManagerImpl* (_fastcall* oGetInstance)();
 
 	dl_bool DLLogManagerImpl::SetRootAllocator(DLKR::DLAllocator* pAllocator)
 	{
