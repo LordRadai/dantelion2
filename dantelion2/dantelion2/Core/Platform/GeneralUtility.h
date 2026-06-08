@@ -43,6 +43,7 @@ class DLPanicException : public std::exception
     const dl_char* m_pMsg;
 	dl_bool m_bThreadSafe;
 public:
+	DLPanicException() : m_pMsg(""), m_bThreadSafe(false) {}
     DLPanicException(const dl_char* msg) : m_pMsg(msg), m_bThreadSafe(false) {}
     DLPanicException(const std::exception& e) : m_pMsg(e.what()), m_bThreadSafe(false) {}
     DLPanicException(const DLPanicException& e) : m_pMsg(e.what()), m_bThreadSafe(false) {}
@@ -52,7 +53,7 @@ public:
 class DLPanic 
 {
 public:
-    static void ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* reason);
+    static void ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* reason, ...);
 
     typedef void(_fastcall* oReportPanic)(const dl_char* file, dl_uint32 line, const dl_char* reason);
 };

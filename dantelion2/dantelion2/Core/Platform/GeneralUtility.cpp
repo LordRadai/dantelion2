@@ -1,43 +1,38 @@
 #include "GeneralUtility.h"
 #include "Call.h"
 #include "Core/System/DLRuntime.h"
+#include "Core/System/DLTrace.h"
 #include <cstdarg>
 #include <cstdio>
 
-void PrintDebugString(const char* str, ...)
+void DLPanic::ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* reason, ...)
 {
-	char buf[4096];
 	va_list args;
-	va_start(args, str);
-	vsnprintf(buf, sizeof(buf), str, args);
-	va_end(args);
+	va_start(args, reason);
 
-	OutputDebugStringA(buf);
-}
-
-void DLPanic::ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* reason)
-{
 	switch (DL_PANIC_MODE)
 	{
+	case DLPanicMode::DLPANICMODE_COREDUMP:
+		break;
 	case DLPanicMode::DLPANICMODE_INVOKEDEBUGGER:
-		PrintDebugString("---------------------------------\n[Dantelion2 Panic] \n%s(%d)\n%s\n", file, line, reason);
+		DLSY::DLRawTrace(true, "---------------------------------\n[Dantelion2 Panic] \n%s(%d)\n", file, line);
+		DLSY::DLRawTraceV(true, "%s\n", args);
+
 		DLSY::DLRuntime::InvokeDebugger();
-		PrintDebugString("\n---------------------------------\n");
+
+		DLSY::DLRawTrace(true, "\n---------------------------------\n");
 		break;
 	case DLPanicMode::DLPANICMODE_THROWEXCEPTION:
 	{
 		char buf[4096];
-		snprintf(buf, sizeof(buf), "\n%s(%d):\n%s\n", file, line, reason);
+		vsnprintf(buf, sizeof(buf), reason, args);
 
-		throw DLPanicException(buf);
-		break;
+		throw DLPanicException();
 	}
-	case DLPanicMode::DLPANICMODE_COREDUMP:
-		break;
 	default:
 		break;
 	}
 
-	PrintDebugString("DL_PANIC is firing core dump...\n");
+	DLSY::DLRawTrace(true, "DL_PANIC is firing core dump...\n");
 	std::abort();
 }
