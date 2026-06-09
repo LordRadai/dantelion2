@@ -79,7 +79,7 @@ namespace DLTX
                 _Elem* buffer = new _Elem[buffer_size];
 
                 va_start(args, format);
-                int result = CharTraits::vsnprintf(buffer, buffer_size, format, args);
+                int result = vsnprintf(buffer, buffer_size, format, args);
                 va_end(args);
 
                 if (result < 0 || static_cast<size_type>(result) >= buffer_size)
