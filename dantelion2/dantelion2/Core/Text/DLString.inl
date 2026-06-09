@@ -67,6 +67,33 @@ namespace DLTX
 			this->m_charset = charset;
         }
 
+        void format_append(const _Elem* format, ...)
+        {
+            va_list args;
+
+            size_type buffer_size = 64;
+
+            while (true)
+            {
+                buffer_size *= 2;
+                _Elem* buffer = new _Elem[buffer_size];
+
+                va_start(args, format);
+                int result = CharTraits::vsnprintf(buffer, buffer_size, format, args);
+                va_end(args);
+
+                if (result < 0 || static_cast<size_type>(result) >= buffer_size)
+                {
+                    delete[] buffer;
+                    continue;
+                }
+
+                this->append(buffer, result);
+                delete[] buffer;
+                break;
+            }
+        }
+
 		DLBasicString& operator=(const DLBasicString& other)
 		{
 			if (this != &other)
