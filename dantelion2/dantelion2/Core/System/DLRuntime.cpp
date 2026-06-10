@@ -17,12 +17,12 @@ namespace DLSY
 		return DL_RUNTIME;
 	}
 
-	dl_bool DLRuntime::AddExitEventListener(DLExitEventListener* pListener, DLExitEventPriority priority)
+	dl_bool DLRuntimeImpl::AddExitEventListener(DLExitEventListener* pListener, DLExitEventPriority priority)
 	{
 		return CALL(AddExitEventListener_t, 0x846140, this, pListener, priority);
 	}
 
-	dl_bool DLRuntime::AddExitEventProc(DLExitEventProc pFn, DLExitEventPriority priority)
+	dl_bool DLRuntimeImpl::AddExitEventProc(DLExitEventProc pFn, DLExitEventPriority priority)
 	{
 		return CALL(AddExitEventProc_t, 0x846170, this, pFn, priority);
 	}
