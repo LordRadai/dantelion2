@@ -13,10 +13,10 @@ namespace DLUT
 	public:	
 		DLProperties(DLKR::DLAllocator* pAllocator = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost());
 
-		dl_int GetInteger(DLTX::DLString name, dl_int defaultValue);
-		dl_bool GetBoolean(DLTX::DLString name, dl_bool defaultValue);
-		dl_float32 GetFloat32(DLTX::DLString name, dl_float32 defaultValue);
-		void GetString(DLTX::DLString* pBuf, DLTX::DLString name, DLTX::DLString defaultValue);
-		void SetProperty(DLTX::DLString name, DLTX::DLString value);
+		dl_int GetInteger(const dl_wchar* name, dl_int defaultValue);
+		dl_bool GetBoolean(const dl_wchar* name, dl_bool defaultValue);
+		dl_float32 GetFloat32(const dl_wchar* name, dl_float32 defaultValue);
+		void GetString(DLTX::DLString& out, const dl_wchar* name, const dl_wchar* defaultValue);
+		void SetProperty(const dl_wchar* name, const dl_wchar* value);
 	};
 }
