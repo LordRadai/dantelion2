@@ -14,3 +14,4 @@
 #include "DLQuery.h"
 #include "DLSDObjectFactory.h"
 #include "Font/DLFontData.h"
+#include "Font/DLTextProcessManager.h"

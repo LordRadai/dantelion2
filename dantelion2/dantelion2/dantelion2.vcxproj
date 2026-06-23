@@ -240,9 +240,17 @@
     <ClInclude Include="Core\Graphics\DLVertexBuffer.h" />
     <ClInclude Include="Core\Graphics\DLVertexDeclaration.h" />
     <ClInclude Include="Core\Graphics\DLVertexTypes.h" />
+    <ClInclude Include="Core\Graphics\Font\DLFontAttribute.h" />
+    <ClInclude Include="Core\Graphics\Font\DLFontContextHolder.inl" />
+    <ClInclude Include="Core\Graphics\Font\DLFontContextStack.inl" />
     <ClInclude Include="Core\Graphics\Font\DLFontData.h" />
     <ClInclude Include="Core\Graphics\Font\DLFontDataCCM2.h" />
     <ClInclude Include="Core\Graphics\Font\DLFontRenderer.h" />
+    <ClInclude Include="Core\Graphics\Font\DLFontSet.h" />
+    <ClInclude Include="Core\Graphics\Font\DLTaggedContext.h" />
+    <ClInclude Include="Core\Graphics\Font\DLTaggedTextProcessor.h" />
+    <ClInclude Include="Core\Graphics\Font\DLTextProcessManager.h" />
+    <ClInclude Include="Core\Graphics\Font\DLTextProcessor.h" />
     <ClInclude Include="Core\Graphics\Graphics.h" />
     <ClInclude Include="Core\Kernel\detail\DLAllocationHelper.h" />
     <ClInclude Include="Core\Kernel\DLAllocator.h" />
