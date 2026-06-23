@@ -418,6 +418,7 @@
     <None Include="Core\Reflection\DLMethodResolver.inl" />
     <None Include="Core\Reflection\DLRuntimeClassImpl.inl" />
     <None Include="Core\System\detail\DLStdStreamAdapter.inl" />
+    <None Include="Core\Text\DLFixedBasicString.inl" />
     <None Include="Core\Text\DLString.inl" />
     <None Include="Core\UserInput\details\DLUserInputDeviceImpl.inl" />
     <None Include="Core\UserInput\details\DLUserInputMapperImpl.inl" />

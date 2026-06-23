@@ -646,5 +646,8 @@
     <None Include="Core\Math\DLColor.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="Core\Text\DLFixedBasicString.inl">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

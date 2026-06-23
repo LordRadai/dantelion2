@@ -8,5 +8,7 @@ namespace DLKRD
 	class HeapAllocator : public DLKR::DLAllocator
 	{
 		_Heap m_pHeap;
+	public:
+		_Heap GetHeap() const { return m_pHeap; }
 	};
 }

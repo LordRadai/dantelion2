@@ -16,5 +16,9 @@ namespace DLKR
 
 		HeapInfo* m_pHeapInfo;
 		HeapStrategy m_heapStrategy;
+
+	public:
+		HeapInfo* GetHeapInfo() const { return m_pHeapInfo; }
+		HeapStrategy GetHeapStrategy() const { return m_heapStrategy; }
 	};
 }
