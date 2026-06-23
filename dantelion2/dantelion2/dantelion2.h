@@ -11,3 +11,8 @@
 #include "Core/System/System.h"
 #include "Core/Resource/Resource.h"
 #include "Core/Logging/Logging.h"
+
+namespace dantelion2
+{
+	typedef dl_uint(_fastcall* LoadSystemProperties_t)(DLUT::DLProperties&, DLKR::DLAllocator*);
+}
