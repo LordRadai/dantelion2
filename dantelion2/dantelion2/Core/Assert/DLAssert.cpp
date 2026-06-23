@@ -3,6 +3,8 @@
 
 namespace DLPF
 {
+	bool DLAssert::s_bAssertEnabled = true;
+
 	void DLAssert::ReportAssertionFailure(const DL_ASSERT_INFO& info)
 	{
 		_ReportAssertionFailure(info.File, info.Line, info.Msg, info);
