@@ -8,8 +8,8 @@
 
 namespace DLTX
 {
-    template<class _Elem, typename _Traits = ::std::char_traits<_Elem>, class AllocHost = DLKR::DLAllocator>
-    class DLBasicString : public ::std::basic_string<_Elem, _Traits, DLKR::DLStdAllocator<_Elem, AllocHost>> 
+    template<class _Elem, typename _Traits = ::std::char_traits<_Elem>>
+    class DLBasicString : public ::std::basic_string<_Elem, _Traits, DLKR::DLStdAllocator<_Elem, DLKR::DLAllocator>>
     {
     public:
         typedef typename DLUT::DLSelect<DLUT::DLTypeEqual<dl_wchar, _Elem>::Result, dl_char, dl_wchar>::Result
@@ -17,18 +17,16 @@ namespace DLTX
 
         template <typename OtherElemType>
         struct Rebind {
-            typedef DLBasicString<OtherElemType, ::std::char_traits<OtherElemType>, AllocHost> other;
+            typedef DLBasicString<OtherElemType, ::std::char_traits<OtherElemType>> other;
         };
 
-        typedef DLBasicString<_Elem, _Traits, AllocHost> ThisClass;
-        typedef DLKR::DLStdAllocator<_Elem, AllocHost> Allocator;
-        typedef ::std::basic_string<_Elem, ::std::char_traits<_Elem>, Allocator> SuperClass;
+        typedef DLBasicString<_Elem, _Traits> ThisClass;
+        typedef DLKR::DLStdAllocator<_Elem, DLKR::DLAllocator> Allocator;
+        typedef ::std::basic_string<_Elem, _Traits, Allocator> SuperClass;
         typedef ::std::char_traits<_Elem> CharTraits;
 
-        typedef DLBasicString<dl_wchar, ::std::char_traits<dl_wchar>, AllocHost >
-            WideStringType;
-        typedef DLBasicString<dl_char, ::std::char_traits<dl_char>, AllocHost >
-            AsciiStringType;
+        typedef DLBasicString<dl_wchar, ::std::char_traits<dl_wchar>> WideStringType;
+        typedef DLBasicString<dl_char, ::std::char_traits<dl_char>> AsciiStringType;
 
         typedef typename DLUT::DLSelect<DLUT::DLTypeEqual<dl_wchar, _Elem>::Result, AsciiStringType, WideStringType>::Result
             OtherStringType;
@@ -50,22 +48,21 @@ namespace DLTX
         };
 
     private:
-        dl_uint8 m_charset = CS_PLATFORM;
+        DLKR::DLAllocator* m_Allocator;
+        dl_uint8 m_charset;
 
     public:
-        DLBasicString(AllocHost* pAllocator = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost()) : SuperClass(Allocator(pAllocator))
-        {
-		}
+        DLBasicString(DLKR::DLAllocator* pAllocator = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
+            : SuperClass(Allocator(pAllocator)), m_Allocator(pAllocator), m_charset(CS_PLATFORM)
+        {}
 
-		DLBasicString(const DLBasicString& other) : SuperClass(other)
-		{
-			this->m_charset = other.m_charset;
-		}
+        DLBasicString(const DLBasicString& other)
+            : SuperClass(other), m_Allocator(other.m_Allocator), m_charset(other.m_charset)
+        {}
 
-		DLBasicString(const _Elem* str, AllocHost* pAllocator = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost(), dl_int32 charset = CS_PLATFORM) : SuperClass(str, Allocator(pAllocator))
-        {
-			this->m_charset = charset;
-        }
+        DLBasicString(const _Elem* str, DLKR::DLAllocator* pAllocator = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), dl_int32 charset = CS_PLATFORM)
+            : SuperClass(str, Allocator(pAllocator)), m_Allocator(pAllocator), m_charset(charset)
+        {}
 
         void format_append(const _Elem* format, ...)
         {
@@ -94,15 +91,16 @@ namespace DLTX
             }
         }
 
-		DLBasicString& operator=(const DLBasicString& other)
-		{
-			if (this != &other)
-			{
-				SuperClass::assign(other);
-				m_charset = other.m_charset;
-			}
-			return *this;
-		}
+        DLBasicString& operator=(const DLBasicString& other)
+        {
+            if (this != &other)
+            {
+                SuperClass::assign(other);
+                m_Allocator = other.m_Allocator;
+                m_charset = other.m_charset;
+            }
+            return *this;
+        }
     };
 
     typedef DLBasicString<dl_wchar> DLString;
