@@ -8,5 +8,12 @@ namespace DLGR
 	{
 		dl_pointer m_pVar8;
 		dl_uint8 m_Data[88];
+
+	public:
+		virtual ~DLFontContextStack() override;
+
+		// Empty for now
+		virtual Ctx* GetContext() override {}
+		virtual Ctx* GetContext() const override {}
 	};
 }

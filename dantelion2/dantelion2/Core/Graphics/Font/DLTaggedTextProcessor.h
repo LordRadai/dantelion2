@@ -12,5 +12,8 @@ namespace DLGR
 		dl_uint m_iVarC8;
 		DLFontContextStack<DLMT::DL_COLOR_32> m_ColorContextStack;
 		DLFontContextStack<dl_uint> m_FontIDContextStack;
+
+	public:
+		virtual ~DLTaggedTextProcessor() override;
 	};
 }

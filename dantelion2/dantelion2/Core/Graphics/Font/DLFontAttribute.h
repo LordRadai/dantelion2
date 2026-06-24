@@ -1,7 +1,7 @@
 #pragma once
 #include "Core/Platform/Platform.h"
-#include "Core/Math/DLRect.h"
 #include "Core/Math/DLColor.h"
+#include "Core/Graphics/DLRect.h"
 
 namespace DLGR
 {
@@ -9,7 +9,7 @@ namespace DLGR
 
 	class DLFontAttribute
 	{
-		DLMT::DL_FRECT m_Rect;
+		DLGR::DL_FRECT m_Rect;
 		dl_float32 m_fVar10;
 		dl_float32 m_fVar14;
 		dl_int m_Width;

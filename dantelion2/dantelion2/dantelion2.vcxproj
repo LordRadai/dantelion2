@@ -233,6 +233,7 @@
     <ClInclude Include="Core\Graphics\DLGPUResource.h" />
     <ClInclude Include="Core\Graphics\DLIndexBuffer.h" />
     <ClInclude Include="Core\Graphics\DLQuery.h" />
+    <ClInclude Include="Core\Graphics\DLRect.h" />
     <ClInclude Include="Core\Graphics\DLSDObjectFactory.h" />
     <ClInclude Include="Core\Graphics\DLShader.h" />
     <ClInclude Include="Core\Graphics\DLSurface.h" />
@@ -297,7 +298,6 @@
     <ClInclude Include="Core\Math\DLColor.h" />
     <ClInclude Include="Core\Math\DLMatrix.h" />
     <ClInclude Include="Core\Math\DLQuaternion.h" />
-    <ClInclude Include="Core\Math\DLRect.h" />
     <ClInclude Include="Core\Math\DLVector.h" />
     <ClInclude Include="Core\Math\DLAABB.h" />
     <ClInclude Include="Core\Math\Math.h" />
@@ -382,6 +382,8 @@
     <ClCompile Include="Core\Graphics\DLTexture.cpp" />
     <ClCompile Include="Core\Graphics\DLVertexTypes.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLFontData.cpp" />
+    <ClCompile Include="Core\Graphics\Font\DLTaggedTextProcessor.cpp" />
+    <ClCompile Include="Core\Graphics\Font\DLTextProcessor.cpp" />
     <ClCompile Include="Core\Kernel\DLAllocator.cpp" />
     <ClCompile Include="Core\Kernel\DLNew.cpp" />
     <ClCompile Include="Core\Kernel\DLSyncObject.cpp" />

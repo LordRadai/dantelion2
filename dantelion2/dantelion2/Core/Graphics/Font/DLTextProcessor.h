@@ -7,7 +7,6 @@ namespace DLGR
 {
 	class DLTextProcessor
 	{
-		void** _vfptr;
 		dl_float32 m_fVar8;
 		dl_float32 m_fVarC;
 		dl_uint m_iVar10;
@@ -26,5 +25,12 @@ namespace DLGR
 		DLFontAttribute* m_pFontAttribute;
 		DLKR::DLAllocator* m_pAllocator;
 		dl_uint16 m_iVar58;
+
+	public:
+		virtual ~DLTextProcessor() {}
+
+		void MeasureRect(DLGR::DL_FRECT& outRect, const dl_wchar* text, dl_bool param_2);
+
+		typedef void(_fastcall* Destructor_t)(DLTextProcessor*);
 	};
 }

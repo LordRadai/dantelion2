@@ -6,6 +6,9 @@ namespace DLGR
 	template<class Ctx>
 	class DLFontContextHolder
 	{
-		void** _vfptr;
+	public:
+		virtual ~DLFontContextHolder() {}
+		virtual Ctx* GetContext() = 0;
+		virtual Ctx* GetContext() const = 0;
 	};
 }
