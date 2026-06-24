@@ -68,8 +68,15 @@ namespace DLKR
         template<typename _Other>
         _Other* allocate(size_type n, const _Other* hint)
         {
-            (void)hint;
-			return allocate(n);
+            if (n > max_size())
+                throw std::bad_alloc();
+
+            void* p = m_host->Allocate(n * sizeof(T));
+
+            if (p == nullptr)
+                throw std::bad_alloc();
+
+            return static_cast<pointer>(p);
         }
 
         pointer allocate_aligned(size_type n, size_type align)
@@ -77,7 +84,7 @@ namespace DLKR
             if (n > max_size())
                 throw std::bad_alloc();
 
-            void* p = m_host->AllocateAligned(n, align);
+            void* p = m_host->AllocateAligned(n * sizeof(T), align);
             if (p == nullptr)
                 throw std::bad_alloc();
 
