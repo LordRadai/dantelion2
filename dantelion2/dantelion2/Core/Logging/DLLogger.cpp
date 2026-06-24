@@ -7,6 +7,12 @@ namespace DLLG
 	typedef void(_cdecl* oLogSpecificW)(DLLogger*, const dl_wchar*, ...);
 	typedef void(_cdecl* oLogSpecificA)(DLLogger*, const dl_char*, ...);
 
+	DLLogger::DLLogger()
+		: m_cName(L""), m_level(DLLogLevel::LL_INTEGER_DEBUG), m_iVar14(0)
+	{
+		m_pCategory = nullptr;
+	}
+
 	DLLogger::DLLogger(const dl_wchar* name)
 		: m_cName(name), m_level(DLLogLevel::LL_INTEGER_DEBUG), m_iVar14(0)
 	{
