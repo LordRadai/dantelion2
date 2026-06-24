@@ -7,14 +7,14 @@
 
 namespace DLGR
 {
-	class DLFont;
-
 	class DLTextProcessManager : public DLKR::DLDummySyncObject
 	{
 		DLFontSet m_FontSet;
 		DLFontAttribute m_FontAttribute;
 		DLTaggedTextProcessor m_TaggedTextProcessor;
 		DLKR::DLAllocator* m_pAllocator;
-		DLFont* m_pFont;
+		dl_pointer m_pFont;
+	public:
+		DLFontSet* GetFontSet() { return &m_FontSet; }
 	};
 }

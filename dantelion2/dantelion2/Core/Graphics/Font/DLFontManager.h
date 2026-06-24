@@ -17,5 +17,6 @@ namespace DLGR
 		DLKR::DLDummySyncObject m_SyncObject0;
 		DLKR::DLDummySyncObject m_SyncObject1;
 		dl_uint m_iVar3A0;
+		dl_pointer m_pVar3A8;
 	};
 }

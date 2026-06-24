@@ -267,6 +267,7 @@
     <ClInclude Include="Core\Kernel\DLEventSignal.h" />
     <ClInclude Include="Core\Kernel\DLHeapCapability.h" />
     <ClInclude Include="Core\Kernel\DLHeapIdentifier.h" />
+    <ClInclude Include="Core\Kernel\DLHeapManager.h" />
     <ClInclude Include="Core\Kernel\DLLightMutex.h" />
     <ClInclude Include="Core\Kernel\DLMultiThreadingPolicy.h" />
     <ClInclude Include="Core\Kernel\DLMutex.h" />
@@ -385,9 +386,11 @@
     <ClCompile Include="Core\Graphics\DLTexture.cpp" />
     <ClCompile Include="Core\Graphics\DLVertexTypes.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLFontData.cpp" />
+    <ClCompile Include="Core\Graphics\Font\DLFontSet.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLTaggedTextProcessor.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLTextProcessor.cpp" />
     <ClCompile Include="Core\Kernel\DLAllocator.cpp" />
+    <ClCompile Include="Core\Kernel\DLHeapManager.cpp" />
     <ClCompile Include="Core\Kernel\DLNew.cpp" />
     <ClCompile Include="Core\Kernel\DLSyncObject.cpp" />
     <ClCompile Include="Core\Logging\DLAppender.cpp" />

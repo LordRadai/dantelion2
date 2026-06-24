@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/Platform/Platform.h"
 #include "Core/Util/DLMap.h"
+#include "DLFontData.h"
 
 namespace DLGR
 {
@@ -11,5 +12,6 @@ namespace DLGR
 		dl_int m_iVar1C;
 		DLKR::DLAllocator* m_pAllocator;
 	public:
+		dl_bool RegisterFont(dl_uint id, DLFontData* pFontData);
 	};
 }

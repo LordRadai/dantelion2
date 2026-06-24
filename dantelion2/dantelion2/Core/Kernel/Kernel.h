@@ -22,3 +22,5 @@
 #include "DLStdAllocator.inl"
 #include "DLThread.h"
 #include "DLRunnable.h"
+
+#include "DLHeapManager.h"
