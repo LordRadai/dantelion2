@@ -6,22 +6,22 @@
 namespace DLUT
 {
     template<class T>
-    class DLList : public std::list<T, DLKR::DLStdAllocator<T, DLKR::DLAllocator>>
+    class DLList : public std::list<T>
     {
         typedef DLKR::DLStdAllocator<T, DLKR::DLAllocator> Allocator;
-        typedef std::list<T, Allocator> SuperClass;
+        typedef std::list<T> SuperClass;
 
         DLKR::DLAllocator* m_Allocator;
     public:
         DLList(DLKR::DLAllocator* host = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
-            : SuperClass(Allocator(host)), m_Allocator(host) {}
+            : SuperClass(), m_Allocator(host) {}
 
         DLList(dl_size n, const T& value = T(), DLKR::DLAllocator* host = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
-            : SuperClass(n, value, Allocator(host)), m_Allocator(host) {}
+            : SuperClass(n, value), m_Allocator(host) {}
 
         template<class InputIterator>
         DLList(InputIterator first, InputIterator last, DLKR::DLAllocator* host = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
-            : SuperClass(first, last, Allocator(host)), m_Allocator(host) {}
+            : SuperClass(first, last), m_Allocator(host) {}
 
         DLList(const DLList<T>& x)
             : SuperClass(x), m_Allocator(x.m_Allocator) {}

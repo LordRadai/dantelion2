@@ -9,31 +9,31 @@ namespace DLUT
     class DLVector : public std::vector<T, DLKR::DLStdAllocator<T, DLKR::DLAllocator>>
     {
         typedef DLKR::DLStdAllocator<T, DLKR::DLAllocator> Allocator;
-        typedef std::vector<T, Allocator> SuperClass;
+        typedef std::vector<T> SuperClass;
 
         DLKR::DLAllocator* m_Allocator;
     public:
         DLVector(DLKR::DLAllocator* host = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
-            : SuperClass(Allocator(host)), m_Allocator(host) {}
+            : SuperClass(), m_Allocator(host) {}
 
         DLVector(dl_size n, const T& value = T(), DLKR::DLAllocator* host = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
-            : SuperClass(n, value, Allocator(host)), m_Allocator(host) {}
+            : SuperClass(n, value), m_Allocator(host) {}
 
         template<class InputIterator>
         DLVector(InputIterator first, InputIterator last, DLKR::DLAllocator* host = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
-            : SuperClass(first, last, Allocator(host)), m_Allocator(host) {}
+            : SuperClass(first, last), m_Allocator(host) {}
 
         DLVector(const DLVector<T>& x)
             : SuperClass(x), m_Allocator(x.m_Allocator) {}
 
         DLVector(const Allocator& a)
-            : SuperClass(a), m_Allocator(a.get_host()) {}
+            : SuperClass(), m_Allocator(a.get_host()) {}
 
         DLVector(dl_size n, const T& value, const Allocator& a)
-            : SuperClass(n, value, a), m_Allocator(a.get_host()) {}
+            : SuperClass(n, value), m_Allocator(a.get_host()) {}
 
         template<class InputIterator>
         DLVector(InputIterator first, InputIterator last, const Allocator& a)
-            : SuperClass(first, last, a), m_Allocator(a.get_host()) {}
+            : SuperClass(first, last), m_Allocator(a.get_host()) {}
     };
 }

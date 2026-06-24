@@ -9,7 +9,7 @@
 namespace DLTX
 {
     template<class _Elem, typename _Traits = ::std::char_traits<_Elem>>
-    class DLBasicString : public ::std::basic_string<_Elem, _Traits, DLKR::DLStdAllocator<_Elem, DLKR::DLAllocator>>
+    class DLBasicString : public ::std::basic_string<_Elem, _Traits>
     {
     public:
         typedef typename DLUT::DLSelect<DLUT::DLTypeEqual<dl_wchar, _Elem>::Result, dl_char, dl_wchar>::Result
@@ -22,7 +22,7 @@ namespace DLTX
 
         typedef DLBasicString<_Elem, _Traits> ThisClass;
         typedef DLKR::DLStdAllocator<_Elem, DLKR::DLAllocator> Allocator;
-        typedef ::std::basic_string<_Elem, _Traits, Allocator> SuperClass;
+        typedef ::std::basic_string<_Elem, _Traits> SuperClass;
         typedef ::std::char_traits<_Elem> CharTraits;
 
         typedef DLBasicString<dl_wchar, ::std::char_traits<dl_wchar>> WideStringType;
@@ -53,7 +53,7 @@ namespace DLTX
 
     public:
         DLBasicString(DLKR::DLAllocator* pAllocator = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
-            : SuperClass(Allocator(pAllocator)), m_Allocator(pAllocator), m_charset(CS_PLATFORM)
+            : SuperClass(), m_Allocator(pAllocator), m_charset(CS_PLATFORM)
         {}
 
         DLBasicString(const DLBasicString& other)
@@ -61,7 +61,7 @@ namespace DLTX
         {}
 
         DLBasicString(const _Elem* str, DLKR::DLAllocator* pAllocator = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), dl_int32 charset = CS_PLATFORM)
-            : SuperClass(str, Allocator(pAllocator)), m_Allocator(pAllocator), m_charset(charset)
+            : SuperClass(str), m_Allocator(pAllocator), m_charset(charset)
         {}
 
         void format_append(const _Elem* format, ...)
