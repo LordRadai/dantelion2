@@ -27,11 +27,11 @@ namespace DLPF
 		static dl_bool s_bAssertEnabled;
 	};
 
-#define DL_ASSERT(expr) \
+#define DL_ASSERT(expr, msg) \
 	do { \
 		if (!(expr) && DLPF::DLAssert::IsAssertEnabled()) \
 		{ \
-			DLPF::DLAssert::ReportAssertionFailure(DLPF::DL_ASSERT_INFO(L#expr, __FILEW__, __LINE__)); \
+			DLPF::DLAssert::ReportAssertionFailure(DLPF::DL_ASSERT_INFO(L#msg, __FILEW__, __LINE__)); \
 		} \
 	} while (0)
 }
