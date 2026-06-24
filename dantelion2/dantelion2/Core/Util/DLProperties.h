@@ -8,7 +8,7 @@ namespace DLUT
 {
 	typedef DLMap<DLTX::DLString, DLTX::DLString> DLProperty;
 
-	class DLProperties : public DLUT::DLSet<DLProperty>
+	class DLProperties : public DLProperty
 	{
 	public:	
 		DLProperties(DLKR::DLAllocator* pAllocator = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost());
