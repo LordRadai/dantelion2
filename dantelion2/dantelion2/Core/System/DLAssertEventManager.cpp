@@ -1,6 +1,8 @@
 #include "DLAssertEventManager.h"
 #include "Call.h"
 
+#include <assert.h>
+
 namespace DLSY
 {
 	typedef void(_fastcall* Ctor_t)(DLAssertEventManagerImpl*, DLKR::DLAllocator*);
@@ -37,7 +39,8 @@ namespace DLSY
 
 	void DLAssertEventManagerImpl::FireAssertEvent(const DLPF::DLAssertEvent& event)
 	{
-		CALL(FireAssertEvent_t, 0x88ea50, this, event);
+		_wassert(event.Msg, event.File, event.Line);
+		//CALL(FireAssertEvent_t, 0x88ea50, this, event);
 	}
 
 	DLAssertEventManagerImpl::~DLAssertEventManagerImpl()
