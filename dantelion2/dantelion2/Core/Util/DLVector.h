@@ -6,7 +6,7 @@
 namespace DLUT
 {
     template<class T>
-    class DLVector : public std::vector<T, DLKR::DLStdAllocator<T, DLKR::DLAllocator>>
+    class DLVector : public std::vector<T>
     {
         typedef DLKR::DLStdAllocator<T, DLKR::DLAllocator> Allocator;
         typedef std::vector<T> SuperClass;
