@@ -246,8 +246,11 @@
     <ClInclude Include="Core\Graphics\Font\DLFontContextStack.inl" />
     <ClInclude Include="Core\Graphics\Font\DLFontData.h" />
     <ClInclude Include="Core\Graphics\Font\DLFontDataCCM2.h" />
+    <ClInclude Include="Core\Graphics\Font\DLFontManager.h" />
     <ClInclude Include="Core\Graphics\Font\DLFontRenderer.h" />
     <ClInclude Include="Core\Graphics\Font\DLFontSet.h" />
+    <ClInclude Include="Core\Graphics\Font\DLGlyphVectorRenderer.h" />
+    <ClInclude Include="Core\Graphics\Font\DLStringCollection.h" />
     <ClInclude Include="Core\Graphics\Font\DLTaggedContext.h" />
     <ClInclude Include="Core\Graphics\Font\DLTaggedTextProcessor.h" />
     <ClInclude Include="Core\Graphics\Font\DLTextProcessManager.h" />
