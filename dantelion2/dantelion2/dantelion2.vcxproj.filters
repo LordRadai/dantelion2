@@ -524,9 +524,6 @@
     <ClCompile Include="Core\Kernel\DLNew.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Kernel\DLSyncObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Logging\DLAppender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

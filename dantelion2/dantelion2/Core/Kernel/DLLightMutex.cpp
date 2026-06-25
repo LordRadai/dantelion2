@@ -28,4 +28,24 @@ namespace DLKR
 	{
 		CALL(Finalize_t, 0x84b4b0, this);
 	}
+
+	dl_bool DLPlainLightMutex::IsValid(void) const
+	{
+		return m_bIsValid;
+	}
+
+	dl_int32 DLPlainLightMutex::Lock(DLTimeout timeout)
+	{
+		return CALL(oLock, 0x84b4f0, this, timeout);
+	}
+
+	dl_int32 DLPlainLightMutex::TryLock(void)
+	{
+		return CALL(oTryLock, 0x84b530, this);
+	}
+
+	dl_int32 DLPlainLightMutex::Unlock(void)
+	{
+		return CALL(oUnlock, 0x84b560, this);
+	}
 }

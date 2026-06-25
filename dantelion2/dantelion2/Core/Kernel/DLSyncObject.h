@@ -18,9 +18,15 @@ namespace DLKR
             ERR_UNKNOWN,
         };
 
-        virtual dl_bool IsValid(void) const;
-        virtual dl_int32 Lock(DLTimeout timeout = DL_TIMEOUT_INFINITE);
-        virtual dl_int32 TryLock(void);
-        virtual dl_int32 Unlock(void);
+        virtual dl_bool IsValid(void) const = 0;
+        virtual dl_int32 Lock(DLTimeout timeout = DL_TIMEOUT_INFINITE) = 0;
+        virtual dl_int32 TryLock(void) = 0;
+        virtual dl_int32 Unlock(void) = 0;
+
+        typedef void(_fastcall* oDestructor)(DLSyncObject* pThis);
+        typedef dl_bool(_fastcall* oIsValid)(const DLSyncObject* pThis);
+        typedef dl_int32(_fastcall* oLock)(DLSyncObject* pThis, DLTimeout);
+        typedef dl_int32(_fastcall* oTryLock)(DLSyncObject* pThis);
+        typedef dl_int32(_fastcall* oUnlock)(DLSyncObject* pThis);
 	};
 }

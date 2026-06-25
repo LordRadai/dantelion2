@@ -397,7 +397,6 @@
     <ClCompile Include="Core\Kernel\DLLightMutex.cpp" />
     <ClCompile Include="Core\Kernel\DLMutex.cpp" />
     <ClCompile Include="Core\Kernel\DLNew.cpp" />
-    <ClCompile Include="Core\Kernel\DLSyncObject.cpp" />
     <ClCompile Include="Core\Logging\DLAppender.cpp" />
     <ClCompile Include="Core\Logging\DLCategory.cpp" />
     <ClCompile Include="Core\Logging\DLCategoryRepository.cpp" />

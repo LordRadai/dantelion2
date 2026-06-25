@@ -14,6 +14,10 @@ namespace DLKR
     public:
 		DLPlainMutex();
         virtual ~DLPlainMutex() override;
+        virtual dl_bool IsValid(void) const override;
+        virtual dl_int32 Lock(DLTimeout timeout = DL_TIMEOUT_INFINITE) override;
+        virtual dl_int32 TryLock(void) override;
+        virtual dl_int32 Unlock(void) override;
 
 	    dl_bool Initialize();
 	    void Finalize();
