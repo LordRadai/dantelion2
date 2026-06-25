@@ -52,13 +52,13 @@ namespace DLLG
 		virtual dl_bool HasLayout(const dl_wchar* cName) override;
 		virtual dl_bool HasAppender(const dl_wchar* cName) override;
 		virtual DLCategory& GetCategory(const dl_wchar* cName) override;
-		virtual DLCategory& GetCategory2(const dl_wchar* cName) override;
-		virtual DLAppender* GetAppender(const dl_wchar* cName) override;
-		virtual DLAppender* AddDefaultAppender(const dl_wchar* name = 0) override;
-		virtual dl_bool AddAppender(DLAppender* pAppender) override;
+		virtual DLCategory& GetCategoryIgnoreCache(const dl_wchar* cName) override;
+		virtual DLCategory& GetCategoryWithCache(const dl_wchar* cName) override;
+		virtual DLAppender* GetAppender(const dl_wchar* name = 0) override;
+		virtual DLAppender* AddAppender(DLAppender* pAppender) override;
 		virtual DLAppender* AddAppender(const dl_char* className, const dl_wchar* name = 0) override;
-		virtual DLLayout* AddDefaultLayout(const dl_wchar* name = 0) override;
-		virtual dl_bool AddLayout(DLLayout* pLayout) override;
+		virtual DLLayout* GetLayout(const dl_wchar* name = 0) override;
+		virtual DLLayout* AddLayout(DLLayout* pLayout) override;
 		virtual DLLayout* AddLayout(const dl_char* className, const dl_wchar* name = 0) override;
 		virtual void RemoveCategory(const dl_wchar* cName) override;
 		virtual DLCategory* AddCategory(const dl_wchar* cName) override;
@@ -66,7 +66,7 @@ namespace DLLG
 		virtual void ProcessEvent(const DLLogEvent& e) override;
 		virtual dl_uint GetDefaultAppenderSize() override;
 		virtual void SetDefaultAppenderSize(dl_uint newSize) override;
-		virtual void ClearAppenders() override;
+		virtual void FinalizeAppenders() override;
 		virtual void InitializeAppenders() override;
 		virtual ~DLHierarchy() override;
 	};

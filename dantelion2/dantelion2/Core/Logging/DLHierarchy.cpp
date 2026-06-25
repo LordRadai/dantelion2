@@ -38,22 +38,22 @@ namespace DLLG
 		return VIRTUAL_CALL(this, 6, oGetCategory, this, cName);
 	}
 
-	DLCategory& DLHierarchy::GetCategory2(const dl_wchar* cName)
+	DLCategory& DLHierarchy::GetCategoryIgnoreCache(const dl_wchar* cName)
 	{
-		return VIRTUAL_CALL(this, 7, oGetCategory2, this, cName);
+		return VIRTUAL_CALL(this, 7, oGetCategoryIgnoreCache, this, cName);
 	}
 
-	DLAppender* DLHierarchy::GetAppender(const dl_wchar* cName)
+	DLCategory& DLHierarchy::GetCategoryWithCache(const dl_wchar* cName)
 	{
-		return VIRTUAL_CALL(this, 8, oGetAppender, this, cName);
+		return VIRTUAL_CALL(this, 8, oGetCategoryWithCache, this, cName);
 	}
 
-	DLAppender* DLHierarchy::AddDefaultAppender(const dl_wchar* name)
+	DLAppender* DLHierarchy::GetAppender(const dl_wchar* name)
 	{
-		return VIRTUAL_CALL(this, 9, oAddDefaultAppender, this, name);
+		return VIRTUAL_CALL(this, 9, oGetAppender, this, name);
 	}
 
-	dl_bool DLHierarchy::AddAppender(DLAppender* pAppender)
+	DLAppender* DLHierarchy::AddAppender(DLAppender* pAppender)
 	{
 		return VIRTUAL_CALL(this, 10, oAddAppender, this, pAppender);
 	}
@@ -63,12 +63,12 @@ namespace DLLG
 		return VIRTUAL_CALL(this, 11, oAddAppenderByName, this, className, name);
 	}
 
-	DLLayout* DLHierarchy::AddDefaultLayout(const dl_wchar* name)
+	DLLayout* DLHierarchy::GetLayout(const dl_wchar* name)
 	{
-		return VIRTUAL_CALL(this, 12, oAddDefaultLayout, this, name);
+		return VIRTUAL_CALL(this, 12, oGetLayout, this, name);
 	}
 
-	dl_bool DLHierarchy::AddLayout(DLLayout* pLayout)
+	DLLayout* DLHierarchy::AddLayout(DLLayout* pLayout)
 	{
 		return VIRTUAL_CALL(this, 13, oAddLayout, this, pLayout);
 	}
@@ -108,7 +108,7 @@ namespace DLLG
 		VIRTUAL_CALL(this, 20, oSetDefaultAppenderSize, this, newSize);
 	}
 
-	void DLHierarchy::ClearAppenders()
+	void DLHierarchy::FinalizeAppenders()
 	{
 		VIRTUAL_CALL(this, 21, oClearAppenders, this);
 	}
