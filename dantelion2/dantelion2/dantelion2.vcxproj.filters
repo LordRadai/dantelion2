@@ -381,7 +381,7 @@
     <ClInclude Include="Core\Util\DLEmptyType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Util\DLFunctor.h">
+    <ClInclude Include="Core\Util\detail\DLFunctor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Util\DLLifeCycleAdapter.h">

@@ -10,6 +10,6 @@
 #include "DLList.h"
 #include "DLSet.h"
 #include "DLDeque.h"
-#include "DLFunctor.h"
 #include "DLFixedVector.inl"
+#include "detail/DLFunctor.h"
 #include "detail/DLRandomGeneratorLCG.h"
