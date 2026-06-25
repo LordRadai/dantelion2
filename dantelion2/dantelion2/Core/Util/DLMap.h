@@ -14,6 +14,9 @@ namespace DLUT
         typedef DLKR::DLStdAllocator<std::pair<const Key, T>, AllocHost> Allocator;
         typedef ::std::map<Key, T, Compare, DLKR::DLStdAllocator<std::pair<const Key, T>, AllocHost>> SuperClass;
     public:
+        DLMap(DLKR::DLAllocator* host = DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost())
+            : SuperClass(Compare(), Allocator(host)) {}
+
         DLMap(const Compare& comp, AllocHost* host = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost()) :
             SuperClass(comp, Allocator(host)) {}
 
