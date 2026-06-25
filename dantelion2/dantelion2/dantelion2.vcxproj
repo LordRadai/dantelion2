@@ -396,10 +396,14 @@
     <ClCompile Include="Core\Graphics\Font\DLTextProcessor.cpp" />
     <ClCompile Include="Core\Kernel\DLAllocator.cpp" />
     <ClCompile Include="Core\Kernel\DLConditionSignal.cpp" />
+    <ClCompile Include="Core\Kernel\DLEventSignal.cpp" />
     <ClCompile Include="Core\Kernel\DLHeapManager.cpp" />
     <ClCompile Include="Core\Kernel\DLLightMutex.cpp" />
     <ClCompile Include="Core\Kernel\DLMutex.cpp" />
     <ClCompile Include="Core\Kernel\DLNew.cpp" />
+    <ClCompile Include="Core\Kernel\DLReadWriteLock.cpp" />
+    <ClCompile Include="Core\Kernel\DLSemaphore.cpp" />
+    <ClCompile Include="Core\Kernel\DLSingleSignal.cpp" />
     <ClCompile Include="Core\Logging\DLAppender.cpp" />
     <ClCompile Include="Core\Logging\DLCategory.cpp" />
     <ClCompile Include="Core\Logging\DLCategoryRepository.cpp" />

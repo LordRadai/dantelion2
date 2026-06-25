@@ -4,7 +4,6 @@
 namespace DLKR
 {
 	typedef void(_fastcall* Constructor_t)(DLPlainConditionSignal*);
-	typedef void(_fastcall* Destructor_t)(DLPlainConditionSignal*);
 	typedef dl_bool(_fastcall* Initialize_t)(DLPlainConditionSignal*);
 	typedef void(_fastcall* Finalize_t)(DLPlainConditionSignal*);
 	typedef void(_fastcall* SetState_t)(DLPlainConditionSignal*, dl_bool);

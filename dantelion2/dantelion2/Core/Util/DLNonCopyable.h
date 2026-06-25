@@ -6,5 +6,7 @@ namespace DLUT
 	{
 	public:
 		virtual ~DLNonCopyable() {}
+
+		typedef void(_fastcall* Destructor_t)(DLNonCopyable*);
 	};
 }

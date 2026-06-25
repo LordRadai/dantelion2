@@ -4,8 +4,6 @@
 namespace DLKR
 {
 	typedef void(_fastcall* Constructor_t)(DLPlainLightMutex*);
-	typedef void(_fastcall* Destructor_t)(DLPlainLightMutex*);
-
 	typedef dl_bool(_fastcall* Initialize_t)(DLPlainLightMutex*);
 	typedef void(_fastcall* Finalize_t)(DLPlainLightMutex*);
 
