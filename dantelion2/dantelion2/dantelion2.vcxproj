@@ -216,6 +216,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Common.h" />
     <ClInclude Include="Core\Assert\DLAssert.h" />
     <ClInclude Include="Core\Graphics\Core\CGBuffer.h" />
     <ClInclude Include="Core\Graphics\Core\CGDepthStencilView.h" />
@@ -297,6 +298,7 @@
     <ClInclude Include="Core\Logging\DLLoggingStrategy.h" />
     <ClInclude Include="Core\Logging\DLLogManager.h" />
     <ClInclude Include="Core\Logging\DLLogManagerImpl.h" />
+    <ClInclude Include="Core\Logging\DLPropertyConfigurator.h" />
     <ClInclude Include="Core\Logging\Logging.h" />
     <ClInclude Include="Core\Math\DLConstants.h" />
     <ClInclude Include="Core\Math\DLColor.h" />
@@ -377,6 +379,7 @@
     <ClInclude Include="Globals.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Common.cpp" />
     <ClCompile Include="Core\Assert\DLAssert.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGResource.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp" />
@@ -401,6 +404,7 @@
     <ClCompile Include="Core\Logging\DLLogger.cpp" />
     <ClCompile Include="Core\Logging\DLLogManager.cpp" />
     <ClCompile Include="Core\Logging\DLLogManagerImpl.cpp" />
+    <ClCompile Include="Core\Logging\DLPropertyConfigurator.cpp" />
     <ClCompile Include="Core\Math\DLAABB.inl" />
     <ClCompile Include="Core\Math\DLMatrix.cpp" />
     <ClCompile Include="Core\Math\DLQuaternion.cpp" />

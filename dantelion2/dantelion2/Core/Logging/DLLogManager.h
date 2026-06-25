@@ -30,5 +30,7 @@ namespace DLLG
 		virtual void Log(DLLogEvent& pLE) = 0;
 		virtual DLUT::DLLifecycleAdapter<DLKR::DLPlainLightMutex>& GetMutex() = 0;
 		virtual ~DLLogManager();
+
+#define LOG_ENABLED *(dl_bool*)(MODULE_ADDR + 0x1669620)
 	};
 }
