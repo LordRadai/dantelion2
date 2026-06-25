@@ -108,14 +108,14 @@ namespace DLLG
 		VIRTUAL_CALL(this, 20, oSetDefaultAppenderSize, this, newSize);
 	}
 
-	void DLHierarchy::FinalizeAppenders()
-	{
-		VIRTUAL_CALL(this, 21, oClearAppenders, this);
-	}
-
 	void DLHierarchy::InitializeAppenders()
 	{
-		VIRTUAL_CALL(this, 22, oInitializeAppenders, this);
+		VIRTUAL_CALL(this, 21, oInitializeAppenders, this);
+	}
+
+	void DLHierarchy::FinalizeAppenders()
+	{
+		VIRTUAL_CALL(this, 22, oFinalizeAppenders, this);
 	}
 
 	DLHierarchy::~DLHierarchy()

@@ -66,8 +66,8 @@ namespace DLLG
 		virtual void ProcessEvent(const DLLogEvent& e) override;
 		virtual dl_uint GetDefaultAppenderSize() override;
 		virtual void SetDefaultAppenderSize(dl_uint newSize) override;
-		virtual void FinalizeAppenders() override;
 		virtual void InitializeAppenders() override;
+		virtual void FinalizeAppenders() override;
 		virtual ~DLHierarchy() override;
 	};
 }

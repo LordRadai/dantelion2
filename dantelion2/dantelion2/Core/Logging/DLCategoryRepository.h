@@ -17,7 +17,7 @@ namespace DLLG
 		virtual DLCategory& GetCategory(const dl_wchar* cName) = 0;
 		virtual DLCategory& GetCategoryIgnoreCache(const dl_wchar* cName) = 0;
 		virtual DLCategory& GetCategoryWithCache(const dl_wchar* cName) = 0;
-		virtual DLAppender* GetAppender(const dl_wchar* cName) = 0;
+		virtual DLAppender* GetAppender(const dl_wchar* name = 0) = 0;
 		virtual DLAppender* AddAppender(DLAppender* pAppender) = 0;
 		virtual DLAppender* AddAppender(const dl_char* className, const dl_wchar* name = 0) = 0;
 		virtual DLLayout* GetLayout(const dl_wchar* name = 0) = 0;
@@ -46,7 +46,7 @@ namespace DLLG
 		typedef DLAppender*(_fastcall* oAddAppender)(DLCategoryRepository*, DLAppender*);
 		typedef DLAppender* (_fastcall* oAddAppenderByName)(DLCategoryRepository*, const dl_char*, const dl_wchar*);
 		typedef DLLayout* (_fastcall* oGetLayout)(DLCategoryRepository*, const dl_wchar*);
-		typedef DLLayout* (_fastcall* oAddLayout)(DLCategoryRepository*, DLLayout*);
+		typedef DLLayout*(_fastcall* oAddLayout)(DLCategoryRepository*, DLLayout*);
 		typedef DLLayout* (_fastcall* oAddLayoutByClassName)(DLCategoryRepository*, const dl_char*, const dl_wchar*);
 		typedef void(_fastcall* oRemoveCategory)(DLCategoryRepository*, const dl_wchar*);
 		typedef DLCategory* (_fastcall* oAddCategory)(DLCategoryRepository*, const dl_wchar*);
@@ -54,8 +54,8 @@ namespace DLLG
 		typedef void(_fastcall* oProcessEvent)(DLCategoryRepository*, const DLLogEvent&);
 		typedef dl_uint(_fastcall* oGetDefaultAppenderSize)(DLCategoryRepository*);
 		typedef void(_fastcall* oSetDefaultAppenderSize)(DLCategoryRepository*, dl_uint);
-		typedef void(_fastcall* oClearAppenders)(DLCategoryRepository*);
 		typedef void(_fastcall* oInitializeAppenders)(DLCategoryRepository*);
+		typedef void(_fastcall* oFinalizeAppenders)(DLCategoryRepository*);
 		typedef void(_fastcall* oDestructor)(DLCategoryRepository*);
 	};
 }
