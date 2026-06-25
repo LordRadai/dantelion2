@@ -363,7 +363,7 @@
     <ClInclude Include="Core\Util\DLLifeCycleAdapter.h" />
     <ClInclude Include="Core\Util\DLList.h" />
     <ClInclude Include="Core\Util\DLMap.h" />
-    <ClInclude Include="Core\Util\DLMemFunHandler.h" />
+    <ClInclude Include="Core\Util\detail\DLMemFunHandler.h" />
     <ClInclude Include="Core\Util\DLNonCopyable.h" />
     <ClInclude Include="Core\Util\DLNullType.h" />
     <ClInclude Include="Core\Util\DLProperties.h" />

@@ -393,7 +393,7 @@
     <ClInclude Include="Core\Util\DLMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Util\DLMemFunHandler.h">
+    <ClInclude Include="Core\Util\detail\DLMemFunHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Util\DLNonCopyable.h">
