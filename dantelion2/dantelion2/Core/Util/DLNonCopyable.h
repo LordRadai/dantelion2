@@ -4,7 +4,7 @@ namespace DLUT
 {
 	class DLNonCopyable
 	{
-	protected:
-		void** _vfptr;
+	public:
+		virtual ~DLNonCopyable() {}
 	};
 }

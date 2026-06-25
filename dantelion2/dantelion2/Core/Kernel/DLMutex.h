@@ -13,5 +13,9 @@ namespace DLKR
 
     public:
 		DLPlainMutex();
+        virtual ~DLPlainMutex() override;
+
+	    dl_bool Initialize();
+	    void Finalize();
     };
 }

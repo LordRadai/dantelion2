@@ -9,5 +9,9 @@ namespace DLKR
         dl_bool m_bIsValid;
     public:
 		DLPlainLightMutex();
+		virtual ~DLPlainLightMutex() override;
+
+        dl_bool Initialize();
+        void Finalize();
     };
 }

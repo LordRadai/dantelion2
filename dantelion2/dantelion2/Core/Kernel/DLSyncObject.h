@@ -18,7 +18,6 @@ namespace DLKR
             ERR_UNKNOWN,
         };
 
-        ~DLSyncObject();
         dl_bool IsValid(void) const;
         dl_int32 Lock(DLTimeout timeout = DL_TIMEOUT_INFINITE);
         dl_int32 TryLock(void);
