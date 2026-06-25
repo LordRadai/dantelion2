@@ -10,7 +10,7 @@ namespace DLGR
 		dl_uint8 m_Data[88];
 
 	public:
-		virtual ~DLFontContextStack() override;
+		virtual ~DLFontContextStack() override {}
 
 		// Empty for now
 		virtual Ctx* GetContext() override { return nullptr; }
