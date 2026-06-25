@@ -2,7 +2,7 @@
 #include "Core/Platform/Platform.h"
 #include "Core/Kernel/DLAllocator.h"
 #include "Core/Kernel/DLStdAllocator.inl"
-#include <functional>
+
 #include <map>
 
 namespace DLUT

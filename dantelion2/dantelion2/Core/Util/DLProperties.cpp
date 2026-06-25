@@ -4,6 +4,8 @@
 namespace DLUT
 {
 	typedef void(_fastcall* oConstructor)(DLProperties*, DLKR::DLAllocator*);
+	typedef void(_fastcall* oCopyConstructor)(DLProperties*, DLProperties&, DLKR::DLAllocator*);
+
 	typedef dl_int(_fastcall* oGetPropertyInt)(DLProperties* pThis, const DLTX::DLString& name, dl_int defaultValue);
 	typedef dl_bool(_fastcall* oGetPropertyBool)(DLProperties* pThis, const DLTX::DLString& name, dl_bool defaultValue);
 	typedef dl_float32(_fastcall* oGetPropertyFloat)(DLProperties* pThis, const DLTX::DLString& name, dl_float32 defaultValue);
@@ -13,6 +15,11 @@ namespace DLUT
 	DLProperties::DLProperties(DLKR::DLAllocator* pAllocator)
 	{
 		CALL(oConstructor, 0x87b970, this, pAllocator);
+	}
+
+	DLProperties::DLProperties(DLProperties& other, DLKR::DLAllocator* pAllocator)
+	{
+		CALL(oCopyConstructor, 0x87b9e0, this, other, pAllocator);
 	}
 
 	dl_int DLProperties::GetInteger(const DLTX::DLString& name, dl_int defaultValue)
