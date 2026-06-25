@@ -10,5 +10,8 @@ namespace DLKR
         };
 
         sys_mutex_t m_id;
+
+    public:
+		DLPlainMutex();
     };
 }

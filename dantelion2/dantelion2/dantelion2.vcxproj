@@ -394,6 +394,8 @@
     <ClCompile Include="Core\Graphics\Font\DLTextProcessor.cpp" />
     <ClCompile Include="Core\Kernel\DLAllocator.cpp" />
     <ClCompile Include="Core\Kernel\DLHeapManager.cpp" />
+    <ClCompile Include="Core\Kernel\DLLightMutex.cpp" />
+    <ClCompile Include="Core\Kernel\DLMutex.cpp" />
     <ClCompile Include="Core\Kernel\DLNew.cpp" />
     <ClCompile Include="Core\Kernel\DLSyncObject.cpp" />
     <ClCompile Include="Core\Logging\DLAppender.cpp" />
