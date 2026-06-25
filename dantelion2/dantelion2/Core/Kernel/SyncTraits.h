@@ -3,6 +3,6 @@
 namespace DLKR
 {
     enum {
-        DL_TIMEOUT_INFINITE = 0,
+        DL_TIMEOUT_INFINITE = 0xFFFFFFFF,
     };
 }
