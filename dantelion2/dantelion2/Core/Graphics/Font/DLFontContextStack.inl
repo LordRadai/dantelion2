@@ -13,7 +13,7 @@ namespace DLGR
 		virtual ~DLFontContextStack() override;
 
 		// Empty for now
-		virtual Ctx* GetContext() override {}
-		virtual Ctx* GetContext() const override {}
+		virtual Ctx* GetContext() override { return nullptr; }
+		virtual Ctx* GetContext() const override { return nullptr; }
 	};
 }
