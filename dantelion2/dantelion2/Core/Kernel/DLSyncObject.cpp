@@ -9,10 +9,6 @@ namespace DLKR
 	typedef dl_int32(_fastcall* oTryLock)(DLSyncObject* pThis);
 	typedef dl_int32(_fastcall* oUnlock)(DLSyncObject* pThis);
 
-	DLSyncObject::~DLSyncObject() {
-		VIRTUAL_CALL(this, 0, oDestructor, this);
-	}
-
 	dl_bool DLSyncObject::IsValid() const {
 		return VIRTUAL_CALL((DLSyncObject*)this, 1, oIsValid, (DLSyncObject*)this);
 	}

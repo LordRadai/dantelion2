@@ -18,9 +18,9 @@ namespace DLKR
             ERR_UNKNOWN,
         };
 
-        dl_bool IsValid(void) const;
-        dl_int32 Lock(DLTimeout timeout = DL_TIMEOUT_INFINITE);
-        dl_int32 TryLock(void);
-        dl_int32 Unlock(void);
+        virtual dl_bool IsValid(void) const;
+        virtual dl_int32 Lock(DLTimeout timeout = DL_TIMEOUT_INFINITE);
+        virtual dl_int32 TryLock(void);
+        virtual dl_int32 Unlock(void);
 	};
 }
