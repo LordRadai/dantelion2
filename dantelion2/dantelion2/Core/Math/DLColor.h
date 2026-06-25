@@ -41,7 +41,7 @@ namespace DLMT
 		DL_COLOR_32(void) {}
 		DL_COLOR_32(dl_uint32 color);
 		DL_COLOR_32(dl_float32 _r, dl_float32 _g, dl_float32 _b, dl_float32 _a);
-		DL_COLOR_32(dl_uint32 _r, dl_uint32 _g, dl_uint32 _b, dl_uint32 _a);
+		DL_COLOR_32(dl_uint8 _r, dl_uint8 _g, dl_uint8 _b, dl_uint8 _a);
 		DL_COLOR_32(const dl_float32* pColor);
 		DL_COLOR_32(DLMT2::DL_COLOR_U8 color);
 		DL_COLOR_32(DL_COLOR_F4& color);
