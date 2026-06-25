@@ -7,6 +7,6 @@ namespace DLLG
 
 	dl_bool DLPropertyConfigurator::Configure(const DLUT::DLProperties& properties, DLKR::DLAllocator* pAllocator)
 	{
-		return CALL(oConfigure, 0x8c5d00, properties, pAllocator);
+		return CALL(oConfigure, 0x8c5f80, properties, pAllocator);
 	}
 }
