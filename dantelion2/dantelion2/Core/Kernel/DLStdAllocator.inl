@@ -72,12 +72,12 @@ namespace DLKR
             if (n > max_size())
                 throw std::bad_alloc();
 
-            void* p = m_host->Allocate(n * sizeof(T));
+            void* p = m_host->Allocate(n * sizeof(_Other));
 
             if (p == nullptr)
                 throw std::bad_alloc();
 
-            return static_cast<pointer>(p);
+            return static_cast<_Other*>(p);
         }
 
         pointer allocate_aligned(size_type n, size_type align)
