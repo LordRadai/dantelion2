@@ -6,7 +6,7 @@
 
 namespace DLUT
 {
-#if defined(_MSC_VER) && (_MSC_VER == 1700)
+#if defined(_MSC_VER) && (_MSC_VER <= 1800)
     template<class T, class Compare = ::std::less<T>, class AllocHost = DLKR::DLAllocator>
     class DLSet : public std::set<T, Compare, DLKR::DLStdAllocator<T, AllocHost>>
     {

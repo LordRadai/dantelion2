@@ -7,7 +7,7 @@
 
 namespace DLUT
 {
-#if defined(_MSC_VER) && (_MSC_VER == 1700)
+#if defined(_MSC_VER) && (_MSC_VER <= 1800)
     template<class Key, class T, class Compare = ::std::less<Key>, class AllocHost = DLKR::DLAllocator>
     class DLMap : public ::std::map<Key, T, Compare, DLKR::DLStdAllocator<std::pair<const Key, T>, AllocHost>>
     {

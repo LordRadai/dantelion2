@@ -3,7 +3,7 @@
 #include <deque>
 namespace DLUT
 {
-#if defined(_MSC_VER) && (_MSC_VER == 1700)
+#if defined(_MSC_VER) && (_MSC_VER <= 1800)
 	template<class T, class AllocHost = DLKR::DLAllocator>
 	class DLDeque : public std::deque<T, DLKR::DLStdAllocator<T, AllocHost>>
 	{

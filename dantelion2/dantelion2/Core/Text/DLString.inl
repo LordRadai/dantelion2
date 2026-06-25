@@ -8,7 +8,7 @@
 
 namespace DLTX
 {
-#if defined(_MSC_VER) && (_MSC_VER == 1700)
+#if defined(_MSC_VER) && (_MSC_VER <= 1800)
     template<class _Elem, typename _Traits = ::std::char_traits<_Elem>, class AllocHost = DLKR::DLAllocator>
     class DLBasicString : public ::std::basic_string<_Elem, _Traits, DLKR::DLStdAllocator<_Elem, AllocHost>>
     {
