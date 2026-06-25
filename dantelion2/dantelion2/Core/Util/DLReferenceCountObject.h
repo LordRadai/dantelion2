@@ -10,8 +10,8 @@ namespace DLUT
 	public:
 		virtual void Destroy() = 0;
 
-		void Ref();
-		void Unref();
+		void AddRef();
+		void UnRef();
 
 		typedef void(_fastcall* Destroy_t)(DLReferenceCountObject*);
 	};

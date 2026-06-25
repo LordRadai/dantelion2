@@ -2,12 +2,12 @@
 
 namespace DLUT
 {
-	void DLReferenceCountObject::Ref()
+	void DLReferenceCountObject::AddRef()
 	{
 		this->m_nRefCount += 1;
 	}
 
-	void DLReferenceCountObject::Unref()
+	void DLReferenceCountObject::UnRef()
 	{
 		this->m_nRefCount -= 1;
 	}

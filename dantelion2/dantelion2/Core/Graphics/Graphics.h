@@ -13,6 +13,8 @@
 #include "DLShader.h"
 #include "DLQuery.h"
 #include "DLSDObjectFactory.h"
+#include "DLRenderState.h"
+#include "DLViewport.h"
 #include "Font/DLFontData.h"
 #include "Font/DLTextProcessManager.h"
 #include "Font/DLFontManager.h"

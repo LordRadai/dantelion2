@@ -235,6 +235,7 @@
     <ClInclude Include="Core\Graphics\DLIndexBuffer.h" />
     <ClInclude Include="Core\Graphics\DLQuery.h" />
     <ClInclude Include="Core\Graphics\DLRect.h" />
+    <ClInclude Include="Core\Graphics\DLRenderState.h" />
     <ClInclude Include="Core\Graphics\DLSDObjectFactory.h" />
     <ClInclude Include="Core\Graphics\DLShader.h" />
     <ClInclude Include="Core\Graphics\DLSurface.h" />
@@ -242,6 +243,7 @@
     <ClInclude Include="Core\Graphics\DLVertexBuffer.h" />
     <ClInclude Include="Core\Graphics\DLVertexDeclaration.h" />
     <ClInclude Include="Core\Graphics\DLVertexTypes.h" />
+    <ClInclude Include="Core\Graphics\DLViewport.h" />
     <ClInclude Include="Core\Graphics\Font\DLFontAttribute.h" />
     <ClInclude Include="Core\Graphics\Font\DLFontContextHolder.inl" />
     <ClInclude Include="Core\Graphics\Font\DLFontContextStack.inl" />
