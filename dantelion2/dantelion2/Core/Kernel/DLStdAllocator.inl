@@ -57,7 +57,8 @@ namespace DLKR
         {
             if (n > max_size())
                 throw std::bad_alloc();
-            void* p = m_host->Allocate(n);
+
+            void* p = m_host->Allocate(n * sizeof(T));
 
             if (p == nullptr)
                 throw std::bad_alloc();
