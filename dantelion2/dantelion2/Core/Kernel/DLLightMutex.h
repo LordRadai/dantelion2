@@ -9,6 +9,7 @@ namespace DLKR
         dl_bool m_bIsValid;
     public:
 		DLPlainLightMutex();
+
 		virtual ~DLPlainLightMutex() override;
 		virtual dl_bool IsValid(void) const override;
 		virtual dl_int32 Lock(DLTimeout timeout = DL_TIMEOUT_INFINITE) override;
