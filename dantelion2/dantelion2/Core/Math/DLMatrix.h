@@ -429,6 +429,12 @@ namespace DLMT
         void GetRow(DL_VECTOR4AL& vOut, dl_uint32 r) const;
         DL_VECTOR4AL GetCol(dl_uint32 c) const;
         void GetCol(DL_VECTOR4AL& vOut, dl_uint32 c) const;
+
+		dl_float32 GetScale() const;
+		DL_VECTOR4AL GetTranslation() const;
+		DL_MATRIX33 GetRotation() const;
+
+		static DL_MATRIX44 CreateTranslation(const DL_VECTOR4AL& translation);
     };
 
     static DL_MATRIX22 DL_IDENTITY_MATRIX22 = 

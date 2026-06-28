@@ -4,3 +4,6 @@
 #include "DLVector.h"
 #include "DLColor.h"
 #include "DLRect.h"
+
+#include "DLAABB.h"
+#include "DLSphere.h"

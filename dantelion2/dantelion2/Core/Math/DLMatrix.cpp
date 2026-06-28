@@ -1,5 +1,6 @@
 #include "DLMatrix.h"
 #include <memory.h>
+#include <cmath>
 
 namespace DLMT
 {
@@ -290,4 +291,24 @@ namespace DLMT
     void DL_MATRIX44::GetRow(DL_VECTOR4AL& vOut, dl_uint32 r) const { vOut = R[r]; }
     DL_VECTOR4AL DL_MATRIX44::GetCol(dl_uint32 c) const { return DL_VECTOR4AL(m[0][c], m[1][c], m[2][c], m[3][c]); }
     void DL_MATRIX44::GetCol(DL_VECTOR4AL& vOut, dl_uint32 c) const { vOut.x = m[0][c]; vOut.y = m[1][c]; vOut.z = m[2][c]; vOut.w = m[3][c]; }
+
+    dl_float32 DL_MATRIX44::GetScale() const {
+		return std::sqrtf(m00 * m00 + m10 * m10 + m20 * m20);
+    }
+
+    DL_VECTOR4AL DL_MATRIX44::GetTranslation() const {
+        return DL_VECTOR4AL(m03, m13, m23, m33);
+    }
+
+    DL_MATRIX33 DL_MATRIX44::GetRotation() const {
+        return DL_MATRIX33(m00, m01, m02, m10, m11, m12, m20, m21, m22);
+    }
+
+    DL_MATRIX44 DL_MATRIX44::CreateTranslation(const DLMT::DL_VECTOR4AL& translation) {
+        DL_MATRIX44 result = DL_IDENTITY_MATRIX44;
+        result.m03 = translation.x;
+        result.m13 = translation.y;
+        result.m23 = translation.z;
+        return result;
+    }
 }

@@ -202,6 +202,8 @@ namespace DLMT
         explicit DL_VECTOR4(const DL_VECTOR2& v, dl_float32 z = 0.0f, dl_float32 w = 0.0f) : x(v.x), y(v.y), z(z), w(w) {}
         explicit DL_VECTOR4(const DL_VECTOR3& v, dl_float32 w = 0.0f) : x(v.x), y(v.y), z(v.z), w(w) {}
 
+		static DL_VECTOR4 Replicate(dl_float32 value) { return DL_VECTOR4(value, value, value, value); }
+
         // Math operations
         dl_float32  Dot(const DL_VECTOR4& other) const;
         dl_float32  Length() const;
