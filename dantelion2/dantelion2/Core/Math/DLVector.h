@@ -20,31 +20,31 @@ namespace DLMT
 			 dl_float32 v[2];
         };
 
-        inline DL_VECTOR2() = default;
-        inline DL_VECTOR2(dl_float32 x, dl_float32 y) : x(x), y(y) {}
-        inline DL_VECTOR2(const DL_VECTOR3& v);
-        inline DL_VECTOR2(const DL_VECTOR4& v);
+        DL_VECTOR2() = default;
+        DL_VECTOR2(dl_float32 x, dl_float32 y) : x(x), y(y) {}
+        DL_VECTOR2(const DL_VECTOR3& v);
+        DL_VECTOR2(const DL_VECTOR4& v);
         static DL_VECTOR2 Replicate(dl_float32 value) { return DL_VECTOR2(value, value); }
 
         // Math operations
-        inline dl_float32   Dot(const DL_VECTOR2& other) const;
-        inline dl_float32   Cross(const DL_VECTOR2& other) const;
-        inline dl_float32   Length() const;
-        inline dl_float32   LengthSquared() const;
-        inline DL_VECTOR2   Normalize() const;
-        inline dl_float32   DistanceTo(const DL_VECTOR2& other) const;
-        inline dl_float32   Angle() const;
-        inline dl_float32   AngleTo(const DL_VECTOR2& other) const;
-        inline DL_VECTOR2   Rotate(dl_float32 radians) const;
-        inline DL_VECTOR2   Reflect(const DL_VECTOR2& normal) const;
-        inline DL_VECTOR2   Lerp(const DL_VECTOR2& other, dl_float32 t) const;
-        inline DL_VECTOR2   Clamp(const DL_VECTOR2& min, const DL_VECTOR2& max) const;
-        inline DL_VECTOR2   Abs() const;
+        dl_float32   Dot(const DL_VECTOR2& other) const;
+        dl_float32   Cross(const DL_VECTOR2& other) const;
+        dl_float32   Length() const;
+        dl_float32   LengthSquared() const;
+        DL_VECTOR2   Normalize() const;
+        dl_float32   DistanceTo(const DL_VECTOR2& other) const;
+        dl_float32   Angle() const;
+        dl_float32   AngleTo(const DL_VECTOR2& other) const;
+        DL_VECTOR2   Rotate(dl_float32 radians) const;
+        DL_VECTOR2   Reflect(const DL_VECTOR2& normal) const;
+        DL_VECTOR2   Lerp(const DL_VECTOR2& other, dl_float32 t) const;
+        DL_VECTOR2   Clamp(const DL_VECTOR2& min, const DL_VECTOR2& max) const;
+        DL_VECTOR2   Abs() const;
 
         // State checks
-        inline dl_bool         IsNormalized(dl_float32 epsilon = 1e-6f) const;
-        inline dl_bool         IsZero(dl_float32 epsilon = 1e-6f) const;
-        inline dl_bool         Equals(const DL_VECTOR2& other, dl_float32 epsilon = 1e-6f) const;
+        dl_bool         IsNormalized(dl_float32 epsilon = 1e-6f) const;
+        dl_bool         IsZero(dl_float32 epsilon = 1e-6f) const;
+        dl_bool         Equals(const DL_VECTOR2& other, dl_float32 epsilon = 1e-6f) const;
 
         // Static constants
 		static DL_VECTOR2 Zero() { return DL_VECTOR2(0.0f, 0.0f); }
@@ -58,36 +58,36 @@ namespace DLMT
 		static DL_VECTOR2 UnitY() { return DL_VECTOR2(0.0f, 1.0f); }
 
         // Compound assignment operators
-        inline DL_VECTOR2& operator+=(const DL_VECTOR2& other);
-        inline DL_VECTOR2& operator-=(const DL_VECTOR2& other);
-        inline DL_VECTOR2& operator*=(dl_float32 scalar);
-        inline DL_VECTOR2& operator/=(dl_float32 scalar);
+        DL_VECTOR2& operator+=(const DL_VECTOR2& other);
+        DL_VECTOR2& operator-=(const DL_VECTOR2& other);
+        DL_VECTOR2& operator*=(dl_float32 scalar);
+        DL_VECTOR2& operator/=(dl_float32 scalar);
 
         // Arithmetic operators
-        inline DL_VECTOR2  operator+(const DL_VECTOR2& other) const;
-        inline DL_VECTOR2  operator-(const DL_VECTOR2& other) const;
-        inline DL_VECTOR2  operator*(dl_float32 scalar) const;
-        inline DL_VECTOR2  operator/(dl_float32 scalar) const;
-        inline DL_VECTOR2  operator-() const;
-        inline DL_VECTOR2  operator+() const;
+        DL_VECTOR2  operator+(const DL_VECTOR2& other) const;
+        DL_VECTOR2  operator-(const DL_VECTOR2& other) const;
+        DL_VECTOR2  operator*(dl_float32 scalar) const;
+        DL_VECTOR2  operator/(dl_float32 scalar) const;
+        DL_VECTOR2  operator-() const;
+        DL_VECTOR2  operator+() const;
 
-		inline DL_VECTOR2 operator*(const DL_MATRIX22& other) const;
-		inline DL_VECTOR2 operator*(const DL_MATRIX33& other) const;
-		inline DL_VECTOR2 operator*(const DL_MATRIX34& other) const;
-		inline DL_VECTOR2 operator*(const DL_MATRIX44& other) const;
-		inline DL_VECTOR2 operator*(const DL_MATRIX43& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX22& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX33& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX34& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX44& other) const;
+		DL_VECTOR2 operator*(const DL_MATRIX43& other) const;
 
         // Comparison operators
-        inline dl_bool        operator==(const DL_VECTOR2& other) const;
-        inline dl_bool        operator!=(const DL_VECTOR2& other) const;
+        dl_bool        operator==(const DL_VECTOR2& other) const;
+        dl_bool        operator!=(const DL_VECTOR2& other) const;
 
-        inline dl_float32& operator[](dl_uint32 index) { return v[index]; }
-        inline const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
+        dl_float32& operator[](dl_uint32 index) { return v[index]; }
+        const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
     };
 
     // Free-function scalar operators
-    inline DL_VECTOR2 operator*(dl_float32 scalar, const DL_VECTOR2& vec);
-    inline DL_VECTOR2 operator/(dl_float32 scalar, const DL_VECTOR2& vec);
+    DL_VECTOR2 operator*(dl_float32 scalar, const DL_VECTOR2& vec);
+    DL_VECTOR2 operator/(dl_float32 scalar, const DL_VECTOR2& vec);
 
 	__declspec(align(16))
 	struct DL_VECTOR2AL : public DL_VECTOR2
@@ -105,36 +105,36 @@ namespace DLMT
 			dl_float32 v[3];
         };
 
-        inline DL_VECTOR3() = default;
-        inline DL_VECTOR3(dl_float32 x, dl_float32 y, dl_float32 z) : x(x), y(y), z(z) {}
-        inline DL_VECTOR3(const DL_VECTOR4& v);
+        DL_VECTOR3() = default;
+        DL_VECTOR3(dl_float32 x, dl_float32 y, dl_float32 z) : x(x), y(y), z(z) {}
+        DL_VECTOR3(const DL_VECTOR4& v);
 
         static DL_VECTOR3 Replicate(dl_float32 value) { return DL_VECTOR3(value, value, value); }
 
-        explicit inline DL_VECTOR3(const DL_VECTOR2& v, dl_float32 z = 0.0f) : x(v.x), y(v.y), z(z) {}
+        explicit DL_VECTOR3(const DL_VECTOR2& v, dl_float32 z = 0.0f) : x(v.x), y(v.y), z(z) {}
 
         // Math operations
-        inline dl_float32  Dot(const DL_VECTOR3& other) const;
-        inline DL_VECTOR3  Cross(const DL_VECTOR3& other) const;
-        inline dl_float32  Length() const;
-        inline dl_float32  LengthSquared() const;
-        inline DL_VECTOR3  Normalize() const;
-        inline dl_float32  DistanceTo(const DL_VECTOR3& other) const;
-        inline dl_float32  Angle() const;
-        inline dl_float32  AngleTo(const DL_VECTOR3& other) const;
-        inline DL_VECTOR3  Rotate(const DL_VECTOR3& axis, dl_float32 radians) const;
-        inline DL_VECTOR3  Reflect(const DL_VECTOR3& normal) const;
-        inline DL_VECTOR3  Lerp(const DL_VECTOR3& other, dl_float32 t) const;
-        inline DL_VECTOR3  Clamp(const DL_VECTOR3& min, const DL_VECTOR3& max) const;
-        inline DL_VECTOR3  Abs() const;
+        dl_float32  Dot(const DL_VECTOR3& other) const;
+        DL_VECTOR3  Cross(const DL_VECTOR3& other) const;
+        dl_float32  Length() const;
+        dl_float32  LengthSquared() const;
+        DL_VECTOR3  Normalize() const;
+        dl_float32  DistanceTo(const DL_VECTOR3& other) const;
+        dl_float32  Angle() const;
+        dl_float32  AngleTo(const DL_VECTOR3& other) const;
+        DL_VECTOR3  Rotate(const DL_VECTOR3& axis, dl_float32 radians) const;
+        DL_VECTOR3  Reflect(const DL_VECTOR3& normal) const;
+        DL_VECTOR3  Lerp(const DL_VECTOR3& other, dl_float32 t) const;
+        DL_VECTOR3  Clamp(const DL_VECTOR3& min, const DL_VECTOR3& max) const;
+        DL_VECTOR3  Abs() const;
 
         // Conversion
-        inline DL_VECTOR2  ToVector2() const;
+        DL_VECTOR2  ToVector2() const;
 
         // State checks
-        inline dl_bool        IsNormalized(dl_float32 epsilon = 1e-6f) const;
-        inline dl_bool        IsZero(dl_float32 epsilon = 1e-6f) const;
-        inline dl_bool        Equals(const DL_VECTOR3& other, dl_float32 epsilon = 1e-6f) const;
+        dl_bool        IsNormalized(dl_float32 epsilon = 1e-6f) const;
+        dl_bool        IsZero(dl_float32 epsilon = 1e-6f) const;
+        dl_bool        Equals(const DL_VECTOR3& other, dl_float32 epsilon = 1e-6f) const;
 
         // Static constants
 		static DL_VECTOR3 Zero() { return DL_VECTOR3(0.0f, 0.0f, 0.0f); }
@@ -151,31 +151,31 @@ namespace DLMT
 		static DL_VECTOR3 UnitZ() { return DL_VECTOR3(0.0f, 0.0f, 1.0f); }
 
         // Compound assignment operators
-        inline DL_VECTOR3& operator+=(const DL_VECTOR3& other);
-        inline DL_VECTOR3& operator-=(const DL_VECTOR3& other);
-        inline DL_VECTOR3& operator*=(dl_float32 scalar);
-        inline DL_VECTOR3& operator/=(dl_float32 scalar);
+        DL_VECTOR3& operator+=(const DL_VECTOR3& other);
+        DL_VECTOR3& operator-=(const DL_VECTOR3& other);
+        DL_VECTOR3& operator*=(dl_float32 scalar);
+        DL_VECTOR3& operator/=(dl_float32 scalar);
 
         // Arithmetic operators
-        inline DL_VECTOR3  operator+(const DL_VECTOR3& other) const;
-        inline DL_VECTOR3  operator-(const DL_VECTOR3& other) const;
-        inline DL_VECTOR3  operator*(dl_float32 scalar) const;
-        inline DL_VECTOR3  operator/(dl_float32 scalar) const;
-        inline DL_VECTOR3  operator-() const;
-        inline DL_VECTOR3  operator+() const;
+        DL_VECTOR3  operator+(const DL_VECTOR3& other) const;
+        DL_VECTOR3  operator-(const DL_VECTOR3& other) const;
+        DL_VECTOR3  operator*(dl_float32 scalar) const;
+        DL_VECTOR3  operator/(dl_float32 scalar) const;
+        DL_VECTOR3  operator-() const;
+        DL_VECTOR3  operator+() const;
 
-        inline DL_VECTOR3 operator*(const DL_MATRIX22& other) const;
-        inline DL_VECTOR3 operator*(const DL_MATRIX33& other) const;
-        inline DL_VECTOR3 operator*(const DL_MATRIX34& other) const;
-        inline DL_VECTOR3 operator*(const DL_MATRIX44& other) const;
-        inline DL_VECTOR3 operator*(const DL_MATRIX43& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX22& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX33& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX34& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX44& other) const;
+        DL_VECTOR3 operator*(const DL_MATRIX43& other) const;
 
         // Comparison operators
-        inline dl_bool        operator==(const DL_VECTOR3& other) const;
-        inline dl_bool        operator!=(const DL_VECTOR3& other) const;
+        dl_bool        operator==(const DL_VECTOR3& other) const;
+        dl_bool        operator!=(const DL_VECTOR3& other) const;
 
-        inline dl_float32& operator[](dl_uint32 index) { return v[index]; }
-        inline const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
+        dl_float32& operator[](dl_uint32 index) { return v[index]; }
+        const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
     };
 
     DL_VECTOR3 operator*(dl_float32 scalar, const DL_VECTOR3& vec);
@@ -199,33 +199,33 @@ namespace DLMT
 			dl_float32 v[4];
         };
 
-        inline DL_VECTOR4() = default;
-        inline DL_VECTOR4(dl_float32 x, dl_float32 y, dl_float32 z, dl_float32 w) : x(x), y(y), z(z), w(w) {}
+        DL_VECTOR4() = default;
+        DL_VECTOR4(dl_float32 x, dl_float32 y, dl_float32 z, dl_float32 w) : x(x), y(y), z(z), w(w) {}
 
-        inline explicit DL_VECTOR4(const DL_VECTOR2& v, dl_float32 z = 0.0f, dl_float32 w = 0.0f) : x(v.x), y(v.y), z(z), w(w) {}
-        inline explicit DL_VECTOR4(const DL_VECTOR3& v, dl_float32 w = 0.0f) : x(v.x), y(v.y), z(v.z), w(w) {}
+        explicit DL_VECTOR4(const DL_VECTOR2& v, dl_float32 z = 0.0f, dl_float32 w = 0.0f) : x(v.x), y(v.y), z(z), w(w) {}
+        explicit DL_VECTOR4(const DL_VECTOR3& v, dl_float32 w = 0.0f) : x(v.x), y(v.y), z(v.z), w(w) {}
 
 		static DL_VECTOR4 Replicate(dl_float32 value) { return DL_VECTOR4(value, value, value, value); }
 
         // Math operations
-        inline dl_float32  Dot(const DL_VECTOR4& other) const;
-        inline dl_float32  Length() const;
-        inline dl_float32  LengthSq() const;
-        inline DL_VECTOR4  Normalize() const;
-        inline dl_float32  DistanceTo(const DL_VECTOR4& other) const;
-        inline DL_VECTOR4  Lerp(const DL_VECTOR4& other, dl_float32 t) const;
-        inline DL_VECTOR4  Clamp(const DL_VECTOR4& min, const DL_VECTOR4& max) const;
-        inline DL_VECTOR4  Abs() const;
+        dl_float32  Dot(const DL_VECTOR4& other) const;
+        dl_float32  Length() const;
+        dl_float32  LengthSq() const;
+        DL_VECTOR4  Normalize() const;
+        dl_float32  DistanceTo(const DL_VECTOR4& other) const;
+        DL_VECTOR4  Lerp(const DL_VECTOR4& other, dl_float32 t) const;
+        DL_VECTOR4  Clamp(const DL_VECTOR4& min, const DL_VECTOR4& max) const;
+        DL_VECTOR4  Abs() const;
 
         // Conversion
-        inline DL_VECTOR2  ToVector2() const;
-        inline DL_VECTOR3  ToVector3() const;
-        inline DL_VECTOR3  PerspectiveDivide() const;
+        DL_VECTOR2  ToVector2() const;
+        DL_VECTOR3  ToVector3() const;
+        DL_VECTOR3  PerspectiveDivide() const;
 
         // State checks
-        inline dl_bool        IsNormalized(dl_float32 epsilon = 1e-6f) const;
-        inline dl_bool        IsZero(dl_float32 epsilon = 1e-6f) const;
-        inline dl_bool        Equals(const DL_VECTOR4& other, dl_float32 epsilon = 1e-6f) const;
+        dl_bool        IsNormalized(dl_float32 epsilon = 1e-6f) const;
+        dl_bool        IsZero(dl_float32 epsilon = 1e-6f) const;
+        dl_bool        Equals(const DL_VECTOR4& other, dl_float32 epsilon = 1e-6f) const;
 
         // Compound assignment operators
         DL_VECTOR4& operator+=(const DL_VECTOR4& other);
@@ -241,22 +241,22 @@ namespace DLMT
         DL_VECTOR4  operator-() const;
         DL_VECTOR4  operator+() const;
 
-        inline DL_VECTOR4 operator*(const DL_MATRIX22& other) const;
-        inline DL_VECTOR4 operator*(const DL_MATRIX33& other) const;
-        inline DL_VECTOR4 operator*(const DL_MATRIX34& other) const;
-        inline DL_VECTOR4 operator*(const DL_MATRIX44& other) const;
-        inline DL_VECTOR4 operator*(const DL_MATRIX43& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX22& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX33& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX34& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX44& other) const;
+        DL_VECTOR4 operator*(const DL_MATRIX43& other) const;
 
         // Comparison operators
-        inline dl_bool        operator==(const DL_VECTOR4& other) const;
-        inline dl_bool        operator!=(const DL_VECTOR4& other) const;
+        dl_bool        operator==(const DL_VECTOR4& other) const;
+        dl_bool        operator!=(const DL_VECTOR4& other) const;
 
-        inline dl_float32& operator[](dl_uint32 index) { return v[index]; }
-        inline const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
+        dl_float32& operator[](dl_uint32 index) { return v[index]; }
+        const dl_float32& operator[](dl_uint32 index) const { return v[index]; }
     };
 
-    inline DL_VECTOR4 operator*(dl_float32 scalar, const DL_VECTOR4& vec);
-    inline DL_VECTOR4 operator/(dl_float32 scalar, const DL_VECTOR4& vec);
+    DL_VECTOR4 operator*(dl_float32 scalar, const DL_VECTOR4& vec);
+    DL_VECTOR4 operator/(dl_float32 scalar, const DL_VECTOR4& vec);
 
 	__declspec(align(16))
     struct DL_VECTOR4AL : public DL_VECTOR4
@@ -296,5 +296,3 @@ namespace DLMT
 	static DL_VECTOR4 DL_VECTOR4_UNITZ = DL_VECTOR4(0.0f, 0.0f, 1.0f, 0.0f);
 	static DL_VECTOR4 DL_VECTOR4_UNITW = DL_VECTOR4(0.0f, 0.0f, 0.0f, 1.0f);
 }
-
-#include "DLVector.inl"
