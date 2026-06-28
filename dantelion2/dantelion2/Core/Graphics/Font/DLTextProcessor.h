@@ -27,6 +27,8 @@ namespace DLGR
 		dl_uint16 m_iVar58;
 
 	public:
+		DLTextProcessor() {}
+		
 		virtual ~DLTextProcessor() {}
 
 		void MeasureRect(DLGR::DL_FRECT& outRect, const dl_wchar* text, dl_bool param_2);

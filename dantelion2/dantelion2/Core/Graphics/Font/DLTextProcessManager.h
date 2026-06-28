@@ -15,6 +15,11 @@ namespace DLGR
 		DLKR::DLAllocator* m_pAllocator;
 		dl_pointer m_pFont;
 	public:
+		DLTextProcessManager() {}
+		DLTextProcessManager(DLKR::DLAllocator* pAllocator);
+
+		virtual ~DLTextProcessManager() override;
+
 		DLFontSet* GetFontSet() { return &m_FontSet; }
 	};
 }

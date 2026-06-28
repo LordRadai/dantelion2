@@ -17,3 +17,7 @@ namespace dantelion2
 	typedef dl_uint(_fastcall* LoadSystemProperties_t)(DLUT::DLProperties&, DLKR::DLAllocator*);
 	DLKR::DLAllocator* GetDefaultAllocator();
 }
+
+// This **must** be used when declaring inline classes with a destructor that calls game code, otherwise the destructor will be called twice, and we risk crashing.
+#define ALIGNED_STORAGE(Type, Name, Align) \
+    __declspec(align(Align)) unsigned char Name[sizeof(Type)]

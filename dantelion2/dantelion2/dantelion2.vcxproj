@@ -393,6 +393,7 @@
     <ClCompile Include="Core\Graphics\Font\DLFontData.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLFontSet.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLTaggedTextProcessor.cpp" />
+    <ClCompile Include="Core\Graphics\Font\DLTextProcessManager.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLTextProcessor.cpp" />
     <ClCompile Include="Core\Kernel\DLAllocator.cpp" />
     <ClCompile Include="Core\Kernel\DLConditionSignal.cpp" />

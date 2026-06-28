@@ -14,6 +14,8 @@ namespace DLGR
 		DLFontContextStack<dl_uint> m_FontIDContextStack;
 
 	public:
+		DLTaggedTextProcessor() {}
+
 		virtual ~DLTaggedTextProcessor() override;
 	};
 }
