@@ -63,3 +63,5 @@ namespace DLMT
         DL_VECTOR4AL m_Sphere;
     };
 }
+
+#include "DLSphere.inl"
