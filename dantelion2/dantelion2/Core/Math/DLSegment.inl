@@ -1,3 +1,4 @@
+#pragma once
 #include "DLSegment.h"
 #include "DLDistance.h"
 

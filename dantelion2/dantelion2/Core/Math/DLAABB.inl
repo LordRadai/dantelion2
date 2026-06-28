@@ -1,3 +1,4 @@
+#pragma once
 #include "DLAABB.h"
 #include <algorithm>
 

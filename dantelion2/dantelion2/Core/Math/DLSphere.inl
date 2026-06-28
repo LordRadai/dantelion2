@@ -1,3 +1,4 @@
+#pragma once
 #include "DLSphere.h"
 
 #include <cmath>

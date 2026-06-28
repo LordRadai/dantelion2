@@ -51,5 +51,3 @@ namespace DLMT
         DL_VECTOR4AL m_Extents;
     };
 }
-
-#include "DLOBB.inl"

@@ -80,5 +80,3 @@ namespace DLMT2
 		DL_COLOR_U8& operator=(const DLMT::DL_COLOR_F4& color);
 	};
 }
-
-#include "DLColor.inl"

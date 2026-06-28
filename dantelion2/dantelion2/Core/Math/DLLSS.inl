@@ -1,5 +1,8 @@
+#pragma once
 #include "DLLSS.h"
 #include "DLDistance.h"
+
+#include <cmath>
 
 namespace DLMT
 {

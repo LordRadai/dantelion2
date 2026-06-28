@@ -1,3 +1,4 @@
+#pragma once
 #include "DLOBB.h"
 
 #include <limits>

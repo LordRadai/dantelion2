@@ -1,5 +1,7 @@
 #include "DLDistance.h"
 #include "DLClamp.inl"
+#include "DLSegment.h"
+#include "DLVector.h"
 
 #include <cmath>
 
@@ -36,9 +38,11 @@ namespace DLMT
         return sqrtf(GetDistanceSq(Vec, Seg, pfSegP));
     }
 
-    /**
-     * Calculates the squared distance between two line segments.
-     */
+	inline dl_float32 DLIDist::GetDistance(DL_SEGMENT_PARAMTYPE Seg0, DL_SEGMENT_PARAMTYPE Seg1, dl_float32* pfSeg0P, dl_float32* pfSeg1P)
+	{
+		return sqrtf(GetDistanceSq(Seg0, Seg1, pfSeg0P, pfSeg1P));
+	}
+
     inline dl_float32 DLIDist::GetDistanceSq(DL_SEGMENT_PARAMTYPE Seg0, DL_SEGMENT_PARAMTYPE Seg1, dl_float32* pfSeg0P, dl_float32* pfSeg1P)
     {
         DL_VECTOR4AL u = Seg0.GetDirection();
