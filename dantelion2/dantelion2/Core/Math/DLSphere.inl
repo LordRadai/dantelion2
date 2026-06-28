@@ -1,4 +1,5 @@
 #include "DLSphere.h"
+
 #include <cmath>
 
 namespace DLMT
@@ -225,19 +226,19 @@ namespace DLMT
         return fLenSq < GetRadiusSq();
     }
 
-    inline dl_bool DL_SPHERE::Contains(const DL_SPHERE& other) const
+    inline dl_bool DL_SPHERE::Contains(DL_SPHERE_PARAMTYPE sphere) const
     {
         using namespace DLMT;
 
         dl_float32 r0 = GetRadius();
-        dl_float32 r1 = other.GetRadius();
+        dl_float32 r1 = sphere.GetRadius();
 
         // The contained sphere cannot be larger than the host sphere
         if (r0 < r1)
             return false;
 
         // Vector between centers
-        DL_VECTOR4AL D = other.GetCenter() - GetCenter();
+        DL_VECTOR4AL D = sphere.GetCenter() - GetCenter();
 
         // Distance squared (3D, ignoring W/radius component)
         dl_float32 fLenSq = (D.x * D.x) + (D.y * D.y) + (D.z * D.z);
@@ -276,7 +277,7 @@ namespace DLMT
 		m_Sphere.w = Radius;
     }
 
-    inline DL_SPHERE& DL_SPHERE::operator *= (const DLMT::DL_MATRIX44& mtx)
+    inline DL_SPHERE& DL_SPHERE::operator *= (DL_MATRIX44_PARAMTYPE mtx)
     {
         DL_VECTOR4AL newCenter = GetCenter() * mtx;
         SetCenter(newCenter);
