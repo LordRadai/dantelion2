@@ -306,9 +306,9 @@ namespace DLMT
 
     DL_MATRIX44 DL_MATRIX44::CreateTranslation(const DLMT::DL_VECTOR4AL& translation) {
         DL_MATRIX44 result = DL_IDENTITY_MATRIX44;
-        result.m03 = translation.x;
-        result.m13 = translation.y;
-        result.m23 = translation.z;
+        result.m30 = translation.x;
+        result.m31 = translation.y;
+        result.m32 = translation.z;
         return result;
     }
 }
