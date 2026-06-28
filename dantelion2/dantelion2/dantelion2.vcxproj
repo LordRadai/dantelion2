@@ -302,10 +302,15 @@
     <ClInclude Include="Core\Logging\DLLogManagerImpl.h" />
     <ClInclude Include="Core\Logging\DLPropertyConfigurator.h" />
     <ClInclude Include="Core\Logging\Logging.h" />
+    <ClInclude Include="Core\Math\DLClamp.inl" />
     <ClInclude Include="Core\Math\DLConstants.h" />
     <ClInclude Include="Core\Math\DLColor.h" />
+    <ClInclude Include="Core\Math\DLDistance.h" />
+    <ClInclude Include="Core\Math\DLLSS.h" />
     <ClInclude Include="Core\Math\DLMatrix.h" />
+    <ClInclude Include="Core\Math\DLOBB.h" />
     <ClInclude Include="Core\Math\DLQuaternion.h" />
+    <ClInclude Include="Core\Math\DLSegment.h" />
     <ClInclude Include="Core\Math\DLSphere.h" />
     <ClInclude Include="Core\Math\DLVector.h" />
     <ClInclude Include="Core\Math\DLAABB.h" />
@@ -416,7 +421,10 @@
     <ClCompile Include="Core\Logging\DLLogManagerImpl.cpp" />
     <ClCompile Include="Core\Logging\DLPropertyConfigurator.cpp" />
     <ClCompile Include="Core\Math\DLAABB.inl" />
+    <ClCompile Include="Core\Math\DLDistance.cpp" />
+    <ClCompile Include="Core\Math\DLLSS.inl" />
     <ClCompile Include="Core\Math\DLMatrix.cpp" />
+    <ClCompile Include="Core\Math\DLOBB.inl" />
     <ClCompile Include="Core\Math\DLQuaternion.cpp" />
     <ClCompile Include="Core\Math\DLSphere.inl" />
     <ClCompile Include="Core\Math\DLVector.cpp" />
@@ -445,6 +453,7 @@
     <None Include="Core\Kernel\DLStdAllocator.inl" />
     <None Include="Core\Logging\DLLogLevel.inl" />
     <None Include="Core\Math\DLColor.inl" />
+    <None Include="Core\Math\DLSegment.inl" />
     <None Include="Core\Reflection\DLMethodInvoker.inl" />
     <None Include="Core\Reflection\DLMethodResolver.inl" />
     <None Include="Core\Reflection\DLRuntimeClassImpl.inl" />

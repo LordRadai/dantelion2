@@ -50,7 +50,7 @@ namespace DLMT
 
         // Calculate vector from center to point
         DL_VECTOR4AL D = pt - center;
-        dl_float32 lenSq = D.LengthSquared();
+        dl_float32 lenSq = D.LengthSq();
 
         // Check if the point is outside the current sphere
         if (lenSq > (radius * radius))
@@ -156,7 +156,7 @@ namespace DLMT
         {
             for (dl_uint32 j = i + 1; j < uiNum; j++)
             {
-                dl_float32 fSqrLen = (pVerts[i] - pVerts[j]).LengthSquared();
+                dl_float32 fSqrLen = (pVerts[i] - pVerts[j]).LengthSq();
                 if (fMinSqrLen < fSqrLen)
                 {
                     fMinSqrLen = fSqrLen;
@@ -195,10 +195,8 @@ namespace DLMT
         ExtendBy(sp);
     }
 
-    /*
     inline void DL_SPHERE::ExtendBy(DL_OBB_PARAMTYPE obb)
     {
-
         DL_SPHERE sp;
 
         sp.SetRadius(obb.GetExtents().Length());
@@ -206,7 +204,6 @@ namespace DLMT
 
         ExtendBy(sp);
     }
-    */
 
     inline void DL_SPHERE::SetEmpty(void)
     {

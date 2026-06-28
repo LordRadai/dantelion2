@@ -6,6 +6,8 @@
 #include "DLRect.h"
 
 #include "DLAABB.h"
+#include "DLOBB.h"
 #include "DLSphere.h"
+#include "DLLSS.h"
 
 #include "DLConstants.h"

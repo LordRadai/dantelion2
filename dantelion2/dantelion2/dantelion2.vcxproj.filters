@@ -507,6 +507,21 @@
     <ClInclude Include="Core\Math\DLSphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Math\DLOBB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Math\DLLSS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Math\DLSegment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Math\DLDistance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Math\DLClamp.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -668,6 +683,15 @@
     <ClCompile Include="Core\Math\DLSphere.inl">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Math\DLOBB.inl">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Math\DLDistance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Math\DLLSS.inl">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Core\Kernel\detail\HeapAllocator.inl">
@@ -740,6 +764,9 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="Core\Text\DLFixedBasicString.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLSegment.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

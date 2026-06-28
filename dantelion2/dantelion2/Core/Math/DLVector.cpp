@@ -471,7 +471,7 @@ namespace DLMT
         return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
     }
 
-    dl_float32 DL_VECTOR4::LengthSquared() const
+    dl_float32 DL_VECTOR4::LengthSq() const
     {
         return this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w;
     }
@@ -531,7 +531,7 @@ namespace DLMT
 
     bool DL_VECTOR4::IsNormalized(dl_float32 epsilon) const
     {
-        return fabsf(this->LengthSquared() - 1.0f) <= epsilon;
+        return fabsf(this->LengthSq() - 1.0f) <= epsilon;
     }
 
     bool DL_VECTOR4::IsZero(dl_float32 epsilon) const

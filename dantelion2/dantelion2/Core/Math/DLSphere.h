@@ -3,6 +3,7 @@
 #include "DLVector.h"
 
 #include "DLAABB.h"
+#include "DLOBB.h"
 
 namespace DLMT
 {
@@ -19,7 +20,7 @@ namespace DLMT
         typedef const DL_MATRIX44& DL_MATRIX44_PARAMTYPE;
         typedef const DL_SPHERE& DL_SPHERE_PARAMTYPE;
 		typedef const DL_AABB& DL_AABB_PARAMTYPE;
-		//typedef const DL_OBB& DL_OBB_PARAMTYPE;
+		typedef const DL_OBB& DL_OBB_PARAMTYPE;
     public:
         // --- Constructors ---
         DL_SPHERE() = default;
@@ -41,7 +42,7 @@ namespace DLMT
         inline void ExtendBy(const DL_VECTOR3* pVerts, dl_uint32 uiNum);
         inline void ExtendBy(const DL_VECTOR4AL* pVerts, dl_uint32 uiNum);
         inline void ExtendBy(DL_AABB_PARAMTYPE aabb);
-        //inline void ExtendBy(DL_OBB_PARAMTYPE obb);
+        inline void ExtendBy(DL_OBB_PARAMTYPE obb);
 
         // --- Queries ---
         inline dl_bool Contains(DL_VECTOR4AL_PARAMTYPE pt) const;

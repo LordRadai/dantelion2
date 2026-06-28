@@ -207,7 +207,7 @@ namespace DLMT
         // Math operations
         dl_float32  Dot(const DL_VECTOR4& other) const;
         dl_float32  Length() const;
-        dl_float32  LengthSquared() const;
+        dl_float32  LengthSq() const;
         DL_VECTOR4  Normalize() const;
         dl_float32  DistanceTo(const DL_VECTOR4& other) const;
         DL_VECTOR4  Lerp(const DL_VECTOR4& other, dl_float32 t) const;
