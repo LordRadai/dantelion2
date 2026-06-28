@@ -27,10 +27,10 @@ namespace DLMT
         };
 
         // Constructors
-        DL_AABB(void) {}
+        inline DL_AABB(void) {}
         inline DL_AABB(DL_VECTOR4AL_PARAMTYPE _min, DL_VECTOR4AL_PARAMTYPE _max);
         inline DL_AABB(const DL_AABB& aabb);
-        ~DL_AABB(void) {}
+        inline ~DL_AABB(void) {}
 
         // Containment and Validity
         inline dl_bool Contains(DL_VECTOR4AL_PARAMTYPE pt) const;

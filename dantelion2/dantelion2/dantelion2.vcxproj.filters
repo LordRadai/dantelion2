@@ -632,9 +632,6 @@
     <ClCompile Include="Core\Math\DLVector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Math\DLAABB.inl">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Core\System\DLTrace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -680,16 +677,7 @@
     <ClCompile Include="Core\Graphics\Font\DLTextProcessManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Math\DLSphere.inl">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Math\DLOBB.inl">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Core\Math\DLDistance.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Math\DLLSS.inl">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -760,13 +748,7 @@
     <None Include="Core\UserInput\DLUserInputTraits.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="Core\Math\DLColor.inl">
-      <Filter>Header Files</Filter>
-    </None>
     <None Include="Core\Text\DLFixedBasicString.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLSegment.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

@@ -2,7 +2,6 @@
 #include "Core/Platform/Platform.h"
 #include "DLVector.h"
 #include "DLQuaternion.h"
-#include "DLColor.h"
 
 namespace DLMT
 {
@@ -26,7 +25,6 @@ namespace DLMT
         typedef const DL_MATRIX43 DL_MATRIX43_PARAMTYPE; 
         typedef const DL_MATRIX44 DL_MATRIX44_PARAMTYPE; 
         typedef const DL_QUATERNION DL_QUATERNION_PARAMTYPE; 
-        typedef const DL_COLOR_F4 DL_COLOR_F4_PARAMTYPE; 
 
         union
         {
@@ -105,7 +103,6 @@ namespace DLMT
         typedef const DL_MATRIX43 DL_MATRIX43_PARAMTYPE; 
         typedef const DL_MATRIX44 DL_MATRIX44_PARAMTYPE; 
         typedef const DL_QUATERNION DL_QUATERNION_PARAMTYPE; 
-        typedef const DL_COLOR_F4 DL_COLOR_F4_PARAMTYPE; 
 
         union
         {
@@ -189,7 +186,6 @@ namespace DLMT
         typedef const DL_MATRIX43 DL_MATRIX43_PARAMTYPE;
         typedef const DL_MATRIX44 DL_MATRIX44_PARAMTYPE;
         typedef const DL_QUATERNION DL_QUATERNION_PARAMTYPE;
-        typedef const DL_COLOR_F4 DL_COLOR_F4_PARAMTYPE;
 
         union
         {
@@ -273,7 +269,6 @@ namespace DLMT
         typedef const DL_MATRIX43 DL_MATRIX43_PARAMTYPE;
         typedef const DL_MATRIX44 DL_MATRIX44_PARAMTYPE;
         typedef const DL_QUATERNION DL_QUATERNION_PARAMTYPE;
-        typedef const DL_COLOR_F4 DL_COLOR_F4_PARAMTYPE;
 
         union
         {
@@ -358,7 +353,6 @@ namespace DLMT
         typedef const DL_MATRIX43 DL_MATRIX43_PARAMTYPE;
         typedef const DL_MATRIX44 DL_MATRIX44_PARAMTYPE;
         typedef const DL_QUATERNION DL_QUATERNION_PARAMTYPE;
-        typedef const DL_COLOR_F4 DL_COLOR_F4_PARAMTYPE;
 
         union
         {
