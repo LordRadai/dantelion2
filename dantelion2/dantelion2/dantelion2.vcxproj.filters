@@ -629,7 +629,7 @@
     <ClCompile Include="Core\Assert\DLAssert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Math\DLVector.cpp">
+    <ClCompile Include="Core\Math\DLVector.inl">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Math\DLAABB.inl">

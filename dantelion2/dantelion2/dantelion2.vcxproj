@@ -427,7 +427,7 @@
     <ClCompile Include="Core\Math\DLOBB.inl" />
     <ClCompile Include="Core\Math\DLQuaternion.cpp" />
     <ClCompile Include="Core\Math\DLSphere.inl" />
-    <ClCompile Include="Core\Math\DLVector.cpp" />
+    <ClCompile Include="Core\Math\DLVector.inl" />
     <ClCompile Include="Core\Platform\GeneralUtility.cpp" />
     <ClCompile Include="Core\Reflection\DLRuntimeClass.cpp" />
     <ClCompile Include="Core\Resource\detail\FileLoader.cpp" />

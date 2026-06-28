@@ -52,3 +52,5 @@ namespace DLMT {
         dl_float32   m_Radius;
     };
 }
+
+#include "DLLSS.inl"
