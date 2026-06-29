@@ -209,6 +209,7 @@ namespace DLMT
 
         // Math operations
         dl_float32  Dot(const DL_VECTOR4& other) const;
+		DL_VECTOR4  Cross(const DL_VECTOR4& other) const;
         dl_float32  Length() const;
         dl_float32  LengthSq() const;
         DL_VECTOR4  Normalize() const;
@@ -226,6 +227,12 @@ namespace DLMT
         dl_bool        IsNormalized(dl_float32 epsilon = 1e-6f) const;
         dl_bool        IsZero(dl_float32 epsilon = 1e-6f) const;
         dl_bool        Equals(const DL_VECTOR4& other, dl_float32 epsilon = 1e-6f) const;
+
+        // Implementation for a Point (W=1)
+        inline DL_VECTOR4 TransformCoord(const DL_MATRIX44& mtx);
+
+        // Implementation for a Normal/Edge (W=0)
+        inline DL_VECTOR4 TransformNormal(const DL_MATRIX44& mtx);
 
         // Compound assignment operators
         DL_VECTOR4& operator+=(const DL_VECTOR4& other);

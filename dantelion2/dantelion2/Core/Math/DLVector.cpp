@@ -459,6 +459,16 @@ namespace DLMT
         return this->x * other.x + this->y * other.y + this->z * other.z + this->w * other.w;
     }
 
+	DL_VECTOR4 DL_VECTOR4::Cross(const DL_VECTOR4& other) const
+	{
+		return DL_VECTOR4(
+			this->y * other.z - this->z * other.y,
+			this->z * other.x - this->x * other.z,
+			this->x * other.y - this->y * other.x,
+			0.0f
+		);
+	}
+
     dl_float32 DL_VECTOR4::Length() const
     {
         return sqrtf(this->x * this->x + this->y * this->y + this->z * this->z + this->w * this->w);
@@ -539,6 +549,28 @@ namespace DLMT
             && fabsf(this->y - other.y) <= epsilon
             && fabsf(this->z - other.z) <= epsilon
             && fabsf(this->w - other.w) <= epsilon;
+    }
+
+    inline DL_VECTOR4 DL_VECTOR4::TransformCoord(const DL_MATRIX44& mtx)
+    {
+        // V * M. If mtx is an affine matrix (row-major), this includes translation.
+        // If your API performs W-division, ensure it's handled here.
+        DL_VECTOR4 result = *this * mtx;
+
+        // Ensure result.w is 1.0f (or perform perspective divide if necessary)
+        // For most game engine math, result.w is treated as 1.0f after affine transform
+        return result;
+    }
+
+    // Implementation for a Normal/Edge (W=0)
+    inline DL_VECTOR4 DL_VECTOR4::TransformNormal(const DL_MATRIX44& mtx)
+    {
+        // Force w = 0 to ignore translation, then multiply
+        DL_VECTOR4 vDir = *this;
+        vDir.w = 0.0f;
+
+        // Multiply by the rotation/scale part of the matrix
+        return vDir * mtx;
     }
 
     DL_VECTOR4& DL_VECTOR4::operator+=(const DL_VECTOR4& other)
