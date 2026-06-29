@@ -10,7 +10,7 @@ namespace DLMT
 		typedef const DL_MATRIX44& DL_MATRIX44_PARAMTYPE;
     public:
 		DL_SEGMENT() = default;
-		DL_SEGMENT(DL_VECTOR4AL_PARAMTYPE vOrigin, DL_VECTOR4AL_PARAMTYPE vDirection);
+		DL_SEGMENT(DL_VECTOR4AL_PARAMTYPE vOrigin, DL_VECTOR4AL_PARAMTYPE vDirection) : m_Origin(vOrigin), m_Dir(vDirection) {}
 
         // Accessors
         inline const DL_VECTOR4AL& GetOrigin() const;
