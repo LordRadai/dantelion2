@@ -40,10 +40,7 @@ namespace DLMT
 
 	inline DL_COLOR_32::DL_COLOR_32(dl_uint32 color)
 	{
-		r = (color & 0x00FF0000) >> 16;
-		g = (color & 0x0000FF00) >> 8;
-		b = (color & 0x000000FF);
-		a = (color & 0xFF000000) >> 24;
+		c = color;
 	}
 
 	inline DL_COLOR_32::DL_COLOR_32(dl_float32 _r, dl_float32 _g, dl_float32 _b, dl_float32 _a)
