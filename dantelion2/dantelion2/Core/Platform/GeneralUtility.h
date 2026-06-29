@@ -55,7 +55,7 @@ class DLPanic
 public:
     static void ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* reason, ...);
 
-    typedef void(_fastcall* oReportPanic)(const dl_char* file, dl_uint32 line, const dl_char* reason);
+    typedef void(_fastcall* oReportPanic)(const dl_char* file, dl_uint32 line, const dl_char* reason, ...);
 };
 
 #define DL_PANIC(error) DLPanic::ReportPanic(__FILE__, __LINE__, error)
