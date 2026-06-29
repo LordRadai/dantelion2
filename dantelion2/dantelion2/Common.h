@@ -21,3 +21,6 @@ namespace dantelion2
 // This **must** be used when declaring inline classes with a destructor that calls game code, otherwise the destructor will be called twice, and we risk crashing.
 #define ALIGNED_STORAGE(Type, Name, Align) \
     __declspec(align(Align)) unsigned char Name[sizeof(Type)]
+
+#define GET_ALIGNED_STORAGE_PTR(Type, Name) \
+	reinterpret_cast<Type*>(Name)
