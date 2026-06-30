@@ -1,4 +1,4 @@
-#include "DLTriangle.h"
+#include "DLLinear.h"
 
 namespace DLMT
 {
@@ -28,9 +28,8 @@ namespace DLMT
     inline DL_PLANE DL_TRIANGLE::GetPlane() const
     {
         DL_VECTOR4AL normal = GetNormal();
-        // Plane equation: dot(N, P) + D = 0 => D = -dot(N, Origin)
-        dl_float32 dist = -normal.Dot(m_Origin);
-        return DL_PLANE(normal, dist);
+
+        return DL_PLANE(normal);
     }
 
     // Matrix transformation

@@ -1,5 +1,5 @@
 #pragma once
-#include "DLRay.h"
+#include "DLLinear.h"
 #include "DLDistance.h"
 
 namespace DLMT

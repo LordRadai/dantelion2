@@ -1,5 +1,5 @@
 #pragma once
-#include "DLRSS.h"
+#include "DLLinear.h"
 
 #include <cmath>
 

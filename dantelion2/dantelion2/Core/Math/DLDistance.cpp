@@ -1,11 +1,6 @@
 #include "DLDistance.h"
 #include "DLClamp.inl"
-#include "DLSegment.h"
-#include "DLLine.h"
-#include "DLRay.h"
-#include "DLRectangle.h"
-#include "DLPlane.h"
-#include "DLTriangle.h"
+#include "DLLinear.h"
 #include "DLVector.h"
 
 #include <cmath>
@@ -310,7 +305,7 @@ namespace DLMT
         if (pClosestP)
         {
             // P_closest = Vec - (normal * signed_dist)
-            *pClosestP = Vec - (Plane.GetNormal() * dist);
+            *pClosestP = Vec - (Plane.GetPlane() * dist);
         }
         return dist * dist;
     }

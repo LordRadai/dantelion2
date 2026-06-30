@@ -10,7 +10,6 @@
 #include "Core/Reflection/Reflection.h"
 #include "Core/System/System.h"
 #include "Core/Resource/Resource.h"
-#include "Core/LinearEx/LinearEx.h"
 #include "Core/Logging/Logging.h"
 
 namespace dantelion2

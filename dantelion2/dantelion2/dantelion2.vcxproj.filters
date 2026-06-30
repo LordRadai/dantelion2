@@ -447,9 +447,6 @@
     <ClInclude Include="Core\Math\DLConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Math\DLAABB.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Core\System\DLTrace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -504,55 +501,19 @@
     <ClInclude Include="Core\Graphics\DLViewport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Math\DLSphere.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\DLOBB.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\DLLSS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\DLSegment.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Math\DLDistance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Math\DLClamp.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Math\DLLine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\DLRay.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\DLRectangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\DLRSS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\DLTriangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Math\DLPlane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Math\DLCylinder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\LinearEx\DLCone.h">
+    <ClInclude Include="Core\Math\DLLinear.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\LinearEx\DLCylinder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\LinearEx\LinearEx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\LinearEx\DLArrow.h">
+    <ClInclude Include="Core\Math\DLLinearEx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -782,6 +743,45 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="Core\Text\DLFixedBasicString.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLTriangle.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLRay.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLRectangle.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLRSS.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLSegment.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLSphere.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLPlane.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLOBB.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLLSS.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLLine.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLFrustum.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLColor.inl">
+      <Filter>Header Files</Filter>
+    </None>
+    <None Include="Core\Math\DLAABB.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>

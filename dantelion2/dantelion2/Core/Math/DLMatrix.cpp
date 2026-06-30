@@ -54,6 +54,15 @@ namespace DLMT
     DL_VECTOR2 DL_MATRIX22::GetCol(dl_uint32 c) const { return DL_VECTOR2(m[0][c], m[1][c]); }
     void DL_MATRIX22::GetCol(DL_VECTOR2& vOut, dl_uint32 c) const { vOut.x = m[0][c]; vOut.y = m[1][c]; }
 
+	DL_MATRIX22 DL_MATRIX22::Transpose() const { return DL_MATRIX22(m00, m10, m01, m11); }
+	DL_MATRIX22 DL_MATRIX22::Inverse() const
+	{
+		dl_float32 det = m00 * m11 - m01 * m10;
+		if (det == 0.0f) return DL_MATRIX22(); // Return identity matrix if not invertible
+		dl_float32 invDet = 1.0f / det;
+		return DL_MATRIX22(m11 * invDet, -m01 * invDet, -m10 * invDet, m00 * invDet);
+	}
+
     // =========================================================================
     // DL_MATRIX33 Implementation
     // =========================================================================
@@ -113,6 +122,27 @@ namespace DLMT
     void DL_MATRIX33::GetRow(DL_VECTOR3& vOut, dl_uint32 r) const { vOut = R[r]; }
     DL_VECTOR3 DL_MATRIX33::GetCol(dl_uint32 c) const { return DL_VECTOR3(m[0][c], m[1][c], m[2][c]); }
     void DL_MATRIX33::GetCol(DL_VECTOR3& vOut, dl_uint32 c) const { vOut.x = m[0][c]; vOut.y = m[1][c]; vOut.z = m[2][c]; }
+
+	DL_MATRIX33 DL_MATRIX33::Transpose() const {
+		return DL_MATRIX33(m00, m10, m20, m01, m11, m21, m02, m12, m22);
+	}
+
+	DL_MATRIX33 DL_MATRIX33::Inverse() const {
+		dl_float32 det = m00 * (m11 * m22 - m12 * m21) - m01 * (m10 * m22 - m12 * m20) + m02 * (m10 * m21 - m11 * m20);
+		if (det == 0.0f) return DL_MATRIX33(); // Return identity matrix if not invertible
+		dl_float32 invDet = 1.0f / det;
+		return DL_MATRIX33(
+			(m11 * m22 - m12 * m21) * invDet,
+			(m02 * m21 - m01 * m22) * invDet,
+			(m01 * m12 - m02 * m11) * invDet,
+			(m12 * m20 - m10 * m22) * invDet,
+			(m00 * m22 - m02 * m20) * invDet,
+			(m02 * m10 - m00 * m12) * invDet,
+			(m10 * m21 - m11 * m20) * invDet,
+			(m01 * m20 - m00 * m21) * invDet,
+			(m00 * m11 - m01 * m10) * invDet
+		);
+	}
 
     // =========================================================================
     // DL_MATRIX34 Implementation
@@ -302,6 +332,59 @@ namespace DLMT
 
     DL_MATRIX33 DL_MATRIX44::GetRotation() const {
         return DL_MATRIX33(m00, m01, m02, m10, m11, m12, m20, m21, m22);
+    }
+
+	DL_MATRIX44 DL_MATRIX44::Transpose() const {
+		return DL_MATRIX44(m00, m10, m20, m30, m01, m11, m21, m31, m02, m12, m22, m32, m03, m13, m23, m33);
+	}
+
+    DL_MATRIX44 DL_MATRIX44::Inverse() const {
+        dl_float32 m00 = this->m00, m01 = this->m01, m02 = this->m02, m03 = this->m03;
+        dl_float32 m10 = this->m10, m11 = this->m11, m12 = this->m12, m13 = this->m13;
+        dl_float32 m20 = this->m20, m21 = this->m21, m22 = this->m22, m23 = this->m23;
+        dl_float32 m30 = this->m30, m31 = this->m31, m32 = this->m32, m33 = this->m33;
+
+        dl_float32 coef00 = m22 * m33 - m23 * m32;
+        dl_float32 coef02 = m21 * m33 - m23 * m31;
+        dl_float32 coef03 = m21 * m32 - m22 * m31;
+
+        dl_float32 coef04 = m20 * m33 - m23 * m30;
+        dl_float32 coef06 = m20 * m32 - m22 * m30;
+        dl_float32 coef07 = m20 * m31 - m21 * m30;
+
+        dl_float32 det00 = m11 * coef00 - m12 * coef02 + m13 * coef03;
+        dl_float32 det01 = m10 * coef00 - m12 * coef04 + m13 * coef06;
+        dl_float32 det02 = m10 * coef02 - m11 * coef04 + m13 * coef07;
+        dl_float32 det03 = m10 * coef03 - m11 * coef06 + m12 * coef07;
+
+        dl_float32 det = m00 * det00 - m01 * det01 + m02 * det02 - m03 * det03;
+
+        if (std::abs(det) < 1e-8f) return DL_MATRIX44(); // Return identity or zero matrix
+
+        dl_float32 invDet = 1.0f / det;
+
+        // Adjugate matrix calculations
+        return DL_MATRIX44(
+            det00 * invDet,
+            -(m01 * coef00 - m02 * coef02 + m03 * coef03) * invDet,
+            (m01 * (m12 * m33 - m13 * m32) - m02 * (m11 * m33 - m13 * m31) + m03 * (m11 * m32 - m12 * m31)) * invDet,
+            -(m01 * (m12 * m23 - m13 * m22) - m02 * (m11 * m23 - m13 * m21) + m03 * (m11 * m22 - m12 * m21)) * invDet,
+
+            -det01 * invDet,
+            (m00 * coef00 - m02 * coef04 + m03 * coef06) * invDet,
+            -(m00 * (m12 * m33 - m13 * m32) - m02 * (m10 * m33 - m13 * m30) + m03 * (m10 * m32 - m12 * m30)) * invDet,
+            (m00 * (m12 * m23 - m13 * m22) - m02 * (m10 * m23 - m13 * m20) + m03 * (m10 * m22 - m12 * m20)) * invDet,
+
+            det02 * invDet,
+            -(m00 * coef02 - m01 * coef04 + m03 * coef07) * invDet,
+            (m00 * (m11 * m33 - m13 * m31) - m01 * (m10 * m33 - m13 * m30) + m03 * (m10 * m31 - m11 * m30)) * invDet,
+            -(m00 * (m11 * m23 - m13 * m21) - m01 * (m10 * m23 - m13 * m20) + m03 * (m10 * m21 - m11 * m20)) * invDet,
+
+            -det03 * invDet,
+            (m00 * coef03 - m01 * coef06 + m02 * coef07) * invDet,
+            -(m00 * (m11 * m32 - m12 * m31) - m01 * (m10 * m32 - m12 * m30) + m02 * (m10 * m31 - m11 * m30)) * invDet,
+            (m00 * (m11 * m22 - m12 * m21) - m01 * (m10 * m22 - m12 * m20) + m02 * (m10 * m21 - m11 * m20)) * invDet
+        );
     }
 
     DL_MATRIX44 DL_MATRIX44::CreateTranslation(const DLMT::DL_VECTOR4AL& translation) {

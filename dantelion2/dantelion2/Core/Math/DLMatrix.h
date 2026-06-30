@@ -87,6 +87,9 @@ namespace DLMT
         void GetRow(DL_VECTOR2& vOut, dl_uint32 r) const;
         DL_VECTOR2 GetCol(dl_uint32 c) const;
         void GetCol(DL_VECTOR2& vOut, dl_uint32 c) const;
+
+		DL_MATRIX22 Transpose() const;
+		DL_MATRIX22 Inverse() const;
     };
 
     struct DL_MATRIX33
@@ -170,6 +173,9 @@ namespace DLMT
         void GetRow(DL_VECTOR3& vOut, dl_uint32 r) const;
         DL_VECTOR3 GetCol(dl_uint32 c) const;
         void GetCol(DL_VECTOR3& vOut, dl_uint32 c) const;
+
+        DL_MATRIX33 Transpose() const;
+        DL_MATRIX33 Inverse() const;
     };
 
     struct DL_MATRIX34
@@ -427,6 +433,9 @@ namespace DLMT
 		dl_float32 GetScale() const;
 		DL_VECTOR4AL GetTranslation() const;
 		DL_MATRIX33 GetRotation() const;
+
+		DL_MATRIX44 Transpose() const;
+		DL_MATRIX44 Inverse() const;
 
 		static DL_MATRIX44 CreateTranslation(const DL_VECTOR4AL& translation);
     };

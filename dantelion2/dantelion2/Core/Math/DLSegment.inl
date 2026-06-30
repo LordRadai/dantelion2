@@ -1,5 +1,5 @@
 #pragma once
-#include "DLSegment.h"
+#include "DLLinear.h"
 #include "DLDistance.h"
 
 namespace DLMT
