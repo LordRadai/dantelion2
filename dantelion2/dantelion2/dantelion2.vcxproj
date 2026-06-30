@@ -320,6 +320,7 @@
     <ClInclude Include="Core\Math\DLTriangle.h" />
     <ClInclude Include="Core\Math\DLVector.h" />
     <ClInclude Include="Core\Math\DLAABB.h" />
+    <ClInclude Include="Core\Math\DLCylinder.h" />
     <ClInclude Include="Core\Math\Math.h" />
     <ClInclude Include="Core\Network\Network.h" />
     <ClInclude Include="Core\Network\NRExternalVoiceListener\NRExternalVoiceListener.h" />

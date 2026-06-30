@@ -15,4 +15,6 @@
 #include "DLRSS.h"
 #include "DLPlane.h"
 
+#include "DLCylinder.h"
+
 #include "DLConstants.h"

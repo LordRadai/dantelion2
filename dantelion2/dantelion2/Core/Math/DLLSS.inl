@@ -121,7 +121,7 @@ namespace DLMT
 
 	inline dl_float32 DL_LSS::GetDistanceSq(DL_VECTOR4AL_PARAMTYPE pt) const {
 		DL_SEGMENT seg;
-		seg.SetOriginDirection(m_Origin, m_Direction);
+		seg.SetOriginDirection(m_Segment.GetOrigin(), m_Segment.GetDirection());
 		dl_float32 t;
 		return seg.GetDistanceSq(pt, &t);
 	}

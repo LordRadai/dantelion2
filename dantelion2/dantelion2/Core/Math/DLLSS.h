@@ -35,9 +35,9 @@ namespace DLMT {
         dl_float32 GetRadius() const;
         dl_float32 GetRadiusSq() const;
 
-		DL_VECTOR4AL GetOrigin() const { return m_Origin; }
-		DL_VECTOR4AL GetDirection() const { return m_Direction; }
-		DL_VECTOR4AL GetEndPoint() const { return m_Origin + m_Direction; }
+		DL_VECTOR4AL GetOrigin() const { return m_Segment.GetOrigin(); }
+		DL_VECTOR4AL GetDirection() const { return m_Segment.GetDirection(); }
+		DL_VECTOR4AL GetEndPoint() const { return m_Segment.GetEndPoint(); }
 
         // Inclusion checks
         dl_bool Contains(DL_VECTOR4AL_PARAMTYPE pt) const;
@@ -47,8 +47,7 @@ namespace DLMT {
         // Geometric Distance interface
         dl_float32 GetDistanceSq(DL_VECTOR4AL_PARAMTYPE pt) const;
     private:
-        DL_VECTOR4AL m_Origin;
-        DL_VECTOR4AL m_Direction;
+		DL_SEGMENT   m_Segment;
         dl_float32   m_Radius;
     };
 }
