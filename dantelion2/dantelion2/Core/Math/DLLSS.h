@@ -28,8 +28,8 @@ namespace DLMT {
         void SetRadius(dl_float32 Radius);
 
         // Setters required by implementation logic
-		void SetOrigin(const DL_VECTOR4AL& vOrigin) { m_Origin = vOrigin; }
-		void SetDirection(const DL_VECTOR4AL& vDir) { m_Direction = vDir; }
+		void SetOrigin(const DL_VECTOR4AL& vOrigin) { m_Segment.SetOrigin(vOrigin); }
+		void SetDirection(const DL_VECTOR4AL& vDir) { m_Segment.SetDirection(vDir); }
 
         // Accessors
         dl_float32 GetRadius() const;
