@@ -136,6 +136,12 @@ namespace DLMT
         dl_bool        IsZero(dl_float32 epsilon = 1e-6f) const;
         dl_bool        Equals(const DL_VECTOR3& other, dl_float32 epsilon = 1e-6f) const;
 
+        // Implementation for a Point (W=1)
+        inline DL_VECTOR3 TransformCoord(const DL_MATRIX44& mtx);
+
+        // Implementation for a Normal/Edge (W=0)
+        inline DL_VECTOR3 TransformNormal(const DL_MATRIX44& mtx);
+
         // Static constants
 		static DL_VECTOR3 Zero() { return DL_VECTOR3(0.0f, 0.0f, 0.0f); }
 		static DL_VECTOR3 One() { return DL_VECTOR3(1.0f, 1.0f, 1.0f); }

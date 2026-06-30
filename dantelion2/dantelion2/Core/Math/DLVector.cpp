@@ -336,6 +336,27 @@ namespace DLMT
             && fabsf(this->z - other.z) <= epsilon;
     }
 
+	DL_VECTOR3 DL_VECTOR3::TransformCoord(const DL_MATRIX44& mtx)
+	{
+		dl_float32 w = this->x * mtx.m03 + this->y * mtx.m13 + this->z * mtx.m23 + mtx.m33;
+		if (w == 0.0f)
+			return DL_VECTOR3(0.0f, 0.0f, 0.0f);
+		return DL_VECTOR3(
+			(this->x * mtx.m00 + this->y * mtx.m10 + this->z * mtx.m20 + mtx.m30) / w,
+			(this->x * mtx.m01 + this->y * mtx.m11 + this->z * mtx.m21 + mtx.m31) / w,
+			(this->x * mtx.m02 + this->y * mtx.m12 + this->z * mtx.m22 + mtx.m32) / w
+		);
+	}
+
+	DL_VECTOR3 DL_VECTOR3::TransformNormal(const DL_MATRIX44& mtx)
+	{
+		return DL_VECTOR3(
+			this->x * mtx.m00 + this->y * mtx.m10 + this->z * mtx.m20,
+			this->x * mtx.m01 + this->y * mtx.m11 + this->z * mtx.m21,
+			this->x * mtx.m02 + this->y * mtx.m12 + this->z * mtx.m22
+		);
+	}
+
     DL_VECTOR3& DL_VECTOR3::operator+=(const DL_VECTOR3& other)
     {
         this->x += other.x;
