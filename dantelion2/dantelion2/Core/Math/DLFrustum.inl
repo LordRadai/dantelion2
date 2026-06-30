@@ -2,6 +2,7 @@
 
 namespace DLMT
 {
+    /*
     inline DL_FRUSTUM::DL_FRUSTUM(DLFrustumType Type,
         DLFrustumCoordinate Coord,
         dl_float32 Left,
@@ -43,7 +44,6 @@ namespace DLMT
         return m_Planes[Index];
     }
 
-    /*
     inline DL_FRUSTUM DL_FRUSTUM::operator * (DL_MATRIX44_PARAMTYPE Mtx) const
     {
         DL_FRUSTUM Result;

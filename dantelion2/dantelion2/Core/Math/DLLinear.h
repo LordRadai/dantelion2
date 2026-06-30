@@ -474,6 +474,7 @@ namespace DLMT
 
         DL_FRUSTUM() {}
 
+        /*
         DL_FRUSTUM(DLFrustumType Type,
             DLFrustumCoordinate Coord,
             dl_float32 Left,
@@ -495,7 +496,6 @@ namespace DLMT
 
         const DL_PLANE& GetPlane(DLFrustumPlaneIndex Index) const;
 
-        /*
         DL_FRUSTUM operator * (DL_MATRIX44_PARAMTYPE Mtx) const;
         DL_FRUSTUM& operator *= (DL_MATRIX44_PARAMTYPE Mtx);
         DL_FRUSTUM& operator = (DL_FRUSTUM_PARAMTYPE Rhs);
