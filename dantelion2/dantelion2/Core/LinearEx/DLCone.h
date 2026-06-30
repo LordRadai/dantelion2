@@ -1,16 +1,16 @@
 #pragma once
-#include "DLSegment.h"
+#include "Core/Math/DLSegment.h"
 
 namespace DLLinearEx
 {
-	class DL_CYLINDER
+	class DL_CONE
 	{
 		typedef const DLMT::DL_SEGMENT& DL_SEGMENT_PARAMTYPE;
 		typedef const DLMT::DL_VECTOR4AL& DL_VECTOR4AL_PARAMTYPE;
 	public:
-		DL_CYLINDER() = default;
-		DL_CYLINDER(DL_SEGMENT_PARAMTYPE segment, dl_float32 radius) : m_Segment(segment), m_fRadius(radius) {}
-		DL_CYLINDER(DL_VECTOR4AL_PARAMTYPE origin, DL_VECTOR4AL_PARAMTYPE direction, dl_float32 radius) : m_Segment(origin, direction), m_fRadius(radius) {}
+		DL_CONE() = default;
+		DL_CONE(DL_SEGMENT_PARAMTYPE segment, dl_float32 radius) : m_Segment(segment), m_fRadius(radius) {}
+		DL_CONE(DL_VECTOR4AL_PARAMTYPE origin, DL_VECTOR4AL_PARAMTYPE direction, dl_float32 radius) : m_Segment(origin, direction), m_fRadius(radius) {}
 
 		DLMT::DL_VECTOR4AL GetOrigin() const { return m_Segment.GetOrigin(); }
 		DLMT::DL_VECTOR4AL GetDirection() const { return m_Segment.GetDirection(); }

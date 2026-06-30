@@ -289,6 +289,9 @@
     <ClInclude Include="Core\Kernel\SyncObjects.h" />
     <ClInclude Include="Core\Kernel\SyncTraits.h" />
     <ClInclude Include="Core\Kernel\Types.h" />
+    <ClInclude Include="Core\LinearEx\DLCone.h" />
+    <ClInclude Include="Core\LinearEx\DLCylinder.h" />
+    <ClInclude Include="Core\LinearEx\LinearEx.h" />
     <ClInclude Include="Core\Logging\DLAppender.h" />
     <ClInclude Include="Core\Logging\DLCategory.h" />
     <ClInclude Include="Core\Logging\DLCategoryRepository.h" />

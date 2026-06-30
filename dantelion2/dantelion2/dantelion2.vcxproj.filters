@@ -543,6 +543,15 @@
     <ClInclude Include="Core\Math\DLCylinder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\LinearEx\DLCone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\LinearEx\DLCylinder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\LinearEx\LinearEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
