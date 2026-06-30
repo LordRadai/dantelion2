@@ -533,3 +533,16 @@ namespace DLMT
         DL_PLANE m_Planes[6];
     };
 }
+
+#include "DLSegment.inl"
+#include "DLLine.inl"
+#include "DLRay.inl"
+#include "DLRectangle.inl"
+#include "DLPlane.inl"
+#include "DLSphere.inl"
+#include "DLAABB.inl"
+#include "DLOBB.inl"
+#include "DLFrustum.inl"
+#include "DLLSS.inl"
+#include "DLRSS.inl"
+#include "DLTriangle.inl"

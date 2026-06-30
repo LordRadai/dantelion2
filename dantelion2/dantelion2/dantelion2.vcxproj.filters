@@ -504,9 +504,6 @@
     <ClInclude Include="Core\Math\DLDistance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Math\DLClamp.inl">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Math\DLCylinder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -745,43 +742,13 @@
     <None Include="Core\Text\DLFixedBasicString.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="Core\Math\DLTriangle.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLRay.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLRectangle.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLRSS.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLSegment.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLSphere.inl">
-      <Filter>Header Files</Filter>
-    </None>
     <None Include="Core\Math\DLPlane.inl">
       <Filter>Header Files</Filter>
     </None>
     <None Include="Core\Math\DLOBB.inl">
       <Filter>Header Files</Filter>
     </None>
-    <None Include="Core\Math\DLLSS.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLLine.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLFrustum.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLColor.inl">
-      <Filter>Header Files</Filter>
-    </None>
-    <None Include="Core\Math\DLAABB.inl">
+    <None Include="Core\Math\DLClamp.inl">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
