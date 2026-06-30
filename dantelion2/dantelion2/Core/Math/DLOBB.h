@@ -20,6 +20,11 @@ namespace DLMT
         typedef const DL_AABB& DL_AABB_PARAMTYPE;
         typedef const DL_OBB& DL_OBB_PARAMTYPE;
     public:
+		DL_OBB(void) {}
+		DL_OBB(DL_AABB_PARAMTYPE aabb, DL_MATRIX44_PARAMTYPE mtx) { SetValue(aabb, mtx); }
+		DL_OBB(DL_VECTOR4AL_PARAMTYPE vExtents, DL_MATRIX44_PARAMTYPE Xform) { SetValue(vExtents, Xform); }
+		DL_OBB(DL_VECTOR4AL_PARAMTYPE vExtents, DL_VECTOR4AL_PARAMTYPE vCenter, DL_MATRIX33_PARAMTYPE mRot) { SetValue(vExtents, vCenter, mRot); }
+
         // --- Initialization & State ---
         inline void SetEmpty(void);
 
