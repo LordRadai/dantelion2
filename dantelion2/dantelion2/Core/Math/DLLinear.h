@@ -333,7 +333,7 @@ namespace DLMT
         DL_VECTOR4AL m_Extents;
     };
 
-	class DL_LSS : public DL_SEGMENT
+	struct DL_LSS : public DL_SEGMENT
     {
         DL_LSS() = default;
         DL_LSS(DL_SEGMENT_PARAMTYPE seg, dl_float32 fRadius);
