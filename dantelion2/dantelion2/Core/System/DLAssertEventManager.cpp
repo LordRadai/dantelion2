@@ -39,10 +39,7 @@ namespace DLSY
 
 	void DLAssertEventManagerImpl::FireAssertEvent(const DLPF::DLAssertEvent& event)
 	{
-#ifdef _DEV
-		_wassert(event.Msg, event.File, event.Line);
-#endif
-		//CALL(FireAssertEvent_t, 0x88ea50, this, event);
+		CALL(FireAssertEvent_t, 0x88ea50, this, event);
 	}
 
 	DLAssertEventManagerImpl::~DLAssertEventManagerImpl()
