@@ -55,5 +55,9 @@ namespace DLMT
         bool            operator!=(const DL_QUATERNION& other) const;
     };
 
+	__declspec(align(16))
+	class DL_QUATERNIONAL : public DL_QUATERNION
+    {};
+
     DL_QUATERNION operator*(dl_float32 scalar, const DL_QUATERNION& q);
 }
