@@ -19,14 +19,14 @@ namespace DLSY
 		virtual void RemoveAssertEventListener(const DLAssertEventListener& listener) = 0;
 		virtual void AddInputEventSocket(const DLAssertEventSocket& socket) = 0;
 		virtual void RemoveInputEventSocket(const DLAssertEventSocket& socket) = 0;
-		virtual void FireAssertEvent(const DLPF::DLAssertEvent& event) = 0;
+		virtual void FireAssertEvent(DLPF::DLAssertResult* result, const DLPF::DLAssertEvent& event) = 0;
 		virtual ~DLAssertEventManager();
 
 		typedef void(_fastcall* AddAssertEventListener_t)(DLAssertEventManager*, const DLAssertEventListener&);
 		typedef void(_fastcall* RemoveAssertEventListener_t)(DLAssertEventManager*, const DLAssertEventListener&);
 		typedef void(_fastcall* AddInputEventSocket_t)(DLAssertEventManager*, const DLAssertEventSocket&);
 		typedef void(_fastcall* RemoveInputEventSocket_t)(DLAssertEventManager*, const DLAssertEventSocket&);
-		typedef void(_fastcall* FireAssertEvent_t)(DLAssertEventManager*, const DLPF::DLAssertEvent&);
+		typedef void(_fastcall* FireAssertEvent_t)(DLAssertEventManager*, DLPF::DLAssertResult*, const DLPF::DLAssertEvent&);
 		typedef void(_fastcall* Dtor_t)(DLAssertEventManager*);
 	};
 
@@ -39,7 +39,7 @@ namespace DLSY
 		virtual void RemoveAssertEventListener(const DLAssertEventListener& listener) override;
 		virtual void AddInputEventSocket(const DLAssertEventSocket& socket) override;
 		virtual void RemoveInputEventSocket(const DLAssertEventSocket& socket);
-		virtual void FireAssertEvent(const DLPF::DLAssertEvent& event) override;
+		virtual void FireAssertEvent(DLPF::DLAssertResult* result, const DLPF::DLAssertEvent& event) override;
 		virtual ~DLAssertEventManagerImpl();
 
 		DLUT::DLMap<dl_pointer, dl_uint> m_listeners;
