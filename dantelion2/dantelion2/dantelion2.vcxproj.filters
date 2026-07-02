@@ -513,6 +513,15 @@
     <ClInclude Include="Core\Math\DLLinearEx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\System\DLWin32DialogAssertHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\System\DLAssertEventSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\System\DLAssertEventListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -669,6 +678,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Math\DLDistance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\System\DLWin32DialogAssertHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

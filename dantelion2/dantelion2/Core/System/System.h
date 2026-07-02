@@ -1,5 +1,6 @@
 #pragma once
 #include "DLRuntime.h"
+#include "DLWin32DialogAssertHandler.h"
 
 namespace DLSY
 {

@@ -342,13 +342,16 @@
     <ClInclude Include="Core\Resource\DLResourceLoadEvent.h" />
     <ClInclude Include="Core\Resource\DLResourceLoadEventQueue.h" />
     <ClInclude Include="Core\Resource\Resource.h" />
+    <ClInclude Include="Core\System\DLAssertEventListener.h" />
     <ClInclude Include="Core\System\DLAssertEventManager.h" />
+    <ClInclude Include="Core\System\DLAssertEventSocket.h" />
     <ClInclude Include="Core\System\DLExitEventListener.h" />
     <ClInclude Include="Core\System\DLRealTimeServiceManager.h" />
     <ClInclude Include="Core\System\DLRuntime.h" />
     <ClInclude Include="Core\System\DLStdInputStream.h" />
     <ClInclude Include="Core\System\DLStdOutputStream.h" />
     <ClInclude Include="Core\System\DLTrace.h" />
+    <ClInclude Include="Core\System\DLWin32DialogAssertHandler.h" />
     <ClInclude Include="Core\System\System.h" />
     <ClInclude Include="Core\Text\DLCharacterSet.h" />
     <ClInclude Include="Core\Text\DLFormat.h" />
@@ -431,6 +434,7 @@
     <ClCompile Include="Core\System\DLAssertEventManager.cpp" />
     <ClCompile Include="Core\System\DLRuntime.cpp" />
     <ClCompile Include="Core\System\DLTrace.cpp" />
+    <ClCompile Include="Core\System\DLWin32DialogAssertHandler.cpp" />
     <ClCompile Include="Core\System\System.cpp" />
     <ClCompile Include="Core\Text\DLFormat.cpp" />
     <ClCompile Include="Core\Text\DLStringUtil.cpp" />
