@@ -438,6 +438,11 @@ namespace DLMT
 		DL_MATRIX44 Inverse() const;
 
 		static DL_MATRIX44 CreateTranslation(const DL_VECTOR4AL& translation);
+		static DL_MATRIX44 CreateRotationX(dl_float32 angle);
+		static DL_MATRIX44 CreateRotationY(dl_float32 angle);
+		static DL_MATRIX44 CreateRotationZ(dl_float32 angle);
+        static DL_MATRIX44 CreateScale(dl_float32 scale);
+        static DL_MATRIX44 FromTwoVectors(const DL_VECTOR4AL& from, const DL_VECTOR4AL& to);
     };
 
     static DL_MATRIX22 DL_IDENTITY_MATRIX22 = 

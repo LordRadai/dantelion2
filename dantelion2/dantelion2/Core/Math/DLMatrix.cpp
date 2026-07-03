@@ -1,6 +1,7 @@
 #include "DLMatrix.h"
 #include <memory.h>
 #include <cmath>
+#include "DLConstants.h"
 
 namespace DLMT
 {
@@ -392,6 +393,83 @@ namespace DLMT
         result.m30 = translation.x;
         result.m31 = translation.y;
         result.m32 = translation.z;
+        return result;
+    }
+
+	DL_MATRIX44 DL_MATRIX44::CreateRotationX(dl_float32 angle) {
+		dl_float32 c = std::cos(angle);
+		dl_float32 s = std::sin(angle);
+		return DL_MATRIX44(
+			1, 0, 0, 0,
+			0, c, -s, 0,
+			0, s, c, 0,
+			0, 0, 0, 1
+		);
+	}
+
+	DL_MATRIX44 DL_MATRIX44::CreateRotationY(dl_float32 angle) {
+		dl_float32 c = std::cos(angle);
+		dl_float32 s = std::sin(angle);
+		return DL_MATRIX44(
+			c, 0, s, 0,
+			0, 1, 0, 0,
+			-s, 0, c, 0,
+			0, 0, 0, 1
+		);
+	}
+
+	DL_MATRIX44 DL_MATRIX44::CreateRotationZ(dl_float32 angle) {
+		dl_float32 c = std::cos(angle);
+		dl_float32 s = std::sin(angle);
+		return DL_MATRIX44(
+			c, -s, 0, 0,
+			s, c, 0, 0,
+			0, 0, 1, 0,
+			0, 0, 0, 1
+		);
+	}
+
+    DL_MATRIX44 DL_MATRIX44::CreateScale(dl_float32 scale) {
+        DL_MATRIX44 result = DL_IDENTITY_MATRIX44;
+        result.m00 = scale;
+        result.m11 = scale;
+        result.m22 = scale;
+        return result;
+    }
+
+    DL_MATRIX44 DL_MATRIX44::FromTwoVectors(const DLMT::DL_VECTOR4AL& from, const DLMT::DL_VECTOR4AL& to) {
+        DL_MATRIX44 result = DL_IDENTITY_MATRIX44;
+
+        DL_VECTOR3 euler = DL_VECTOR3(0, 0, 0);
+        DL_VECTOR3 diff = to - from;
+
+        if (diff.x == 0 && diff.z == 0)
+        {
+            if (diff.y >= 0)
+                result = CreateRotationZ(PI);
+            else
+                result = CreateRotationZ(0);
+
+            return result;
+        }
+
+        float distance = diff.Length();
+
+        euler.y = asin(diff.y / distance);
+
+        float distance_xz = distance * cos(euler.y);
+
+        euler.x = acos(diff.x / distance_xz);
+        euler.z = acos(diff.z / distance_xz);
+
+        DLMT::DL_MATRIX44 rot_x = DLMT::DL_MATRIX44::CreateRotationX(-euler.x);
+        DLMT::DL_MATRIX44 rot_y = DLMT::DL_MATRIX44::CreateRotationY(-euler.y);
+        DLMT::DL_MATRIX44 rot_z = DLMT::DL_MATRIX44::CreateRotationZ(-euler.z);
+
+        result = rot_x * result;
+        result = rot_y * result;
+        result = rot_z * result;
+
         return result;
     }
 }
