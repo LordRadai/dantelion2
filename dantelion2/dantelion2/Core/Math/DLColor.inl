@@ -4,25 +4,25 @@ namespace DLMT
 {
 	inline DL_COLOR_F4::DL_COLOR_F4(const DLMT2::DL_COLOR_U8& color)
 	{
-		x = static_cast<dl_float32>(color.b) / 255.0f;
+		x = static_cast<dl_float32>(color.r) / 255.0f;
 		y = static_cast<dl_float32>(color.g) / 255.0f;
-		z = static_cast<dl_float32>(color.r) / 255.0f;
+		z = static_cast<dl_float32>(color.b) / 255.0f;
 		w = static_cast<dl_float32>(color.a) / 255.0f;
 	}
 
 	inline DL_COLOR_F4::DL_COLOR_F4(const DL_COLOR_32& color)
 	{
-		x = static_cast<dl_float32>(color.b) / 255.0f;
+		x = static_cast<dl_float32>(color.r) / 255.0f;
 		y = static_cast<dl_float32>(color.g) / 255.0f;
-		z = static_cast<dl_float32>(color.r) / 255.0f;
+		z = static_cast<dl_float32>(color.b) / 255.0f;
 		w = static_cast<dl_float32>(color.a) / 255.0f;
 	}
 
 	inline DL_COLOR_F4& DL_COLOR_F4::operator=(const DL_COLOR_32& color)
 	{
-		x = static_cast<dl_float32>(color.b) / 255.0f;
+		x = static_cast<dl_float32>(color.r) / 255.0f;
 		y = static_cast<dl_float32>(color.g) / 255.0f;
-		z = static_cast<dl_float32>(color.r) / 255.0f;
+		z = static_cast<dl_float32>(color.b) / 255.0f;
 		w = static_cast<dl_float32>(color.a) / 255.0f;
 
 		return *this;
@@ -30,9 +30,9 @@ namespace DLMT
 
 	inline DL_COLOR_F4& DL_COLOR_F4::operator=(const DLMT2::DL_COLOR_U8& color)
 	{
-		x = static_cast<dl_float32>(color.b) / 255.0f;
+		x = static_cast<dl_float32>(color.r) / 255.0f;
 		y = static_cast<dl_float32>(color.g) / 255.0f;
-		z = static_cast<dl_float32>(color.r) / 255.0f;
+		z = static_cast<dl_float32>(color.b) / 255.0f;
 		w = static_cast<dl_float32>(color.a) / 255.0f;
 
 		return *this;
