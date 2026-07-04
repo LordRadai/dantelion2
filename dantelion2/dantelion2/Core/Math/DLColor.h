@@ -14,7 +14,7 @@ namespace DLMT
 	struct DL_COLOR_F4 : public DL_VECTOR4
 	{
 		DL_COLOR_F4() = default;
-		DL_COLOR_F4(dl_float32 r, dl_float32 g, dl_float32 b, dl_float32 a) : DL_VECTOR4(r, g, b, a) {}
+		DL_COLOR_F4(dl_float32 b, dl_float32 g, dl_float32 r, dl_float32 a) : DL_VECTOR4(b, g, r, a) {}
 		DL_COLOR_F4(const DL_VECTOR4& v) : DL_VECTOR4(v) {}
 		DL_COLOR_F4(const DLMT2::DL_COLOR_U8& color);
 		DL_COLOR_F4(const DL_COLOR_32& color);
@@ -29,9 +29,9 @@ namespace DLMT
 		{
 			struct
 			{
-				dl_uint32 b : 8;
-				dl_uint32 g : 8;
 				dl_uint32 r : 8;
+				dl_uint32 g : 8;
+				dl_uint32 b : 8;
 				dl_uint32 a : 8;
 			};
 
@@ -56,9 +56,9 @@ namespace DLMT2
 {
 	struct DL_COLOR_U8
 	{
-		dl_uchar r;
-		dl_uchar g;
 		dl_uchar b;
+		dl_uchar g;
+		dl_uchar r;
 		dl_uchar a;
 
 		DL_COLOR_U8() = default;
@@ -68,12 +68,12 @@ namespace DLMT2
 
 		bool operator!=(const DL_COLOR_U8& other) const
 		{
-			return this->a != other.a || this->b != other.b || this->g != other.g || this->r != other.r;
+			return this->a != other.a || this->r != other.r || this->g != other.g || this->b != other.b;
 		}
 
 		bool operator==(const DL_COLOR_U8& other) const
 		{
-			return this->a == other.a && this->b == other.b && this->g == other.g && this->r == other.r;
+			return this->a == other.a && this->r == other.r && this->g == other.g && this->b == other.b;
 		}
 
 		DL_COLOR_U8& operator=(const DLMT::DL_COLOR_32& color);
