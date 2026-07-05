@@ -5,7 +5,7 @@ namespace DLUT
 	class DLReferenceCountObject
 	{
 	protected:
-		int m_nRefCount;
+		int m_nRefCount = 0;
 
 	public:
 		virtual void Destroy() = 0;
