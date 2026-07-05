@@ -437,6 +437,43 @@ namespace DLMT
         return result;
     }
 
+    DL_MATRIX44 DL_MATRIX44::CreateTransform(const DLMT::DL_VECTOR4AL& translation, const DLMT::DL_QUATERNION& rotation, dl_float32 scale) {
+        DL_MATRIX44 result;
+        dl_float32 xx = rotation.x * rotation.x;
+        dl_float32 yy = rotation.y * rotation.y;
+        dl_float32 zz = rotation.z * rotation.z;
+
+        dl_float32 xy = rotation.x * rotation.y;
+        dl_float32 xz = rotation.x * rotation.z;
+        dl_float32 yz = rotation.y * rotation.z;
+
+        dl_float32 wx = rotation.w * rotation.x;
+        dl_float32 wy = rotation.w * rotation.y;
+        dl_float32 wz = rotation.w * rotation.z;
+
+        result.m[0][0] = scale * (1.0f - 2.0f * (yy + zz));
+        result.m[0][1] = scale * (2.0f * (xy + wz));
+        result.m[0][2] = scale * (2.0f * (xz - wy));
+        result.m[0][3] = 0.0f;
+
+        result.m[1][0] = scale * (2.0f * (xy - wz));
+        result.m[1][1] = scale * (1.0f - 2.0f * (xx + zz));
+        result.m[1][2] = scale * (2.0f * (yz + wx));
+        result.m[1][3] = 0.0f;
+
+        result.m[2][0] = scale * (2.0f * (xz + wy));
+        result.m[2][1] = scale * (2.0f * (yz - wx));
+        result.m[2][2] = scale * (1.0f - 2.0f * (xx + yy));
+        result.m[2][3] = 0.0f;
+
+        result.m[3][0] = translation.x;
+        result.m[3][1] = translation.y;
+        result.m[3][2] = translation.z;
+        result.m[3][3] = 1.0f;
+
+        return result;
+    }
+
     DL_MATRIX44 DL_MATRIX44::FromTwoVectors(const DLMT::DL_VECTOR4AL& from, const DLMT::DL_VECTOR4AL& to) {
         DL_MATRIX44 result = DL_IDENTITY_MATRIX44;
 

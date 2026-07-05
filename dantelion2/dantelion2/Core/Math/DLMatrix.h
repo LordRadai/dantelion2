@@ -442,6 +442,7 @@ namespace DLMT
 		static DL_MATRIX44 CreateRotationY(dl_float32 angle);
 		static DL_MATRIX44 CreateRotationZ(dl_float32 angle);
         static DL_MATRIX44 CreateScale(dl_float32 scale);
+		static DL_MATRIX44 CreateTransform(const DLMT::DL_VECTOR4AL& translation, const DLMT::DL_QUATERNION& rotation, dl_float32 scale);
         static DL_MATRIX44 FromTwoVectors(const DL_VECTOR4AL& from, const DL_VECTOR4AL& to);
     };
 
