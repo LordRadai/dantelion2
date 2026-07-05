@@ -8,6 +8,7 @@ namespace DLUT
 	class DLFixedVector
 	{
 		T m_data[nSize];
+		dl_pointer m_unkPtr;
 		dl_uint m_count;
 
 	public:
