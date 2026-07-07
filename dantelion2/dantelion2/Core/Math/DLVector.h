@@ -20,7 +20,7 @@ namespace DLMT
 			 dl_float32 v[2];
         };
 
-        DL_VECTOR2() = default;
+        DL_VECTOR2() {};
         DL_VECTOR2(dl_float32 x, dl_float32 y) : x(x), y(y) {}
         DL_VECTOR2(const DL_VECTOR3& v);
         DL_VECTOR2(const DL_VECTOR4& v);
@@ -92,7 +92,7 @@ namespace DLMT
 	__declspec(align(16))
 	struct DL_VECTOR2AL : public DL_VECTOR2
     {
-        DL_VECTOR2AL() = default;
+        DL_VECTOR2AL() {};
 		DL_VECTOR2AL(dl_float32 x, dl_float32 y) : DL_VECTOR2(x, y) {}
 		DL_VECTOR2AL(DL_VECTOR2& vec) : DL_VECTOR2(vec) {}
 	};
@@ -105,7 +105,7 @@ namespace DLMT
 			dl_float32 v[3];
         };
 
-        DL_VECTOR3() = default;
+        DL_VECTOR3() {};
         DL_VECTOR3(dl_float32 x, dl_float32 y, dl_float32 z) : x(x), y(y), z(z) {}
         DL_VECTOR3(const DL_VECTOR4& v);
 
@@ -190,7 +190,7 @@ namespace DLMT
 	__declspec(align(16))
     struct DL_VECTOR3AL : public DL_VECTOR3
     {
-        DL_VECTOR3AL() = default;
+        DL_VECTOR3AL() {};
         DL_VECTOR3AL(dl_float32 x, dl_float32 y, dl_float32 z) : DL_VECTOR3(x, y, z) {}
         DL_VECTOR3AL(const DL_VECTOR3& vec) : DL_VECTOR3(vec) {}
 
@@ -205,7 +205,7 @@ namespace DLMT
 			dl_float32 v[4];
         };
 
-        DL_VECTOR4() = default;
+        DL_VECTOR4() {};
         DL_VECTOR4(dl_float32 x, dl_float32 y, dl_float32 z, dl_float32 w) : x(x), y(y), z(z), w(w) {}
 
         explicit DL_VECTOR4(const DL_VECTOR2& v, dl_float32 z = 0.0f, dl_float32 w = 0.0f) : x(v.x), y(v.y), z(z), w(w) {}
@@ -274,7 +274,7 @@ namespace DLMT
 	__declspec(align(16))
     struct DL_VECTOR4AL : public DL_VECTOR4
     {
-		DL_VECTOR4AL() = default;
+		DL_VECTOR4AL() {};
         DL_VECTOR4AL(dl_float32 x, dl_float32 y, dl_float32 z, dl_float32 w) : DL_VECTOR4(x, y, z, w) {}
         DL_VECTOR4AL(const DL_VECTOR4& vec) : DL_VECTOR4(vec) {}
 

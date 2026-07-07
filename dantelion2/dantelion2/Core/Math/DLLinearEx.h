@@ -5,7 +5,7 @@ namespace DLLinearEx
 {
 	struct DL_ARROW : public DLMT::DL_SEGMENT
 	{
-		DL_ARROW() = default;
+		DL_ARROW() {};
 		DL_ARROW(const DLMT::DL_SEGMENT& segment, dl_float32 shaftRadius, dl_float32 headRadius, dl_float32 shaftRatio)
 			: DLMT::DL_SEGMENT(segment), m_fShaftRadius(shaftRadius), m_fHeadRadius(headRadius), m_fShaftRatio(shaftRatio) {}
 		DL_ARROW(const DLMT::DL_VECTOR4AL& origin, const DLMT::DL_VECTOR4AL& direction, dl_float32 shaftRadius, dl_float32 headRadius, dl_float32 shaftRatio)
@@ -22,7 +22,7 @@ namespace DLLinearEx
 
 	struct DL_CONE : public DLMT::DL_SEGMENT
 	{
-		DL_CONE() = default;
+		DL_CONE() {};
 		DL_CONE(DLMT::DL_SEGMENT_PARAMTYPE segment, dl_float32 radius) : DLMT::DL_SEGMENT(segment), m_fRadius(radius) {}
 		DL_CONE(DLMT::DL_VECTOR4AL_PARAMTYPE origin, DLMT::DL_VECTOR4AL_PARAMTYPE direction, dl_float32 radius) : DLMT::DL_SEGMENT(origin, direction), m_fRadius(radius) {}
 
@@ -33,7 +33,7 @@ namespace DLLinearEx
 
 	struct DL_CYLINDER : public DLMT::DL_SEGMENT
 	{
-		DL_CYLINDER() = default;
+		DL_CYLINDER() {};
 		DL_CYLINDER(DLMT::DL_SEGMENT_PARAMTYPE segment, dl_float32 radius) : DLMT::DL_SEGMENT(segment), m_fRadius(radius) {}
 		DL_CYLINDER(DLMT::DL_VECTOR4AL_PARAMTYPE origin, DLMT::DL_VECTOR4AL_PARAMTYPE direction, dl_float32 radius) : DLMT::DL_SEGMENT(origin, direction), m_fRadius(radius) {}
 

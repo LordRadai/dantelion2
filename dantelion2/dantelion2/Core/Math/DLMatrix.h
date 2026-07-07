@@ -28,7 +28,6 @@ namespace DLMT
 
         union
         {
-            DL_VECTOR2 R[2];
             struct
             {
                 dl_float32 m00, m01;
@@ -109,7 +108,6 @@ namespace DLMT
 
         union
         {
-            DL_VECTOR3 R[3];
             struct
             {
                 dl_float32 m00, m01, m02;
@@ -195,7 +193,6 @@ namespace DLMT
 
         union
         {
-            DL_VECTOR4AL R[3];
             struct
             {
                 dl_float32 m00, m01, m02, m03;
@@ -278,7 +275,6 @@ namespace DLMT
 
         union
         {
-            DL_VECTOR4AL C[3];
             struct
             {
                 dl_float32 m00, m10, m20, m30;
@@ -362,7 +358,6 @@ namespace DLMT
 
         union
         {
-            DL_VECTOR4AL R[4];
             struct
             {
                 dl_float32 m00, m01, m02, m03;

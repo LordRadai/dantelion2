@@ -5,6 +5,9 @@
 
 #include <cmath>
 
+#undef min
+#undef max
+
 namespace DLMT
 {
     namespace
@@ -189,8 +192,8 @@ namespace DLMT
         v = (det > 0.0f) ? (v / det) : 0.0f;
 
         // Clamp to [0, 1] range
-        u = std::fmax(0.0f, std::fmin(1.0f, u));
-        v = std::fmax(0.0f, std::fmin(1.0f, v));
+        u = std::max(0.0f, std::min(1.0f, u));
+        v = std::max(0.0f, std::min(1.0f, v));
 
         if (pfRectP0) *pfRectP0 = u;
         if (pfRectP1) *pfRectP1 = v;
@@ -225,8 +228,8 @@ namespace DLMT
         dl_float32 s, t;
         SolveLines(R0.GetOrigin(), R0.GetDirection(), R1.GetOrigin(), R1.GetDirection(), s, t);
         // Clamp for Rays [0, inf)
-        s = std::fmax(0.0f, s);
-        t = std::fmax(0.0f, t);
+        s = std::max(0.0f, s);
+        t = std::max(0.0f, t);
         if (pfRay0P) *pfRay0P = s; if (pfRay1P) *pfRay1P = t;
         DL_VECTOR4AL vDist = (R0.GetOrigin() + R0.GetDirection() * s) - (R1.GetOrigin() + R1.GetDirection() * t);
         return vDist.Dot(vDist);
@@ -243,8 +246,8 @@ namespace DLMT
         dl_float32 s, t;
         SolveLines(Seg.GetOrigin(), Seg.GetDirection(), Ray.GetOrigin(), Ray.GetDirection(), s, t);
         // Clamp for Segment [0, 1] and Ray [0, inf)
-        s = std::fmax(0.0f, std::fmin(1.0f, s));
-        t = std::fmax(0.0f, t);
+        s = std::max(0.0f, std::min(1.0f, s));
+        t = std::max(0.0f, t);
         if (pfSegP) *pfSegP = s; if (pfRayP) *pfRayP = t;
         DL_VECTOR4AL vDist = (Seg.GetOrigin() + Seg.GetDirection() * s) - (Ray.GetOrigin() + Ray.GetDirection() * t);
         return vDist.Dot(vDist);
@@ -360,11 +363,11 @@ namespace DLMT
             if (s < 0.0f)
             {
                 if (t < 0.0f) { /* Region 4: Clamp to Origin */ s = 0.0f; t = 0.0f; }
-                else { /* Region 3: Clamp to Edge 1 */ s = 0.0f; t = std::fmin(1.0f, e / c); }
+                else { /* Region 3: Clamp to Edge 1 */ s = 0.0f; t = std::min(1.0f, e / c); }
             }
             else if (t < 0.0f)
             {
-                /* Region 5: Clamp to Edge 0 */ s = std::fmin(1.0f, d / a); t = 0.0f;
+                /* Region 5: Clamp to Edge 0 */ s = std::min(1.0f, d / a); t = 0.0f;
             }
             else
             {
@@ -378,8 +381,8 @@ namespace DLMT
         {
             // Outside the triangle; clamp to nearest edge
             // Logic for boundary clipping...
-            s = std::fmax(0.0f, std::fmin(1.0f, s / det)); // Simplified
-            t = std::fmax(0.0f, std::fmin(1.0f, t / det)); // Simplified
+            s = std::max(0.0f, std::min(1.0f, s / det)); // Simplified
+            t = std::max(0.0f, std::min(1.0f, t / det)); // Simplified
         }
 
         if (pfTriP0) *pfTriP0 = s;

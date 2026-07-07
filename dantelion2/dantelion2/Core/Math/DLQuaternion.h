@@ -11,7 +11,7 @@ namespace DLMT
         dl_float32 z;
         dl_float32 w;
 
-        DL_QUATERNION() = default;
+        DL_QUATERNION() {};
         DL_QUATERNION(dl_float32 x, dl_float32 y, dl_float32 z, dl_float32 w) : x(x), y(y), z(z), w(w) {}
 
         // Math operations

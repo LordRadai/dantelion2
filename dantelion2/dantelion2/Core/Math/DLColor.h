@@ -13,7 +13,7 @@ namespace DLMT
 
 	struct DL_COLOR_F4 : public DL_VECTOR4
 	{
-		DL_COLOR_F4() = default;
+		DL_COLOR_F4() {};
 		DL_COLOR_F4(dl_float32 b, dl_float32 g, dl_float32 r, dl_float32 a) : DL_VECTOR4(b, g, r, a) {}
 		DL_COLOR_F4(const DL_VECTOR4& v) : DL_VECTOR4(v) {}
 		DL_COLOR_F4(const DLMT2::DL_COLOR_U8& color);
@@ -61,7 +61,7 @@ namespace DLMT2
 		dl_uchar r;
 		dl_uchar a;
 
-		DL_COLOR_U8() = default;
+		DL_COLOR_U8() {};
 		DL_COLOR_U8(dl_uchar _r, dl_uchar _g, dl_uchar _b, dl_uchar _a);
 		DL_COLOR_U8(const DLMT::DL_COLOR_32& color);
 		DL_COLOR_U8(const DLMT::DL_COLOR_F4& color);

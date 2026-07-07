@@ -44,7 +44,7 @@ namespace DLMT
 
     struct DL_SEGMENT
     {
-        DL_SEGMENT() = default;
+        DL_SEGMENT() {};
         DL_SEGMENT(DL_VECTOR4AL_PARAMTYPE vOrigin, DL_VECTOR4AL_PARAMTYPE vDirection) : m_Origin(vOrigin), m_Dir(vDirection) {}
 
         // Accessors
@@ -79,7 +79,7 @@ namespace DLMT
 
     struct DL_RAY
     {
-        DL_RAY() = default;
+        DL_RAY() {};
         DL_RAY(const DL_VECTOR4AL& origin, const DL_VECTOR4AL& direction)
             : m_Origin(origin), m_Dir(direction) {}
 
@@ -105,7 +105,7 @@ namespace DLMT
 
     struct DL_LINE
     {
-        DL_LINE() = default;
+        DL_LINE() {};
         DL_LINE(const DL_VECTOR4AL& origin, const DL_VECTOR4AL& direction)
             : m_Origin(origin), m_Dir(direction) {}
 
@@ -133,7 +133,7 @@ namespace DLMT
 
     struct DL_RECTANGLE
     {
-        DL_RECTANGLE() = default;
+        DL_RECTANGLE() {};
         DL_RECTANGLE(const DL_VECTOR4AL& vOrig, const DL_VECTOR4AL& vEdge0, const DL_VECTOR4AL& vEdge1);
         DL_RECTANGLE(const DL_RECTANGLE& rect);
 
@@ -181,7 +181,7 @@ namespace DLMT
     struct DL_SPHERE
     {
         // --- Constructors ---
-        DL_SPHERE() = default;
+        DL_SPHERE() {};
 
         DL_SPHERE(DL_VECTOR4AL_PARAMTYPE vCenter, dl_float32 fRadius);
         DL_SPHERE(const DL_SPHERE& sphere);
@@ -335,7 +335,7 @@ namespace DLMT
 
 	struct DL_LSS : public DL_SEGMENT
     {
-        DL_LSS() = default;
+        DL_LSS() {};
         DL_LSS(DL_SEGMENT_PARAMTYPE seg, dl_float32 fRadius);
         DL_LSS(DL_LSS_PARAMTYPE lss);
         DL_LSS(const DL_VECTOR3* pVerts, dl_uint32 uiNum);
@@ -364,7 +364,7 @@ namespace DLMT
 
     struct DL_RSS : public DL_RECTANGLE
     {
-        DL_RSS() = default;
+        DL_RSS() {};
         DL_RSS(const DL_VECTOR4AL& vOrig, const DL_VECTOR4AL& vEdge0,
             const DL_VECTOR4AL& vEdge1, dl_float32 fRadius);
         DL_RSS(const DL_RSS& rss);
@@ -388,7 +388,7 @@ namespace DLMT
 
     struct DL_TRIANGLE
     {
-        DL_TRIANGLE() = default;
+        DL_TRIANGLE() {};
         DL_TRIANGLE(const DL_VECTOR4AL pt[3]);
         DL_TRIANGLE(const DL_VECTOR4AL& vOrig, const DL_VECTOR4AL& vEdge0, const DL_VECTOR4AL& vEdge1);
 
@@ -410,7 +410,7 @@ namespace DLMT
 
     struct DL_TRIANGLE3
     {
-        DL_TRIANGLE3() = default;
+        DL_TRIANGLE3() {};
         DL_TRIANGLE3(const DL_VECTOR3AL pt[3]);
         DL_TRIANGLE3(const DL_VECTOR3AL& vOrig, const DL_VECTOR3AL& vEdge0, const DL_VECTOR3AL& vEdge1);
 

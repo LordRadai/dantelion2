@@ -4,6 +4,9 @@
 
 #include <cmath>
 
+#undef min
+#undef max
+
 namespace DLMT
 {
     inline DL_LSS::DL_LSS(DL_SEGMENT_PARAMTYPE seg, dl_float32 fRadius) {
@@ -32,8 +35,8 @@ namespace DLMT
         DL_VECTOR4AL maxPt = minPt;
         for (dl_uint32 i = 1; i < uiNum; ++i) {
             const DL_VECTOR3& v = pVerts[i];
-            minPt.x = std::fmin(minPt.x, v.x); minPt.y = std::fmin(minPt.y, v.y); minPt.z = std::fmin(minPt.z, v.z);
-            maxPt.x = std::fmax(maxPt.x, v.x); maxPt.y = std::fmax(maxPt.y, v.y); maxPt.z = std::fmax(maxPt.z, v.z);
+            minPt.x = std::min(minPt.x, v.x); minPt.y = std::min(minPt.y, v.y); minPt.z = std::min(minPt.z, v.z);
+            maxPt.x = std::max(maxPt.x, v.x); maxPt.y = std::max(maxPt.y, v.y); maxPt.z = std::max(maxPt.z, v.z);
         }
 
         // 2. Set segment
@@ -59,8 +62,8 @@ namespace DLMT
         DL_VECTOR4AL maxPt = minPt;
         for (dl_uint32 i = 1; i < uiNum; ++i) {
             const DL_VECTOR4AL& pt = pVerts[i];
-            minPt.x = std::fmin(minPt.x, pt.x); minPt.y = std::fmin(minPt.y, pt.y); minPt.z = std::fmin(minPt.z, pt.z);
-            maxPt.x = std::fmax(maxPt.x, pt.x); maxPt.y = std::fmax(maxPt.y, pt.y); maxPt.z = std::fmax(maxPt.z, pt.z);
+            minPt.x = std::min(minPt.x, pt.x); minPt.y = std::min(minPt.y, pt.y); minPt.z = std::min(minPt.z, pt.z);
+            maxPt.x = std::max(maxPt.x, pt.x); maxPt.y = std::max(maxPt.y, pt.y); maxPt.z = std::max(maxPt.z, pt.z);
         }
 
         // 2. Set segment

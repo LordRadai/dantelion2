@@ -51,7 +51,7 @@ namespace DLTX
         };
 
     private:
-        dl_uint8 m_charset = CS_PLATFORM;
+        dl_uint8 m_charset;
 
     public:
         DLBasicString(AllocHost* pAllocator = DLKRD::DLAllocationHelper<AllocHost>::GetDefaultHost()) : SuperClass(Allocator(pAllocator))

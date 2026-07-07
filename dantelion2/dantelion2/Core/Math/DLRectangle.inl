@@ -28,9 +28,9 @@ namespace DLMT
     inline DL_VECTOR4AL DL_RECTANGLE::GetNormal() const
     {
         // Assuming Cross3 is the 3D cross product of the X, Y, Z components
-        return { m_Edge[0].y * m_Edge[1].z - m_Edge[0].z * m_Edge[1].y,
+        return DL_VECTOR4AL(m_Edge[0].y * m_Edge[1].z - m_Edge[0].z * m_Edge[1].y,
                  m_Edge[0].z * m_Edge[1].x - m_Edge[0].x * m_Edge[1].z,
-                 m_Edge[0].x * m_Edge[1].y - m_Edge[0].y * m_Edge[1].x, 0.0f };
+                 m_Edge[0].x * m_Edge[1].y - m_Edge[0].y * m_Edge[1].x, 0.0f);
     }
 
     inline DL_VECTOR4AL DL_RECTANGLE::GetCenter() const

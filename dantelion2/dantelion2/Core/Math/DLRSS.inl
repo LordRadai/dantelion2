@@ -3,6 +3,9 @@
 
 #include <cmath>
 
+#undef min
+#undef max
+
 namespace DLMT
 {
     inline DL_RSS::DL_RSS(const DL_VECTOR3* pVerts, dl_uint32 uiNum)
@@ -54,21 +57,21 @@ namespace DLMT
 
         for (dl_uint32 i = 1; i < uiNum; ++i)
         {
-            vMin.x = std::fmin(vMin.x, pVerts[i].x);
-            vMin.y = std::fmin(vMin.y, pVerts[i].y);
-            vMin.z = std::fmin(vMin.z, pVerts[i].z);
+            vMin.x = std::min(vMin.x, pVerts[i].x);
+            vMin.y = std::min(vMin.y, pVerts[i].y);
+            vMin.z = std::min(vMin.z, pVerts[i].z);
 
-            vMax.x = std::fmax(vMax.x, pVerts[i].x);
-            vMax.y = std::fmax(vMax.y, pVerts[i].y);
-            vMax.z = std::fmax(vMax.z, pVerts[i].z);
+            vMax.x = std::max(vMax.x, pVerts[i].x);
+            vMax.y = std::max(vMax.y, pVerts[i].y);
+            vMax.z = std::max(vMax.z, pVerts[i].z);
         }
 
         // 3. Define the base rectangle from the AABB (Axis-Aligned Bounding Box)
         // In a production scenario, you would transform these by the Eigenvectors 
         // of the covariance matrix for an OBB.
-        DL_VECTOR3 vOrigin = { vMin.x, vMin.y, vMin.z };
-        DL_VECTOR3 vEdge0 = { vMax.x - vMin.x, 0.0f, 0.0f };
-        DL_VECTOR3 vEdge1 = { 0.0f, vMax.y - vMin.y, 0.0f };
+        DL_VECTOR3 vOrigin(vMin.x, vMin.y, vMin.z);
+        DL_VECTOR3 vEdge0(vMax.x - vMin.x, 0.0f, 0.0f);
+        DL_VECTOR3 vEdge1(0.0f, vMax.y - vMin.y, 0.0f);
 
         // 4. Set Radius (e.g., the average extent in the Z-axis)
         dl_float32 fRadius = (vMax.z - vMin.z) * 0.5f;
@@ -99,21 +102,21 @@ namespace DLMT
 
         for (dl_uint32 i = 1; i < uiNum; ++i)
         {
-            vMin.x = std::fmin(vMin.x, pVerts[i].x);
-            vMin.y = std::fmin(vMin.y, pVerts[i].y);
-            vMin.z = std::fmin(vMin.z, pVerts[i].z);
+            vMin.x = std::min(vMin.x, pVerts[i].x);
+            vMin.y = std::min(vMin.y, pVerts[i].y);
+            vMin.z = std::min(vMin.z, pVerts[i].z);
 
-            vMax.x = std::fmax(vMax.x, pVerts[i].x);
-            vMax.y = std::fmax(vMax.y, pVerts[i].y);
-            vMax.z = std::fmax(vMax.z, pVerts[i].z);
+            vMax.x = std::max(vMax.x, pVerts[i].x);
+            vMax.y = std::max(vMax.y, pVerts[i].y);
+            vMax.z = std::max(vMax.z, pVerts[i].z);
         }
 
         // 3. Define the base rectangle from the AABB (Axis-Aligned Bounding Box)
         // In a production scenario, you would transform these by the Eigenvectors 
         // of the covariance matrix for an OBB.
-        DL_VECTOR4AL vOrigin = { vMin.x, vMin.y, vMin.z, 1.0f };
-        DL_VECTOR4AL vEdge0 = { vMax.x - vMin.x, 0.0f, 0.0f, 0.0f };
-        DL_VECTOR4AL vEdge1 = { 0.0f, vMax.y - vMin.y, 0.0f, 0.0f };
+        DL_VECTOR4AL vOrigin(vMin.x, vMin.y, vMin.z, 1.0f);
+        DL_VECTOR4AL vEdge0(vMax.x - vMin.x, 0.0f, 0.0f, 0.0f);
+        DL_VECTOR4AL vEdge1(0.0f, vMax.y - vMin.y, 0.0f, 0.0f);
 
         // 4. Set Radius (e.g., the average extent in the Z-axis)
         dl_float32 fRadius = (vMax.z - vMin.z) * 0.5f;

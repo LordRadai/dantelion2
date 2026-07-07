@@ -54,7 +54,10 @@ inline void DL_OBB::Transform(DL_OBB& obb, DL_MATRIX44_PARAMTYPE mtx) const
 inline void DL_OBB::SetCenter(DL_VECTOR4AL_PARAMTYPE vCenter)
 {
     // Accessing the row directly via the updated matrix structure
-    m_Xform.R[3] = vCenter;
+    m_Xform.m[3][0] = vCenter.x;
+    m_Xform.m[3][1] = vCenter.y;
+    m_Xform.m[3][2] = vCenter.z;
+    m_Xform.m[3][3] = vCenter.w;
 }
 
 inline void DL_OBB::SetExtents(DL_VECTOR4AL_PARAMTYPE vExtents)
@@ -72,7 +75,9 @@ inline void DL_OBB::SetRotation(DL_MATRIX34_PARAMTYPE mRot)
     // Using the new structure, we map the rotation components cleanly
     // Assuming m_Xform is a DL_MATRIX44, we update the rotation part (3x3 or 3x4)
     for (int i = 0; i < 3; ++i) {
-        m_Xform.R[i] = DL_VECTOR4(mRot.R[i].x, mRot.R[i].y, mRot.R[i].z, m_Xform.R[i].w);
+		for (int j = 0; j < 3; ++j) {
+			m_Xform.m[i][j] = mRot.m[i][j];
+		}
     }
 }
 
@@ -80,7 +85,7 @@ inline void DL_OBB::SetRotation(DL_MATRIX34_PARAMTYPE mRot)
 
 inline const DL_VECTOR4AL& DL_OBB::GetCenter() const
 {
-    return m_Xform.R[3];
+    return *(const DL_VECTOR4AL*)m_Xform.m[3];
 }
 
 inline const DL_VECTOR4AL& DL_OBB::GetExtents() const
@@ -95,7 +100,7 @@ inline const DL_MATRIX44& DL_OBB::GetXform() const
 
 inline const DL_VECTOR4AL& DL_OBB::GetAxis(DL_AABB::AxisCompornent axis) const
 {
-    return m_Xform.R[axis];
+    return *(const DL_VECTOR4AL*)m_Xform.m[axis];
 }
 
 // --- Operators ---
