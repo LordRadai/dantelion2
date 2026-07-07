@@ -375,6 +375,7 @@
     <ClInclude Include="Core\Util\DLNullType.h" />
     <ClInclude Include="Core\Util\DLProperties.h" />
     <ClInclude Include="Core\Util\detail\DLRandomGeneratorLCG.h" />
+    <ClInclude Include="Core\Util\detail\DLRandomGeneratoXorshift.h" />
     <ClInclude Include="Core\Util\DLReferenceCountObject.h" />
     <ClInclude Include="Core\Util\DLSet.h" />
     <ClInclude Include="Core\Util\DLTypeManipulation.h" />

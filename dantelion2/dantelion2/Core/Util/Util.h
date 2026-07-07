@@ -13,3 +13,4 @@
 #include "DLFixedVector.inl"
 #include "detail/DLFunctor.h"
 #include "detail/DLRandomGeneratorLCG.h"
+#include "detail/DLRandomGeneratoXorshift.h"
