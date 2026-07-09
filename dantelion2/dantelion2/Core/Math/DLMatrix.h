@@ -341,6 +341,7 @@ namespace DLMT
         void GetCol(DL_VECTOR4AL& vOut, dl_uint32 c) const;
     };
 
+    _declspec(align(16))
     struct DL_MATRIX44
     {
         typedef const DL_VECTOR2& DL_VECTOR2_PARAMTYPE;
