@@ -306,6 +306,7 @@
     <ClInclude Include="Core\Math\DLConstants.h" />
     <ClInclude Include="Core\Math\DLColor.h" />
     <ClInclude Include="Core\Math\DLDistance.h" />
+    <ClInclude Include="Core\Math\DLIntersection.h" />
     <ClInclude Include="Core\Math\DLLinear.h" />
     <ClInclude Include="Core\Math\DLLinearEx.h" />
     <ClInclude Include="Core\Math\DLMatrix.h" />
