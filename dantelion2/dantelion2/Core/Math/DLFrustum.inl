@@ -1,3 +1,4 @@
+#pragma once
 #include "DLLinear.h"
 #include "DLIPlane.h"
 
