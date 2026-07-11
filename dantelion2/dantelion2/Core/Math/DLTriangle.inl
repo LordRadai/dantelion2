@@ -3,7 +3,7 @@
 namespace DLMT
 {
     // Constructor from array of 3 points
-    inline DL_TRIANGLE::DL_TRIANGLE(const DL_VECTOR4AL pt[3])
+    inline DL_TRIANGLE::DL_TRIANGLE(DL_VECTOR4AL pt[3])
     {
         SetPoints(pt);
     }

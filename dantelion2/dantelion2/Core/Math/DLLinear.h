@@ -392,7 +392,7 @@ namespace DLMT
     struct DL_TRIANGLE
     {
         DL_TRIANGLE() {};
-        DL_TRIANGLE(const DL_VECTOR4AL pt[3]);
+        DL_TRIANGLE(DL_VECTOR4AL pt[3]);
         DL_TRIANGLE(const DL_VECTOR4AL& vOrig, const DL_VECTOR4AL& vEdge0, const DL_VECTOR4AL& vEdge1);
 
         void SetPoints(DL_VECTOR4AL pt[3]);
