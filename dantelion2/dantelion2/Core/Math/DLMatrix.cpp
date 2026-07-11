@@ -388,6 +388,16 @@ namespace DLMT
         );
     }
 
+    DL_VECTOR4AL& DL_MATRIX44::R(dl_int idx)
+    {
+		return *reinterpret_cast<DL_VECTOR4AL*>(&m[idx][0]);
+    }
+
+    DL_VECTOR4AL& DL_MATRIX44::C(dl_int idx)
+    {
+        return *reinterpret_cast<DL_VECTOR4AL*>(&m[0][idx]);
+    }
+
     DL_MATRIX44 DL_MATRIX44::CreateTranslation(const DLMT::DL_VECTOR4AL& translation) {
         DL_MATRIX44 result = DL_IDENTITY_MATRIX44;
         result.m30 = translation.x;
@@ -508,5 +518,58 @@ namespace DLMT
         result = rot_z * result;
 
         return result;
+    }
+
+    // --- Off-Center Perspective ---
+    DL_MATRIX44 DL_MATRIX44::PerspectiveOffCenterLH_GL(dl_float32 l, dl_float32 r, dl_float32 b, dl_float32 t, dl_float32 n, dl_float32 f) {
+        return DL_MATRIX44(
+            2 * n / (r - l), 0, (r + l) / (r - l), 0,
+            0, 2 * n / (t - b), (t + b) / (t - b), 0,
+            0, 0, (f + n) / (f - n), -(2 * f * n) / (f - n),
+            0, 0, 1, 0
+        );
+    }
+
+    DL_MATRIX44 DL_MATRIX44::PerspectiveOffCenterRH_GL(dl_float32 l, dl_float32 r, dl_float32 b, dl_float32 t, dl_float32 n, dl_float32 f) {
+        return DL_MATRIX44(
+            2 * n / (r - l), 0, (r + l) / (r - l), 0,
+            0, 2 * n / (t - b), (t + b) / (t - b), 0,
+            0, 0, -(f + n) / (f - n), -(2 * f * n) / (f - n),
+            0, 0, -1, 0
+        );
+    }
+
+    // --- Off-Center Orthographic ---
+    DL_MATRIX44 DL_MATRIX44::OrthographicOffCenterLH_GL(dl_float32 l, dl_float32 r, dl_float32 b, dl_float32 t, dl_float32 n, dl_float32 f) {
+        return DL_MATRIX44(
+            2 / (r - l), 0, 0, -(r + l) / (r - l),
+            0, 2 / (t - b), 0, -(t + b) / (t - b),
+            0, 0, 2 / (f - n), -(f + n) / (f - n),
+            0, 0, 0, 1
+        );
+    }
+
+    DL_MATRIX44 DL_MATRIX44::OrthographicOffCenterRH_GL(dl_float32 l, dl_float32 r, dl_float32 b, dl_float32 t, dl_float32 n, dl_float32 f) {
+        return DL_MATRIX44(
+            2 / (r - l), 0, 0, -(r + l) / (r - l),
+            0, 2 / (t - b), 0, -(t + b) / (t - b),
+            0, 0, -2 / (f - n), -(f + n) / (f - n),
+            0, 0, 0, 1
+        );
+    }
+
+    // --- Field of View Perspective ---
+    DL_MATRIX44 DL_MATRIX44::PerspectiveFovLH_GL(dl_float32 fovY, dl_float32 aspect, dl_float32 n, dl_float32 f) {
+        dl_float32 tanHalfFov = tanf(fovY * 0.5f);
+        dl_float32 t = n * tanHalfFov;
+        dl_float32 r = t * aspect;
+        return PerspectiveOffCenterLH_GL(-r, r, -t, t, n, f);
+    }
+
+    DL_MATRIX44 DL_MATRIX44::PerspectiveFovRH_GL(dl_float32 fovY, dl_float32 aspect, dl_float32 n, dl_float32 f) {
+        dl_float32 tanHalfFov = tanf(fovY * 0.5f);
+        dl_float32 t = n * tanHalfFov;
+        dl_float32 r = t * aspect;
+        return PerspectiveOffCenterRH_GL(-r, r, -t, t, n, f);
     }
 }

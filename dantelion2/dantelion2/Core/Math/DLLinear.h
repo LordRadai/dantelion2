@@ -175,6 +175,9 @@ namespace DLMT
 
         void Transform(const DL_MATRIX44& mtx);
 
+		void operator=(const DL_PLANE& other) { m_Plane = other.m_Plane; }
+		void operator=(const DL_VECTOR4AL& plane) { m_Plane = plane; }
+
         DL_VECTOR4AL m_Plane;
     };
 
@@ -392,7 +395,7 @@ namespace DLMT
         DL_TRIANGLE(const DL_VECTOR4AL pt[3]);
         DL_TRIANGLE(const DL_VECTOR4AL& vOrig, const DL_VECTOR4AL& vEdge0, const DL_VECTOR4AL& vEdge1);
 
-        void SetPoints(const DL_VECTOR4AL pt[3]);
+        void SetPoints(DL_VECTOR4AL pt[3]);
         DL_VECTOR4AL ComputePoint(dl_float32 fS, dl_float32 fT) const;
         DL_VECTOR4AL GetNormal() const;
         DL_VECTOR4AL GetCenter() const;
@@ -474,7 +477,6 @@ namespace DLMT
 
         DL_FRUSTUM() {}
 
-        /*
         DL_FRUSTUM(DLFrustumType Type,
             DLFrustumCoordinate Coord,
             dl_float32 Left,
@@ -528,7 +530,6 @@ namespace DLMT
         const dl_uint32* GetEdges(void) const;
 
         dl_bool ComputeTriangles(DL_TRIANGLE Triangles[12]) const;
-        */
     public:
         DL_PLANE m_Planes[6];
     };

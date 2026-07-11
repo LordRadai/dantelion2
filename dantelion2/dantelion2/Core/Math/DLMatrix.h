@@ -433,6 +433,9 @@ namespace DLMT
 		DL_MATRIX44 Transpose() const;
 		DL_MATRIX44 Inverse() const;
 
+		DL_VECTOR4AL& R(dl_int idx);
+		DL_VECTOR4AL& C(dl_int idx);
+
 		static DL_MATRIX44 CreateTranslation(const DL_VECTOR4AL& translation);
 		static DL_MATRIX44 CreateRotationX(dl_float32 angle);
 		static DL_MATRIX44 CreateRotationY(dl_float32 angle);
@@ -440,6 +443,18 @@ namespace DLMT
         static DL_MATRIX44 CreateScale(dl_float32 scale);
 		static DL_MATRIX44 CreateTransform(const DLMT::DL_VECTOR4AL& translation, const DLMT::DL_QUATERNION& rotation, dl_float32 scale);
         static DL_MATRIX44 FromTwoVectors(const DL_VECTOR4AL& from, const DL_VECTOR4AL& to);
+
+        // --- Off-Center Perspective ---
+        static DL_MATRIX44 PerspectiveOffCenterLH_GL(dl_float32 l, dl_float32 r, dl_float32 b, dl_float32 t, dl_float32 n, dl_float32 f);
+        static DL_MATRIX44 PerspectiveOffCenterRH_GL(dl_float32 l, dl_float32 r, dl_float32 b, dl_float32 t, dl_float32 n, dl_float32 f);
+
+        // --- Off-Center Orthographic ---
+        static DL_MATRIX44 OrthographicOffCenterLH_GL(dl_float32 l, dl_float32 r, dl_float32 b, dl_float32 t, dl_float32 n, dl_float32 f);
+        static DL_MATRIX44 OrthographicOffCenterRH_GL(dl_float32 l, dl_float32 r, dl_float32 b, dl_float32 t, dl_float32 n, dl_float32 f);
+
+        // --- Field of View Perspective ---
+        static DL_MATRIX44 PerspectiveFovLH_GL(dl_float32 fovY, dl_float32 aspect, dl_float32 n, dl_float32 f);
+        static DL_MATRIX44 PerspectiveFovRH_GL(dl_float32 fovY, dl_float32 aspect, dl_float32 n, dl_float32 f);
     };
 
     static DL_MATRIX22 DL_IDENTITY_MATRIX22 = 

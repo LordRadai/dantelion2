@@ -449,4 +449,34 @@ namespace DLMT
 
         return minSq;
     }
+
+    dl_float32 DLIDist::GetDistance(DL_PLANE_PARAMTYPE Plane0, DL_PLANE_PARAMTYPE Plane1)
+    {
+		return sqrtf(GetDistanceSq(Plane0, Plane1));
+    }
+
+    dl_float32 DLIDist::GetDistanceSq(DL_PLANE_PARAMTYPE Plane0, DL_PLANE_PARAMTYPE Plane1)
+    {
+        // Extract the plane normals (x, y, z components)
+        const DL_VECTOR4AL& p0 = Plane0.m_Plane;
+        const DL_VECTOR4AL& p1 = Plane1.m_Plane;
+
+        // The planes are parallel if their normals are collinear (dot product of normals ≈ 1.0 or -1.0)
+        // We check the squared length of the cross product or simply the dot product.
+        // Assuming normalized normals (a, b, c):
+        dl_float32 dotNormals = (p0.x * p1.x) + (p0.y * p1.y) + (p0.z * p1.z);
+
+        // If dotNormals is near 1 or -1, they are parallel.
+        // Distance between planes Ax + By + Cz + D1 = 0 and Ax + By + Cz + D2 = 0
+        // is |D1 - D2| / sqrt(A^2 + B^2 + C^2).
+        // Since we want squared distance, it is (D1 - D2)^2 / (A^2 + B^2 + C^2).
+
+        dl_float32 dist = p0.w - p1.w;
+
+        // If normals are already unit length, (A^2 + B^2 + C^2) is 1.0
+        // If not, we divide by the squared magnitude of the normal.
+        dl_float32 normalMagSq = (p0.x * p0.x) + (p0.y * p0.y) + (p0.z * p0.z);
+
+        return (dist * dist) / normalMagSq;
+    }
 }

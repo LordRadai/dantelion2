@@ -17,7 +17,7 @@ namespace DLMT
     }
 
     // Sets points and derives edges (E0 = P1 - P0, E1 = P2 - P0)
-    inline void DL_TRIANGLE::SetPoints(const DL_VECTOR4AL pt[3])
+    inline void DL_TRIANGLE::SetPoints(DL_VECTOR4AL pt[3])
     {
         m_Origin = pt[0];
         m_Edge[0] = pt[1] - pt[0];

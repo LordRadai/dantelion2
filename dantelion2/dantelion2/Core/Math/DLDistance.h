@@ -59,5 +59,8 @@ namespace DLMT
 
         static dl_float32 GetDistance(DL_TRIANGLE_PARAMTYPE Tri0, DL_TRIANGLE_PARAMTYPE Tri1, dl_float32* pfTri0P0, dl_float32* pfTri0P1, dl_float32* pfTri1P0, dl_float32* pfTri1P1);
         static dl_float32 GetDistanceSq(DL_TRIANGLE_PARAMTYPE Tri0, DL_TRIANGLE_PARAMTYPE Tri1, dl_float32* pfTri0P0, dl_float32* pfTri0P1, dl_float32* pfTri1P0, dl_float32* pfTri1P1);
+    
+		static dl_float32 GetDistance(DL_PLANE_PARAMTYPE Plane0, DL_PLANE_PARAMTYPE Plane1);
+		static dl_float32 GetDistanceSq(DL_PLANE_PARAMTYPE Plane0, DL_PLANE_PARAMTYPE Plane1);
     };
 }
