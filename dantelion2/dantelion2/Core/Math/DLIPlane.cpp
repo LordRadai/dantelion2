@@ -1,5 +1,6 @@
 #include "DLIPlane.h"
 #include "DLDistance.h"
+#include "DLLinear.h"
 
 namespace DLMT
 {
