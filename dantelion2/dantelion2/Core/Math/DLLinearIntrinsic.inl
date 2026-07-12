@@ -77,12 +77,11 @@ namespace DLMT
         DL_VECTOR4AL_PARAMTYPE Vec
     )
     {
-        // A coordinate dot product is: Plane.x*Vec.x + Plane.y*Vec.y + Plane.z*Vec.z + Plane.w*1.0
-            // We create a temporary vector where W is forced to 1.0
         DLMT::DL_VECTOR4 V(Vec.x, Vec.y, Vec.z, 1.0f);
-		dl_float32 dotProduct = Plane.GetNormal().Dot(V);
+		dl_float32 dotProduct = Plane.m_Plane.Dot(V);
+		dl_float32 distance = dotProduct + Plane.GetDist();
 
-        return dotProduct;
+        return distance;
     }
 
     inline dl_float32 DLIPlane::DotNormal(
