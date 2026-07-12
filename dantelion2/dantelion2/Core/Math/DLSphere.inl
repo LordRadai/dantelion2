@@ -251,7 +251,7 @@ namespace DLMT
 
     inline DL_VECTOR4AL DL_SPHERE::GetCenter(void) const
     {
-        return DL_VECTOR4AL(m_Sphere.x, m_Sphere.y, m_Sphere.z, 0.0f);
+        return DL_VECTOR4AL(m_Sphere.x, m_Sphere.y, m_Sphere.z, 1.0f);
     }
 
     inline void DL_SPHERE::SetCenter(DL_VECTOR4AL_PARAMTYPE vCenter)

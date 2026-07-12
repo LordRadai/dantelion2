@@ -58,8 +58,7 @@ namespace DLMT
 
     inline dl_float32 DL_PLANE::GetDistance(DL_VECTOR4AL_PARAMTYPE pt) const
     {
-        dl_float32 distance = DLIPlane::DotCoord(*this, pt);
-        return distance;
+        return DLIPlane::DotCoord(*this, pt);
     }
 
     inline dl_bool DL_PLANE::Belongs(DL_VECTOR4AL_PARAMTYPE pt) const
@@ -99,12 +98,12 @@ namespace DLMT
 
     inline DL_VECTOR4AL DL_PLANE::GetNormal(void) const
     {
-        return DLMT::DL_VECTOR4AL(m_Plane.x, m_Plane.y, m_Plane.z, 1.0f).Normalize();
+        return DLMT::DL_VECTOR4AL(m_Plane.x, m_Plane.y, m_Plane.z, 1.0f);
     }
 
     inline void DL_PLANE::SetNormal(DL_VECTOR4AL_PARAMTYPE Normal)
     {
-        DL_VECTOR4AL normalized = DLMT::DL_VECTOR4AL(Normal.x, Normal.y, Normal.z, 1.0f).Normalize();
+        DL_VECTOR4AL normalized = DLMT::DL_VECTOR4AL(Normal.x, Normal.y, Normal.z, 1.0f);
         m_Plane = DLMT::DL_VECTOR4AL(normalized.x, normalized.y, normalized.z, m_Plane.w);
     }
 
