@@ -525,7 +525,7 @@
     <ClInclude Include="Core\Math\DLIntersection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Math\DLIPlane.h">
+    <ClInclude Include="Core\Math\DLLinearIntrinsic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -687,9 +687,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Math\DLIntersection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Math\DLIPlane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

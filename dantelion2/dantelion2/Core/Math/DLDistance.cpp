@@ -304,11 +304,11 @@ namespace DLMT
     // Point-Plane Distance
     dl_float32 DLIDist::GetDistanceSq(DL_VECTOR4AL_PARAMTYPE Vec, DL_PLANE_PARAMTYPE Plane, DL_VECTOR4AL* pClosestP)
     {
-        dl_float32 dist = Plane.DotCoord(Vec); // Normal dot Vec + Dist
+        dl_float32 dist = Plane.m_Plane.Dot(Vec); // Normal dot Vec + Dist
         if (pClosestP)
         {
             // P_closest = Vec - (normal * signed_dist)
-            *pClosestP = Vec - (Plane.GetPlane() * dist);
+            *pClosestP = Vec - (Plane.GetNormal() * dist);
         }
         return dist * dist;
     }
@@ -317,8 +317,8 @@ namespace DLMT
     dl_float32 DLIDist::GetDistanceSq(DL_SEGMENT_PARAMTYPE Seg, DL_PLANE_PARAMTYPE Plane, dl_float32* pfSegP, DL_VECTOR4AL* pClosestP)
     {
         // Distance at endpoints
-        dl_float32 d0 = Plane.DotCoord(Seg.GetOrigin());
-        dl_float32 d1 = Plane.DotCoord(Seg.ComputePoint(1.0f));
+        dl_float32 d0 = Plane.m_Plane.Dot(Seg.GetOrigin()); // Normal dot Vec + Dist
+        dl_float32 d1 = Plane.m_Plane.Dot(Seg.ComputePoint(1.0f));
 
         if (d0 * d1 <= 0.0f) // Segment intersects plane
         {

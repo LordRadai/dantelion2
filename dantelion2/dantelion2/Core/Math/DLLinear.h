@@ -163,20 +163,69 @@ namespace DLMT
 
     struct DL_PLANE
     {
-        DL_PLANE() : m_Plane(0.0f, 1.0f, 0.0f, 0.0f) {}
-        DL_PLANE(const DL_VECTOR4AL& plane)
-            : m_Plane(plane) {}
+        DL_PLANE(void) {}
 
-        const DL_VECTOR4AL& GetPlane() const { return m_Plane; }
+        DL_PLANE(dl_float32 nx,
+            dl_float32 ny,
+            dl_float32 nz,
+            dl_float32 d);
 
-        void SetPlane(const DL_VECTOR4AL& plane) { m_Plane = plane; }
+        DL_PLANE(DL_VECTOR4AL_PARAMTYPE pt,
+            DL_VECTOR4AL_PARAMTYPE n);
 
-        dl_float32 DotCoord(const DL_VECTOR4AL& pt) const;
+        DL_PLANE(DL_VECTOR4AL_PARAMTYPE p0,
+            DL_VECTOR4AL_PARAMTYPE p1,
+            DL_VECTOR4AL_PARAMTYPE p2);
 
-        void Transform(const DL_MATRIX44& mtx);
+        DL_PLANE(DL_VECTOR4AL_PARAMTYPE plane);
 
-		void operator=(const DL_PLANE& other) { m_Plane = other.m_Plane; }
-		void operator=(const DL_VECTOR4AL& plane) { m_Plane = plane; }
+        DL_PLANE(const DL_PLANE& plane);
+
+        ~DL_PLANE(void) {}
+
+        void SetValue(dl_float32 nx,
+            dl_float32 ny,
+            dl_float32 nz,
+            dl_float32 d);
+
+        void SetValue(DL_VECTOR4AL_PARAMTYPE pt,
+            DL_VECTOR4AL_PARAMTYPE n);
+
+        void SetValue(DL_VECTOR4AL_PARAMTYPE p0,
+            DL_VECTOR4AL_PARAMTYPE p1,
+            DL_VECTOR4AL_PARAMTYPE p2);
+
+        void SetValue(DL_VECTOR4AL_PARAMTYPE plane);
+
+
+        dl_float32 GetDistance(DL_VECTOR4AL_PARAMTYPE pt) const;
+
+        dl_bool Belongs(DL_VECTOR4AL_PARAMTYPE pt) const;
+
+        void Normalize(void);
+
+        DL_PLANE Normalize(void) const;
+
+        operator DL_VECTOR3AL& ();
+        operator const DL_VECTOR3AL& () const;
+        operator DL_VECTOR4AL& ();
+        operator const DL_VECTOR4AL& () const;
+
+        DL_VECTOR4AL GetNormal(void) const;
+
+        void SetNormal(DL_VECTOR4AL_PARAMTYPE Normal);
+
+        dl_float32 GetDist(void) const;
+
+        void SetDist(dl_float32 Dist);
+
+        DL_PLANE& operator *= (DL_MATRIX44_PARAMTYPE mtx);
+
+        DL_PLANE operator * (DL_MATRIX44_PARAMTYPE mtx) const;
+
+        dl_bool operator == (DL_PLANE_PARAMTYPE rhs) const;
+
+        dl_bool operator != (DL_PLANE_PARAMTYPE rhs) const;
 
         DL_VECTOR4AL m_Plane;
     };

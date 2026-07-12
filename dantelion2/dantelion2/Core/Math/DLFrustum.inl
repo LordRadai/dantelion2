@@ -1,6 +1,6 @@
 #pragma once
 #include "DLLinear.h"
-#include "DLIPlane.h"
+#include "DLLinearIntrinsic.h"
 
 namespace DLMT
 {
@@ -57,12 +57,12 @@ namespace DLMT
 
         DL_MATRIX44 mInvT = Mtx.Inverse();
 
-        Result.m_Planes[FRUSTUM_PLANE_LEFT].Transform(mInvT);
-        Result.m_Planes[FRUSTUM_PLANE_RIGHT].Transform(mInvT);
-        Result.m_Planes[FRUSTUM_PLANE_BOTTOM].Transform(mInvT);
-        Result.m_Planes[FRUSTUM_PLANE_TOP].Transform(mInvT);
-        Result.m_Planes[FRUSTUM_PLANE_FAR].Transform(mInvT);
-        Result.m_Planes[FRUSTUM_PLANE_NEAR].Transform(mInvT);
+        Result.m_Planes[FRUSTUM_PLANE_LEFT] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_LEFT], mInvT);
+        Result.m_Planes[FRUSTUM_PLANE_RIGHT] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_RIGHT], mInvT);
+        Result.m_Planes[FRUSTUM_PLANE_BOTTOM] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_BOTTOM], mInvT);
+        Result.m_Planes[FRUSTUM_PLANE_TOP] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_TOP], mInvT);
+        Result.m_Planes[FRUSTUM_PLANE_FAR] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_FAR], mInvT);
+        Result.m_Planes[FRUSTUM_PLANE_NEAR] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_NEAR], mInvT);
 
         return Result;
     }
@@ -72,12 +72,12 @@ namespace DLMT
         DL_MATRIX44 mT = Mtx.Transpose();
         DL_MATRIX44 mInvT = Mtx.Inverse();
 
-        m_Planes[FRUSTUM_PLANE_LEFT].Transform(mInvT);
-        m_Planes[FRUSTUM_PLANE_RIGHT].Transform(mInvT);
-        m_Planes[FRUSTUM_PLANE_BOTTOM].Transform(mInvT);
-        m_Planes[FRUSTUM_PLANE_TOP].Transform(mInvT);
-        m_Planes[FRUSTUM_PLANE_NEAR].Transform(mInvT);
-        m_Planes[FRUSTUM_PLANE_FAR].Transform(mInvT);
+        m_Planes[FRUSTUM_PLANE_LEFT] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_LEFT], mInvT);
+        m_Planes[FRUSTUM_PLANE_RIGHT] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_RIGHT], mInvT);
+        m_Planes[FRUSTUM_PLANE_BOTTOM] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_BOTTOM], mInvT);
+        m_Planes[FRUSTUM_PLANE_TOP] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_TOP], mInvT);
+        m_Planes[FRUSTUM_PLANE_FAR] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_FAR], mInvT);
+        m_Planes[FRUSTUM_PLANE_NEAR] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_NEAR], mInvT);
 
         return *this;
     }
@@ -103,12 +103,12 @@ namespace DLMT
 		Result.m_Planes[FRUSTUM_PLANE_NEAR] = m_Planes[FRUSTUM_PLANE_NEAR];
 		Result.m_Planes[FRUSTUM_PLANE_FAR] = m_Planes[FRUSTUM_PLANE_FAR];
 
-        Result.m_Planes[FRUSTUM_PLANE_LEFT].Transform(Mtx);
-        Result.m_Planes[FRUSTUM_PLANE_RIGHT].Transform(Mtx);
-        Result.m_Planes[FRUSTUM_PLANE_BOTTOM].Transform(Mtx);
-        Result.m_Planes[FRUSTUM_PLANE_TOP].Transform(Mtx);
-        Result.m_Planes[FRUSTUM_PLANE_FAR].Transform(Mtx);
-        Result.m_Planes[FRUSTUM_PLANE_NEAR].Transform(Mtx);
+        Result.m_Planes[FRUSTUM_PLANE_LEFT] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_LEFT], Mtx);
+        Result.m_Planes[FRUSTUM_PLANE_RIGHT] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_RIGHT], Mtx);
+        Result.m_Planes[FRUSTUM_PLANE_BOTTOM] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_BOTTOM], Mtx);
+        Result.m_Planes[FRUSTUM_PLANE_TOP] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_TOP], Mtx);
+        Result.m_Planes[FRUSTUM_PLANE_FAR] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_FAR], Mtx);
+        Result.m_Planes[FRUSTUM_PLANE_NEAR] = DLIPlane::Transform(m_Planes[FRUSTUM_PLANE_NEAR], Mtx);
 
         return Result;
     }
@@ -174,12 +174,12 @@ namespace DLMT
     {
         DL_MATRIX44 ProjMtxT = ProjMtx.Transpose();
 
-        m_Planes[FRUSTUM_PLANE_LEFT] = -(ProjMtxT.R(3) + ProjMtxT.R(0));
-        m_Planes[FRUSTUM_PLANE_RIGHT] = -(ProjMtxT.R(3) - ProjMtxT.R(0));
-        m_Planes[FRUSTUM_PLANE_BOTTOM] = -(ProjMtxT.R(3) + ProjMtxT.R(1));
-        m_Planes[FRUSTUM_PLANE_TOP] = -(ProjMtxT.R(3) - ProjMtxT.R(1));
-        m_Planes[FRUSTUM_PLANE_NEAR] = -(ProjMtxT.R(3) + ProjMtxT.R(2));
-        m_Planes[FRUSTUM_PLANE_FAR] = -(ProjMtxT.R(3) - ProjMtxT.R(2));
+        m_Planes[FRUSTUM_PLANE_LEFT] = DL_PLANE(- (ProjMtxT.R(3) + ProjMtxT.R(0)));
+        m_Planes[FRUSTUM_PLANE_RIGHT] = DL_PLANE(- (ProjMtxT.R(3) - ProjMtxT.R(0)));
+        m_Planes[FRUSTUM_PLANE_BOTTOM] = DL_PLANE(- (ProjMtxT.R(3) + ProjMtxT.R(1)));
+        m_Planes[FRUSTUM_PLANE_TOP] = DL_PLANE(- (ProjMtxT.R(3) - ProjMtxT.R(1)));
+        m_Planes[FRUSTUM_PLANE_NEAR] = DL_PLANE(- (ProjMtxT.R(3) + ProjMtxT.R(2)));
+        m_Planes[FRUSTUM_PLANE_FAR] = DL_PLANE(- (ProjMtxT.R(3) - ProjMtxT.R(2)));
 
         return *this;
     }

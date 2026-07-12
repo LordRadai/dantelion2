@@ -233,6 +233,8 @@ namespace DLMT
         dl_bool        IsNormalized(dl_float32 epsilon = 1e-6f) const;
         dl_bool        IsZero(dl_float32 epsilon = 1e-6f) const;
         dl_bool        Equals(const DL_VECTOR4& other, dl_float32 epsilon = 1e-6f) const;
+		dl_bool		   IsNaN() const;
+        dl_bool        IsInfinite() const;
 
         // Implementation for a Point (W=1)
         inline DL_VECTOR4 TransformCoord(const DL_MATRIX44& mtx);
@@ -263,6 +265,10 @@ namespace DLMT
         // Comparison operators
         dl_bool        operator==(const DL_VECTOR4& other) const;
         dl_bool        operator!=(const DL_VECTOR4& other) const;
+		dl_bool        operator<(const DL_VECTOR4& other) const;
+		dl_bool 	   operator<=(const DL_VECTOR4& other) const;
+		dl_bool 	   operator>(const DL_VECTOR4& other) const;
+		dl_bool 	   operator>=(const DL_VECTOR4& other) const;
 
         dl_float32& operator[](dl_uint32 index) { return v[index]; }
         const dl_float32& operator[](dl_uint32 index) const { return v[index]; }

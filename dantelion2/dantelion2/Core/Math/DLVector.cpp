@@ -1,9 +1,12 @@
 #include <cmath>
 #include <algorithm>
+#include <limits>
 
 #include "DLVector.h"
 #include "DLMatrix.h"
 #include "DLClamp.inl"
+
+#undef max
 
 namespace DLMT
 {
@@ -572,6 +575,22 @@ namespace DLMT
             && fabsf(this->w - other.w) <= epsilon;
     }
 
+	dl_bool DL_VECTOR4::IsNaN() const
+	{
+        return (this->x != this->x) || (this->y != this->y) ||
+            (this->z != this->z) || (this->w != this->w);
+    }
+
+	dl_bool DL_VECTOR4::IsInfinite() const
+	{
+        const float maxVal = std::numeric_limits<float>::max();
+
+        return (this->x > maxVal || this->x < -maxVal) ||
+            (this->y > maxVal || this->y < -maxVal) ||
+            (this->z > maxVal || this->z < -maxVal) ||
+            (this->w > maxVal || this->w < -maxVal);
+    }
+
     inline DL_VECTOR4 DL_VECTOR4::TransformCoord(const DL_MATRIX44& mtx)
     {
         // V * M. If mtx is an affine matrix (row-major), this includes translation.
@@ -717,6 +736,26 @@ namespace DLMT
     dl_bool DL_VECTOR4::operator!=(const DL_VECTOR4& other) const
     {
         return this->x != other.x || this->y != other.y || this->z != other.z || this->w != other.w;
+    }
+
+	dl_bool DL_VECTOR4::operator<(const DL_VECTOR4& other) const
+	{
+		return this->x < other.x && this->y < other.y && this->z < other.z && this->w < other.w;
+	}
+
+	dl_bool DL_VECTOR4::operator>(const DL_VECTOR4& other) const
+	{
+		return this->x > other.x && this->y > other.y && this->z > other.z && this->w > other.w;
+	}
+
+	dl_bool DL_VECTOR4::operator<=(const DL_VECTOR4& other) const
+	{
+		return this->x <= other.x && this->y <= other.y && this->z <= other.z && this->w <= other.w;
+	}
+
+    dl_bool DL_VECTOR4::operator>=(const DL_VECTOR4& other) const
+    {
+		return this->x >= other.x && this->y >= other.y && this->z >= other.z && this->w >= other.w;
     }
 
     DL_VECTOR4 operator*(dl_float32 scalar, const DL_VECTOR4& vec)
