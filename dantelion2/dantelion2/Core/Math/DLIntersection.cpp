@@ -854,40 +854,53 @@ namespace DLMT
             DL_SPHERE_PARAMTYPE Sphere
         )
     {
-        const DLMT::DL_VECTOR4AL center = Sphere.GetCenter();
-        const dl_float32 radius = Sphere.GetRadius();
-        
-        // Check against each of the 6 planes of the frustum
-        for (int i = 0; i < 6; ++i)
+        DL_VECTOR4AL sphereCenter = Sphere.GetCenter();
+        dl_float32 sphereRadius = Sphere.GetRadius();
+
+        // Track the relationship with each plane
+        dl_bool bCompletelyInside = true;  // Assume inside until proven otherwise
+        dl_bool bIntersecting = false;     // Track if we've found an intersection
+
+        // Test against all 6 frustum planes
+        for (dl_uint32 i = 0; i < DL_FRUSTUM::FRUSTUM_PLANE_NUM - 1; ++i)
         {
-            const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i).Normalize();
+            DL_PLANE plane = Frustum.GetPlane(static_cast<DL_FRUSTUM::DLFrustumPlaneIndex>(i)).Normalize();
 
-            // Signed distance from sphere center to plane
-            dl_float32 dist = plane.GetDistance(center);
+            // Get plane normal (xyz) and distance (w)
+            // Plane equation: n·p + d = 0, or equivalently distance = n·p + d
+            DL_VECTOR4AL normal = plane.GetNormal();
+            dl_float32 planeDistance = plane.GetDist();
 
-            // Sphere is completely outside this plane
-            if (dist < -radius)
+            // Calculate signed distance from sphere center to plane
+            // distance = n·c + d
+            DL_VECTOR4AL centerXYZ(sphereCenter.x, sphereCenter.y, sphereCenter.z, 1.f);
+            dl_float32 signedDistance = normal.Dot(centerXYZ) + planeDistance;
+
+            // Check the relationship between sphere and plane
+            if (signedDistance > sphereRadius)
             {
-                return RESULT_OUTSIDE;
+                // Sphere center is far enough on the negative side that the entire
+                // sphere is outside this plane (outside the frustum)
+                return RESULT_OUTSIDE;  // Completely outside
             }
+            else if (signedDistance < sphereRadius)
+            {
+                // Sphere intersects this plane
+                bIntersecting = true;
+                bCompletelyInside = false;
+            }
+            // else: signedDistance >= sphereRadius means sphere is completely on the
+            // positive side of this plane (inside relative to this plane)
         }
 
-        // Now check if sphere is completely inside all planes
-        bool isCompletelyInside = true;
-        for (int i = 0; i < 6; ++i)
+        if (bCompletelyInside)
         {
-            const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i);
-            dl_float32 dist = plane.GetDistance(center);
-
-            // If center is less than radius away from any plane, it's not fully inside
-            if (dist < radius)
-            {
-                isCompletelyInside = false;
-                break;
-            }
+            return RESULT_INSIDE;  // Completely inside
         }
-
-        return isCompletelyInside ? RESULT_INSIDE : RESULT_INTERSECT;
+        else
+        {
+            return RESULT_INTERSECT;  // Intersecting
+        }
     }
 
     DLIIntersection::DLIntersectResult
