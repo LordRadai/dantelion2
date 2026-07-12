@@ -8,3 +8,5 @@
 #include "DLLinearEx.h"
 
 #include "DLConstants.h"
+
+#include "DLIntersection.h"
