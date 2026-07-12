@@ -44,6 +44,7 @@ namespace DLMT
             RESULT_INSIDE,
         };
 
+        /*
         static inline dl_bool Test(
             DL_VECTOR4AL_PARAMTYPE Vec,
             DL_SPHERE_PARAMTYPE Sphere
@@ -103,16 +104,19 @@ namespace DLMT
             DL_SEGMENT_PARAMTYPE Seg,
             DL_RSS_PARAMTYPE RSS
         );
+        */
 
         static dl_bool Test(
             DL_SEGMENT_PARAMTYPE Seg,
             DL_TRIANGLE_PARAMTYPE Tri
         );
 
+        /*
         static dl_bool Test(
             DL_RAY_PARAMTYPE Ray,
             DL_RECTANGLE_PARAMTYPE Rect
         );
+        
 
         static inline dl_bool Test(
             DL_RAY_PARAMTYPE Ray,
@@ -143,12 +147,14 @@ namespace DLMT
             DL_RAY_PARAMTYPE Ray,
             DL_RSS_PARAMTYPE RSS
         );
+        */
 
         static dl_bool Test(
             DL_RAY_PARAMTYPE Ray,
             DL_TRIANGLE_PARAMTYPE Tri
         );
 
+        /*
         static dl_bool Test(
             DL_LINE_PARAMTYPE Line,
             DL_RECTANGLE_PARAMTYPE Rect
@@ -183,12 +189,14 @@ namespace DLMT
             DL_LINE_PARAMTYPE Line,
             DL_RSS_PARAMTYPE RSS
         );
+        */
 
         static dl_bool Test(
             DL_LINE_PARAMTYPE Line,
             DL_TRIANGLE_PARAMTYPE Tri
         );
 
+        /*
         static dl_bool Test(
             DL_RECTANGLE_PARAMTYPE Rect0,
             DL_RECTANGLE_PARAMTYPE Rect1
@@ -368,7 +376,8 @@ namespace DLMT
             DL_TRIANGLE_PARAMTYPE Tri0,
             DL_TRIANGLE_PARAMTYPE Tri1
         );
-
+        */
+        
         static inline DLIntersectResult
             Test(
                 DL_FRUSTUM_PARAMTYPE Frustum,
@@ -441,6 +450,7 @@ namespace DLMT
                 DL_TRIANGLE_PARAMTYPE Triangle
             );
 
+        /*
         static dl_bool Find(
             DL_SEGMENT_PARAMTYPE Seg,
             DL_RECTANGLE_PARAMTYPE Rect,
@@ -783,8 +793,10 @@ namespace DLMT
             DL_VECTOR4AL* pContactP,
             dl_float32* pfTime
         );
+        */
 
     private:
+        /*
         static dl_float32 __GetVertexIntersection(
             DL_VECTOR4AL_PARAMTYPE vD,
             DL_VECTOR4AL_PARAMTYPE vV,
@@ -842,5 +854,6 @@ namespace DLMT
             DL_FRUSTUM_PARAMTYPE Frustum,
             DL_VECTOR4AL_PARAMTYPE vPt
         );
+        */
     };
 }
