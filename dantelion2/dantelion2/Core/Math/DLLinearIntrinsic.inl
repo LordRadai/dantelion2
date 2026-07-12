@@ -78,10 +78,8 @@ namespace DLMT
     )
     {
         DLMT::DL_VECTOR4 V(Vec.x, Vec.y, Vec.z, 1.0f);
-		dl_float32 dotProduct = Plane.m_Plane.Dot(V);
-		dl_float32 distance = dotProduct + Plane.GetDist();
 
-        return distance;
+        return Plane.m_Plane.Dot(V);
     }
 
     inline dl_float32 DLIPlane::DotNormal(

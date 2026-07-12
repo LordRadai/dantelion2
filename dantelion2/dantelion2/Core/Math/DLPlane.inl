@@ -99,12 +99,13 @@ namespace DLMT
 
     inline DL_VECTOR4AL DL_PLANE::GetNormal(void) const
     {
-        return DLMT::DL_VECTOR4AL(m_Plane.x, m_Plane.y, m_Plane.z, 1.0f);
+        return DLMT::DL_VECTOR4AL(m_Plane.x, m_Plane.y, m_Plane.z, 1.0f).Normalize();
     }
 
     inline void DL_PLANE::SetNormal(DL_VECTOR4AL_PARAMTYPE Normal)
     {
-        m_Plane = DLMT::DL_VECTOR4AL(Normal.x, Normal.y, Normal.z, m_Plane.w);
+        DL_VECTOR4AL normalized = DLMT::DL_VECTOR4AL(Normal.x, Normal.y, Normal.z, 1.0f).Normalize();
+        m_Plane = DLMT::DL_VECTOR4AL(normalized.x, normalized.y, normalized.z, m_Plane.w);
     }
 
     inline dl_float32 DL_PLANE::GetDist(void) const

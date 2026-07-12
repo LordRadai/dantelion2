@@ -1,5 +1,6 @@
 #include "DLIntersection.h"
 #include "DLDistance.h"
+#include "Core/Assert/DLAssert.h"
 
 namespace DLMT
 {
@@ -896,6 +897,7 @@ namespace DLMT
         for (int i = 0; i < 6; ++i)
         {
             const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i);
+
             DLMT::DL_VECTOR4AL planeNormal = plane.GetNormal();
 
             // Identify the positive vertex (p-vertex)
