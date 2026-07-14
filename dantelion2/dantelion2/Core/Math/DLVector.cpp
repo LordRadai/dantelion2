@@ -434,27 +434,27 @@ namespace DLMT
     DL_VECTOR3 DL_VECTOR3::operator*(const DL_MATRIX34& other) const
     {
         return DL_VECTOR3(
-            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
-            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
-            this->x * other.m02 + this->y * other.m12 + this->z * other.m22
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20 + other.m03,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21 + other.m13,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22 + other.m23
         );
 	}
 
     DL_VECTOR3 DL_VECTOR3::operator*(const DL_MATRIX44& other) const
     {
         return DL_VECTOR3(
-            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
-            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
-            this->x * other.m02 + this->y * other.m12 + this->z * other.m22
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20 + other.m30,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21 + other.m31,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22 + other.m32
         );
 	}
 
     DL_VECTOR3 DL_VECTOR3::operator*(const DL_MATRIX43& other) const
     {
         return DL_VECTOR3(
-            this->x * other.m00 + this->y * other.m10 + this->z * other.m20,
-            this->x * other.m01 + this->y * other.m11 + this->z * other.m21,
-            this->x * other.m02 + this->y * other.m12 + this->z * other.m22
+            this->x * other.m00 + this->y * other.m10 + this->z * other.m20 + other.m30,
+            this->x * other.m01 + this->y * other.m11 + this->z * other.m21 + other.m31,
+            this->x * other.m02 + this->y * other.m12 + this->z * other.m22 + other.m32
         );
 	}
 
