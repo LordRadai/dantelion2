@@ -681,7 +681,7 @@ namespace DLMT
             dl_float32 vDist = DLIPlane::DotCoord(plane, Vertex);
 
             // 3. If the distance is negative, the point is on the "outside" of this plane
-            if (vDist < 0.0f)
+            if (vDist > 0.0f)
             {
                 return RESULT_OUTSIDE;
             }
@@ -782,8 +782,8 @@ namespace DLMT
             int outsideCount = 0;
             for (int j = 0; j < 4; ++j)
             {
-                // If distance < 0, the point is outside this plane
-                if (plane.GetDistance(corners[j]) < 0.0f)
+                // If distance > 0, the point is outside this plane
+                if (plane.GetDistance(corners[j]) > 0.0f)
                 {
                     outsideCount++;
                 }
@@ -811,20 +811,17 @@ namespace DLMT
             DL_PLANE_PARAMTYPE Plane
         )
     {
-        // 1. Get the 8 corners of the frustum
         DLMT::DL_VECTOR4AL frustumVerts[8];
         if (!Frustum.ComputeVertices(frustumVerts))
         {
             return RESULT_OUTSIDE;
         }
 
-        // 2. Test each vertex against the plane equation (Ax + By + Cz + D)
         int positiveCount = 0;
         int negativeCount = 0;
 
         for (int i = 0; i < 8; ++i)
         {
-            // Using the plane's built-in GetDistance method
             dl_float32 dist = Plane.GetDistance(frustumVerts[i]);
 
             if (dist > 0.0f)
@@ -837,70 +834,49 @@ namespace DLMT
             }
         }
 
-        // 3. Determine intersection result
-        // If all vertices are on the positive side, the frustum is fully inside the positive half-space
-        if (negativeCount == 0) return RESULT_INSIDE;
+        // Since normals point OUTWARD:
+        // If all vertices are on the negative side, the frustum is fully INSIDE the half-space
+        if (positiveCount == 0) return RESULT_INSIDE;
 
-        // If all vertices are on the negative side, the frustum is fully inside the negative half-space
-        if (positiveCount == 0) return RESULT_OUTSIDE;
+        // If all vertices are on the positive side, the frustum is fully OUTSIDE the half-space
+        if (negativeCount == 0) return RESULT_OUTSIDE;
 
         // Otherwise, the plane cuts through the frustum
         return RESULT_INTERSECT;
     }
 
     DLIIntersection::DLIntersectResult
-        DLIIntersection::Test(
-            DL_FRUSTUM_PARAMTYPE Frustum,
-            DL_SPHERE_PARAMTYPE Sphere
-        )
+        DLIIntersection::Test(DL_FRUSTUM_PARAMTYPE Frustum, DL_SPHERE_PARAMTYPE Sphere)
     {
         DL_VECTOR4AL sphereCenter = Sphere.GetCenter();
         dl_float32 sphereRadius = Sphere.GetRadius();
 
-        // Track the relationship with each plane
-        dl_bool bCompletelyInside = true;  // Assume inside until proven otherwise
-        dl_bool bIntersecting = false;     // Track if we've found an intersection
+        bool bIntersecting = false;
 
-        // Test against all 6 frustum planes
-        for (dl_uint32 i = 0; i < DL_FRUSTUM::FRUSTUM_PLANE_NUM - 1; ++i)
+        for (dl_uint32 i = 0; i < DL_FRUSTUM::FRUSTUM_PLANE_NUM; ++i)
         {
             DL_PLANE plane = Frustum.GetPlane(static_cast<DL_FRUSTUM::DLFrustumPlaneIndex>(i)).Normalize();
 
-            // Get plane normal (xyz) and distance (w)
-            // Plane equation: n·p + d = 0, or equivalently distance = n·p + d
-            DL_VECTOR4AL normal = plane.GetNormal();
-            dl_float32 planeDistance = plane.GetDist();
+            // Calculate signed distance
+            dl_float32 signedDistance = plane.GetNormal().Dot(sphereCenter) + plane.GetDist();
 
-            // Calculate signed distance from sphere center to plane
-            // distance = n·c + d
-            DL_VECTOR4AL centerXYZ(sphereCenter.x, sphereCenter.y, sphereCenter.z, 1.f);
-            dl_float32 signedDistance = normal.Dot(centerXYZ) + planeDistance;
-
-            // Check the relationship between sphere and plane
+            // Since normals point OUTWARD:
+            // 1. If distance > radius, the sphere is completely on the "outside" of this plane.
             if (signedDistance > sphereRadius)
             {
-                // Sphere center is far enough on the negative side that the entire
-                // sphere is outside this plane (outside the frustum)
-                return RESULT_OUTSIDE;  // Completely outside
+                return RESULT_OUTSIDE;
             }
-            else if (signedDistance < sphereRadius)
+
+            // 2. If distance > -radius (but < radius), it is crossing the plane.
+            // We use -radius because if the distance is, for example, -0.5 and radius is 1.0,
+            // the sphere is still partially "outside" the plane's boundary.
+            if (signedDistance > -sphereRadius)
             {
-                // Sphere intersects this plane
                 bIntersecting = true;
-                bCompletelyInside = false;
             }
-            // else: signedDistance >= sphereRadius means sphere is completely on the
-            // positive side of this plane (inside relative to this plane)
         }
 
-        if (bCompletelyInside)
-        {
-            return RESULT_INSIDE;  // Completely inside
-        }
-        else
-        {
-            return RESULT_INTERSECT;  // Intersecting
-        }
+        return bIntersecting ? RESULT_INTERSECT : RESULT_INSIDE;
     }
 
     DLIIntersection::DLIntersectResult
@@ -916,30 +892,28 @@ namespace DLMT
         for (int i = 0; i < 6; ++i)
         {
             const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i);
-
             DLMT::DL_VECTOR4AL planeNormal = plane.GetNormal();
 
-            // Identify the positive vertex (p-vertex)
-            // This is the vertex of the AABB that is furthest along the direction of the plane normal
+            // 1. P-Vertex (furthest along normal)
+            // If this point is on the POSITIVE side of the plane, the whole AABB is outside.
             DLMT::DL_VECTOR4AL p = vMin;
             if (planeNormal.x >= 0.0f) p.x = vMax.x;
             if (planeNormal.y >= 0.0f) p.y = vMax.y;
             if (planeNormal.z >= 0.0f) p.z = vMax.z;
 
-            // If the positive vertex is behind the plane, the AABB is completely outside
-            if (plane.GetDistance(p) < 0.0f)
+            if (plane.GetDistance(p) > 0.0f) // Changed from < 0.0f
             {
                 return RESULT_OUTSIDE;
             }
 
-            // Check if the AABB is also crossing this plane (n-vertex test)
-            // If the negative vertex (n-vertex) is behind the plane, it intersects
+            // 2. N-Vertex (furthest AGAINST normal)
+            // If this point is on the POSITIVE side, it means the AABB crosses the plane.
             DLMT::DL_VECTOR4AL n = vMax;
             if (planeNormal.x >= 0.0f) n.x = vMin.x;
             if (planeNormal.y >= 0.0f) n.y = vMin.y;
             if (planeNormal.z >= 0.0f) n.z = vMin.z;
 
-            if (plane.GetDistance(n) < 0.0f)
+            if (plane.GetDistance(n) > 0.0f) // Changed from < 0.0f
             {
                 isIntersecting = true;
             }
@@ -962,34 +936,28 @@ namespace DLMT
         {
             const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i);
 
-            // 1. Transform the plane normal into OBB local space
-            // We use the rotation part of the OBB transform to rotate the plane normal.
-            // For OBBs, we often have the rotation matrix readily available.
+            // ... [Your existing Normal transformation code is fine] ...
             DLMT::DL_VECTOR4AL normal = plane.GetNormal();
-
-            // Transform normal: N_local = (Transpose(Rotation) * Normal)
-            // (Assuming standard 3x3 rotation in the upper-left of xform)
             DLMT::DL_VECTOR4AL localNormal;
             localNormal.x = normal.x * xform.m[0][0] + normal.y * xform.m[1][0] + normal.z * xform.m[2][0];
             localNormal.y = normal.x * xform.m[0][1] + normal.y * xform.m[1][1] + normal.z * xform.m[2][1];
             localNormal.z = normal.x * xform.m[0][2] + normal.y * xform.m[1][2] + normal.z * xform.m[2][2];
 
-            // 2. Compute the projection radius of the OBB onto the normal
-            // r = extents.x * |normal.x| + extents.y * |normal.y| + extents.z * |normal.z|
             dl_float32 r = extents.x * std::abs(localNormal.x) +
                 extents.y * std::abs(localNormal.y) +
                 extents.z * std::abs(localNormal.z);
 
-            // 3. Compute signed distance from OBB center to plane
             dl_float32 dist = plane.GetDistance(Obb.GetCenter());
 
-            // 4. Test against plane
-            if (dist < -r)
+            // 4. Corrected Test against outward-pointing plane
+            // If dist > r, the entire OBB is on the positive (outside) side of the plane
+            if (dist > r)
             {
                 return RESULT_OUTSIDE;
             }
 
-            if (dist < r)
+            // If dist > -r, the OBB is straddling the plane boundary
+            if (dist > -r)
             {
                 isIntersecting = true;
             }
@@ -1007,7 +975,6 @@ namespace DLMT
         const dl_float32 radius = Lss.GetRadius();
         bool isIntersecting = false;
 
-        // Get the two endpoints of the segment
         DLMT::DL_VECTOR4AL p0 = Lss.GetOrigin();
         DLMT::DL_VECTOR4AL p1 = Lss.GetEndPoint();
 
@@ -1015,19 +982,19 @@ namespace DLMT
         {
             const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i);
 
-            // Get the signed distance from the two segment endpoints to the plane
             dl_float32 dist0 = plane.GetDistance(p0);
             dl_float32 dist1 = plane.GetDistance(p1);
 
-            // If both endpoints are further behind the plane than the radius, 
-            // the entire capsule is outside this plane.
-            if (dist0 < -radius && dist1 < -radius)
+            // With outward normals, the capsule is completely OUTSIDE if 
+            // both endpoints are further along the normal than the radius.
+            if (dist0 > radius && dist1 > radius)
             {
                 return RESULT_OUTSIDE;
             }
 
-            // If any part of the capsule is crossing the plane
-            if (dist0 < radius || dist1 < radius)
+            // If either endpoint is on the positive side of the plane 
+            // (dist > -radius), the capsule is crossing the boundary.
+            if (dist0 > -radius || dist1 > -radius)
             {
                 isIntersecting = true;
             }
@@ -1042,13 +1009,11 @@ namespace DLMT
             DL_RSS_PARAMTYPE Rss
         )
     {
-        // Get the rectangle origin and edges (inherited from DL_RECTANGLE)
         DLMT::DL_VECTOR4AL origin = Rss.GetOrigin();
         DLMT::DL_VECTOR4AL edge0 = Rss.GetEdge0();
         DLMT::DL_VECTOR4AL edge1 = Rss.GetEdge1();
         dl_float32 radius = Rss.GetRadius();
 
-        // The 4 corners of the underlying rectangle
         DLMT::DL_VECTOR4AL corners[4];
         corners[0] = origin;
         corners[1] = origin + edge0;
@@ -1061,33 +1026,33 @@ namespace DLMT
         {
             const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i);
 
-            // Find the minimum distance from the rectangle to the plane
-            // The RSS is outside if ALL corners are further behind the plane than the radius
-            int outsideCount = 0;
-            bool anyCornerInsideRadius = false;
+            int positiveCount = 0; // Corners in the "Outside" positive space
+            bool anyCornerInsideBuffer = false;
 
             for (int j = 0; j < 4; ++j)
             {
                 dl_float32 dist = plane.GetDistance(corners[j]);
 
-                if (dist < -radius)
+                // If distance > radius, the corner is definitely in the "Outside" positive space
+                if (dist > radius)
                 {
-                    outsideCount++;
+                    positiveCount++;
                 }
-                else if (dist < radius)
+                // If distance is between -radius and +radius, it's touching/crossing the boundary
+                else if (dist > -radius)
                 {
-                    anyCornerInsideRadius = true;
+                    anyCornerInsideBuffer = true;
                 }
             }
 
-            // If all 4 corners are outside the radius buffer of the plane, it is fully outside
-            if (outsideCount == 4)
+            // If all 4 corners are in the "Outside" positive space, the whole RSS is outside
+            if (positiveCount == 4)
             {
                 return RESULT_OUTSIDE;
             }
 
-            // If any corner is within the radius buffer, it's intersecting
-            if (anyCornerInsideRadius)
+            // If any corner is in the buffer zone, it's intersecting
+            if (anyCornerInsideBuffer)
             {
                 isIntersecting = true;
             }
@@ -1102,32 +1067,30 @@ namespace DLMT
             DL_TRIANGLE_PARAMTYPE Triangle
         )
     {
-        // 1. Calculate the three vertices of the triangle
         DLMT::DL_VECTOR4AL v0 = Triangle.GetOrigin();
         DLMT::DL_VECTOR4AL v1 = v0 + Triangle.GetEdge(0);
         DLMT::DL_VECTOR4AL v2 = v0 + Triangle.GetEdge(1);
 
         bool isIntersecting = false;
 
-        // 2. Check each frustum plane
         for (int i = 0; i < 6; ++i)
         {
             const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i);
 
-            // Get signed distances of all three vertices to the current plane
             dl_float32 d0 = plane.GetDistance(v0);
             dl_float32 d1 = plane.GetDistance(v1);
             dl_float32 d2 = plane.GetDistance(v2);
 
-            // If all three vertices are behind the plane (dist < 0), the triangle is outside
-            if (d0 < 0.0f && d1 < 0.0f && d2 < 0.0f)
+            // With outward normals, the triangle is completely OUTSIDE if 
+            // all three vertices are on the positive side of the plane (dist > 0).
+            if (d0 > 0.0f && d1 > 0.0f && d2 > 0.0f)
             {
                 return RESULT_OUTSIDE;
             }
 
-            // If the vertices are on different sides of the plane, it is intersecting
-            // (i.e., not all are positive)
-            if (d0 < 0.0f || d1 < 0.0f || d2 < 0.0f)
+            // If any vertex is on the positive side (d > 0), the triangle 
+            // is crossing or outside the boundary.
+            if (d0 > 0.0f || d1 > 0.0f || d2 > 0.0f)
             {
                 isIntersecting = true;
             }
