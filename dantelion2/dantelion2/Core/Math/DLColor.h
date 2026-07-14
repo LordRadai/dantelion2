@@ -29,9 +29,9 @@ namespace DLMT
 		{
 			struct
 			{
-				dl_uint32 r : 8;
-				dl_uint32 g : 8;
 				dl_uint32 b : 8;
+				dl_uint32 g : 8;
+				dl_uint32 r : 8;
 				dl_uint32 a : 8;
 			};
 
