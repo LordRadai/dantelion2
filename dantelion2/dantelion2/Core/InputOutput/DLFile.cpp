@@ -9,7 +9,7 @@ namespace DLIO
 
 	DLFile::DLFile(const dl_wchar* filePath, dl_size offset, DLKR::DLAllocator* pAllocator, dl_bool param_4, dl_bool param_5)
 	{
-		CALL(Constructor_t, 0x855120, this, filePath, offset, pAllocator, param_4, param_5);
+		CALL(Constructor_t, 0xb14fe0, this, filePath, offset, pAllocator, param_4, param_5);
 	}
 
 	dl_bool DLFile::Exists() const
