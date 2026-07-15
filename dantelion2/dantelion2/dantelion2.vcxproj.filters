@@ -528,6 +528,12 @@
     <ClInclude Include="Core\Math\DLLinearIntrinsic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\InputOutput\DLFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\InputOutput\InputOutput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -687,6 +693,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Math\DLIntersection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\InputOutput\DLFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

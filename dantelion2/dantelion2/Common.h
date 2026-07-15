@@ -11,6 +11,7 @@
 #include "Core/System/System.h"
 #include "Core/Resource/Resource.h"
 #include "Core/Logging/Logging.h"
+#include "Core/InputOutput/InputOutput.h"
 
 namespace dantelion2
 {

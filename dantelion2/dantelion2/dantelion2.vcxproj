@@ -260,6 +260,8 @@
     <ClInclude Include="Core\Graphics\Font\DLTextProcessManager.h" />
     <ClInclude Include="Core\Graphics\Font\DLTextProcessor.h" />
     <ClInclude Include="Core\Graphics\Graphics.h" />
+    <ClInclude Include="Core\InputOutput\DLFile.h" />
+    <ClInclude Include="Core\InputOutput\InputOutput.h" />
     <ClInclude Include="Core\Kernel\detail\DLAllocationHelper.h" />
     <ClInclude Include="Core\Kernel\DLAllocator.h" />
     <ClInclude Include="Core\Kernel\DLAtomicInt.h" />
@@ -404,6 +406,7 @@
     <ClCompile Include="Core\Graphics\Font\DLTaggedTextProcessor.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLTextProcessManager.cpp" />
     <ClCompile Include="Core\Graphics\Font\DLTextProcessor.cpp" />
+    <ClCompile Include="Core\InputOutput\DLFile.cpp" />
     <ClCompile Include="Core\Kernel\DLAllocator.cpp" />
     <ClCompile Include="Core\Kernel\DLConditionSignal.cpp" />
     <ClCompile Include="Core\Kernel\DLEventSignal.cpp" />
