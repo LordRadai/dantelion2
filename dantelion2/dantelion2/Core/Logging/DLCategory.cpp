@@ -4,6 +4,7 @@
 namespace DLLG
 {
 	typedef void(_fastcall* oAddAppender)(DLCategory*, const dl_wchar*);
+	typedef void(_fastcall* oSetLogLevel)(DLCategory*, DLLogLevel);
 
 	DLRF::DLRuntimeClassImpl<DLCategory>* DLCategory::GetRuntimeClass()
 	{
@@ -18,5 +19,10 @@ namespace DLLG
 	void DLCategory::AddAppender(const dl_wchar* name)
 	{
 		CALL(oAddAppender, 0x886860, this, name);
+	}
+
+	void DLCategory::SetLogLevel(DLLogLevel level)
+	{
+		CALL(oSetLogLevel, 0x886af0, this, level);
 	}
 }

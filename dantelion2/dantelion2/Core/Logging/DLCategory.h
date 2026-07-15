@@ -18,7 +18,7 @@ namespace DLLG
 
 		void AddAppender(const dl_wchar* name);
 
-		void SetLogLevel(DLLogLevel level) { m_level = level; }
+		void SetLogLevel(DLLogLevel level);
 		DLLogLevel GetLogLevel() const { return m_level; }
 
 		typedef DLRF::DLRuntimeClassImpl<DLCategory>*(_fastcall* oGetRuntimeClass)(DLCategory*);
