@@ -24,3 +24,5 @@
 #include "DLRunnable.h"
 
 #include "DLHeapManager.h"
+
+#include "DLRuntimeHeap.h"

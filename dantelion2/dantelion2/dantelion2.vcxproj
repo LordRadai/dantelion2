@@ -282,6 +282,7 @@
     <ClInclude Include="Core\Kernel\DLRegularHeap.h" />
     <ClInclude Include="Core\Kernel\DLRobustHeap.h" />
     <ClInclude Include="Core\Kernel\DLRunnable.h" />
+    <ClInclude Include="Core\Kernel\DLRuntimeHeap.h" />
     <ClInclude Include="Core\Kernel\DLSemaphore.h" />
     <ClInclude Include="Core\Kernel\DLSingleSignal.h" />
     <ClInclude Include="Core\Kernel\DLSingleThreadingPolicy.h" />
@@ -415,6 +416,7 @@
     <ClCompile Include="Core\Kernel\DLMutex.cpp" />
     <ClCompile Include="Core\Kernel\DLNew.cpp" />
     <ClCompile Include="Core\Kernel\DLReadWriteLock.cpp" />
+    <ClCompile Include="Core\Kernel\DLRuntimeHeap.cpp" />
     <ClCompile Include="Core\Kernel\DLSemaphore.cpp" />
     <ClCompile Include="Core\Kernel\DLSingleSignal.cpp" />
     <ClCompile Include="Core\Logging\DLAppender.cpp" />
