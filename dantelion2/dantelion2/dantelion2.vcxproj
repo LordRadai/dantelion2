@@ -360,6 +360,7 @@
     <ClInclude Include="Core\System\DLWin32DialogAssertHandler.h" />
     <ClInclude Include="Core\System\System.h" />
     <ClInclude Include="Core\Text\DLCharacterSet.h" />
+    <ClInclude Include="Core\Text\DLCharacterSetUtil.h" />
     <ClInclude Include="Core\Text\DLFormat.h" />
     <ClInclude Include="Core\Text\DLStringUtil.h" />
     <ClInclude Include="Core\Text\Text.h" />
@@ -445,6 +446,7 @@
     <ClCompile Include="Core\System\DLTrace.cpp" />
     <ClCompile Include="Core\System\DLWin32DialogAssertHandler.cpp" />
     <ClCompile Include="Core\System\System.cpp" />
+    <ClCompile Include="Core\Text\DLCharacterSetUtil.cpp" />
     <ClCompile Include="Core\Text\DLFormat.cpp" />
     <ClCompile Include="Core\Text\DLStringUtil.cpp" />
     <ClCompile Include="Core\Util\DLProperties.cpp" />
