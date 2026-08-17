@@ -19,4 +19,14 @@ namespace DLGR
 	{
 		return CALL(GetDLTextureFormat_t, 0xf28b90, format);
 	}
+
+	DLTexture2D::~DLTexture2D()
+	{
+		CALL(vfunction6_t, 0x95cf00, this);
+	}
+
+	void DLTexture2D::vfunction6()
+	{
+		CALL(vfunction6_t, 0x95ceb0, this);
+	}
 }

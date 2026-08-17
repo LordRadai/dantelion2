@@ -35,7 +35,12 @@ namespace DLGR
 		dl_pointer m_pVar60;
 
 	public:
+		virtual ~DLTexture2D() override;
 		virtual dl_int GetType() override { return DLTEXTYPE_2D; }
+		virtual dl_bool IsEnabled() override { return this->m_pCGTexture != nullptr; }
+		virtual void vfunction6();
+
+		typedef void(_fastcall* vfunction6_t)(DLTexture2D*);
 
 		DLCG2::CGTexture2D* GetTexture() const { return static_cast<DLCG2::CGTexture2D*>(this->m_pCGTexture); }
 		DLCG2::CGShaderResourceView* GetShaderResourceView() const { return this->m_pCGShaderResourceView; }
