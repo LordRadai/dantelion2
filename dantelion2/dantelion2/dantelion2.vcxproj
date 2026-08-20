@@ -381,6 +381,7 @@
     <ClInclude Include="Core\Util\detail\DLMemFunHandler.h" />
     <ClInclude Include="Core\Util\DLNonCopyable.h" />
     <ClInclude Include="Core\Util\DLNullType.h" />
+    <ClInclude Include="Core\Util\DLPoint.h" />
     <ClInclude Include="Core\Util\DLProperties.h" />
     <ClInclude Include="Core\Util\detail\DLRandomGeneratorLCG.h" />
     <ClInclude Include="Core\Util\detail\DLRandomGeneratoXorshift.h" />
