@@ -328,7 +328,7 @@ namespace DLMT
     }
 
     DL_VECTOR4AL DL_MATRIX44::GetTranslation() const {
-        return DL_VECTOR4AL(m03, m13, m23, m33);
+        return DL_VECTOR4AL(m30, m31, m32, m33);
     }
 
     DL_MATRIX33 DL_MATRIX44::GetRotation() const {
