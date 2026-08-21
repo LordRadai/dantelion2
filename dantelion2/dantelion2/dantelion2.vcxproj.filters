@@ -543,6 +543,12 @@
     <ClInclude Include="Core\Util\DLPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Reflection\DLRuntimeConstructionContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Reflection\DLReflection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -711,6 +717,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Text\DLCharacterSetUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Reflection\DLTypeID.inl">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -334,7 +334,9 @@
     <ClInclude Include="Core\Reflection\DLDynamicPtr.h" />
     <ClInclude Include="Core\Reflection\DLMethodInvokeContext.h" />
     <ClInclude Include="Core\Reflection\DLParameterInfo.h" />
+    <ClInclude Include="Core\Reflection\DLReflection.h" />
     <ClInclude Include="Core\Reflection\DLRuntimeClass.h" />
+    <ClInclude Include="Core\Reflection\DLRuntimeConstructionContext.h" />
     <ClInclude Include="Core\Reflection\DLTypeID.h" />
     <ClInclude Include="Core\Reflection\Reflection.h" />
     <ClInclude Include="Core\Resource\detail\CacheableFileLoader.h" />
@@ -437,6 +439,7 @@
     <ClCompile Include="Core\Math\DLVector.cpp" />
     <ClCompile Include="Core\Platform\GeneralUtility.cpp" />
     <ClCompile Include="Core\Reflection\DLRuntimeClass.cpp" />
+    <ClCompile Include="Core\Reflection\DLTypeID.inl" />
     <ClCompile Include="Core\Resource\detail\FileLoader.cpp" />
     <ClCompile Include="Core\Resource\detail\TransferTask.cpp" />
     <ClCompile Include="Core\Resource\DLResourceFileLoadEvent.cpp" />

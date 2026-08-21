@@ -7,6 +7,7 @@ namespace DLRF
 
 	class DLRawDynamicPtr
 	{
+    protected:
         union 
         {
             dl_uint64 m_value;
@@ -16,5 +17,5 @@ namespace DLRF
                 void* m_pObject;
             };
         };
-	};
+	};;
 }
