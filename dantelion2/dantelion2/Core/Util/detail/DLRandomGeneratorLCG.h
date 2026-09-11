@@ -7,7 +7,8 @@ namespace DLUTD
 	{
 		dl_size m_value;
 	public:
-		DLRandomGeneratorLCG(dl_size seed = 0) : m_value(seed) {}
+		DLRandomGeneratorLCG() {}
+		void Initialize(dl_size seed);
 		
 		dl_size GetValue() const { return m_value; }
 	};

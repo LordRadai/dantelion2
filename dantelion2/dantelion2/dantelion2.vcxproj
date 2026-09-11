@@ -315,6 +315,7 @@
     <ClInclude Include="Core\Math\DLLinearIntrinsic.h" />
     <ClInclude Include="Core\Math\DLMatrix.h" />
     <ClInclude Include="Core\Math\DLQuaternion.h" />
+    <ClInclude Include="Core\Math\DLTrigonometry.h" />
     <ClInclude Include="Core\Math\DLVector.h" />
     <ClInclude Include="Core\Math\DLCylinder.h" />
     <ClInclude Include="Core\Math\Math.h" />
@@ -436,6 +437,7 @@
     <ClCompile Include="Core\Math\DLIntersection.cpp" />
     <ClCompile Include="Core\Math\DLMatrix.cpp" />
     <ClCompile Include="Core\Math\DLQuaternion.cpp" />
+    <ClCompile Include="Core\Math\DLTrigonometry.cpp" />
     <ClCompile Include="Core\Math\DLVector.cpp" />
     <ClCompile Include="Core\Platform\GeneralUtility.cpp" />
     <ClCompile Include="Core\Reflection\DLRuntimeClass.cpp" />
@@ -453,6 +455,8 @@
     <ClCompile Include="Core\Text\DLCharacterSetUtil.cpp" />
     <ClCompile Include="Core\Text\DLFormat.cpp" />
     <ClCompile Include="Core\Text\DLStringUtil.cpp" />
+    <ClCompile Include="Core\Util\detail\DLRandomGeneratorLCG.cpp" />
+    <ClCompile Include="Core\Util\detail\DLRandomGeneratorXorshift.cpp" />
     <ClCompile Include="Core\Util\DLProperties.cpp" />
     <ClCompile Include="Core\Util\DLReferenceCountObject.cpp" />
   </ItemGroup>

@@ -10,3 +10,4 @@
 #include "DLConstants.h"
 
 #include "DLIntersection.h"
+#include "DLTrigonometry.h"

@@ -549,6 +549,9 @@
     <ClInclude Include="Core\Reflection\DLReflection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Math\DLTrigonometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -720,6 +723,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Reflection\DLTypeID.inl">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Math\DLTrigonometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Util\detail\DLRandomGeneratorLCG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Util\detail\DLRandomGeneratorXorshift.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
