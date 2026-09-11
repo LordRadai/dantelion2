@@ -31,6 +31,11 @@ namespace DLUTD
             dl_float32 t = (dl_float32)r / (dl_float32)0xFFFFFFFFu;
             return min + t * (max - min);
         }
+
+		dl_uint X() const { return m_X; }
+		dl_uint Y() const { return m_Y; }
+		dl_uint Z() const { return m_Z; }
+		dl_uint W() const { return m_W; }
 	private:
 		dl_uint m_X;
 		dl_uint m_Y;
