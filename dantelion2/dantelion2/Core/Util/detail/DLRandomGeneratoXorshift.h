@@ -9,7 +9,7 @@ namespace DLUTD
 		DLRandomGeneratorXorshift(dl_uint seed = 0);
 		void Initialize(dl_uint seed);
 
-        dl_uint DLRandomGeneratorXorshift::Next()
+        dl_uint Next()
         {
             dl_uint t = m_X ^ (m_X << 11);
             m_X = m_Y;
@@ -19,13 +19,13 @@ namespace DLUTD
             return m_W;
         }
 
-        dl_int DLRandomGeneratorXorshift::GetRandomInt(dl_int min, dl_int max)
+        dl_int GetRandomInt(dl_int min, dl_int max)
         {
             dl_uint r = Next();
             return min + (dl_int)(r % (dl_uint)(max - min + 1));
         }
 
-        dl_float32 DLRandomGeneratorXorshift::GetRandomFloat(dl_float32 min, dl_float32 max)
+        dl_float32 GetRandomFloat(dl_float32 min, dl_float32 max)
         {
             dl_uint r = Next();
             dl_float32 t = (dl_float32)r / (dl_float32)0xFFFFFFFFu;
