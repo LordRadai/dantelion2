@@ -11,4 +11,4 @@ namespace DLKR
 void* operator new[](size_t size, DLKR::DLAllocator* pAllocator);
 void operator delete[](void* p, DLKR::DLAllocator* pAllocator);
 
-#define ALLOCATE_NEW(type, allocator) new (allocator->AllocateAligned(sizeof(type), alignof(type))) type
+#define ALLOCATE_NEW(type, allocator) new (allocator->AllocateAligned(sizeof(type), __alignof(type))) type
