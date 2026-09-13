@@ -16,3 +16,13 @@ namespace DLKR
 		return CALL(oFree, 0x8332d0, pMem, pAllocator);
 	}
 }
+
+void* operator new[](size_t size, DLKR::DLAllocator* pAllocator)
+{
+	return pAllocator->Allocate(size);
+}
+
+void operator delete[](void* p, DLKR::DLAllocator* pAllocator)
+{
+	pAllocator->Free(p);
+}
