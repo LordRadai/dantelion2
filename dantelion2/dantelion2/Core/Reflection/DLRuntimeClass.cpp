@@ -13,14 +13,14 @@ namespace DLRF
 		CALL(Constructor_t, 0x83efd0, this);
 	}
 
-	void DLRuntimeClass::AddInvoker(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* name, const dl_wchar* wName)
-	{
-		CALL(AddInvoker_t, 0x83f7c0, this, pMethodInvoker, name, wName);
-	}
-
 	void DLRuntimeClass::AddInvoker(DLMethodInvoker<DLRuntimeConstructionContext>* pMethodInvoker, const dl_char* name, const dl_wchar* wName)
 	{
 		CALL(AddInvokerRt_t, 0x83f870, this, pMethodInvoker, name, wName);
+	}
+
+	void DLRuntimeClass::AddInvoker(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* name, const dl_wchar* wName)
+	{
+		CALL(AddInvoker_t, 0x83f7c0, this, pMethodInvoker, name, wName);
 	}
 
 	void DLRuntimeClass::AddMethod(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* methodName, const dl_wchar* wMethodName)
