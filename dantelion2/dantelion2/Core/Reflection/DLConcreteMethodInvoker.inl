@@ -90,9 +90,11 @@ namespace DLRF
 
 		MethodType m_mt;
 
-		explicit DLConcreteMethodInvoker(RawMethodType pMethod)
+		explicit DLConcreteMethodInvoker(RawMethodType pMethod, const dl_char* pName, const dl_wchar* pWName)
 			: m_mt(std::mem_fn(pMethod))
-		{}
+		{
+			_ClassType::GetRuntimeClass()->AddInvoker(this, pName, pWName);
+		}
 
 		// Also allow construction from any compatible callable (lambda, bind, etc).
 		explicit DLConcreteMethodInvoker(MethodType fn)

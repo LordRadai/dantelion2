@@ -13,12 +13,12 @@ namespace DLRF
 
 	void DLRuntimeClass::AddInvoker(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* name, const dl_wchar* wName)
 	{
-		CALL(AddInvoker_t, 0x83f870, this, pMethodInvoker, name, wName);
+		CALL(AddInvoker_t, 0x83f7c0, this, pMethodInvoker, name, wName);
 	}
 
-	void DLRuntimeClass::AddInvoker(DLMethodResolver<DLRuntimeConstructionContext>* pMethodResolver, const dl_char* name, const dl_wchar* wName)
+	void DLRuntimeClass::AddInvoker(DLMethodInvoker<DLRuntimeConstructionContext>* pMethodInvoker, const dl_char* name, const dl_wchar* wName)
 	{
-		CALL(AddInvokerRt_t, 0x83f7c0, this, pMethodResolver, name, wName);
+		CALL(AddInvokerRt_t, 0x83f870, this, pMethodInvoker, name, wName);
 	}
 
 	void DLRuntimeClass::AddMethod(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* methodName, const dl_wchar* wMethodName)
@@ -26,8 +26,8 @@ namespace DLRF
 		CALL(oAddMethod, 0x83f7c0, this, pMethodInvoker, methodName, wMethodName);
 	}
 
-	DLMethod* DLRuntimeClass::GetMethod(const dl_char* methodName)
+	DLMethod* DLRuntimeClass::FindMethod(const dl_char* methodName)
 	{
-		return CALL(oGetMethod, 0x840470, this, methodName);
+		return CALL(oGetMethod, 0x83f640, this, methodName);
 	}
 }

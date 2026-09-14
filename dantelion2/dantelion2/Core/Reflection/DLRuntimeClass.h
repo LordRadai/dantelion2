@@ -51,7 +51,7 @@ namespace DLRF
 		virtual void Delete(DLRawDynamicPtr& ptr, DLKR::DLAllocator* pAllocator) const = 0;
 		virtual dl_uint GetSizeOf() const = 0;
 		virtual void AddInvoker(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* name, const dl_wchar* wName);
-		virtual void AddInvoker(DLMethodResolver<DLRuntimeConstructionContext>* pMethodResolver, const dl_char* name, const dl_wchar* wName);
+		virtual void AddInvoker(DLMethodInvoker<DLRuntimeConstructionContext>* pMethodResolver, const dl_char* name, const dl_wchar* wName);
 
 		typedef void(_fastcall* Destructor_t)(DLRuntimeClass*);
 		typedef const dl_char*(_fastcall* GetName_t)(const DLRuntimeClass*);
@@ -64,10 +64,10 @@ namespace DLRF
 		typedef void(_fastcall* Delete_t)(const DLRuntimeClass*, DLRawDynamicPtr&, DLKR::DLAllocator*);
 		typedef dl_uint(_fastcall* GetSizeOf_t)(const DLRuntimeClass*);
 		typedef void(_fastcall* AddInvoker_t)(DLRuntimeClass*, DLMethodInvoker<DLMethodInvokeContext>*, const dl_char*, const dl_wchar*);
-		typedef void(_fastcall* AddInvokerRt_t)(DLRuntimeClass*, DLMethodResolver<DLRuntimeConstructionContext>*, const dl_char*, const dl_wchar*);
+		typedef void(_fastcall* AddInvokerRt_t)(DLRuntimeClass*, DLMethodInvoker<DLRuntimeConstructionContext>*, const dl_char*, const dl_wchar*);
 
 		void AddMethod(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* methodName, const dl_wchar* wMethodName);
-		DLMethod* GetMethod(const dl_char* methodName);
+		DLMethod* FindMethod(const dl_char* methodName);
 
 		dl_bool IsOfType(const dl_char* typeName) const
 		{
