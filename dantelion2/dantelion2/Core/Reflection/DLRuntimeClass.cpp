@@ -6,6 +6,7 @@ namespace DLRF
 	typedef void(_fastcall* AddMethod_t)(DLRuntimeClass*, DLMethodInvoker<DLMethodInvokeContext>*, const dl_char*, const dl_wchar*);
 	typedef DLMethod*(_fastcall* FindMethod_t)(DLRuntimeClass*, const dl_char*);
 	typedef void(_fastcall* SetParentClass_t)(DLRuntimeClass*, DLRuntimeClass*);
+	typedef void(_fastcall* RegisterRuntimeClass_t)(DLRuntimeClass*);
 
 	DLRuntimeClass::DLRuntimeClass() : m_methods(nullptr)
 	{
@@ -32,8 +33,13 @@ namespace DLRF
 		return CALL(FindMethod_t, 0x83f640, this, methodName);
 	}
 
-	void DLRuntimeClass::SetParentClass(DLRuntimeClass* pParent)
+	void DLRuntimeClass::SetParent(DLRuntimeClass* pParent)
 	{
 		CALL(SetParentClass_t, 0x83f8f0, this, pParent);
+	}
+
+	void DLRuntimeClass::RegisterRuntimeClass(DLRuntimeClass* pRC)
+	{
+		CALL(RegisterRuntimeClass_t, 0x83f070, pRC);
 	}
 }

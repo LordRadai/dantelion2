@@ -85,6 +85,8 @@ namespace DLRF
 			return false;
 		}
 
-		void SetParentClass(DLRuntimeClass* pParent);
+		void SetParent(DLRuntimeClass* pParent);
+
+		static void RegisterRuntimeClass(DLRuntimeClass* pRC);
 	};
 }
