@@ -6,7 +6,7 @@ namespace DLRF
 	typedef void(_fastcall* oAddMethod)(DLRuntimeClass* pThis, DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* methodName, const dl_wchar* wMethodName);
 	typedef DLMethod*(_fastcall* oGetMethod)(DLRuntimeClass* pThis, const dl_char* methodName);
 
-	DLRuntimeClass::DLRuntimeClass()
+	DLRuntimeClass::DLRuntimeClass() : m_methods(nullptr)
 	{
 		CALL(oConstructor, 0x83efd0, this);
 	}
