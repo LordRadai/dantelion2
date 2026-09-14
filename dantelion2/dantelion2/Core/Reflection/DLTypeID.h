@@ -1,5 +1,7 @@
 #pragma once
 #include "Core/Platform/Platform.h"
+#include "Core/Util/DLTypeManipulation.h"
+#include "Core/Util/DLNullType.h"
 
 namespace DLRF
 {
@@ -24,17 +26,12 @@ namespace DLRF
 
     template < typename T >
     inline DLTypeID DLConstTypeIDOf(const T& t) {
-        return DLRFD::TypeIDResolver<const T>::Evaluate(t);
-    }
-
-    template < typename T >
-    inline DLTypeID DLConstDynamicTypeIDOf(const T& t) {
-        return DLGetRuntimeClassOf(t).GetConstTypeID();
+        return ::DLRFD::TypeIDResolver<const T>::Evaluate(t);
     }
 
     template < typename T >
     inline DLTypeID DLTypeIDOf(T& t) {
-        return DLRFD::TypeIDResolver<T>::Evaluate(t);
+        return ::DLRFD::TypeIDResolver<T>::Evaluate(t);
     }
 
     template < typename T >
@@ -43,25 +40,9 @@ namespace DLRF
     }
 
     template < typename T >
-    inline DLTypeID DLDynamicTypeIDOf(const T& t) {
-        return DLGetRuntimeClassOf(t).GetTypeID();
-    }
-
-    template < typename T >
     inline DLTypeID DLStaticGetTypeID(void) {
-        return DLRFD::StaticTypeIDResolver<T>::Evaluate();
-    }
-
-    template < typename T >
-    inline DLTypeID DLStaticGetConstTypeID(void) {
-        typedef DLTypeTraits<T> Traits;
-        typedef typename Traits::OriginalType OriginalType;
-        typedef typename DLSelect<DLTypeTraits<OriginalType>::isVoid, DLNullType, OriginalType>::Result TargetType;
-        if (Traits::isPointer)
-            return detail::StaticTypeIDResolver<const TargetType*>::Evaluate();
-        if (Traits::isReference)
-            return detail::StaticTypeIDResolver<const TargetType&>::Evaluate();
-
-        return detail::StaticTypeIDResolver<const TargetType>::Evaluate();
+        return ::DLRFD::StaticTypeIDResolver<T>::Evaluate();
     }
 }
+
+#include "DLTypeID.inl"

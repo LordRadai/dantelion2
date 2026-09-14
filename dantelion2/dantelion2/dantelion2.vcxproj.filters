@@ -267,7 +267,7 @@
     <ClInclude Include="Core\Reflection\DLAbstractInvokeContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Reflection\DLConcreteMethodInvoker.h">
+    <ClInclude Include="Core\Reflection\DLConcreteMethodInvoker.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Reflection\DLDynamicPtr.h">
@@ -552,6 +552,9 @@
     <ClInclude Include="Core\Math\DLTrigonometry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Util\DLSingleton.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -720,9 +723,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Text\DLCharacterSetUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Reflection\DLTypeID.inl">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Math\DLTrigonometry.cpp">

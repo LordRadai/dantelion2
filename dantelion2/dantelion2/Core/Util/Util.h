@@ -12,6 +12,7 @@
 #include "DLDeque.h"
 #include "DLFixedVector.inl"
 #include "DLPoint.h"
+#include "DLSingleton.inl"
 #include "detail/DLFunctor.h"
 #include "detail/DLRandomGeneratorLCG.h"
 #include "detail/DLRandomGeneratoXorshift.h"

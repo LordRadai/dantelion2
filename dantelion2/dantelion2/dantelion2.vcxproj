@@ -331,7 +331,7 @@
     <ClInclude Include="Core\Platform\Spec\win_32.h" />
     <ClInclude Include="Core\Reflection\detail\MightyType.h" />
     <ClInclude Include="Core\Reflection\DLAbstractInvokeContext.h" />
-    <ClInclude Include="Core\Reflection\DLConcreteMethodInvoker.h" />
+    <ClInclude Include="Core\Reflection\DLConcreteMethodInvoker.inl" />
     <ClInclude Include="Core\Reflection\DLDynamicPtr.h" />
     <ClInclude Include="Core\Reflection\DLMethodInvokeContext.h" />
     <ClInclude Include="Core\Reflection\DLParameterInfo.h" />
@@ -390,6 +390,7 @@
     <ClInclude Include="Core\Util\detail\DLRandomGeneratoXorshift.h" />
     <ClInclude Include="Core\Util\DLReferenceCountObject.h" />
     <ClInclude Include="Core\Util\DLSet.h" />
+    <ClInclude Include="Core\Util\DLSingleton.inl" />
     <ClInclude Include="Core\Util\DLTypeManipulation.h" />
     <ClInclude Include="Core\Util\DLVector.h" />
     <ClInclude Include="Core\Util\PODVector.h" />
@@ -441,7 +442,6 @@
     <ClCompile Include="Core\Math\DLVector.cpp" />
     <ClCompile Include="Core\Platform\GeneralUtility.cpp" />
     <ClCompile Include="Core\Reflection\DLRuntimeClass.cpp" />
-    <ClCompile Include="Core\Reflection\DLTypeID.inl" />
     <ClCompile Include="Core\Resource\detail\FileLoader.cpp" />
     <ClCompile Include="Core\Resource\detail\TransferTask.cpp" />
     <ClCompile Include="Core\Resource\DLResourceFileLoadEvent.cpp" />
