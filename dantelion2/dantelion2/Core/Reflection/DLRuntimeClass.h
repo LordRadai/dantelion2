@@ -50,8 +50,8 @@ namespace DLRF
 		virtual dl_bool IsPrimitiveType() const = 0;
 		virtual void Delete(DLRawDynamicPtr& ptr, DLKR::DLAllocator* pAllocator) const = 0;
 		virtual dl_uint GetSizeOf() const = 0;
-		virtual void AddInvoker(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* name, const dl_wchar* wName);
 		virtual void AddInvoker(DLMethodInvoker<DLRuntimeConstructionContext>* pMethodResolver, const dl_char* name, const dl_wchar* wName);
+		virtual void AddInvoker(DLMethodInvoker<DLMethodInvokeContext>* pMethodInvoker, const dl_char* name, const dl_wchar* wName);
 
 		typedef void(_fastcall* Destructor_t)(DLRuntimeClass*);
 		typedef const dl_char*(_fastcall* GetName_t)(const DLRuntimeClass*);
@@ -84,5 +84,7 @@ namespace DLRF
 
 			return false;
 		}
+
+		void SetParentClass(DLRuntimeClass* pParent);
 	};
 }
