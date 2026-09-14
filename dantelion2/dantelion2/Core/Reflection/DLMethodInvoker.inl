@@ -20,16 +20,18 @@ namespace DLRF
 
 		typedef _DedicatedContextType DedicatedContextType;
 
-		virtual dl_bool Invoke(_DedicatedContextType* pContext) = 0;
+	protected:
+		virtual dl_bool _Invoke(_DedicatedContextType* pContext) const = 0;
 
+	public:
 		virtual ~DLMethodInvoker() 
 		{
 			CALL(oDestructor, 0x530760, this);
 		}
 
-		virtual dl_size GetParameterSize() = 0;
-		virtual dl_size GetStrictParameterInfo(DLParameterInfo* pPI) = 0;
-		virtual dl_size GetLooseParameterInfo(DLParameterInfo* pPI) = 0;
-		virtual DLTypeID GetReturnType() = 0;
+		virtual dl_size GetParameterSize() const = 0;
+		virtual dl_size GetStrictParameterInfo(DLParameterInfo* pPI) const = 0;
+		virtual dl_size GetLooseParameterInfo(DLParameterInfo* pPI) const = 0;
+		virtual DLTypeID GetReturnType() const = 0;
 	};
 }

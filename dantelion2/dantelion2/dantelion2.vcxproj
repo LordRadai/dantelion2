@@ -382,6 +382,7 @@
     <ClInclude Include="Core\Util\DLList.h" />
     <ClInclude Include="Core\Util\DLMap.h" />
     <ClInclude Include="Core\Util\detail\DLMemFunHandler.h" />
+    <ClInclude Include="Core\Util\DLMethodTypeConstructor.h" />
     <ClInclude Include="Core\Util\DLNonCopyable.h" />
     <ClInclude Include="Core\Util\DLNullType.h" />
     <ClInclude Include="Core\Util\DLPoint.h" />
@@ -391,6 +392,7 @@
     <ClInclude Include="Core\Util\DLReferenceCountObject.h" />
     <ClInclude Include="Core\Util\DLSet.h" />
     <ClInclude Include="Core\Util\DLSingleton.inl" />
+    <ClInclude Include="Core\Util\DLTypeList.h" />
     <ClInclude Include="Core\Util\DLTypeManipulation.h" />
     <ClInclude Include="Core\Util\DLVector.h" />
     <ClInclude Include="Core\Util\PODVector.h" />
