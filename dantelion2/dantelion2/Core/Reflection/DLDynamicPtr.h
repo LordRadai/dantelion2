@@ -1,12 +1,17 @@
 #pragma once
 #include "Core/Platform/Platform.h"
 
+#undef GetObject
+
 namespace DLRF
 {
     class DLRuntimeClass;
 
 	class DLRawDynamicPtr
 	{
+    public:
+		void* GetObject() const { return m_pObject; }
+		const DLRuntimeClass* GetRuntimeClass() const { return m_pRC; }
     protected:
         union 
         {

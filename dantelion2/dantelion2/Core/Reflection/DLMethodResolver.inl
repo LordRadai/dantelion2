@@ -26,4 +26,6 @@ namespace DLRF
 		mutable DLParameterInfo* m_pLoosePITop;
 		mutable DLKR::DLPlainMutex m_mutex;
 	};
+
+	typedef DLMethodResolver<DLMethodInvokeContext> DLMethodResolverInvoke;
 }

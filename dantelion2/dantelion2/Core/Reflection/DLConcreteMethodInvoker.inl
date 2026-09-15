@@ -1,11 +1,9 @@
 #pragma once
-#include <functional>
 #include <type_traits>
 #include <utility>
-#include "DLMethodInvoker.inl"
-#include "DLMethodInvokeContext.h"
 #include "DLRuntimeClass.h"
 #include "Core/Util/DLMethodTypeConstructor.h"
+#include "Core/Util/DLTypeManipulation.h"
 
 namespace DLRF
 {
@@ -25,7 +23,297 @@ namespace DLRF
     private:
         MethodType m_mt;
 
-        virtual dl_bool _Invoke(DLMethodInvokeContext* ctx) const override { return true; }
+        dl_uint32 _CheckRuntimeType(DLMethodInvokeContext* ctx) const
+        {
+            return 1;
+        }
+
+        template <typename ContextType, typename RType>
+        void _Invoke(ContextType* ctx, DLUT::DLTypeToType<RType>) const
+        {
+            ReturnType rt = _Invoke(ctx, DLUT::DLIntToType<DLUT::TypeList::Length<ParamList>::Size>());
+            ctx->template SetReturnValue<ReturnType>(rt);
+        }
+
+        template< typename ContextType>
+        void _Invoke(ContextType* ctx, DLUT::DLTypeToType<void>) const
+        {
+            _Invoke(ctx, DLUT::DLIntToType<DLUT::TypeList::Length<ParamList>::Size>());
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<15>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 7>::Result>(7),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 8>::Result>(8),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 9>::Result>(9),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 10>::Result>(10),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 11>::Result>(11),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 12>::Result>(12),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 13>::Result>(13),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 14>::Result>(14)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<14>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 7>::Result>(7),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 8>::Result>(8),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 9>::Result>(9),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 10>::Result>(10),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 11>::Result>(11),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 12>::Result>(12),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 13>::Result>(13)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<13>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 7>::Result>(7),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 8>::Result>(8),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 9>::Result>(9),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 10>::Result>(10),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 11>::Result>(11),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 12>::Result>(12)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<12>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 7>::Result>(7),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 8>::Result>(8),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 9>::Result>(9),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 10>::Result>(10),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 11>::Result>(11)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<11>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 7>::Result>(7),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 8>::Result>(8),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 9>::Result>(9),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 10>::Result>(10)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<10>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 7>::Result>(7),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 8>::Result>(8),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 9>::Result>(9)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<9>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 7>::Result>(7),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 8>::Result>(8)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<8>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 7>::Result>(7)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<7>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 6>::Result>(6)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<6>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 5>::Result>(5)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<5>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 4>::Result>(4)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<4>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2),
+				ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 3>::Result>(3)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<3>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 2>::Result>(2)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<2>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 1>::Result>(1)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<1>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt)(
+                ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0)
+                );
+        }
+
+        template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<0>) const
+        {
+            DLRawDynamicPtr obj = ctx->GetObject();
+            ContextType* o = static_cast<ContextType*>(obj);
+
+            return (o->*m_mt) ();
+        }
+
+        virtual dl_bool _Invoke(DLMethodInvokeContext* ctx) const override 
+        { 
+            if (_CheckRuntimeType(ctx)) 
+            {
+                _Invoke(ctx, DLUT::DLTypeToType<ReturnType>());
+                return true;
+            }
+
+            return false;
+        }
     public:
 		DLConcreteMethodInvoker(MethodType mt, const dl_char* pName, const dl_wchar* pWName) : m_mt(mt)
         {

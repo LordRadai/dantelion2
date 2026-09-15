@@ -9,16 +9,14 @@ namespace DLRF
 	class DLAbstractInvokeContext : public DLUT::DLNonCopyable
 	{
 	public:
+	protected:
 		const static dl_size MAX_PARAM_SIZE = DLParameterInfo::MAX_PARAM_SIZE;
 
-		DLParameterInfo m_params;
-		dl_int m_iVar88;
-		dl_int* m_unk[MAX_PARAM_SIZE];
-		dl_int m_iVar108;
+		__declspec(align(16)) DLParameterInfo m_strictParamInfo;
+		__declspec(align(16)) DLParameterInfo m_looseParamInfo;
 		DLRFD::MightyType m_primitives[MAX_PARAM_SIZE];
 		DLRawDynamicPtr m_args[MAX_PARAM_SIZE];
 		dl_uint8 m_nParams;
 		dl_uint16 m_rtCheckFlag;
-		dl_uint16 m_iVar45C;
 	};
 }

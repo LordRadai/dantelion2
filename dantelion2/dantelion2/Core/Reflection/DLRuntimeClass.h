@@ -8,8 +8,6 @@
 
 namespace DLRF
 {
-	typedef DLMethodResolver<DLMethodInvokeContext> DLMethod;
-
 	class DLRuntimeClass
 	{
 	public:

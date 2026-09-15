@@ -19,9 +19,10 @@ namespace DLRF
 		typedef DLTypeID(_fastcall* oGetReturnType)(DLMethodInvoker*);
 
 		typedef _DedicatedContextType DedicatedContextType;
+		typedef typename DedicatedContextType::ReturnType ReturnType;
 
 	protected:
-		virtual dl_bool _Invoke(_DedicatedContextType* pContext) const = 0;
+		virtual ReturnType _Invoke(_DedicatedContextType* pContext) const = 0;
 
 	public:
 		virtual ~DLMethodInvoker() 

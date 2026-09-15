@@ -15,6 +15,16 @@ namespace DLUT
         enum { Result = true };
     };
 
+    template < typename T >
+    struct DLTypeToType {
+        typedef T type;
+    };
+
+    template < int i >
+    struct DLIntToType {
+        enum { NUMBER = i };
+    };
+
     template <dl_bool expression, typename _OnTrueType, typename _OnFalseType>
     class DLSelect 
     {
