@@ -44,7 +44,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<15>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -68,7 +68,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<14>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -91,7 +91,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<13>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -113,7 +113,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<12>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -134,7 +134,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<11>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -154,7 +154,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<10>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -173,7 +173,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<9>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -191,7 +191,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<8>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -208,7 +208,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<7>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -224,7 +224,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<6>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -239,7 +239,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<5>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -253,7 +253,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<4>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -266,7 +266,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<3>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -278,7 +278,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<2>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0),
@@ -289,7 +289,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<1>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt)(
                 ctx->template GetArg<typename DLUT::TypeList::TypeAtNonStrict<ParamList, 0>::Result>(0)
@@ -299,7 +299,7 @@ namespace DLRF
         template<typename ContextType> MethodReturnType _Invoke(ContextType* ctx, DLUT::DLIntToType<0>) const
         {
             DLRawDynamicPtr obj = ctx->GetObject();
-            ContextType* o = static_cast<ContextType*>(obj);
+            _ClassType* o = static_cast<_ClassType*>(obj.Get());
 
             return (o->*m_mt) ();
         }

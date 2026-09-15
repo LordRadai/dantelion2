@@ -10,7 +10,7 @@ namespace DLRF
 	class DLRawDynamicPtr
 	{
     public:
-		void* GetObject() const { return m_pObject; }
+		void* Get() const { return m_pObject; }
 		const DLRuntimeClass* GetRuntimeClass() const { return m_pRC; }
     protected:
         union 
