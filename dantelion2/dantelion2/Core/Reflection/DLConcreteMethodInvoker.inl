@@ -28,14 +28,14 @@ namespace DLRF
             return 1;
         }
 
-        template <typename ContextType, typename RType>
+        template<typename ContextType, typename RType>
         void _Invoke(ContextType* ctx, DLUT::DLTypeToType<RType>) const
         {
-            ReturnType rt = _Invoke(ctx, DLUT::DLIntToType<DLUT::TypeList::Length<ParamList>::Size>());
-            ctx->template SetReturnValue<ReturnType>(rt);
+            _MethodReturnType rt = _Invoke(ctx, DLUT::DLIntToType<DLUT::TypeList::Length<ParamList>::Size>());
+            ctx->template SetReturnValue<_MethodReturnType>(rt);
         }
 
-        template< typename ContextType>
+        template<typename ContextType>
         void _Invoke(ContextType* ctx, DLUT::DLTypeToType<void>) const
         {
             _Invoke(ctx, DLUT::DLIntToType<DLUT::TypeList::Length<ParamList>::Size>());
@@ -304,11 +304,11 @@ namespace DLRF
             return (o->*m_mt) ();
         }
 
-        virtual dl_bool _Invoke(DLMethodInvokeContext* ctx) const override 
+        virtual dl_bool _Invoke(DLMethodInvokeContext* ctx) const override
         { 
             if (_CheckRuntimeType(ctx)) 
             {
-                _Invoke(ctx, DLUT::DLTypeToType<ReturnType>());
+                _Invoke(ctx, DLUT::DLTypeToType<_MethodReturnType>());
                 return true;
             }
 
