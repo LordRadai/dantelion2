@@ -28,6 +28,53 @@ namespace DLRF
             return 1;
         }
 
+        template<typename T>
+        struct _ParamTypeIDOf
+        {
+            static DLRF::DLTypeID Get() { return DLRF::DLStaticGetTypeID<T>(); }
+        };
+
+        template<typename T>
+        struct _ReturnTypeIDOf
+        {
+            static DLRF::DLTypeID Get() { return DLRF::DLStaticGetTypeID<T>(); }
+        };
+
+        template<>
+        struct _ParamTypeIDOf<DLUT::DLNullType>
+        {
+            static DLRF::DLTypeID Get() { return 0; }
+        };
+
+        template<>
+        struct _ReturnTypeIDOf<DLUT::DLNullType>
+        {
+            static DLRF::DLTypeID Get() { return 0; }
+        };
+
+        template<typename PL, int Index>
+        struct _ParamIdFiller
+        {
+            static void Fill(DLParameterInfo* pArray)
+            {
+                typedef typename DLUT::TypeList::TypeAtNonStrict<PL, Index>::Result ParamType;
+                pArray->id[Index] = _ParamTypeIDOf<ParamType>::Get();
+                _ParamIdFiller<PL, Index + 1>::Fill(pArray);
+            }
+        };
+
+        template<typename PL>
+        struct _ParamIdFiller<PL, 15>
+        {
+            static void Fill(DLParameterInfo*) {}
+        };
+
+        template<typename T>
+        struct _ReturnTypeIDOf
+        {
+            static DLTypeID Get() { return DLRF::DLStaticGetTypeID<T>(); }
+        };
+
         template<typename ContextType, typename RType>
         void _Invoke(ContextType* ctx, DLUT::DLTypeToType<RType>) const
         {
@@ -320,11 +367,28 @@ namespace DLRF
 			_ClassType::GetRuntimeClass()->AddInvoker(this, pName, pWName);
         }
 
-        virtual dl_size GetParameterSize(void) const override { return 0; }
+        virtual dl_size GetParameterSize(void) const override
+        {
+            return DLUT::TypeList::Length<ParamList>::Size;
+        }
 
-        virtual dl_size GetStrictParameterInfo(DLParameterInfo* pArray) const override { return 0; }
-        virtual dl_size GetLooseParameterInfo(DLParameterInfo* pArray) const override { return 0; }
+        virtual dl_size GetStrictParameterInfo(DLParameterInfo* pArray) const override
+        {
+            _ParamIdFiller<ParamList, 0>::Fill(pArray);
+            pArray->pData = (void*)this;
+            return DLUT::TypeList::Length<ParamList>::Size;
+        }
 
-		virtual DLTypeID GetReturnType(void) const override { return 0; }
+        virtual dl_size GetLooseParameterInfo(DLParameterInfo* pArray) const override
+        {
+            _ParamIdFiller<ParamList, 0>::Fill(pArray);
+            pArray->pData = (void*)this;
+            return DLUT::TypeList::Length<ParamList>::Size;
+        }
+
+        virtual DLTypeID GetReturnType(void) const override
+        {
+            return _ReturnTypeIDOf<MethodReturnType>::Get();
+        }
     };
 }
