@@ -111,7 +111,7 @@ namespace DLKR
 
         void construct(pointer p, const T& val) 
         {
-			new (__alignof(T), (void*)p) T(val);
+			new ((void*)p) T(val);
         }
 
         void destroy(pointer p)
