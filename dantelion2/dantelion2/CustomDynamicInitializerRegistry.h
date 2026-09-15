@@ -19,4 +19,11 @@ private:
 	static CustomDynamicInitializerRegistry* s_pInstance;
 };
 
-#define REGISTER_DYNAMIC_INITIALIZER(fn) CustomDynamicInitializerRegistry::GetInstance()->RegisterStaticInitializer(fn);
+#define REGISTER_DYNAMIC_INITIALIZER_FN(fn) \
+	namespace { \
+		struct fn##_Registrar \
+		{ \
+			fn##_Registrar() { CustomDynamicInitializerRegistry::GetInstance()->RegisterStaticInitializer(fn); } \
+		}; \
+		static fn##_Registrar s_##fn##_registrar; \
+	}
