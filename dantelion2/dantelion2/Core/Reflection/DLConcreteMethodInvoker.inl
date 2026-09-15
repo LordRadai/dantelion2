@@ -52,14 +52,37 @@ namespace DLRF
             static DLRF::DLTypeID Get() { return 0; }
         };
 
+        template<typename PL, int Index, bool InRange>
+        struct _ParamIdFillerImpl;
+
+        // In range: a real parameter type exists at this index.
         template<typename PL, int Index>
-        struct _ParamIdFiller
+        struct _ParamIdFillerImpl<PL, Index, true>
         {
             static void Fill(DLParameterInfo* pArray)
             {
                 typedef typename DLUT::TypeList::TypeAtNonStrict<PL, Index>::Result ParamType;
                 pArray->id[Index] = _ParamTypeIDOf<ParamType>::Get();
-                _ParamIdFiller<PL, Index + 1>::Fill(pArray);
+                _ParamIdFillerImpl<PL, Index + 1, (Index + 1 < DLUT::TypeList::Length<PL>::Size)>::Fill(pArray);
+            }
+        };
+
+        template<typename PL, int Index>
+        struct _ParamIdFillerImpl<PL, Index, false>
+        {
+            static void Fill(DLParameterInfo* pArray)
+            {
+                for (int i = Index; i < 15; ++i)
+                    pArray->id[i] = 0;
+            }
+        };
+
+        template<typename PL, int Index>
+        struct _ParamIdFiller
+        {
+            static void Fill(DLParameterInfo* pArray)
+            {
+                _ParamIdFillerImpl<PL, Index, (Index < DLUT::TypeList::Length<PL>::Size)>::Fill(pArray);
             }
         };
 
