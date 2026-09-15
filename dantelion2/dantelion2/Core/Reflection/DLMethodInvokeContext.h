@@ -3,8 +3,6 @@
 
 namespace DLRF
 {
-	class DLMethod;
-
 	class DLMethodInvokeContext : public DLAbstractInvokeContext
 	{
 	public:
@@ -21,7 +19,7 @@ namespace DLRF
 	protected:
 		dl_char m_unk[240];
 		DLRFD::MightyType m_return;
-		const DLMethod* m_pM;
+		const void* m_pM;
 		DLRawDynamicPtr m_pObj;
 	};
 }

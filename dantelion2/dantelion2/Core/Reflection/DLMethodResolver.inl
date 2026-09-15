@@ -27,5 +27,5 @@ namespace DLRF
 		mutable DLKR::DLPlainMutex m_mutex;
 	};
 
-	typedef DLMethodResolver<DLMethodInvokeContext> DLMethodResolverInvoke;
+	typedef DLMethodResolver<DLMethodInvokeContext> DLMethod;
 }
