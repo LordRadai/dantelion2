@@ -398,6 +398,7 @@
     <ClInclude Include="Core\Util\DLVector.h" />
     <ClInclude Include="Core\Util\PODVector.h" />
     <ClInclude Include="Core\Util\Util.h" />
+    <ClInclude Include="CustomDynamicInitializerRegistry.h" />
     <ClInclude Include="dantelion2.h" />
     <ClInclude Include="Call.h" />
     <ClInclude Include="Globals.h" />
@@ -461,6 +462,7 @@
     <ClCompile Include="Core\Util\detail\DLRandomGeneratorXorshift.cpp" />
     <ClCompile Include="Core\Util\DLProperties.cpp" />
     <ClCompile Include="Core\Util\DLReferenceCountObject.cpp" />
+    <ClCompile Include="CustomDynamicInitializerRegistry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Core\Kernel\detail\HeapAllocator.inl" />
