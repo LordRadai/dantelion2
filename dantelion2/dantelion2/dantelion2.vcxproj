@@ -262,6 +262,7 @@
     <ClInclude Include="Core\Graphics\Graphics.h" />
     <ClInclude Include="Core\InputOutput\DLFile.h" />
     <ClInclude Include="Core\InputOutput\InputOutput.h" />
+    <ClInclude Include="Core\Kernel\detail\AllocationSupporter.inl" />
     <ClInclude Include="Core\Kernel\detail\DLAllocationHelper.h" />
     <ClInclude Include="Core\Kernel\DLAllocator.h" />
     <ClInclude Include="Core\Kernel\DLAtomicInt.h" />
