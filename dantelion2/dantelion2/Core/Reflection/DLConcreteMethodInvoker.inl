@@ -63,18 +63,6 @@ namespace DLRF
             }
         };
 
-        template<typename PL>
-        struct _ParamIdFiller<PL, 15>
-        {
-            static void Fill(DLParameterInfo*) {}
-        };
-
-        template<typename T>
-        struct _ReturnTypeIDOf
-        {
-            static DLTypeID Get() { return DLRF::DLStaticGetTypeID<T>(); }
-        };
-
         template<typename ContextType, typename RType>
         void _Invoke(ContextType* ctx, DLUT::DLTypeToType<RType>) const
         {
