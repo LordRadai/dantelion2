@@ -18,5 +18,6 @@ namespace DLRF
 		DLRawDynamicPtr m_args[MAX_PARAM_SIZE];
 		dl_uint8 m_nParams;
 		dl_uint16 m_rtCheckFlag;
+		dl_uint16 m_iVar45C;
 	};
 }
