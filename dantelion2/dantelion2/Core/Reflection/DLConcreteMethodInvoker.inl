@@ -8,7 +8,7 @@
 namespace DLRF
 {
     template<class _ClassType, typename _MethodReturnType = void,
-        typename ParamList = DLUT::DLNullType, dl_bool isConst = true >
+        typename ParamList = DLUT::DLNullType, dl_bool isConst = true>
     class DLConcreteMethodInvoker : public DLMethodInvoker<DLMethodInvokeContext> 
     {
         typedef typename DLUT::DLMethodTypeConstructor<_ClassType, _MethodReturnType, ParamList>::ConstResult ConstResultType;
