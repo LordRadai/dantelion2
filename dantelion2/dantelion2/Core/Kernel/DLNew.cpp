@@ -1,28 +1,18 @@
 #include "DLNew.h"
 #include "Call.h"
 
-typedef dl_pointer(_fastcall* oAlloc)(size_t size, size_t alignment, DLKR::DLAllocator* pAllocator);
-typedef void(_fastcall* oFree)(dl_pointer memoryBlock, DLKR::DLAllocator* pAllocator);
+typedef dl_pointer(_fastcall* AllocateAligned_t)(size_t, size_t, DLKR::DLAllocator*);
+typedef void(_fastcall* Deallocate_t)(void*, DLKR::DLAllocator*);
 
 namespace DLKR
 {
-	dl_pointer AllocateAligned(size_t blockSize, size_t alignment, DLAllocator* pAllocator)
+	dl_pointer AllocationSupporter::Allocate(size_t blockSize, dl_size align, DLAllocator* pAllocator)
 	{
-		return CALL(oAlloc, 0x833320, blockSize, alignment, pAllocator);
+		return CALL(AllocateAligned_t, 0x833320, blockSize, align, pAllocator);
 	}
 
-	void Free(dl_pointer pMem, DLAllocator* pAllocator)
+	void AllocationSupporter::Deallocate(void* p, DLAllocator* pAllocator)
 	{
-		return CALL(oFree, 0x8332d0, pMem, pAllocator);
+		return CALL(Deallocate_t, 0x8332d0, p, pAllocator);
 	}
-}
-
-void* operator new[](size_t size, DLKR::DLAllocator* pAllocator)
-{
-	return pAllocator->Allocate(size);
-}
-
-void operator delete[](void* p, DLKR::DLAllocator* pAllocator)
-{
-	pAllocator->Free(p);
 }

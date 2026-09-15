@@ -4,11 +4,22 @@
 
 namespace DLKR
 {
-	dl_pointer AllocateAligned(size_t blockSize, size_t alignment, DLAllocator* pAllocator);
-	void Free(dl_pointer pMem, DLAllocator* pAllocator);
+    class AllocationSupporter
+    {
+    public:
+		static dl_pointer Allocate(size_t blockSize, dl_size align, DLAllocator* pAllocator);
+        static void Deallocate(void* p, DLAllocator* pAllocator);
+    };
 }
 
-void* operator new[](size_t size, DLKR::DLAllocator* pAllocator);
-void operator delete[](void* p, DLKR::DLAllocator* pAllocator);
+inline void* operator new(dl_size size, dl_size align, DLKR::DLAllocator* allocator) 
+{
+    return DLKR::AllocationSupporter::Allocate(size, align, allocator);
+}
 
-#define ALLOCATE_NEW(type, allocator) new (allocator->AllocateAligned(sizeof(type), __alignof(type))) type
+inline void operator delete(void* p, dl_size align, DLKR::DLAllocator* allocator)
+{
+    DLKR::AllocationSupporter::Deallocate(p, allocator);
+}
+
+#define DL_NEW(type, allocator) new (__alignof(type), allocator) type
