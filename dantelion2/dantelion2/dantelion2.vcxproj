@@ -277,7 +277,7 @@
     <ClInclude Include="Core\Kernel\DLLightMutex.h" />
     <ClInclude Include="Core\Kernel\DLMultiThreadingPolicy.h" />
     <ClInclude Include="Core\Kernel\DLMutex.h" />
-    <ClInclude Include="Core\Kernel\DLNew.h" />
+    <ClInclude Include="Core\Kernel\DLNew.inl" />
     <ClInclude Include="Core\Kernel\DLReadWriteLock.h" />
     <ClInclude Include="Core\Kernel\DLRegularHeap.h" />
     <ClInclude Include="Core\Kernel\DLRobustHeap.h" />
@@ -422,7 +422,6 @@
     <ClCompile Include="Core\Kernel\DLHeapManager.cpp" />
     <ClCompile Include="Core\Kernel\DLLightMutex.cpp" />
     <ClCompile Include="Core\Kernel\DLMutex.cpp" />
-    <ClCompile Include="Core\Kernel\DLNew.cpp" />
     <ClCompile Include="Core\Kernel\DLReadWriteLock.cpp" />
     <ClCompile Include="Core\Kernel\DLRuntimeHeap.cpp" />
     <ClCompile Include="Core\Kernel\DLSemaphore.cpp" />

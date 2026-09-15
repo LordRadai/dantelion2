@@ -135,7 +135,7 @@
     <ClInclude Include="Core\Kernel\DLMutex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Kernel\DLNew.h">
+    <ClInclude Include="Core\Kernel\DLNew.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\Kernel\DLReadWriteLock.h">
@@ -579,9 +579,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Kernel\DLAllocator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Kernel\DLNew.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\Logging\DLAppender.cpp">

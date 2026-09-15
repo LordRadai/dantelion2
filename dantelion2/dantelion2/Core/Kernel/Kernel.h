@@ -1,6 +1,6 @@
 #pragma once
 #include "DLAllocator.h"
-#include "DLNew.h"
+#include "DLNew.inl"
 #include "SyncObjects.h"
 #include "detail/HeapAllocator.inl"
 #include "DLWin32RuntimeHeapImpl.h"
