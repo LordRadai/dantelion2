@@ -6,13 +6,13 @@ namespace DLTX
 	class DLCharacterSetUtil
 	{
 	public:
-		static DLTX::DLString AsciiToUnicode(const DLAsciiString& ascii);
-		static DLTX::DLAsciiString UnicodeToAscii(const DLString& unicode);
-		static DLTX::DLAsciiString UnicodeToUtf8(const DLString& unicode);
-		static DLTX::DLString Utf8ToUnicode(const DLAsciiString& utf8);
-		static DLTX::DLAsciiString ShiftJisToUtf8(const DLAsciiString& shiftJis);
-		static DLTX::DLAsciiString Utf8ToShiftJis(const DLAsciiString& utf8);
-		static DLTX::DLString ShiftJisToUnicode(const DLAsciiString& shiftJis);
-		static DLTX::DLAsciiString UnicodeToShiftJis(const DLString& unicode);
+		static const dl_wchar* AsciiToUnicode(const DLAsciiString& ascii);
+		static const dl_char* UnicodeToAscii(const DLString& unicode);
+		static const dl_char* UnicodeToUtf8(const DLString& unicode);
+		static const dl_wchar* Utf8ToUnicode(const DLAsciiString& utf8);
+		static const dl_char* ShiftJisToUtf8(const DLAsciiString& shiftJis);
+		static const dl_char* Utf8ToShiftJis(const DLAsciiString& utf8);
+		static const dl_wchar* ShiftJisToUnicode(const DLAsciiString& shiftJis);
+		static const dl_char* UnicodeToShiftJis(const DLString& unicode);
 	};
 }

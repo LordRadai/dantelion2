@@ -11,21 +11,22 @@
 
 namespace DLTX
 {
-	DLString DLCharacterSetUtil::AsciiToUnicode(const DLAsciiString& ascii)
+	const dl_wchar* DLCharacterSetUtil::AsciiToUnicode(const DLAsciiString& ascii)
 	{
 		std::wstring utf(ascii.begin(), ascii.end());
-		return DLTX::DLString(utf.c_str(), DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UNICODE);
+		return utf.c_str();
 	}
 
-	DLAsciiString DLCharacterSetUtil::UnicodeToAscii(const DLString& unicode)
+	const dl_char* DLCharacterSetUtil::UnicodeToAscii(const DLString& unicode)
 	{
 		std::string ascii(unicode.begin(), unicode.end());
-		return DLTX::DLAsciiString(ascii.c_str(), DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UTF8);
+		return ascii.c_str();
 	}
 
-	DLAsciiString DLCharacterSetUtil::UnicodeToUtf8(const DLString& unicode)
+	const dl_char* DLCharacterSetUtil::UnicodeToUtf8(const DLString& unicode)
 	{
-		DLTX::DLAsciiString utf8("", DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UTF8);
+		std::string utf8;
+		utf8.reserve(unicode.size() * 3);
 
 		for (dl_wchar wc : unicode)
 		{
@@ -46,12 +47,13 @@ namespace DLTX
 			}
 		}
 
-		return utf8;
+		return utf8.c_str();
 	}
 
-	DLString DLCharacterSetUtil::Utf8ToUnicode(const DLAsciiString& utf8)
+	const dl_wchar* DLCharacterSetUtil::Utf8ToUnicode(const DLAsciiString& utf8)
 	{
-		DLTX::DLString unicode(L"", DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UNICODE);
+		std::wstring unicode;
+		unicode.reserve(utf8.size());
 		size_t i = 0;
 		while (i < utf8.size())
 		{
@@ -82,13 +84,12 @@ namespace DLTX
 			}
 		}
 
-		return unicode;
+		return unicode.c_str();
 	}
 
-	DLTX::DLString DLCharacterSetUtil::ShiftJisToUnicode(const DLAsciiString& shiftJis)
+	const dl_wchar* DLCharacterSetUtil::ShiftJisToUnicode(const DLAsciiString& shiftJis)
 	{
-		DLTX::DLString unicode(L"", DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UNICODE);
-
+		std::wstring unicode;
 		const char* src = shiftJis.c_str();
 		int srcLen = static_cast<int>(shiftJis.size());
 		if (srcLen > 0)
@@ -102,12 +103,13 @@ namespace DLTX
 			}
 		}
 
-		return unicode;
+		return unicode.c_str();
 	}
 
-	DLTX::DLAsciiString DLCharacterSetUtil::UnicodeToShiftJis(const DLString& unicode)
+	const dl_char* DLCharacterSetUtil::UnicodeToShiftJis(const DLString& unicode)
 	{
-		DLTX::DLAsciiString shiftJis("", DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_SHIFT_JIS);
+		std::string shiftJis;
+		shiftJis.reserve(unicode.size() * 2);
 
 		const wchar_t* src = unicode.c_str();
 		int srcLen = static_cast<int>(unicode.size());
@@ -122,18 +124,18 @@ namespace DLTX
 			}
 		}
 
-		return shiftJis;
+		return shiftJis.c_str();
 	}
 
-	DLTX::DLAsciiString DLCharacterSetUtil::ShiftJisToUtf8(const DLAsciiString& shiftJis)
+	const dl_char* DLCharacterSetUtil::ShiftJisToUtf8(const DLAsciiString& shiftJis)
 	{
-		DLString unicode = ShiftJisToUnicode(shiftJis);
+		const dl_wchar* unicode = ShiftJisToUnicode(shiftJis);
 		return UnicodeToUtf8(unicode);
 	}
 
-	DLTX::DLAsciiString DLCharacterSetUtil::Utf8ToShiftJis(const DLAsciiString& utf8)
+	const dl_char* DLCharacterSetUtil::Utf8ToShiftJis(const DLAsciiString& utf8)
 	{
-		DLString unicode = Utf8ToUnicode(utf8);
+		const dl_wchar* unicode = Utf8ToUnicode(utf8);
 		return UnicodeToShiftJis(unicode);
 	}
 }
