@@ -122,6 +122,46 @@ namespace DLIO
 			}
 		}
 
+		dl_bool IsAbsolutePath(const dl_wchar* path)
+		{
+			if (!path || wcslen(path) < 3)
+				return false;
+
+			if (iswalpha(path[0]) && path[1] == L':' && (path[2] == L'\\' || path[2] == L'/'))
+				return true;
+
+			if (path[0] == L'\\' && path[1] == L'\\')
+				return true;
+
+			return false;
+		}
+
+		dl_bool IsRoot(const dl_wchar* path)
+		{
+			if (!path || wcslen(path) < 3)
+				return false;
+
+			if (iswalpha(path[0]) && path[1] == L':' && (path[2] == L'\\' || path[2] == L'/') && wcslen(path) == 3)
+				return true;
+
+			if (path[0] == L'\\' && path[1] == L'\\')
+			{
+				const dl_wchar* firstSlash = wcschr(path + 2, L'\\');
+
+				if (!firstSlash)
+					return false;
+
+				const dl_wchar* secondSlash = wcschr(firstSlash + 1, L'\\');
+
+				if (!secondSlash)
+					return true;
+
+				return false;
+			}
+
+			return false;
+		}
+
 		dl_bool DoesDirectoryExist(const dl_wchar* path)
 		{
 			DLFile file(path, 0, DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), false, false);

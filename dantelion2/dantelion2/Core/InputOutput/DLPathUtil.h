@@ -5,8 +5,11 @@ namespace DLIO
 {
 	namespace DLPathUtil
 	{
-		const dl_wchar* ChangeExtension(const dl_wchar* filePath, const dl_wchar* newExtension);
+		dl_bool IsAbsolutePath(const dl_wchar* path);
+		dl_bool IsRoot(const dl_wchar* path);
 		dl_bool DoesDirectoryExist(const dl_wchar* path);
+
+		const dl_wchar* ChangeExtension(const dl_wchar* filePath, const dl_wchar* newExtension);
 		const dl_wchar* GetDirectory(const dl_wchar* filePath);
 		const dl_wchar* GetFileExtension(const dl_wchar* filePath);
 		const dl_wchar* GetFileName(const dl_wchar* filePath);
