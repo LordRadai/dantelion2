@@ -1,5 +1,6 @@
 #pragma once
 #include "Core/Platform/Platform.h"
+#include <string>
 
 namespace DLIO
 {
@@ -9,15 +10,15 @@ namespace DLIO
 		dl_bool IsRoot(const dl_wchar* path);
 		dl_bool DoesDirectoryExist(const dl_wchar* path);
 
-		const dl_wchar* ChangeExtension(const dl_wchar* filePath, const dl_wchar* newExtension);
-		const dl_wchar* GetDirectory(const dl_wchar* filePath);
-		const dl_wchar* GetFileExtension(const dl_wchar* filePath);
-		const dl_wchar* GetFileName(const dl_wchar* filePath);
-		const dl_wchar* GetFileNameWithoutExtension(const dl_wchar* filePath);
-		const dl_wchar* GetParentDirectory(const dl_wchar* filePath);
-		const dl_wchar* GetLeafDirectoryName(const dl_wchar* filePath);
-		const dl_wchar* GetPathWithoutExtension(const dl_wchar* filePath);
-		const dl_wchar* GetPathWithSeparator(const dl_wchar* filePath);
+		const std::wstring ChangeExtension(const dl_wchar* filePath, const dl_wchar* newExtension);
+		const std::wstring GetDirectory(const dl_wchar* filePath);
+		const std::wstring GetFileExtension(const dl_wchar* filePath);
+		const std::wstring GetFileName(const dl_wchar* filePath);
+		const std::wstring GetFileNameWithoutExtension(const dl_wchar* filePath);
+		const std::wstring GetParentDirectory(const dl_wchar* filePath);
+		const std::wstring GetLeafDirectoryName(const dl_wchar* filePath);
+		const std::wstring GetPathWithoutExtension(const dl_wchar* filePath);
+		const std::wstring GetPathWithSeparator(const dl_wchar* filePath);
 
 		void CreateParentDirectory(const dl_wchar* path);
 	};

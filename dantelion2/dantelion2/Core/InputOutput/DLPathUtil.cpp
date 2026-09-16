@@ -10,7 +10,7 @@ namespace DLIO
 		typedef const dl_wchar*(_fastcall* GetFileExtension_t)(const dl_wchar*);
 		typedef const dl_wchar* (_fastcall* GetFileNameWithoutExtension_t)(const dl_wchar*);
 
-		const dl_wchar* GetFileName(const dl_wchar* filePath)
+		const std::wstring GetFileName(const dl_wchar* filePath)
 		{
 			const dl_wchar* lastSlash = wcsrchr(filePath, L'\\');
 
@@ -20,7 +20,7 @@ namespace DLIO
 			return lastSlash ? lastSlash + 1 : filePath;
 		}
 
-		const dl_wchar* GetDirectory(const dl_wchar* filePath)
+		const std::wstring GetDirectory(const dl_wchar* filePath)
 		{
 			const dl_wchar* lastSlash = wcsrchr(filePath, L'\\');
 
@@ -37,7 +37,7 @@ namespace DLIO
 			return L"";
 		}
 
-		const dl_wchar* GetPathWithoutExtension(const dl_wchar* filePath)
+		const std::wstring GetPathWithoutExtension(const dl_wchar* filePath)
 		{
 			const dl_wchar* lastDot = wcsrchr(filePath, L'.');
 
@@ -51,7 +51,7 @@ namespace DLIO
 			return filePath;
 		}
 
-		const dl_wchar* GetPathWithSeparator(const dl_wchar* filePath)
+		const std::wstring GetPathWithSeparator(const dl_wchar* filePath)
 		{
 			const dl_wchar* lastSlash = wcsrchr(filePath, L'\\');
 
@@ -68,7 +68,7 @@ namespace DLIO
 			return L"";
 		}
 
-		const dl_wchar* GetParentDirectory(const dl_wchar* filePath)
+		const std::wstring GetParentDirectory(const dl_wchar* filePath)
 		{
 			const dl_wchar* lastSlash = wcsrchr(filePath, L'\\');
 
@@ -85,7 +85,7 @@ namespace DLIO
 			return L"";
 		}
 
-		const dl_wchar* GetLeafDirectoryName(const dl_wchar* filePath)
+		const std::wstring GetLeafDirectoryName(const dl_wchar* filePath)
 		{
 			std::wstring path(filePath);
 
@@ -103,7 +103,7 @@ namespace DLIO
 			return leaf.c_str();
 		}
 
-		const dl_wchar* ChangeExtension(const dl_wchar* filePath, const dl_wchar* newExtension)
+		const std::wstring ChangeExtension(const dl_wchar* filePath, const dl_wchar* newExtension)
 		{
 			const dl_wchar* lastDot = wcsrchr(filePath, L'.');
 			if (lastDot)
@@ -172,19 +172,19 @@ namespace DLIO
 			return file.IsDirectory();
 		}
 
-		const dl_wchar* GetFileExtension(const dl_wchar* filePath)
+		const std::wstring GetFileExtension(const dl_wchar* filePath)
 		{
 			return CALL(GetFileExtension_t, 0x83a7b0, filePath);
 		}
 
-		const dl_wchar* GetFileNameWithoutExtension(const dl_wchar* filePath)
+		const std::wstring GetFileNameWithoutExtension(const dl_wchar* filePath)
 		{
 			return CALL(GetFileNameWithoutExtension_t, 0x83ab80, filePath);
 		}
 
 		void CreateParentDirectory(const dl_wchar* path)
 		{
-			DLTX::DLString current;
+			std::wstring current;
 			for (size_t i = 0; i < wcslen(path); ++i)
 			{
 				wchar_t c = path[i];
