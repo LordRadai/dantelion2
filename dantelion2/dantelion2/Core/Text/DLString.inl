@@ -161,6 +161,9 @@ namespace DLTX
             : SuperClass(str), m_Allocator(pAllocator), m_charset(charset)
         {}
 
+		DLKR::DLAllocator* GetAllocator() const { return m_Allocator; }
+		DLTX::DLCharacterSet GetCharacterSet() const { return static_cast<DLTX::DLCharacterSet>(m_charset); }
+
         void format_append(const _Elem* format, ...)
         {
             va_list args;

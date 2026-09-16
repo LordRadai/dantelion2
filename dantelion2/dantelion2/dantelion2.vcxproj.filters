@@ -567,6 +567,9 @@
     <ClInclude Include="CustomDynamicInitializerRegistry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\InputOutput\DLPathUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -744,6 +747,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CustomDynamicInitializerRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\InputOutput\DLPathUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
