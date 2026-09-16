@@ -14,18 +14,18 @@ namespace DLTX
 	DLString DLCharacterSetUtil::AsciiToUnicode(const DLAsciiString& ascii)
 	{
 		std::wstring utf(ascii.begin(), ascii.end());
-		return DLTX::DLString(utf.c_str(), ascii.GetAllocator(), DLCharacterSet::CS_UNICODE);
+		return DLTX::DLString(utf.c_str(), DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UNICODE);
 	}
 
 	DLAsciiString DLCharacterSetUtil::UnicodeToAscii(const DLString& unicode)
 	{
 		std::string ascii(unicode.begin(), unicode.end());
-		return DLTX::DLAsciiString(ascii.c_str(), unicode.GetAllocator(), DLCharacterSet::CS_UTF8);
+		return DLTX::DLAsciiString(ascii.c_str(), DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UTF8);
 	}
 
 	DLAsciiString DLCharacterSetUtil::UnicodeToUtf8(const DLString& unicode)
 	{
-		DLTX::DLAsciiString utf8(unicode.GetAllocator());
+		DLTX::DLAsciiString utf8("", DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UTF8);
 
 		for (dl_wchar wc : unicode)
 		{
@@ -51,7 +51,7 @@ namespace DLTX
 
 	DLString DLCharacterSetUtil::Utf8ToUnicode(const DLAsciiString& utf8)
 	{
-		DLTX::DLString unicode(utf8.GetAllocator());
+		DLTX::DLString unicode(L"", DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UNICODE);
 		size_t i = 0;
 		while (i < utf8.size())
 		{
@@ -87,7 +87,7 @@ namespace DLTX
 
 	DLTX::DLString DLCharacterSetUtil::ShiftJisToUnicode(const DLAsciiString& shiftJis)
 	{
-		DLTX::DLString unicode(shiftJis.GetAllocator());
+		DLTX::DLString unicode(L"", DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_UNICODE);
 
 		const char* src = shiftJis.c_str();
 		int srcLen = static_cast<int>(shiftJis.size());
@@ -107,7 +107,7 @@ namespace DLTX
 
 	DLTX::DLAsciiString DLCharacterSetUtil::UnicodeToShiftJis(const DLString& unicode)
 	{
-		std::string shiftJis;
+		DLTX::DLAsciiString shiftJis("", DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), DLCharacterSet::CS_SHIFT_JIS);
 
 		const wchar_t* src = unicode.c_str();
 		int srcLen = static_cast<int>(unicode.size());
@@ -122,7 +122,7 @@ namespace DLTX
 			}
 		}
 
-		return DLTX::DLAsciiString(shiftJis.c_str(), unicode.GetAllocator(), DLCharacterSet::CS_SHIFT_JIS);
+		return shiftJis;
 	}
 
 	DLTX::DLAsciiString DLCharacterSetUtil::ShiftJisToUtf8(const DLAsciiString& shiftJis)

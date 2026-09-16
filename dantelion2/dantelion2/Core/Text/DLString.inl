@@ -67,6 +67,8 @@ namespace DLTX
             this->m_charset = charset;
         }
 
+        DLTX::DLCharacterSet GetCharacterSet() const { return static_cast<DLTX::DLCharacterSet>(m_charset); }
+
         void format_append(const _Elem* format, ...)
         {
             va_list args;
