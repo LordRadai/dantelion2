@@ -23,7 +23,7 @@ namespace DLIO
 
 	dl_bool DLFile::IsDirectory() const
 	{
-		DWORD attributes = GetFileAttributesW(reinterpret_cast<const dl_wchar*>(m_pVar8));
+		DWORD attributes = GetFileAttributesW(reinterpret_cast<const dl_wchar*>(GetPath().c_str()));
 		return (attributes != INVALID_FILE_ATTRIBUTES) && (attributes & FILE_ATTRIBUTE_DIRECTORY);
 	}
 
