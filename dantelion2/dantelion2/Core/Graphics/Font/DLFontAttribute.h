@@ -23,9 +23,9 @@ namespace DLGR
 		DLMT::DL_VECTOR2 m_Scale;
 		dl_float32 m_fVar40;
 		dl_float32 m_fVar44;
-		dl_float32 m_fVar48;
+		dl_float32 m_fSize;
 		dl_float32 m_fVar4C;
-		dl_float32 m_fVar50;
+		dl_float32 m_fMargin;
 		dl_float32 m_fVar54;
 		dl_float32 m_fVar58;
 		dl_float32 m_fVar5C;
@@ -38,10 +38,10 @@ namespace DLGR
 		dl_float32 m_fVar7C;
 		dl_float32 m_fVar80;
 		dl_int m_iVar84;
-		dl_float32 m_fVar88;
+		dl_uint m_Flags;
 		dl_float32 m_fVar8C;
 		dl_float32 m_fVar90;
-		dl_float32 m_fVar94;
+		dl_float32 m_fLinePitch;
 		dl_uint m_FontID;
 		dl_float32 m_fVar9C;
 		dl_float32 m_fVarA0;
