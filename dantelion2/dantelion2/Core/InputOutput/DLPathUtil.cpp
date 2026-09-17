@@ -7,9 +7,6 @@ namespace DLIO
 {
 	namespace DLPathUtil
 	{
-		typedef const dl_wchar*(_fastcall* GetFileExtension_t)(const dl_wchar*);
-		typedef const dl_wchar* (_fastcall* GetFileNameWithoutExtension_t)(const dl_wchar*);
-
 		const std::wstring GetFileName(const dl_wchar* filePath)
 		{
 			const dl_wchar* lastSlash = wcsrchr(filePath, L'\\');
@@ -174,12 +171,33 @@ namespace DLIO
 
 		const std::wstring GetFileExtension(const dl_wchar* filePath)
 		{
-			return CALL(GetFileExtension_t, 0x83a7b0, filePath);
+			const dl_wchar* lastDot = wcsrchr(filePath, L'.');
+
+			if (lastDot)
+				return lastDot + 1;
+
+			return L"";
 		}
 
 		const std::wstring GetFileNameWithoutExtension(const dl_wchar* filePath)
 		{
-			return CALL(GetFileNameWithoutExtension_t, 0x83ab80, filePath);
+			const dl_wchar* lastSlash = wcsrchr(filePath, L'\\');
+
+			if (!lastSlash)
+				lastSlash = wcsrchr(filePath, L'/');
+
+			const dl_wchar* fileName = lastSlash ? lastSlash + 1 : filePath;
+			const dl_wchar* lastDot = wcsrchr(fileName, L'.');
+
+			if (lastDot)
+			{
+				static DLTX::DLString fileNameWithoutExt;
+				fileNameWithoutExt.assign(fileName, lastDot - fileName);
+
+				return fileNameWithoutExt.c_str();
+			}
+
+			return fileName;
 		}
 
 		void CreateParentDirectory(const dl_wchar* path)
