@@ -45,9 +45,9 @@ namespace DLMT
 
 	inline DL_COLOR_32::DL_COLOR_32(dl_float32 _r, dl_float32 _g, dl_float32 _b, dl_float32 _a)
 	{
-		r = static_cast<dl_uint32>(_r * 255.0f);
+		r = static_cast<dl_uint32>(_b * 255.0f);
 		g = static_cast<dl_uint32>(_g * 255.0f);
-		b = static_cast<dl_uint32>(_b * 255.0f);
+		b = static_cast<dl_uint32>(_r * 255.0f);
 		a = static_cast<dl_uint32>(_a * 255.0f);
 	}
 
