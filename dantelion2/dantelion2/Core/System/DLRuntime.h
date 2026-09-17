@@ -98,6 +98,8 @@ namespace DLSY
 		virtual dl_bool IsBootByInvitation() const { return false; }
 		virtual ~DLRuntimeImpl();
 
+		static DLRuntimeImpl* GetRuntimeImpl();
+
 	private:
 		DLUT::PODVectorBase m_unkVector;
 		DLUT::PODVectorBase m_unkVector2;
@@ -125,8 +127,6 @@ namespace DLSY
 		dl_bool m_bPropertiesInitialized;
 		dl_bool m_bRealTimeServiceManagerInitialized;
 		dl_bool m_bMountedCacheDisk;
-
-		static DLRuntimeImpl* GetRuntimeImpl();
 
 		typedef void(_fastcall* oLoadSystemProperties)(DLRuntimeImpl*, SysPropFilePath*, dl_pointer);
 	};

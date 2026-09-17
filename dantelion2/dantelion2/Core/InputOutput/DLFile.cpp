@@ -1,5 +1,6 @@
 #include "DLFile.h"
 #include "Core/Assert/DLAssert.h"
+#include "Core/System/DLRuntime.h"
 #include "Call.h"
 
 namespace DLIO
@@ -8,6 +9,7 @@ namespace DLIO
 	typedef dl_bool(_fastcall* Exists_t)(const DLFile*);
 	typedef dl_bool(_fastcall* IsDirectory_t)(const DLFile*);
 	typedef dl_size(_fastcall* GetSize_t)(const DLFile*);
+	typedef void(_fastcall* GetPath_t)(const DLFile*, DLTX::DLString*);
 
 	DLFile::DLFile(const dl_wchar* filePath, dl_size offset, DLKR::DLAllocator* pAllocator, dl_bool param_4, dl_bool param_5)
 	{
@@ -28,5 +30,12 @@ namespace DLIO
 	dl_size DLFile::GetSize() const
 	{
 		return CALL(GetSize_t, 0x855dc0, this);
+	}
+
+	DLTX::DLString DLFile::GetPath() const
+	{
+		DLTX::DLString path(DLSY::DLRuntimeImpl::GetRuntimeImpl()->GetDefaultAllocator());
+		CALL(GetPath_t, 0x855950, this, &path);
+		return path;
 	}
 }

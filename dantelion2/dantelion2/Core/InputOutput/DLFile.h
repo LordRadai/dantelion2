@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/Platform/Platform.h"
 #include "Core/Kernel/DLAllocator.h"
+#include "Core/Text/DLString.inl"
 
 namespace DLIO
 {
@@ -11,6 +12,7 @@ namespace DLIO
 		dl_bool DoesExists() const;
 		dl_bool IsDirectory() const;
 		dl_size GetSize() const;
+		DLTX::DLString GetPath() const;
 
 	protected:
 		DLKR::DLAllocator* m_pAllocator;
