@@ -16,8 +16,8 @@ namespace DLIO
 
 	protected:
 		DLKR::DLAllocator* m_pAllocator;
-		dl_pointer m_pDiskOperator0;
-		dl_pointer m_pDiskOperator1;
+		dl_pointer m_pCacheFileOperator;
+		dl_pointer m_pDiskOperator;
 		dl_uint m_Flags;
 	};
 }
