@@ -16,8 +16,8 @@ namespace DLPF
 
 	struct DL_ASSERT_RESULT
 	{
-		dl_bool bVar0;
-		dl_bool bVar1;
+		dl_bool bIgnore;
+		dl_bool bAbort;
 	};
 
 	typedef DL_ASSERT_INFO DLAssertEvent;
