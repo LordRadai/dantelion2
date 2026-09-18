@@ -459,6 +459,7 @@
     <ClCompile Include="Core\Resource\DLResourceLoadEvent.cpp" />
     <ClCompile Include="Core\System\DLAssertEventManager.cpp" />
     <ClCompile Include="Core\System\DLRuntime.cpp" />
+    <ClCompile Include="Core\System\DLTimer.cpp" />
     <ClCompile Include="Core\System\DLTrace.cpp" />
     <ClCompile Include="Core\System\DLWin32DialogAssertHandler.cpp" />
     <ClCompile Include="Core\System\System.cpp" />

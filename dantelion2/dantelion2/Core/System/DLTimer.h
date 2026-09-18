@@ -1,4 +1,5 @@
 #pragma once
+#include "Core/Platform/Platform.h"
 #include "Globals.h"
 
 namespace DLSY
@@ -6,6 +7,6 @@ namespace DLSY
 	static class DLTimer
 	{
 	public:
-#define DLSY_DLTimer_m_timerFreq *(dl_int64*)(MODULE_ADDR + 0x16683b8)
+		static dl_int64& m_timerFreq;
 	};
 }

@@ -3,19 +3,18 @@
 
 namespace DLSY
 {
-#define DL_RUNTIME (DLRuntime*)(MODULE_ADDR + 0x16681d0);
-
+	typedef DLRuntime* (_fastcall* GetRuntime_t)();
 	typedef DLRuntimeImpl* (_fastcall* GetRuntimeImpl_t)();
+
+	DLRuntime* DLRuntime::GetRuntime()
+	{
+		return CALL(GetRuntime_t, 0x8453d0);
+	}
 
 	void DLRuntime::InvokeDebugger()
 	{
 		__debugbreak();
 	};
-
-	DLRuntime* DLRuntime::GetRuntime()
-	{
-		return DL_RUNTIME;
-	}
 
 	dl_bool DLRuntimeImpl::AddExitEventListener(DLExitEventListener* pListener, DLExitEventPriority priority)
 	{

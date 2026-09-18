@@ -4,7 +4,7 @@
 namespace DLUT
 {
 	template<class _ClassType>
-	class DLSingleton
+	class DLSimpleSingleton
 	{
 	public:
 		static _ClassType* GetInstance()
