@@ -16,6 +16,11 @@ namespace DLSY
 		__debugbreak();
 	};
 
+	void DLRuntime::Abort()
+	{
+		std::abort();
+	}
+
 	dl_bool DLRuntimeImpl::AddExitEventListener(DLExitEventListener* pListener, DLExitEventPriority priority)
 	{
 		return CALL(AddExitEventListener_t, 0x846140, this, pListener, priority);

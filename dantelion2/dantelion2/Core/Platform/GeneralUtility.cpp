@@ -1,16 +1,17 @@
 #include "GeneralUtility.h"
-#include "Call.h"
 #include "Core/System/DLRuntime.h"
 #include "Core/System/DLTrace.h"
 #include <cstdarg>
 #include <cstdio>
+
+DLPanicMode& DLPanic::panic_mode_override = *(DLPanicMode*)(MODULE_ADDR + 0x157d524);
 
 void DLPanic::ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* reason, ...)
 {
 	va_list args;
 	va_start(args, reason);
 
-	switch (DL_PANIC_MODE)
+	switch (panic_mode_override)
 	{
 	case DLPanicMode::DLPANICMODE_COREDUMP:
 		break;
@@ -34,5 +35,5 @@ void DLPanic::ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* re
 	}
 
 	DLSY::DLRawTrace(true, "DL_PANIC is firing core dump...\n");
-	std::abort();
+	DLSY::DLRuntime::Abort();
 }

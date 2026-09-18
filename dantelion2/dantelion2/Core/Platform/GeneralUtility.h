@@ -56,7 +56,8 @@ public:
     static void ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* reason, ...);
 
     typedef void(_fastcall* oReportPanic)(const dl_char* file, dl_uint32 line, const dl_char* reason, ...);
+
+    static DLPanicMode& panic_mode_override;
 };
 
 #define DL_PANIC(error) DLPanic::ReportPanic(__FILE__, __LINE__, error)
-#define DL_PANIC_MODE *(DLPanicMode*)(MODULE_ADDR + 0x157d524)

@@ -38,6 +38,7 @@ namespace DLSY
 		virtual ~DLRuntime() {}
 
 		static void InvokeDebugger();
+		static void Abort();
 		DLKR::DLAllocator* GetDefaultAllocator();
 
 		static DLRuntime* GetRuntime();
