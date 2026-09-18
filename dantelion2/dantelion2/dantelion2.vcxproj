@@ -220,6 +220,7 @@
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="Core\Assert\DLAssert.h" />
+    <ClInclude Include="Core\Kernel\DLThreadTraits.h" />
     <ClInclude Include="Core\Graphics\Core\CGBuffer.h" />
     <ClInclude Include="Core\Graphics\Core\CGDepthStencilView.h" />
     <ClInclude Include="Core\Graphics\Core\CGRenderTargetView.h" />
@@ -407,6 +408,8 @@
   <ItemGroup>
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Core\Assert\DLAssert.cpp" />
+    <ClCompile Include="Core\Kernel\detail\DLAllocationHelper.cpp" />
+    <ClCompile Include="Core\Kernel\DLThreadTraits.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGResource.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGTexture.cpp" />
@@ -430,6 +433,7 @@
     <ClCompile Include="Core\Kernel\DLRuntimeHeap.cpp" />
     <ClCompile Include="Core\Kernel\DLSemaphore.cpp" />
     <ClCompile Include="Core\Kernel\DLSingleSignal.cpp" />
+    <ClCompile Include="Core\Kernel\DLThread.cpp" />
     <ClCompile Include="Core\Logging\DLAppender.cpp" />
     <ClCompile Include="Core\Logging\DLCategory.cpp" />
     <ClCompile Include="Core\Logging\DLCategoryRepository.cpp" />

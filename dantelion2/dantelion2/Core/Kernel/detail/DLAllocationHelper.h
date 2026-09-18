@@ -5,15 +5,8 @@
 
 namespace DLKRD
 {
-    namespace
-    {
-		typedef DLKR::DLBackAllocator*(_fastcall* oGetTemporaryAllocator)();
-
-        DLKR::DLBackAllocator* GetTemporaryAllocator()
-        {
-			return CALL(oGetTemporaryAllocator, 0x833dc0);
-        }
-    }
+	DLKR::DLAllocator* GetDefaultAllocator();
+    DLKR::DLAllocator* GetTemporaryAllocator();
 
     template<class AllocHost>
     struct DLAllocationHelper {
@@ -27,7 +20,7 @@ namespace DLKRD
     struct DLAllocationHelper<DLKR::DLAllocator> {
         inline static DLKR::DLAllocator* GetDefaultHost(void) 
         {
-            return GetTemporaryAllocator();
+            return GetDefaultAllocator();
         }
     };
 }

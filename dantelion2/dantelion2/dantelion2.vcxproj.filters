@@ -570,6 +570,9 @@
     <ClInclude Include="Core\InputOutput\DLPathUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Kernel\DLThreadTraits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -750,6 +753,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\InputOutput\DLPathUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Kernel\DLThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Kernel\DLThreadTraits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Kernel\detail\DLAllocationHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

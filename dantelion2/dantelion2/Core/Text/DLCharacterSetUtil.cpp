@@ -11,22 +11,24 @@
 
 namespace DLTX
 {
-	std::wstring DLCharacterSetUtil::AsciiToUnicode(const dl_char* ascii)
+	DLTX::DLString DLCharacterSetUtil::AsciiToUnicode(const DLTX::DLAsciiString& ascii)
 	{
-		return std::wstring(ascii, ascii + strlen(ascii));
+		std::wstring unicode(ascii.begin(), ascii.end());
+		return DLTX::DLString(unicode.c_str());
 	}
 
-	std::string DLCharacterSetUtil::UnicodeToAscii(const dl_wchar* unicode)
+	DLTX::DLAsciiString DLCharacterSetUtil::UnicodeToAscii(const DLTX::DLString& unicode)
 	{
-		return std::string(unicode, unicode + wcslen(unicode));
+		std::string ascii(unicode.begin(), unicode.end());
+		return DLTX::DLAsciiString(ascii.c_str());
 	}
 
-	std::string DLCharacterSetUtil::UnicodeToUtf8(const dl_wchar* unicode)
+	DLTX::DLAsciiString DLCharacterSetUtil::UnicodeToUtf8(const DLTX::DLString& unicode)
 	{
-		std::string utf8;
-		utf8.reserve(wcslen(unicode) * 3);
+		DLTX::DLAsciiString utf8;
+		utf8.reserve(unicode.length() * 3);
 
-		for (size_t i = 0; i < wcslen(unicode); ++i)
+		for (size_t i = 0; i < unicode.length(); ++i)
 		{
 			dl_wchar wc = unicode[i];
 			if (wc <= 0x7F)
@@ -49,12 +51,12 @@ namespace DLTX
 		return utf8;
 	}
 
-	std::wstring DLCharacterSetUtil::Utf8ToUnicode(const dl_char* utf8)
+	DLTX::DLString DLCharacterSetUtil::Utf8ToUnicode(const DLTX::DLAsciiString& utf8)
 	{
-		std::wstring unicode;
-		unicode.reserve(strlen(utf8));
+		DLTX::DLString unicode;
+		unicode.reserve(utf8.length());
 		size_t i = 0;
-		while (i < strlen(utf8))
+		while (i < utf8.length())
 		{
 			unsigned char c = static_cast<unsigned char>(utf8[i]);
 			if (c <= 0x7F)
@@ -64,14 +66,14 @@ namespace DLTX
 			}
 			else if ((c & 0xE0) == 0xC0)
 			{
-				if (i + 1 >= strlen(utf8)) break;
+				if (i + 1 >= utf8.length()) break;
 				unsigned char c2 = static_cast<unsigned char>(utf8[i + 1]);
 				unicode.push_back(static_cast<dl_wchar>(((c & 0x1F) << 6) | (c2 & 0x3F)));
 				i += 2;
 			}
 			else if ((c & 0xF0) == 0xE0)
 			{
-				if (i + 2 >= strlen(utf8)) break;
+				if (i + 2 >= utf8.length()) break;
 				unsigned char c2 = static_cast<unsigned char>(utf8[i + 1]);
 				unsigned char c3 = static_cast<unsigned char>(utf8[i + 2]);
 				unicode.push_back(static_cast<dl_wchar>(((c & 0x0F) << 12) | ((c2 & 0x3F) << 6) | (c3 & 0x3F)));
@@ -86,11 +88,11 @@ namespace DLTX
 		return unicode;
 	}
 
-	std::wstring DLCharacterSetUtil::ShiftJisToUnicode(const dl_char* shiftJis)
+	DLTX::DLString DLCharacterSetUtil::ShiftJisToUnicode(const DLTX::DLAsciiString& shiftJis)
 	{
-		std::wstring unicode;
-		const char* src = shiftJis;
-		int srcLen = static_cast<int>(strlen(shiftJis));
+		DLTX::DLString unicode;
+		const char* src = shiftJis.c_str();
+		int srcLen = static_cast<int>(shiftJis.length());
 		if (srcLen > 0)
 		{
 			int required = MultiByteToWideChar(932 /* CP_SHIFT_JIS */, 0, src, srcLen, nullptr, 0);
@@ -105,13 +107,13 @@ namespace DLTX
 		return unicode.c_str();
 	}
 
-	std::string DLCharacterSetUtil::UnicodeToShiftJis(const dl_wchar* unicode)
+	DLTX::DLAsciiString DLCharacterSetUtil::UnicodeToShiftJis(const DLTX::DLString& unicode)
 	{
-		std::string shiftJis;
-		shiftJis.reserve(wcslen(unicode) * 2);
+		DLTX::DLAsciiString shiftJis;
+		shiftJis.reserve(unicode.length() * 2);
 
-		const wchar_t* src = unicode;
-		int srcLen = static_cast<int>(wcslen(unicode));
+		const wchar_t* src = unicode.c_str();
+		int srcLen = static_cast<int>(unicode.length());
 		if (srcLen > 0)
 		{
 			int required = WideCharToMultiByte(932, 0, src, srcLen, nullptr, 0, nullptr, nullptr);
@@ -126,15 +128,15 @@ namespace DLTX
 		return shiftJis.c_str();
 	}
 
-	std::string DLCharacterSetUtil::ShiftJisToUtf8(const dl_char* shiftJis)
+	DLTX::DLAsciiString DLCharacterSetUtil::ShiftJisToUtf8(const DLTX::DLAsciiString& shiftJis)
 	{
-		std::wstring unicode = ShiftJisToUnicode(shiftJis);
-		return UnicodeToUtf8(unicode.c_str());
+		DLTX::DLString unicode = ShiftJisToUnicode(shiftJis);
+		return UnicodeToUtf8(unicode);
 	}
 
-	std::string DLCharacterSetUtil::Utf8ToShiftJis(const dl_char* utf8)
+	DLTX::DLAsciiString DLCharacterSetUtil::Utf8ToShiftJis(const DLTX::DLAsciiString& utf8)
 	{
-		std::wstring unicode = Utf8ToUnicode(utf8);
-		return UnicodeToShiftJis(unicode.c_str());
+		DLTX::DLString unicode = Utf8ToUnicode(utf8);
+		return UnicodeToShiftJis(unicode);
 	}
 }
