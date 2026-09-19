@@ -20,11 +20,25 @@ namespace DLUT
 			return &m_Data[index];
 		}
 
+		void PushBack(const T& value)
+		{
+			if (m_Count >= nSize)
+				DL_PANIC("out of memory");
+
+			m_Data[m_Count] = value;
+			m_Count++;
+		}
+
 		T& operator[](size_t index)
 		{
 			return *GetAt(index);
 		}
 
 		dl_uint Size() const { return m_Count; }
+
+		void Clear()
+		{
+			m_Count = 0;
+		}
 	};
 }
