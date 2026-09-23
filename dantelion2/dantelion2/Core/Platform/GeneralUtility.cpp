@@ -8,8 +8,12 @@ DLPanicMode& DLPanic::panic_mode_override = *(DLPanicMode*)(MODULE_ADDR + 0x157d
 
 void DLPanic::ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* reason, ...)
 {
+	dl_char buf[4096];
+
 	va_list args;
 	va_start(args, reason);
+	vsnprintf(buf, sizeof(buf), reason, args);
+	va_end(args);
 
 	switch (panic_mode_override)
 	{
@@ -17,7 +21,7 @@ void DLPanic::ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* re
 		break;
 	case DLPanicMode::DLPANICMODE_INVOKEDEBUGGER:
 		DLSY::DLRawTrace(true, "---------------------------------\n[Dantelion2 Panic] \n%s(%d)\n", file, line);
-		DLSY::DLRawTraceV(true, "%s\n", args);
+		DLSY::DLRawTrace(true, "%s\n", buf);
 
 		DLSY::DLRuntime::InvokeDebugger();
 
@@ -25,10 +29,7 @@ void DLPanic::ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* re
 		break;
 	case DLPanicMode::DLPANICMODE_THROWEXCEPTION:
 	{
-		char buf[4096];
-		vsnprintf(buf, sizeof(buf), reason, args);
-
-		throw DLPanicException();
+		throw DLPanicException(buf);
 	}
 	default:
 		break;
