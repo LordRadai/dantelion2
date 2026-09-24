@@ -22,6 +22,7 @@ void DLPanic::ReportPanic(const dl_char* file, dl_uint32 line, const dl_char* re
 	case DLPanicMode::DLPANICMODE_INVOKEDEBUGGER:
 		DLSY::DLRawTrace(true, "---------------------------------\n[Dantelion2 Panic] \n%s(%d)\n", file, line);
 		DLSY::DLRawTraceV(true, reason, args);
+		DLSY::DLRawTrace(true, "\n");
 
 		DLSY::DLRuntime::InvokeDebugger();
 
