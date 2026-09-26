@@ -55,9 +55,9 @@ namespace DLMT2
 {
 	struct DL_COLOR_U8
 	{
-		dl_uchar b;
-		dl_uchar g;
 		dl_uchar r;
+		dl_uchar g;
+		dl_uchar b;
 		dl_uchar a;
 
 		DL_COLOR_U8() {};
