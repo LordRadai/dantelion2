@@ -15,8 +15,8 @@ namespace DLLinearEx
 		dl_float32 GetHeadRadius() const { return m_fHeadRadius; }
 		dl_float32 GetHeadLenghtRatio() const { return m_fHeadRatio; }
 
-		dl_float32 m_fShaftRadius;
 		dl_float32 m_fHeadRadius;
+		dl_float32 m_fShaftRadius;
 		dl_float32 m_fHeadRatio;
 	};
 
