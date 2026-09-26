@@ -7,17 +7,17 @@ namespace DLLinearEx
 	{
 		DL_ARROW() {};
 		DL_ARROW(const DLMT::DL_SEGMENT& segment, dl_float32 shaftRadius, dl_float32 headRadius, dl_float32 shaftRatio)
-			: DLMT::DL_SEGMENT(segment), m_fShaftRadius(shaftRadius), m_fHeadRadius(headRadius), m_fShaftRatio(shaftRatio) {}
+			: DLMT::DL_SEGMENT(segment), m_fShaftRadius(shaftRadius), m_fHeadRadius(headRadius), m_fHeadRatio(shaftRatio) {}
 		DL_ARROW(const DLMT::DL_VECTOR4AL& origin, const DLMT::DL_VECTOR4AL& direction, dl_float32 shaftRadius, dl_float32 headRadius, dl_float32 shaftRatio)
-			: DLMT::DL_SEGMENT(origin, direction), m_fShaftRadius(shaftRadius), m_fHeadRadius(headRadius), m_fShaftRatio(shaftRatio) {}
+			: DLMT::DL_SEGMENT(origin, direction), m_fShaftRadius(shaftRadius), m_fHeadRadius(headRadius), m_fHeadRatio(shaftRatio) {}
 
 		dl_float32 GetShaftRadius() const { return m_fShaftRadius; }
 		dl_float32 GetHeadRadius() const { return m_fHeadRadius; }
-		dl_float32 GetShaftLengthRatio() const { return m_fShaftRatio; }
+		dl_float32 GetHeadLenghtRatio() const { return m_fHeadRatio; }
 
 		dl_float32 m_fShaftRadius;
 		dl_float32 m_fHeadRadius;
-		dl_float32 m_fShaftRatio;
+		dl_float32 m_fHeadRatio;
 	};
 
 	struct DL_CONE : public DLMT::DL_SEGMENT

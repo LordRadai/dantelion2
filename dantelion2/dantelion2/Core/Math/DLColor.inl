@@ -53,9 +53,9 @@ namespace DLMT
 
 	inline DL_COLOR_32::DL_COLOR_32(const dl_float32* pColor)
 	{
-		r = static_cast<dl_uint32>(pColor[0] * 255.0f);
+		b = static_cast<dl_uint32>(pColor[0] * 255.0f);
 		g = static_cast<dl_uint32>(pColor[1] * 255.0f);
-		b = static_cast<dl_uint32>(pColor[2] * 255.0f);
+		r = static_cast<dl_uint32>(pColor[2] * 255.0f);
 		a = static_cast<dl_uint32>(pColor[3] * 255.0f);
 	}
 
@@ -69,9 +69,9 @@ namespace DLMT
 
 	inline DL_COLOR_32::DL_COLOR_32(DL_COLOR_F4& color)
 	{
-		r = static_cast<dl_uint32>(color.x * 255.0f);
+		b = static_cast<dl_uint32>(color.x * 255.0f);
 		g = static_cast<dl_uint32>(color.y * 255.0f);
-		b = static_cast<dl_uint32>(color.z * 255.0f);
+		r = static_cast<dl_uint32>(color.z * 255.0f);
 		a = static_cast<dl_uint32>(color.w * 255.0f);
 	}
 
@@ -82,11 +82,7 @@ namespace DLMT
 
 	inline DL_COLOR_32& DL_COLOR_32::operator=(const dl_uint32 Color)
 	{
-		r = (Color & 0x00FF0000) >> 16;
-		g = (Color & 0x0000FF00) >> 8;
-		b = (Color & 0x000000FF);
-		a = (Color & 0xFF000000) >> 24;
-
+		c = Color;
 		return *this;
 	}
 
