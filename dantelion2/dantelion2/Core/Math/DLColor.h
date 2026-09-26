@@ -14,7 +14,7 @@ namespace DLMT
 	struct DL_COLOR_F4 : public DL_VECTOR4
 	{
 		DL_COLOR_F4() {};
-		DL_COLOR_F4(dl_float32 b, dl_float32 g, dl_float32 r, dl_float32 a) : DL_VECTOR4(b, g, r, a) {}
+		DL_COLOR_F4(dl_float32 r, dl_float32 g, dl_float32 b, dl_float32 a) : DL_VECTOR4(r, g, b, a) {}
 		DL_COLOR_F4(const DL_VECTOR4& v) : DL_VECTOR4(v) {}
 		DL_COLOR_F4(const DLMT2::DL_COLOR_U8& color);
 		DL_COLOR_F4(const DL_COLOR_32& color);
