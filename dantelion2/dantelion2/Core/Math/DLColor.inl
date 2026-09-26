@@ -67,7 +67,7 @@ namespace DLMT
 		a = color.a;
 	}
 
-	inline DL_COLOR_32::DL_COLOR_32(DL_COLOR_F4& color)
+	inline DL_COLOR_32::DL_COLOR_32(const DL_COLOR_F4& color)
 	{
 		r = static_cast<dl_uint32>(color.x * 255.0f + 0.5f);
 		g = static_cast<dl_uint32>(color.y * 255.0f + 0.5f);
@@ -75,7 +75,7 @@ namespace DLMT
 		a = static_cast<dl_uint32>(color.w * 255.0f + 0.5f);
 	}
 
-	inline DL_COLOR_32::operator dl_uint32(void)
+	inline DL_COLOR_32::operator dl_uint32(void) const
 	{
 		return c;
 	}
