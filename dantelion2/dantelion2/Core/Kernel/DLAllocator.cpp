@@ -63,11 +63,21 @@ namespace DLKR
     }
 
     void* DLAllocator::Allocate(size_type size) {
-        return VIRTUAL_CALL(this, 9, oAllocate, this, size);
+		void* p = VIRTUAL_CALL(this, 9, oAllocate, this, size);
+
+        if (p == nullptr)
+			DL_PANIC("Out of memory %d.", GetHeapID());
+
+        return p;
     }
 
     void* DLAllocator::AllocateAligned(size_type size, dl_uint align) {
-        return VIRTUAL_CALL(this, 10, oAllocateAligned, this, size, align);
+		void* p = VIRTUAL_CALL(this, 10, oAllocateAligned, this, size, align);
+
+        if (p == nullptr)
+			DL_PANIC("Out of memory %d.", GetHeapID());
+
+        return p;
     }
 
     void* DLAllocator::Reallocate(void* old, size_type size) {

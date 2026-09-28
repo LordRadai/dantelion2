@@ -60,4 +60,4 @@ public:
     static DLPanicMode& panic_mode_override;
 };
 
-#define DL_PANIC(error) DLPanic::ReportPanic(__FILE__, __LINE__, error)
+#define DL_PANIC(error, ...) DLPanic::ReportPanic(__FILE__, __LINE__, error, __VA_ARGS__)
