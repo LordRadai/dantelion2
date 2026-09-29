@@ -10,6 +10,9 @@ namespace DLUT
 		dl_uint8 m_Storage[nSize * sizeof(T) + __alignof(T) - 1];
 		dl_size  m_Count;
 
+	public:
+		DLFixedVector() : m_Count(0) {}
+
 		T* Data()
 		{
 			dl_pointer_int p = reinterpret_cast<dl_pointer_int>(m_Storage);
@@ -17,9 +20,6 @@ namespace DLUT
 		}
 
 		const T* Data() const { return const_cast<DLFixedVector*>(this)->Data(); }
-
-	public:
-		DLFixedVector() : m_Count(0) {}
 
 		T* GetAt(size_t index)
 		{
