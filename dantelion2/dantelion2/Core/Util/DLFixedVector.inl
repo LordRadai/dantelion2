@@ -12,9 +12,10 @@ namespace DLUT
 
 		T* Data()
 		{
-			dl_pointer p = reinterpret_cast<dl_pointer>(m_Storage);
+			dl_pointer_int p = reinterpret_cast<dl_pointer_int>(m_Storage);
 			return reinterpret_cast<T*>(p + ((0 - p) & (__alignof(T) - 1)));
 		}
+
 		const T* Data() const { return const_cast<DLFixedVector*>(this)->Data(); }
 
 	public:
@@ -34,6 +35,7 @@ namespace DLUT
 				DL_PANIC("out of memory");
 
 			new (&Data()[m_Count]) T(value);
+
 			m_Count++;
 		}
 
@@ -42,12 +44,13 @@ namespace DLUT
 		T* Begin() { return Data(); }
 		T* End() { return Data() + m_Count; }
 
-		dl_uint Size() const { return static_cast<dl_uint>(m_Count); }
+		dl_size Size() const { return m_Count; }
 
 		void Clear()
 		{
 			for (size_t i = 0; i < m_Count; ++i)
 				Data()[i].~T();
+
 			m_Count = 0;
 		}
 	};
