@@ -12,7 +12,7 @@ namespace DLUT
 
 		T* Data()
 		{
-			dl_uintptr p = reinterpret_cast<dl_uintptr>(m_Storage);
+			dl_pointer p = reinterpret_cast<dl_pointer>(m_Storage);
 			return reinterpret_cast<T*>(p + ((0 - p) & (__alignof(T) - 1)));
 		}
 		const T* Data() const { return const_cast<DLFixedVector*>(this)->Data(); }
