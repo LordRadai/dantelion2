@@ -2,6 +2,7 @@
 #include "Core/Assert/DLAssert.h"
 #include "Core/System/DLRuntime.h"
 #include "Call.h"
+#include "DLFileOperator.h"
 
 namespace DLIO
 {

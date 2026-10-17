@@ -5,6 +5,29 @@
 
 namespace DLIO
 {
+    enum DLSeekDirection
+    {
+        SD_HEAD,
+        SD_CURRENT,
+        SD_TAIL,
+    };
+
+    enum IO_ERROR_CODE 
+    {
+        IO_ERROR_NONE = 0,
+        IO_ERROR_UNKNOWN,
+        IO_ERROR_UNSUPPORTED,
+        IO_ERROR_PERMISSION_DENIED,
+        IO_ERROR_FILE_NOT_EXIST,
+        IO_ERROR_NOT_OPEN,
+        IO_ERROR_IS_READ_ONLY,
+        IO_ERROR_NOT_FILE,
+        IO_ERROR_NOT_DIRECTORY,
+        IO_ERROR_MULTIPLE_ASYNC,
+        IO_ERROR_MULTIPLE_FIND,
+        IO_ERROR_NOT_FINDING,
+    };
+
 	class DLFile
 	{
 	public:

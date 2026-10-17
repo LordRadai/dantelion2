@@ -225,6 +225,15 @@
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="Core\Assert\DLAssert.h" />
+    <ClInclude Include="Core\InputOutput\DLFileInputStream.h" />
+    <ClInclude Include="Core\InputOutput\DLFileOperator.h" />
+    <ClInclude Include="Core\InputOutput\DLInputStream.h" />
+    <ClInclude Include="Core\InputOutput\DLInputStreamReader.h" />
+    <ClInclude Include="Core\InputOutput\DLMemoryInputStream.h" />
+    <ClInclude Include="Core\InputOutput\DLPseudoAsyncInputStream.h" />
+    <ClInclude Include="Core\InputOutput\DLReader.h" />
+    <ClInclude Include="Core\InputOutput\DLSeekableInputStream.h" />
+    <ClInclude Include="Core\InputOutput\DLWriter.h" />
     <ClInclude Include="Core\Kernel\DLThreadTraits.h" />
     <ClInclude Include="Core\Graphics\Core\CGBuffer.h" />
     <ClInclude Include="Core\Graphics\Core\CGDepthStencilView.h" />
@@ -321,6 +330,7 @@
     <ClInclude Include="Core\Math\DLLinear.h" />
     <ClInclude Include="Core\Math\DLLinearEx.h" />
     <ClInclude Include="Core\Math\DLLinearIntrinsic.h" />
+    <ClInclude Include="Core\Math\DLMathCommon.h" />
     <ClInclude Include="Core\Math\DLMatrix.h" />
     <ClInclude Include="Core\Math\DLQuaternion.h" />
     <ClInclude Include="Core\Math\DLTrigonometry.h" />
@@ -374,6 +384,7 @@
     <ClInclude Include="Core\Text\DLCharacterSet.h" />
     <ClInclude Include="Core\Text\DLCharacterSetUtil.h" />
     <ClInclude Include="Core\Text\DLFormat.h" />
+    <ClInclude Include="Core\Text\DLPathString.h" />
     <ClInclude Include="Core\Text\DLStringUtil.h" />
     <ClInclude Include="Core\Text\Text.h" />
     <ClInclude Include="Core\UserInput\details\DynamicBitset.h" />
@@ -401,6 +412,7 @@
     <ClInclude Include="Core\Util\DLReferenceCountObject.h" />
     <ClInclude Include="Core\Util\DLSet.h" />
     <ClInclude Include="Core\Util\DLSingleton.inl" />
+    <ClInclude Include="Core\Util\DLTemporaryMemoryTraits.h" />
     <ClInclude Include="Core\Util\DLTypeList.h" />
     <ClInclude Include="Core\Util\DLTypeManipulation.h" />
     <ClInclude Include="Core\Util\DLVector.h" />
@@ -414,6 +426,11 @@
   <ItemGroup>
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Core\Assert\DLAssert.cpp" />
+    <ClCompile Include="Core\InputOutput\DLFileInputStream.cpp" />
+    <ClCompile Include="Core\InputOutput\DLFileOperator.cpp" />
+    <ClCompile Include="Core\InputOutput\DLInputStreamReader.cpp" />
+    <ClCompile Include="Core\InputOutput\DLMemoryInputStream.cpp" />
+    <ClCompile Include="Core\InputOutput\DLWriter.cpp" />
     <ClCompile Include="Core\Kernel\detail\DLAllocationHelper.cpp" />
     <ClCompile Include="Core\Kernel\DLThreadTraits.cpp" />
     <ClCompile Include="Core\Graphics\Core\CGResource.cpp" />
@@ -470,11 +487,11 @@
     <ClCompile Include="Core\System\System.cpp" />
     <ClCompile Include="Core\Text\DLCharacterSetUtil.cpp" />
     <ClCompile Include="Core\Text\DLFormat.cpp" />
-    <ClCompile Include="Core\Text\DLStringUtil.cpp" />
     <ClCompile Include="Core\Util\detail\DLRandomGeneratorLCG.cpp" />
     <ClCompile Include="Core\Util\detail\DLRandomGeneratorXorshift.cpp" />
     <ClCompile Include="Core\Util\DLProperties.cpp" />
     <ClCompile Include="Core\Util\DLReferenceCountObject.cpp" />
+    <ClCompile Include="Core\Util\DLTemporaryMemoryTraits.cpp" />
     <ClCompile Include="CustomDynamicInitializerRegistry.cpp" />
   </ItemGroup>
   <ItemGroup>

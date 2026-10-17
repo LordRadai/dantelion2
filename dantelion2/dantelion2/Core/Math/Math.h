@@ -11,3 +11,4 @@
 
 #include "DLIntersection.h"
 #include "DLTrigonometry.h"
+#include "DLMathCommon.h"
