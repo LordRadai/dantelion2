@@ -3,15 +3,15 @@
 
 namespace DLIO 
 {
-    inline DLInputStreamReader::DLInputStreamReader(DLInputStream& in)
+    DLInputStreamReader::DLInputStreamReader(DLInputStream& in)
         : m_in(in), m_isEos(false) {}
 
-    inline DLInputStreamReader::DLInputStreamReader(const DLInputStreamReader& in)
+    DLInputStreamReader::DLInputStreamReader(const DLInputStreamReader& in)
         : m_in(in.m_in), m_isEos(false) {}
 
-    inline DLInputStreamReader::~DLInputStreamReader() {}
+    DLInputStreamReader::~DLInputStreamReader() {}
 
-    inline dl_int32 DLInputStreamReader::Read(void* buf, dl_size size) {
+    dl_int32 DLInputStreamReader::Read(void* buf, dl_size size) {
         return m_in.Read(buf, size);
     }
 
