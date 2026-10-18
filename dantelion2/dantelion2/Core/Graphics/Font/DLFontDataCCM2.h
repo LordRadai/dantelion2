@@ -3,9 +3,9 @@
 
 namespace DLGR
 {
-	class DLFontDataCCM2 : public DLFontData
+	class DLFontDataCCM2 : public DLRasterFontData
 	{
-	public:
+	private:
 		dl_pointer m_pCCM2FileData;
 		dl_pointer m_pTextureList;
 		dl_bool m_bVar30;
