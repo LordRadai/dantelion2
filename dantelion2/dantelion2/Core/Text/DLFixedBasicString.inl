@@ -3,18 +3,23 @@
 
 namespace DLTX
 {
-	template<typename _Elem>
+	template<typename _Elem, dl_size N = 32>
 	class DLFixedBasicString
 	{
-		_Elem* m_pBuffer;
-		dl_pointer m_pVar8;
+		union
+		{
+			_Elem* m_pPtr;
+			_Elem m_sso[16 / sizeof(_Elem)];
+		};
 		dl_size m_size;
 		dl_size m_capacity;
-		_Elem m_name[32];
-		dl_pointer m_pVar40;
-		dl_pointer m_pVar48;
+
+		_Elem m_buffer[N];
+		dl_uint8 m_allocatorState[8];
+		dl_bool m_bFixed;
 
 	public:
-		_Elem* c_str() const { return m_pBuffer; }
+		const _Elem* c_str() const { return m_capacity >= (16 / sizeof(_Elem)) ? m_pPtr : m_sso; }
+		dl_size size() const { return m_size; }
 	};
 }
