@@ -369,6 +369,9 @@
     <ClInclude Include="Core\Resource\DLResourceLoadEvent.h" />
     <ClInclude Include="Core\Resource\DLResourceLoadEventQueue.h" />
     <ClInclude Include="Core\Resource\Resource.h" />
+    <ClInclude Include="Core\Sound\MOSoundID.h" />
+    <ClInclude Include="Core\Sound\MOSoundObject.h" />
+    <ClInclude Include="Core\Sound\Sound.h" />
     <ClInclude Include="Core\System\DLAssertEventListener.h" />
     <ClInclude Include="Core\System\DLAssertEventManager.h" />
     <ClInclude Include="Core\System\DLAssertEventSocket.h" />
