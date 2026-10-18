@@ -14,9 +14,6 @@ namespace DLGR
 	class DLFontData : public DLUT::DLReferenceCountObject
 	{
 	public:
-		DLFontRenderer* m_pDLFontRenderer;
-		DLKR::DLAllocator* m_pAllocator;
-
 		virtual void Destroy() override {}
 		virtual ~DLFontData() {}  
 		virtual DLRF::DLRuntimeClass* GetRuntimeClassOfThis() const;
