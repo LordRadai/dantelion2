@@ -3,8 +3,12 @@
 
 namespace DLKR
 {
+	class DLThreadMessageBroker;
+
 	class DLRunnable
 	{
-		void** _vfptr;
+	public:
+		virtual void Run(DLThreadMessageBroker* pBroker) = 0;
+		virtual ~DLRunnable() {}
 	};
 }
