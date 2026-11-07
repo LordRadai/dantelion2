@@ -22,7 +22,7 @@ inline void DLDelete(T* p, H* allocator)
     if (p)
     {
         p->~T();
-        DLKRD::AllocationSupporter<H>::Deallocate(p, allocator);
+        DLKRD::AllocationSupporter<H>::Deallocate(const_cast<typename std::remove_cv<T>::type*>(p), allocator);
     }
 }
 
