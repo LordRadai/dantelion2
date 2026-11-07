@@ -16,4 +16,15 @@ inline void operator delete(void* p, dl_size align, H* allocator)
     DLKRD::AllocationSupporter<H>::Deallocate(p, allocator);
 }
 
+template<class T, class H>
+inline void DLDelete(T* p, H* allocator)
+{
+    if (p)
+    {
+        p->~T();
+        DLKRD::AllocationSupporter<H>::Deallocate(p, allocator);
+    }
+}
+
 #define DL_NEW(type, allocator) new(__alignof(type), allocator) type
+#define DL_DELETE(p, allocator) DLDelete(p, allocator)
