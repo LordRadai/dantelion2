@@ -17,12 +17,13 @@ inline void operator delete(void* p, dl_size align, H* allocator)
 }
 
 template<class T, class H>
-inline void DLDelete(T* p, H* allocator)
+inline void DLDelete(T*& p, H* allocator)
 {
     if (p)
     {
         p->~T();
         DLKRD::AllocationSupporter<H>::Deallocate(const_cast<typename std::remove_cv<T>::type*>(p), allocator);
+        p = nullptr
     }
 }
 
