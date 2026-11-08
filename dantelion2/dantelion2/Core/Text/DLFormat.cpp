@@ -11,18 +11,6 @@ namespace DLTX
 	typedef dl_size(_fastcall* wc_FormatV_size_t)(dl_wchar*, dl_size, const dl_wchar*, va_list);
 	typedef dl_size(_fastcall* wc_FormatV_str_t)(DLString&, const dl_wchar*, va_list);
 
-	dl_size DLFormat<dl_char>::Format(dl_char* buf, const dl_char* fmt, ...)
-	{
-		va_list args;
-		va_start(args, fmt);
-
-		dl_size v = FormatV(buf, fmt, args);
-
-		va_end(args);
-		
-		return v;
-	}
-
 	dl_size DLFormat<dl_char>::Format(DLAsciiString& buf, const dl_char* fmt, ...)
 	{
 		va_list args;
@@ -47,7 +35,7 @@ namespace DLTX
 		return v;
 	}
 
-	dl_size DLFormat<dl_char>::Format(DLAsciiString& buf, const dl_char* fmt, ...)
+	dl_size DLFormat<dl_char>::Format(dl_char* buf, const dl_char* fmt, ...)
 	{
 		va_list args;
 		va_start(args, fmt);
@@ -74,6 +62,18 @@ namespace DLTX
 		return CALL(c_FormatV_str_t, 0x834cb0, buf, fmt, args);
 	}
 
+	dl_size DLFormat<dl_wchar>::Format(DLString& buf, const dl_wchar* fmt, ...)
+	{
+		va_list args;
+		va_start(args, fmt);
+
+		dl_size v = FormatV(buf, fmt, args);
+
+		va_end(args);
+
+		return v;
+	}
+
 	dl_size DLFormat<dl_wchar>::Format(dl_wchar* buf, dl_size size, const dl_wchar* fmt, ...)
 	{
 		va_list args;
@@ -87,18 +87,6 @@ namespace DLTX
 	}
 
 	dl_size DLFormat<dl_wchar>::Format(dl_wchar* buf, const dl_wchar* fmt, ...)
-	{
-		va_list args;
-		va_start(args, fmt);
-
-		dl_size v = FormatV(buf, fmt, args);
-
-		va_end(args);
-
-		return v;
-	}
-
-	dl_size DLFormat<dl_wchar>::Format(DLString& buf, const dl_wchar* fmt, ...)
 	{
 		va_list args;
 		va_start(args, fmt);
