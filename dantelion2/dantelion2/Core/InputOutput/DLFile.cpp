@@ -7,6 +7,7 @@
 namespace DLIO
 {
 	typedef void(_fastcall* Constructor_t)(DLFile*, const dl_wchar*, dl_size, DLKR::DLAllocator*, dl_bool, dl_bool);
+	typedef void(_fastcall* Destructor_t)(DLFile*);
 	typedef dl_bool(_fastcall* Exists_t)(const DLFile*);
 	typedef dl_bool(_fastcall* IsDirectory_t)(const DLFile*);
 	typedef dl_size(_fastcall* GetSize_t)(const DLFile*);
@@ -15,6 +16,11 @@ namespace DLIO
 	DLFile::DLFile(const dl_wchar* filePath, dl_size offset, DLKR::DLAllocator* pAllocator, dl_bool param_4, dl_bool param_5)
 	{
 		CALL(Constructor_t, 0xb14fe0, this, filePath, offset, pAllocator, param_4, param_5);
+	}
+
+	DLFile::~DLFile()
+	{
+		CALL(Destructor_t, 0x8552d0, this);
 	}
 
 	dl_bool DLFile::DoesExists() const

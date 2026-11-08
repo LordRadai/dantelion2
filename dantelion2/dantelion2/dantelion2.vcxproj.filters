@@ -621,6 +621,15 @@
     <ClInclude Include="Core\Sound\MOSoundObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\InputOutput\DLOutputStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\InputOutput\DLSeekableOutputStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\InputOutput\DLFileOutputStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -828,6 +837,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\InputOutput\DLFileInputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\InputOutput\DLSeekableOutputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\InputOutput\DLFileOutputStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

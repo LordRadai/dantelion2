@@ -3,3 +3,5 @@
 #include "DLPathUtil.h"
 #include "DLMemoryInputStream.h"
 #include "DLInputStreamReader.h"
+#include "DLFileInputStream.h"
+#include "DLFileOutputStream.h"

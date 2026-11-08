@@ -32,7 +32,9 @@ namespace DLIO
 	{
 	public:
 		DLFile(const dl_wchar* filePath, dl_size offset, DLKR::DLAllocator* pAllocator, dl_bool param_4 = false, dl_bool bUseCache = false);
-		dl_bool DoesExists() const;
+        ~DLFile();
+
+        dl_bool DoesExists() const;
 		dl_bool IsDirectory() const;
 		dl_size GetSize() const;
 		DLTX::DLString GetPath() const;
