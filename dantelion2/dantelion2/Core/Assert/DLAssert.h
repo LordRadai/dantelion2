@@ -17,9 +17,10 @@ namespace DLPF
 		const dl_wchar* Msg;
 		const dl_wchar* File;
 		dl_uint Line;
+		dl_bool bIgnore;
 
 		DL_ASSERT_INFO(const dl_wchar* msg, const dl_wchar* file, dl_uint line)
-			: State(0), Msg(msg), File(file), Line(line) {}
+			: State(0), Msg(msg), File(file), Line(line), bIgnore(false) {}
 	};
 
 	struct DL_ASSERT_RESULT
@@ -34,11 +35,11 @@ namespace DLPF
 	static class DLAssert
 	{
 	public:
-		static void ReportAssertionFailure(const DLAssertEvent& info);
+		static void ReportAssertionFailure(DLAssertEvent& info);
 		static dl_bool IsAssertEnabled() { return s_bAssertEnabled; }
 		static void SetAssertEnabled(dl_bool enabled) { s_bAssertEnabled = enabled; }
 	private:
-		static void _ReportAssertionFailure(const dl_wchar* file, dl_uint line, const dl_wchar* msg, const DLAssertEvent& info);
+		static void _ReportAssertionFailure(const dl_wchar* file, dl_uint line, const dl_wchar* msg, DLAssertEvent& info);
 
 		static dl_bool s_bAssertEnabled;
 	};
