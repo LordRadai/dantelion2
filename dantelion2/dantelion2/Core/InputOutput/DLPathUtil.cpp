@@ -210,8 +210,6 @@ namespace DLIO
 				if (c == L'/' || c == L'\\')
 					CreateDirectoryW(current.c_str(), nullptr);
 			}
-
-			CreateDirectoryW(path, nullptr);
 		}
 	}
 }
