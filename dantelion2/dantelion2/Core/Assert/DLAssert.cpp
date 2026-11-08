@@ -5,12 +5,13 @@ namespace DLPF
 {
 	bool DLAssert::s_bAssertEnabled = true;
 
-	void DLAssert::ReportAssertionFailure(const DL_ASSERT_INFO& info)
+	void DLAssert::ReportAssertionFailure(DLAssertEvent& info)
 	{
-		_ReportAssertionFailure(info.File, info.Line, info.Msg, info);
+		if (!info.bIgnore)
+			_ReportAssertionFailure(info.File, info.Line, info.Msg, info);
 	}
 
-	void DLAssert::_ReportAssertionFailure(const dl_wchar* file, dl_uint line, const dl_wchar* msg, const DLAssertEvent& info)
+	void DLAssert::_ReportAssertionFailure(const dl_wchar* file, dl_uint line, const dl_wchar* msg, DLAssertEvent& info)
 	{
 		DLSY::DLRuntime* pRuntime = DLSY::DLRuntime::GetRuntime();
 		DLSY::DLAssertEventManager* pAssertEventManager = pRuntime->GetAssertEventManager();
@@ -19,10 +20,18 @@ namespace DLPF
 		pAssertEventManager->FireAssertEvent(&result, info);
 
 		if (result.bIgnore)
+		{
+			info.bIgnore = true;
 			return;
+		}
 		else if (result.bAbort)
-			DL_PANIC("Assertion event insisted on terminating the program.");
-		else
+		{
 			DLSY::DLRuntime::InvokeDebugger();
+			DL_PANIC("Assertion event insisted on terminating the program.");
+		}
+		else
+		{
+			return;
+		}
 	}
 }
