@@ -225,6 +225,7 @@
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="Core\Assert\DLAssert.h" />
+    <ClInclude Include="Core\InputOutput\DLCharacterInputStreamReader.h" />
     <ClInclude Include="Core\InputOutput\DLCharacterOutputStreamWriter.h" />
     <ClInclude Include="Core\InputOutput\DLFileInputStream.h" />
     <ClInclude Include="Core\InputOutput\DLFileOperator.h" />
@@ -433,6 +434,7 @@
   <ItemGroup>
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Core\Assert\DLAssert.cpp" />
+    <ClCompile Include="Core\InputOutput\DLCharacterInputStreamReader.cpp" />
     <ClCompile Include="Core\InputOutput\DLCharacterOutputStreamWriter.cpp" />
     <ClCompile Include="Core\InputOutput\DLFileInputStream.cpp" />
     <ClCompile Include="Core\InputOutput\DLFileOperator.cpp" />

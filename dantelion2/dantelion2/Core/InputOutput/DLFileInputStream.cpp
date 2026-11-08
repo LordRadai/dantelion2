@@ -101,7 +101,7 @@ namespace DLIO
 		return CALL(GetPosition_t, 0x876A90, this);
 	}
 
-	dl_bool DLFileInputStream::IsEOS(void)
+	dl_bool DLFileInputStream::IsEOS(void) const
 	{
 		return CALL(IsEOS_t, 0x876AD0, this);
 	}

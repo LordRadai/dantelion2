@@ -633,6 +633,9 @@
     <ClInclude Include="Core\InputOutput\DLCharacterOutputStreamWriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Core\InputOutput\DLCharacterInputStreamReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Graphics\Core\CGShaderResourceView.cpp">
@@ -852,6 +855,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\InputOutput\DLCharacterOutputStreamWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\InputOutput\DLCharacterInputStreamReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

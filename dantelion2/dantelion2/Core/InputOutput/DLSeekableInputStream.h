@@ -13,6 +13,6 @@ namespace DLIO
 
         typedef dl_bool(_fastcall* SeekPosition_t)(DLSeekableInputStream*, dl_pointer_int, DLSeekDirection);
         typedef dl_pointer_int(_fastcall* GetPosition_t)(DLSeekableInputStream*);
-        typedef dl_bool(_fastcall* IsEOS_t)(DLSeekableInputStream*);
+        typedef dl_bool(_fastcall* IsEOS_t)(const DLSeekableInputStream*);
     };
 }

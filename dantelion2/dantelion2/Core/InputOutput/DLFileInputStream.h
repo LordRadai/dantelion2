@@ -29,6 +29,6 @@ namespace DLIO
         virtual dl_bool StartAsyncRead(dl_int8* buffer, dl_size len);
         virtual dl_bool SeekPosition(dl_pointer_int pos, DLSeekDirection direction = SD_CURRENT);
         virtual dl_pointer_int GetPosition(void);
-        virtual dl_bool IsEOS(void);
+        virtual dl_bool IsEOS(void) const;
     };
 }
