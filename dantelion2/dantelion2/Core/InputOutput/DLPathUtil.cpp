@@ -1,5 +1,6 @@
 #include "DLPathUtil.h"
 #include "Core/Text/DLString.inl"
+#include "Core/System/DLRuntime.h"
 #include "Call.h"
 #include "DLFile.h"
 
@@ -202,13 +203,20 @@ namespace DLIO
 
 		void CreateParentDirectory(const dl_wchar* path)
 		{
-			std::wstring current;
-			for (size_t i = 0; i < wcslen(path); ++i)
+			DLKR::DLAllocator* pAllocator = DLSY::DLRuntimeImpl::GetRuntimeImpl()->GetDefaultAllocator();
+
+			const dl_wchar* pStart = wcsstr(path, L":/");
+			pStart = pStart ? pStart + 2 : path;
+
+			std::wstring current(path, pStart);
+			for (const dl_wchar* p = pStart; *p; ++p)
 			{
-				wchar_t c = path[i];
-				current += c;
-				if (c == L'/' || c == L'\\')
-					CreateDirectoryW(current.c_str(), nullptr);
+				current += *p;
+				if (*p == L'/' || *p == L'\\')
+				{
+					DLIO::DLFile dir(current.c_str(), 0, pAllocator, false, false);
+					dir.CreateDirectory();
+				}
 			}
 		}
 	}

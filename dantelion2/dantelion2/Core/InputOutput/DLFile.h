@@ -2,6 +2,9 @@
 #include "Core/Platform/Platform.h"
 #include "Core/Kernel/DLAllocator.h"
 #include "Core/Text/DLString.inl"
+#include "DLFileOperator.h"
+
+#undef CreateDirectory
 
 namespace DLIO
 {
@@ -41,11 +44,14 @@ namespace DLIO
 		dl_size GetSize() const;
 		DLTX::DLString GetPath() const;
         void EnumerateContents(DLFileEnumerator& enumerator);
+        dl_bool CreateDirectory();
 
-	protected:
+    protected:
+        DLFileOperator* _GetOperator() const;
+
 		DLKR::DLAllocator* m_pAllocator;
-		dl_pointer m_pCacheFileOperator;
-		dl_pointer m_pDiskOperator;
+		DLFileOperator* m_pCacheFileOperator;
+        DLFileOperator* m_pDiskOperator;
 		dl_uint m_Flags;
 	};
 }

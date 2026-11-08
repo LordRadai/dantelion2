@@ -13,7 +13,8 @@ namespace DLIO
 	typedef dl_bool(_fastcall* IsDirectory_t)(const DLFile*);
 	typedef dl_size(_fastcall* GetSize_t)(const DLFile*);
 	typedef void(_fastcall* GetPath_t)(const DLFile*, DLTX::DLString*);
-	typedef DLIO::DLFileEnumerator* (_fastcall* EnumerateContents_t)(DLIO::DLFile*, DLIO::DLFileEnumerator*);
+	typedef DLFileEnumerator* (_fastcall* EnumerateContents_t)(DLFile*, DLIO::DLFileEnumerator*);
+	typedef DLFileOperator* (_fastcall* GetOperator_t)(const DLFile*);
 
 	DLFile::DLFile(const dl_wchar* filePath, dl_size offset, DLKR::DLAllocator* pAllocator, dl_bool param_4, dl_bool param_5)
 	{
@@ -54,5 +55,16 @@ namespace DLIO
 		enumerator.~DLFileEnumerator();
 
 		CALL(EnumerateContents_t, 0x856210, this, &enumerator);
+	}
+
+	dl_bool DLFile::CreateDirectory()
+	{
+		DLFileOperator* pOperator = _GetOperator();
+		return pOperator ? pOperator->CreateDirectory() : false;
+	}
+
+	DLFileOperator* DLFile::_GetOperator() const
+	{
+		return CALL(GetOperator_t, 0x8550c0, this);
 	}
 }
