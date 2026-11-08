@@ -502,6 +502,7 @@
     <ClCompile Include="Core\System\System.cpp" />
     <ClCompile Include="Core\Text\DLCharacterSetUtil.cpp" />
     <ClCompile Include="Core\Text\DLFormat.cpp" />
+    <ClCompile Include="Core\Text\DLPathString.cpp" />
     <ClCompile Include="Core\Util\detail\DLRandomGeneratorLCG.cpp" />
     <ClCompile Include="Core\Util\detail\DLRandomGeneratorXorshift.cpp" />
     <ClCompile Include="Core\Util\DLProperties.cpp" />

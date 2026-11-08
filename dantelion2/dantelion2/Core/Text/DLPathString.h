@@ -6,7 +6,7 @@ namespace DLTX
 	class DLPathString
 	{
 	public:
-		DLPathString() : m_String(DLSY::DLRuntimeImpl::GetRuntimeImpl()->GetDefaultAllocator()), m_CharacterSet(DLTX::CS_PLATFORM) {}
+		DLPathString();
 		DLPathString(DLKR::DLAllocator* allocator) : m_String(allocator), m_CharacterSet(1) {}
 
 		const dl_wchar* c_str() const { return m_String.c_str(); }
