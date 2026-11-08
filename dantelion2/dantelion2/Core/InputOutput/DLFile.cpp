@@ -33,8 +33,8 @@ namespace DLIO
 
 	dl_bool DLFile::IsDirectory() const
 	{
-		DWORD attributes = GetFileAttributesW(reinterpret_cast<const dl_wchar*>(GetPath().c_str()));
-		return (attributes != INVALID_FILE_ATTRIBUTES) && (attributes & FILE_ATTRIBUTE_DIRECTORY);
+		// Game's DLFile::IsDirectory: DoesExists, then the operator's IsDirectory slot.
+		return CALL(IsDirectory_t, 0x855d20, this);
 	}
 
 	dl_size DLFile::GetSize() const
