@@ -5,3 +5,5 @@
 #include "DLInputStreamReader.h"
 #include "DLFileInputStream.h"
 #include "DLFileOutputStream.h"
+#include "DLCharacterOutputStreamWriter.h"
+#include "DLCharacterInputStreamReader.h"

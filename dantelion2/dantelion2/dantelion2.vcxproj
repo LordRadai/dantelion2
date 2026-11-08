@@ -225,6 +225,7 @@
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="Core\Assert\DLAssert.h" />
+    <ClInclude Include="Core\InputOutput\DLCharacterOutputStreamWriter.h" />
     <ClInclude Include="Core\InputOutput\DLFileInputStream.h" />
     <ClInclude Include="Core\InputOutput\DLFileOperator.h" />
     <ClInclude Include="Core\InputOutput\DLFileOutputStream.h" />
@@ -232,7 +233,7 @@
     <ClInclude Include="Core\InputOutput\DLInputStreamReader.h" />
     <ClInclude Include="Core\InputOutput\DLMemoryInputStream.h" />
     <ClInclude Include="Core\InputOutput\DLOutputStream.h" />
-    <ClInclude Include="Core\InputOutput\DLPseudoAsyncInputStream.h" />
+    <ClInclude Include="Core\InputOutput\DLOutputStreamWriter.h" />
     <ClInclude Include="Core\InputOutput\DLReader.h" />
     <ClInclude Include="Core\InputOutput\DLSeekableInputStream.h" />
     <ClInclude Include="Core\InputOutput\DLSeekableOutputStream.h" />
@@ -432,11 +433,13 @@
   <ItemGroup>
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Core\Assert\DLAssert.cpp" />
+    <ClCompile Include="Core\InputOutput\DLCharacterOutputStreamWriter.cpp" />
     <ClCompile Include="Core\InputOutput\DLFileInputStream.cpp" />
     <ClCompile Include="Core\InputOutput\DLFileOperator.cpp" />
     <ClCompile Include="Core\InputOutput\DLFileOutputStream.cpp" />
     <ClCompile Include="Core\InputOutput\DLInputStreamReader.cpp" />
     <ClCompile Include="Core\InputOutput\DLMemoryInputStream.cpp" />
+    <ClCompile Include="Core\InputOutput\DLOutputStreamWriter.cpp" />
     <ClCompile Include="Core\InputOutput\DLSeekableOutputStream.cpp" />
     <ClCompile Include="Core\InputOutput\DLWriter.cpp" />
     <ClCompile Include="Core\Kernel\detail\DLAllocationHelper.cpp" />

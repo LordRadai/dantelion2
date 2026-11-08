@@ -30,5 +30,28 @@ namespace DLIO
         virtual dl_size Skip(dl_size length) = 0;
         virtual void Close(void) = 0;
         virtual dl_bool IsOpen(void) const = 0;
+
+        typedef dl_int32(_fastcall* ReadBuffer_t)(DLReader*, void*, dl_size);
+        typedef dl_int32(_fastcall* ReadWStringDelimList_t)(DLReader*, dl_wchar*, dl_size, const dl_wchar*, dl_bool);
+        typedef dl_int32(_fastcall* ReadWStringDelim_t)(DLReader*, dl_wchar*, dl_size, dl_wchar, dl_bool);
+        typedef dl_int32(_fastcall* ReadStringDelimList_t)(DLReader*, dl_char*, dl_size, const dl_char*, dl_bool);
+        typedef dl_int32(_fastcall* ReadStringDelim_t)(DLReader*, dl_char*, dl_size, dl_char, dl_bool);
+        typedef dl_int8(_fastcall* ReadSInt8_t)(DLReader*);
+        typedef dl_int16(_fastcall* ReadSInt16_t)(DLReader*);
+        typedef dl_int32(_fastcall* ReadSInt32_t)(DLReader*);
+        typedef dl_int64(_fastcall* ReadSInt64_t)(DLReader*);
+        typedef dl_uint8(_fastcall* ReadUInt8_t)(DLReader*);
+        typedef dl_uint16(_fastcall* ReadUInt16_t)(DLReader*);
+        typedef dl_uint32(_fastcall* ReadUInt32_t)(DLReader*);
+        typedef dl_uint64(_fastcall* ReadUInt64_t)(DLReader*);
+        typedef dl_float32(_fastcall* ReadFloat32_t)(DLReader*);
+        typedef dl_float64(_fastcall* ReadFloat64_t)(DLReader*);
+        typedef dl_char(_fastcall* ReadChar_t)(DLReader*);
+        typedef dl_wchar(_fastcall* ReadWChar_t)(DLReader*);
+        typedef dl_bool(_fastcall* IsAvailable_t)(DLReader*);
+        typedef dl_size(_fastcall* GetReadSize_t)(DLReader*);
+        typedef dl_size(_fastcall* Skip_t)(DLReader*, dl_size);
+        typedef void(_fastcall* Close_t)(DLReader*);
+        typedef dl_bool(_fastcall* IsOpen_t)(const DLReader*);
     };
  }

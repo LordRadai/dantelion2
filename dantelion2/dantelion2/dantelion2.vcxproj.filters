@@ -600,9 +600,6 @@
     <ClInclude Include="Core\InputOutput\DLSeekableInputStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\InputOutput\DLPseudoAsyncInputStream.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Core\InputOutput\DLFileOperator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -628,6 +625,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core\InputOutput\DLFileOutputStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\InputOutput\DLOutputStreamWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\InputOutput\DLCharacterOutputStreamWriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -843,6 +846,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Core\InputOutput\DLFileOutputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\InputOutput\DLOutputStreamWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\InputOutput\DLCharacterOutputStreamWriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
