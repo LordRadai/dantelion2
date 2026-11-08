@@ -8,6 +8,7 @@ namespace DLIO
 	class DLFileEnumerator
 	{
 	public:
+		typedef void(_fastcall* Destructor_t)(DLFileEnumerator*);
 		typedef dl_bool(_fastcall* GetNextFile_t)(DLFileEnumerator*, DLTX::DLPathString&);
 
 		DLFileEnumerator();

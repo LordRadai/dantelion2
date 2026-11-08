@@ -4,7 +4,6 @@
 namespace
 {
 	typedef DLIO::DLFileEnumerator* (_fastcall* DLFileEnumeratorCtor_t)(DLIO::DLFileEnumerator*);
-	typedef void(_fastcall* DLFileEnumeratorDtor_t)(DLIO::DLFileEnumerator*);
 }
 
 namespace DLIO
@@ -16,7 +15,7 @@ namespace DLIO
 
 	DLFileEnumerator::~DLFileEnumerator()
 	{
-		CALL(DLFileEnumeratorDtor_t, 0x875620, this);
+		CALL(Destructor_t, 0x875620, this);
 	}
 
 	dl_bool DLFileEnumerator::GetNextFile(DLTX::DLPathString& path)
