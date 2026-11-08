@@ -1,11 +1,7 @@
 #include "DLPathUtil.h"
 #include "Core/Text/DLString.inl"
 #include "Core/System/DLRuntime.h"
-#include "Call.h"
-#include "DLFile.h"
-
-// All helpers accept dantelion device paths ("title:/export/x.xml"), drive paths ("C:\\x\\y.xml"),
-// UNC paths ("\\\\server\\share\\x") and relative paths, with '/' and '\\' mixed freely.
+#include "DLFile.h".
 
 namespace DLIO
 {
@@ -13,7 +9,6 @@ namespace DLIO
 	{
 		namespace
 		{
-			// Last '/' or '\\', whichever comes later. NULL if there is none.
 			const dl_wchar* FindLastSeparator(const dl_wchar* path)
 			{
 				const dl_wchar* pLast = NULL;
@@ -27,8 +22,6 @@ namespace DLIO
 				return pLast;
 			}
 
-			// Length of the root prefix, including its separator:
-			//   "title:/a/b" -> 7 ("title:/"), "C:\\a" -> 3, "\\\\srv\\share\\a" -> 12, "a/b" -> 0.
 			size_t GetRootLength(const dl_wchar* path)
 			{
 				if (path[0] == L'\\' && path[1] == L'\\')
@@ -43,7 +36,6 @@ namespace DLIO
 					return pShareEnd ? static_cast<size_t>(pShareEnd - path) + 1 : wcslen(path);
 				}
 
-				// A device ("title:") or drive ("C:") is a name followed by ':' before any separator.
 				const dl_wchar* pColon = wcschr(path, L':');
 				const dl_wchar* pSeparator = wcspbrk(path, L"\\/");
 
@@ -58,7 +50,6 @@ namespace DLIO
 				return length;
 			}
 
-			// The extension dot of the file name. Dots in directory names are ignored.
 			const dl_wchar* FindExtensionDot(const dl_wchar* path)
 			{
 				const dl_wchar* pSeparator = FindLastSeparator(path);
@@ -74,8 +65,6 @@ namespace DLIO
 			return pSeparator ? pSeparator + 1 : filePath;
 		}
 
-		// Directory part without the trailing separator. The root keeps its separator:
-		// "title:/a/b.xml" -> "title:/a", "title:/b.xml" -> "title:/".
 		const std::wstring GetDirectory(const dl_wchar* filePath)
 		{
 			const dl_wchar* pSeparator = FindLastSeparator(filePath);
@@ -99,7 +88,6 @@ namespace DLIO
 			return pDot ? std::wstring(filePath, pDot) : std::wstring(filePath);
 		}
 
-		// Directory part with the trailing separator: "title:/a/b.xml" -> "title:/a/".
 		const std::wstring GetPathWithSeparator(const dl_wchar* filePath)
 		{
 			const dl_wchar* pSeparator = FindLastSeparator(filePath);
@@ -107,8 +95,6 @@ namespace DLIO
 			return pSeparator ? std::wstring(filePath, pSeparator + 1) : std::wstring();
 		}
 
-		// Parent of a file or directory. A trailing separator is ignored, the root is never left:
-		// "title:/a/b/" -> "title:/a", "title:/a/b.xml" -> "title:/a", "title:/a" -> "title:/".
 		const std::wstring GetParentDirectory(const dl_wchar* filePath)
 		{
 			std::wstring path(filePath);
@@ -123,8 +109,6 @@ namespace DLIO
 			return GetDirectory(path.c_str());
 		}
 
-		// Name of the directory that contains the file: "title:/export/filter/x.xml" -> "filter".
-		// Empty when the file sits directly in the root.
 		const std::wstring GetLeafDirectoryName(const dl_wchar* filePath)
 		{
 			const std::wstring directory = GetDirectory(filePath);
@@ -140,7 +124,6 @@ namespace DLIO
 			return GetPathWithoutExtension(filePath) + newExtension;
 		}
 
-		// Device paths ("title:/...") count as absolute, like drive and UNC paths.
 		dl_bool IsAbsolutePath(const dl_wchar* path)
 		{
 			if (!path)
@@ -149,7 +132,6 @@ namespace DLIO
 			return GetRootLength(path) > 0;
 		}
 
-		// "title:/", "title:", "C:\\", "\\\\server\\share".
 		dl_bool IsRoot(const dl_wchar* path)
 		{
 			if (!path)
@@ -164,7 +146,6 @@ namespace DLIO
 		{
 			DLFile file(path, 0, DLKRD::DLAllocationHelper<DLKR::DLAllocator>::GetDefaultHost(), false, false);
 
-			// DLFile::IsDirectory checks DoesExists itself.
 			return file.IsDirectory();
 		}
 
@@ -184,13 +165,10 @@ namespace DLIO
 			return pDot ? std::wstring(pFileName, pDot) : std::wstring(pFileName);
 		}
 
-		// Creates every directory up to the last separator, one level at a time, the way the game
-		// does it (GhostPlayer::DbgOutputReplayData). Pass a file path, or a directory ending in '/'.
 		void CreateParentDirectory(const dl_wchar* path)
 		{
 			DLKR::DLAllocator* pAllocator = DLSY::DLRuntimeImpl::GetRuntimeImpl()->GetDefaultAllocator();
 
-			// The root ("title:/", "C:\\") always exists.
 			const size_t rootLength = GetRootLength(path);
 			std::wstring current(path, rootLength);
 
