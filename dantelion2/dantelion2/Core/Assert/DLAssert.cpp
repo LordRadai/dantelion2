@@ -5,7 +5,7 @@ namespace DLPF
 {
 	bool DLAssert::s_bAssertEnabled = true;
 
-	void DLAssert::ReportAssertionFailure(DL_ASSERT_INFO& info)
+	void DLAssert::ReportAssertionFailure(DLAssertEvent& info)
 	{
 		if (!info.bIgnore)
 			_ReportAssertionFailure(info.File, info.Line, info.Msg, info);
