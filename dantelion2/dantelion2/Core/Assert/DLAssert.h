@@ -3,6 +3,14 @@
 
 namespace DLPF
 {
+	namespace DLPFD
+	{
+		inline const wchar_t* PickMsg(const wchar_t* /*text*/, const wchar_t* value) { return value; }
+		inline const wchar_t* PickMsg(const wchar_t* /*text*/, wchar_t* value) { return value; }
+		template <typename T>
+		inline const wchar_t* PickMsg(const wchar_t* text, const T&) { return text; }
+	}
+
 	struct DL_ASSERT_INFO
 	{
 		dl_uint State;
@@ -11,7 +19,7 @@ namespace DLPF
 		dl_uint Line;
 
 		DL_ASSERT_INFO(const dl_wchar* msg, const dl_wchar* file, dl_uint line)
-			: State(0),Msg(msg), File(file), Line(line) {}
+			: State(0), Msg(msg), File(file), Line(line) {}
 	};
 
 	struct DL_ASSERT_RESULT
@@ -34,12 +42,13 @@ namespace DLPF
 
 		static dl_bool s_bAssertEnabled;
 	};
-
-#define DL_ASSERT(expr, msg) \
-	do { \
-		if (!(expr) && DLPF::DLAssert::IsAssertEnabled()) \
-		{ \
-			DLPF::DLAssert::ReportAssertionFailure(DLPF::DL_ASSERT_INFO(L#msg, __FILEW__, __LINE__)); \
-		} \
-	} while (0)
 }
+
+#define DL_ASSERT(expr, msg)														\
+    do {																			\
+        if (!(expr) && DLPF::DLAssert::IsAssertEnabled())							\
+        {																			\
+            DLPF::DLAssert::ReportAssertionFailure(DLPF::DL_ASSERT_INFO(			\
+                DLPF::DLPFD::PickMsg(L#msg, (msg)), __FILEW__, __LINE__));			\
+        }																			\
+    } while (0)

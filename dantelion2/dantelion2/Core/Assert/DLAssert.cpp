@@ -19,10 +19,17 @@ namespace DLPF
 		pAssertEventManager->FireAssertEvent(&result, info);
 
 		if (result.bIgnore)
+		{
 			return;
+		}
 		else if (result.bAbort)
-			DL_PANIC("Assertion event insisted on terminating the program.");
-		else
+		{
 			DLSY::DLRuntime::InvokeDebugger();
+			DL_PANIC("Assertion event insisted on terminating the program.");
+		}
+		else
+		{
+			return;
+		}
 	}
 }
