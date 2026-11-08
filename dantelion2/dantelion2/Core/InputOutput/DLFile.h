@@ -5,6 +5,8 @@
 
 namespace DLIO
 {
+    class DLFileEnumerator;
+
     enum DLSeekDirection
     {
         SD_HEAD,
@@ -38,6 +40,7 @@ namespace DLIO
 		dl_bool IsDirectory() const;
 		dl_size GetSize() const;
 		DLTX::DLString GetPath() const;
+        void EnumerateContents(DLFileEnumerator& enumerator);
 
 	protected:
 		DLKR::DLAllocator* m_pAllocator;

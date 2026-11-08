@@ -3,6 +3,7 @@
 #include "Core/System/DLRuntime.h"
 #include "Call.h"
 #include "DLFileOperator.h"
+#include "DLFileEnumerator.h"
 
 namespace DLIO
 {
@@ -12,6 +13,7 @@ namespace DLIO
 	typedef dl_bool(_fastcall* IsDirectory_t)(const DLFile*);
 	typedef dl_size(_fastcall* GetSize_t)(const DLFile*);
 	typedef void(_fastcall* GetPath_t)(const DLFile*, DLTX::DLString*);
+	typedef DLIO::DLFileEnumerator* (_fastcall* EnumerateContents_t)(DLIO::DLFile*, DLIO::DLFileEnumerator*);
 
 	DLFile::DLFile(const dl_wchar* filePath, dl_size offset, DLKR::DLAllocator* pAllocator, dl_bool param_4, dl_bool param_5)
 	{
@@ -44,5 +46,13 @@ namespace DLIO
 		DLTX::DLString path(DLSY::DLRuntimeImpl::GetRuntimeImpl()->GetDefaultAllocator());
 		CALL(GetPath_t, 0x855950, this, &path);
 		return path;
+	}
+
+	void DLFile::EnumerateContents(DLFileEnumerator& enumerator)
+	{
+		// The game creates it. Destroy it first.
+		enumerator.~DLFileEnumerator();
+
+		CALL(EnumerateContents_t, 0x856210, this, &enumerator);
 	}
 }
