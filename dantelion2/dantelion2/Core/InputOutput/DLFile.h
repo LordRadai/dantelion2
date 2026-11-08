@@ -2,13 +2,13 @@
 #include "Core/Platform/Platform.h"
 #include "Core/Kernel/DLAllocator.h"
 #include "Core/Text/DLString.inl"
-#include "DLFileOperator.h"
 
 #undef CreateDirectory
 
 namespace DLIO
 {
     class DLFileEnumerator;
+	class DLFileOperator;
 
     enum DLSeekDirection
     {
