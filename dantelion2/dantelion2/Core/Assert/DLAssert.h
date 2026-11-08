@@ -45,11 +45,12 @@ namespace DLPF
 	};
 }
 
-#define DL_ASSERT(expr, msg)														\
-    do {																			\
-        if (!(expr) && DLPF::DLAssert::IsAssertEnabled())							\
-        {																			\
-            DLPF::DLAssert::ReportAssertionFailure(DLPF::DL_ASSERT_INFO(			\
-                DLPF::DLPFD::PickMsg(L#msg, (msg)), __FILEW__, __LINE__));			\
-        }																			\
+#define DL_ASSERT(expr, msg)															\
+    do {																				\
+        if (!(expr) && DLPF::DLAssert::IsAssertEnabled())								\
+        {																				\
+            static DLPF::DL_ASSERT_INFO s_dlAssertInfo(nullptr, __FILEW__, __LINE__);	\
+			s_dlAssertInfo.Msg = DLPF::DLPFD::PickMsg(L#msg, (msg));					\
+			DLPF::DLAssert::ReportAssertionFailure(s_dlAssertInfo);						\
+        }																				\
     } while (0)
