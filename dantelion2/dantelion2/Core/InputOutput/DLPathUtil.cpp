@@ -167,8 +167,6 @@ namespace DLIO
 
 		void CreateParentDirectory(const dl_wchar* path)
 		{
-			DLKR::DLAllocator* pAllocator = DLSY::DLRuntimeImpl::GetRuntimeImpl()->GetDefaultAllocator();
-
 			const size_t rootLength = GetRootLength(path);
 			std::wstring current(path, rootLength);
 
@@ -178,7 +176,7 @@ namespace DLIO
 
 				if (*p == L'/' || *p == L'\\')
 				{
-					DLFile directory(current.c_str(), 0, pAllocator, false, false);
+					DLFile directory(current.c_str(), 0, DLSY::DLRuntimeImpl::GetRuntimeImpl()->GetDefaultAllocator(), false, false);
 					directory.CreateDirectory();
 				}
 			}
