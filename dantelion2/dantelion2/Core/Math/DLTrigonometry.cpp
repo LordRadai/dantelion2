@@ -37,4 +37,14 @@ namespace DLMT
 	{
 		return std::atan2(y, x);
 	}
+
+	dl_float32 DLDegToRad(dl_float32 degrees)
+	{
+		return degrees * (3.14159265358979323846f / 180.0f);
+	}
+
+	dl_float32 DLRadToDeg(dl_float32 radians)
+	{
+		return radians * (180.0f / 3.14159265358979323846f);
+	}
 }
