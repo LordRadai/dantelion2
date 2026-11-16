@@ -664,7 +664,7 @@ namespace DLMT
         return true;
     }
 
-    inline DLIIntersection::DLIntersectResult
+    DLIIntersection::DLIntersectResult
         DLIIntersection::Test(
             DL_FRUSTUM_PARAMTYPE Frustum,
             DL_VECTOR4AL_PARAMTYPE Vertex
@@ -691,7 +691,7 @@ namespace DLMT
         return RESULT_INSIDE;
     }
 
-    inline DLIIntersection::DLIntersectResult
+    DLIIntersection::DLIntersectResult
         DLIIntersection::Test(
             DL_FRUSTUM_PARAMTYPE Frustum,
             DL_SEGMENT_PARAMTYPE Segment
@@ -718,7 +718,7 @@ namespace DLMT
         return RESULT_OUTSIDE;
     }
 
-    inline DLIIntersection::DLIntersectResult
+    DLIIntersection::DLIntersectResult
         DLIIntersection::Test(
             DL_FRUSTUM_PARAMTYPE Frustum,
             DL_RAY_PARAMTYPE Ray
@@ -739,7 +739,7 @@ namespace DLMT
         return RESULT_OUTSIDE;
     }
 
-    inline DLIIntersection::DLIntersectResult
+    DLIIntersection::DLIntersectResult
         DLIIntersection::Test(
             DL_FRUSTUM_PARAMTYPE Frustum,
             DL_LINE_PARAMTYPE Line
@@ -912,13 +912,12 @@ namespace DLMT
 
             DLMT::DL_VECTOR4AL planeNormal = plane.GetNormal();
 
-            // With outward-pointing planes, the p-vertex is the one CLOSEST to the plane
-            // (most in the direction of the plane normal)
-            // We want to find the vertex that's furthest in the NEGATIVE normal direction (inside direction)
-            DLMT::DL_VECTOR4AL n = vMin;  // n-vertex (negative/inside direction)
-            if (planeNormal.x >= 0.0f) n.x = vMax.x;
-            if (planeNormal.y >= 0.0f) n.y = vMax.y;
-            if (planeNormal.z >= 0.0f) n.z = vMax.z;
+            // With outward-pointing planes, the n-vertex is the corner furthest in the
+            // NEGATIVE normal direction (most inside): min where the normal is positive
+            DLMT::DL_VECTOR4AL n = vMax;  // n-vertex (negative/inside direction)
+            if (planeNormal.x >= 0.0f) n.x = vMin.x;
+            if (planeNormal.y >= 0.0f) n.y = vMin.y;
+            if (planeNormal.z >= 0.0f) n.z = vMin.z;
 
             // If the n-vertex (closest to inside) is on the outside, the entire AABB is outside
             if (plane.GetDistance(n) > 0.0f)
@@ -928,10 +927,10 @@ namespace DLMT
 
             // Check if the AABB is also crossing this plane (p-vertex test)
             // The p-vertex is furthest in the plane normal direction (outside direction)
-            DLMT::DL_VECTOR4AL p = vMax;
-            if (planeNormal.x >= 0.0f) p.x = vMin.x;
-            if (planeNormal.y >= 0.0f) p.y = vMin.y;
-            if (planeNormal.z >= 0.0f) p.z = vMin.z;
+            DLMT::DL_VECTOR4AL p = vMin;
+            if (planeNormal.x >= 0.0f) p.x = vMax.x;
+            if (planeNormal.y >= 0.0f) p.y = vMax.y;
+            if (planeNormal.z >= 0.0f) p.z = vMax.z;
 
             if (plane.GetDistance(p) > 0.0f)
             {
@@ -959,11 +958,11 @@ namespace DLMT
             // 1. Transform the plane normal into OBB local space
             DLMT::DL_VECTOR4AL normal = plane.GetNormal();
 
-            // Transform normal: N_local = (Transpose(Rotation) * Normal)
+            // Row-vector convention: the OBB axes are the rows of xform, so N_local[i] = Dot(Normal, Row[i])
             DLMT::DL_VECTOR4AL localNormal;
-            localNormal.x = normal.x * xform.m[0][0] + normal.y * xform.m[1][0] + normal.z * xform.m[2][0];
-            localNormal.y = normal.x * xform.m[0][1] + normal.y * xform.m[1][1] + normal.z * xform.m[2][1];
-            localNormal.z = normal.x * xform.m[0][2] + normal.y * xform.m[1][2] + normal.z * xform.m[2][2];
+            localNormal.x = normal.x * xform.m[0][0] + normal.y * xform.m[0][1] + normal.z * xform.m[0][2];
+            localNormal.y = normal.x * xform.m[1][0] + normal.y * xform.m[1][1] + normal.z * xform.m[1][2];
+            localNormal.z = normal.x * xform.m[2][0] + normal.y * xform.m[2][1] + normal.z * xform.m[2][2];
 
             // 2. Compute the projection radius of the OBB onto the normal
             dl_float32 r = extents.x * std::abs(localNormal.x) +
@@ -1053,35 +1052,26 @@ namespace DLMT
         {
             const DLMT::DL_PLANE& plane = Frustum.GetPlane((DLMT::DL_FRUSTUM::DLFrustumPlaneIndex)i);
 
-            // Find the minimum distance from the rectangle to the plane
-            // The RSS is outside if ALL corners are further outside (distance > radius)
-            int outsideCount = 0;
-            bool anyCornerInsideRadius = false;
+            // Range of signed distances of the rectangle corners to the plane
+            dl_float32 minD = plane.GetDistance(corners[0]);
+            dl_float32 maxD = minD;
 
-            for (int j = 0; j < 4; ++j)
+            for (int j = 1; j < 4; ++j)
             {
                 dl_float32 dist = plane.GetDistance(corners[j]);
 
-                // With outward planes: distance > radius means outside the radius buffer
-                if (dist > radius)
-                {
-                    outsideCount++;
-                }
-                else if (dist > -radius)
-                {
-                    // Within the radius buffer, so potentially intersecting
-                    anyCornerInsideRadius = true;
-                }
+                if (dist < minD) minD = dist;
+                if (dist > maxD) maxD = dist;
             }
 
-            // If all 4 corners are outside the radius buffer of the plane, it is fully outside
-            if (outsideCount == 4)
+            // With outward planes: every corner further out than the radius means fully outside
+            if (minD > radius)
             {
                 return RESULT_OUTSIDE;
             }
 
-            // If any corner is within the radius buffer, it's intersecting
-            if (anyCornerInsideRadius)
+            // Any part of the swept rectangle reaching past -radius crosses this plane
+            if (maxD > -radius)
             {
                 isIntersecting = true;
             }
